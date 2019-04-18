@@ -33,12 +33,92 @@ class ViewController: UIViewController {
         return textView
  
     }()
+    
+    private let previousButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("PREV", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.gray, for: .normal)
+        return button
+    }()
+    
+    private let nextButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("NEXT", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.red, for: .normal)
+        return button
+    }()
+    
+    private let exploreButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.lightGray
+        button.setTitle("Explore!", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(openExploreView), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func openExploreView(){
+        let exploreVC = ExploreViewController()
+        present(exploreVC, animated: true, completion: nil)
+    }
+    
+    private let exploreResultsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.lightGray
+        button.setTitle("See my results!", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(openExploreResults), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func openExploreResults(){
+        let exploreResultsVC = ResultsViewController()
+        present(exploreResultsVC, animated: true, completion: nil)
+    }
+    
+    private let pageControl: UIPageControl = {
+        let pc = UIPageControl()
+        pc.currentPage = 0
+        pc.numberOfPages = 4
+        pc.currentPageIndicatorTintColor = .red
+        pc.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
+        return pc
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = backgroundYellow
         view.addSubview(profileDescriptionView)
+        setupBottomControls()
         setupLayout()
+    }
+    
+    fileprivate func setupBottomControls() {
+        
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [exploreButton, exploreResultsButton])
+        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
+        bottomControlsStackView.distribution = .fillEqually
+        
+        view.addSubview(bottomControlsStackView)
+        
+        NSLayoutConstraint.activate([
+            //            previousButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
+            ])
+ 
     }
     
     private func setupLayout(){

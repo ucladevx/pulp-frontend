@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4363F34C223ADA8F008C2969 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F34B223ADA8F008C2969 /* SwipingController.swift */; };
+		4363F34E223ADABE008C2969 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F34D223ADABE008C2969 /* PageCell.swift */; };
+		4363F350223B05FB008C2969 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F34F223B05FB008C2969 /* ExploreViewController.swift */; };
+		4363F352223B1071008C2969 /* ExploreResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F351223B1071008C2969 /* ExploreResults.swift */; };
+		4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F353223B1134008C2969 /* ResultsViewController.swift */; };
+		4363F356223B17C9008C2969 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F355223B17C9008C2969 /* ResultCell.swift */; };
 		43AC38312227500600652A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AC38302227500600652A70 /* AppDelegate.swift */; };
 		43AC38332227500600652A70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AC38322227500600652A70 /* ViewController.swift */; };
 		43AC38362227500600652A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43AC38342227500600652A70 /* Main.storyboard */; };
@@ -15,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4363F34B223ADA8F008C2969 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
+		4363F34D223ADABE008C2969 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		4363F34F223B05FB008C2969 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		4363F351223B1071008C2969 /* ExploreResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreResults.swift; sourceTree = "<group>"; };
+		4363F353223B1134008C2969 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		4363F355223B17C9008C2969 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		43AC382D2227500600652A70 /* Pulp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AC38302227500600652A70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43AC38322227500600652A70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +67,13 @@
 			isa = PBXGroup;
 			children = (
 				43AC38302227500600652A70 /* AppDelegate.swift */,
+				4363F34B223ADA8F008C2969 /* SwipingController.swift */,
+				4363F34D223ADABE008C2969 /* PageCell.swift */,
 				43AC38322227500600652A70 /* ViewController.swift */,
+				4363F351223B1071008C2969 /* ExploreResults.swift */,
+				4363F34F223B05FB008C2969 /* ExploreViewController.swift */,
+				4363F353223B1134008C2969 /* ResultsViewController.swift */,
+				4363F355223B17C9008C2969 /* ResultCell.swift */,
 				43AC38342227500600652A70 /* Main.storyboard */,
 				43AC38372227500600652A70 /* Assets.xcassets */,
 				43AC38392227500600652A70 /* LaunchScreen.storyboard */,
@@ -136,8 +154,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4363F352223B1071008C2969 /* ExploreResults.swift in Sources */,
 				43AC38332227500600652A70 /* ViewController.swift in Sources */,
+				4363F356223B17C9008C2969 /* ResultCell.swift in Sources */,
 				43AC38312227500600652A70 /* AppDelegate.swift in Sources */,
+				4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */,
+				4363F350223B05FB008C2969 /* ExploreViewController.swift in Sources */,
+				4363F34E223ADABE008C2969 /* PageCell.swift in Sources */,
+				4363F34C223ADA8F008C2969 /* SwipingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

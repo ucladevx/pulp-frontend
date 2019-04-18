@@ -6,4 +6,12 @@
 //  Copyright © 2019 Katherine Miao. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct Recommendation{
+    var recName: String
+    var recImage: UIImage
+    var recDescription: String
+}
+
+

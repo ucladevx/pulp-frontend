@@ -15,6 +15,12 @@
 		6AAD54A42268254700945D8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AAD54A22268254700945D8C /* LaunchScreen.storyboard */; };
 		6AAD54AF2268254700945D8C /* pulpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD54AE2268254700945D8C /* pulpTests.swift */; };
 		6AAD54BA2268254700945D8C /* pulpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD54B92268254700945D8C /* pulpUITests.swift */; };
+		6AAD54C922682B4D00945D8C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD54C722682B4D00945D8C /* SignUpController.swift */; };
+		6AAD54CA22682B4D00945D8C /* RecListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD54C822682B4D00945D8C /* RecListController.swift */; };
+		6AAD54CE22682B5900945D8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD54CB22682B5900945D8C /* LoginViewController.swift */; };
+		6AAD54CF22682B5900945D8C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD54CC22682B5900945D8C /* MainViewController.swift */; };
+		6AAD54D022682B5900945D8C /* CreateProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD54CD22682B5900945D8C /* CreateProfileController.swift */; };
+		6AAD54D222682B6100945D8C /* AddRecController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD54D122682B6000945D8C /* AddRecController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		6AAD54B52268254700945D8C /* pulpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pulpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AAD54B92268254700945D8C /* pulpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pulpUITests.swift; sourceTree = "<group>"; };
 		6AAD54BB2268254700945D8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AAD54C722682B4D00945D8C /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		6AAD54C822682B4D00945D8C /* RecListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecListController.swift; sourceTree = "<group>"; };
+		6AAD54CB22682B5900945D8C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6AAD54CC22682B5900945D8C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		6AAD54CD22682B5900945D8C /* CreateProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileController.swift; sourceTree = "<group>"; };
+		6AAD54D122682B6000945D8C /* AddRecController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,12 @@
 		6AAD54952268254700945D8C /* pulp */ = {
 			isa = PBXGroup;
 			children = (
+				6AAD54D122682B6000945D8C /* AddRecController.swift */,
+				6AAD54CD22682B5900945D8C /* CreateProfileController.swift */,
+				6AAD54CB22682B5900945D8C /* LoginViewController.swift */,
+				6AAD54CC22682B5900945D8C /* MainViewController.swift */,
+				6AAD54C822682B4D00945D8C /* RecListController.swift */,
+				6AAD54C722682B4D00945D8C /* SignUpController.swift */,
 				6AAD54962268254700945D8C /* AppDelegate.swift */,
 				6AAD54982268254700945D8C /* ViewController.swift */,
 				6AAD549A2268254700945D8C /* Main.storyboard */,
@@ -262,9 +280,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AAD54D222682B6100945D8C /* AddRecController.swift in Sources */,
+				6AAD54CF22682B5900945D8C /* MainViewController.swift in Sources */,
+				6AAD54D022682B5900945D8C /* CreateProfileController.swift in Sources */,
+				6AAD54CE22682B5900945D8C /* LoginViewController.swift in Sources */,
 				6AAD54992268254700945D8C /* ViewController.swift in Sources */,
 				6AAD54972268254700945D8C /* AppDelegate.swift in Sources */,
+				6AAD54CA22682B4D00945D8C /* RecListController.swift in Sources */,
 				6AAD549F2268254700945D8C /* pulp.xcdatamodeld in Sources */,
+				6AAD54C922682B4D00945D8C /* SignUpController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

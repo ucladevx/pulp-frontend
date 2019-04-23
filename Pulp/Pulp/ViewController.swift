@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     
     let profileDescriptionView: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Katherine Miao", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20)])
-        attributedText.append(NSAttributedString(string: "\n\nAge: 19\nGender: Female\nLocation: Los Angeles, CA", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15), NSAttributedStringKey.foregroundColor: UIColor.gray]))
+        let attributedText = NSMutableAttributedString(string: "Katherine Miao", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)])
+        attributedText.append(NSAttributedString(string: "\n\nAge: 19\nGender: Female\nLocation: Los Angeles, CA", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.gray]))
         
         textView.attributedText = attributedText
         textView.translatesAutoresizingMaskIntoConstraints = false

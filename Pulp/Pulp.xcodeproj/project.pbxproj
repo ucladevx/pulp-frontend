@@ -18,6 +18,7 @@
 		43AC38362227500600652A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43AC38342227500600652A70 /* Main.storyboard */; };
 		43AC38382227500600652A70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43AC38372227500600652A70 /* Assets.xcassets */; };
 		43AC383B2227500600652A70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43AC38392227500600652A70 /* LaunchScreen.storyboard */; };
+		83042233226ECE1300DDC8B2 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83042230226ECDDA00DDC8B2 /* LogInController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,11 @@
 		43AC38372227500600652A70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43AC383A2227500600652A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43AC383C2227500600652A70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8304222E226ECDDA00DDC8B2 /* CreateProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileController.swift; sourceTree = "<group>"; };
+		8304222F226ECDDA00DDC8B2 /* RecListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecListController.swift; sourceTree = "<group>"; };
+		83042230226ECDDA00DDC8B2 /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
+		83042231226ECDDA00DDC8B2 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		83042232226ECDDA00DDC8B2 /* AddRecController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +72,9 @@
 		43AC382F2227500600652A70 /* Pulp */ = {
 			isa = PBXGroup;
 			children = (
+				8304222D226ECDDA00DDC8B2 /* NewViews */,
 				43AC38302227500600652A70 /* AppDelegate.swift */,
+				83042230226ECDDA00DDC8B2 /* LogInController.swift */,
 				4363F34B223ADA8F008C2969 /* SwipingController.swift */,
 				4363F34D223ADABE008C2969 /* PageCell.swift */,
 				43AC38322227500600652A70 /* ViewController.swift */,
@@ -80,6 +88,17 @@
 				43AC383C2227500600652A70 /* Info.plist */,
 			);
 			path = Pulp;
+			sourceTree = "<group>";
+		};
+		8304222D226ECDDA00DDC8B2 /* NewViews */ = {
+			isa = PBXGroup;
+			children = (
+				8304222E226ECDDA00DDC8B2 /* CreateProfileController.swift */,
+				8304222F226ECDDA00DDC8B2 /* RecListController.swift */,
+				83042231226ECDDA00DDC8B2 /* SignUpController.swift */,
+				83042232226ECDDA00DDC8B2 /* AddRecController.swift */,
+			);
+			path = NewViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,11 +128,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Katherine Miao";
 				TargetAttributes = {
 					43AC382C2227500600652A70 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -158,6 +178,7 @@
 				43AC38332227500600652A70 /* ViewController.swift in Sources */,
 				4363F356223B17C9008C2969 /* ResultCell.swift in Sources */,
 				43AC38312227500600652A70 /* AppDelegate.swift in Sources */,
+				83042233226ECE1300DDC8B2 /* LogInController.swift in Sources */,
 				4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */,
 				4363F350223B05FB008C2969 /* ExploreViewController.swift in Sources */,
 				4363F34E223ADABE008C2969 /* PageCell.swift in Sources */,
@@ -201,6 +222,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -208,6 +230,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -258,6 +281,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -265,6 +289,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -304,7 +329,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DevX.Pulp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -319,7 +344,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DevX.Pulp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

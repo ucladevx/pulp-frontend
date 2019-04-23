@@ -69,21 +69,21 @@ class ViewController: UIViewController {
         present(exploreVC, animated: true, completion: nil)
     }
     
-    private let exploreResultsButton: UIButton = {
+    private let diveInButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor.lightGray
-        button.setTitle("See my results!", for: .normal)
+        button.setTitle("Dive in!", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 5
-        button.addTarget(self, action: #selector(openExploreResults), for: .touchUpInside)
+        button.addTarget(self, action: #selector(openDiveIn), for: .touchUpInside)
         return button
     }()
     
-    @objc func openExploreResults(){
-        let exploreResultsVC = ResultsViewController()
-        present(exploreResultsVC, animated: true, completion: nil)
+    @objc func openDiveIn(){
+        let diveInVC = DiveIn()
+        present(diveInVC, animated: true, completion: nil)
     }
     
     private let pageControl: UIPageControl = {
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
     
     fileprivate func setupBottomControls() {
         
-        let bottomControlsStackView = UIStackView(arrangedSubviews: [exploreButton, exploreResultsButton])
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [exploreButton, diveInButton])
         bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
         bottomControlsStackView.distribution = .fillEqually
         

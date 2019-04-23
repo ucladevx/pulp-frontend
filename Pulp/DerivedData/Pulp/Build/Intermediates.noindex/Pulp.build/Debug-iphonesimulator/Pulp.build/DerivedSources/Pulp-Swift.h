@@ -204,6 +204,15 @@ SWIFT_CLASS("_TtC4Pulp11AppDelegate")
 @class NSBundle;
 @class NSCoder;
 
+SWIFT_CLASS("_TtC4Pulp6DiveIn")
+@interface DiveIn : UIViewController
+- (void)openExploreView;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC4Pulp21ExploreViewController")
 @interface ExploreViewController : UIViewController
 - (void)viewDidLoad;
@@ -260,7 +269,7 @@ SWIFT_CLASS("_TtC4Pulp17SwipingController")
 SWIFT_CLASS("_TtC4Pulp14ViewController")
 @interface ViewController : UIViewController
 - (void)openExploreView;
-- (void)openExploreResults;
+- (void)openDiveIn;
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

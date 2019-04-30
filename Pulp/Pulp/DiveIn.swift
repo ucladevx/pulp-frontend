@@ -10,7 +10,7 @@ import UIKit
 
 class DiveIn: UIViewController {
     
-    let backgroundYellow = UIColor(red:250/255, green:154/255, blue:70/255, alpha:1.0)
+    let backgroundOrange = UIColor(red:250/255, green:154/255, blue:70/255, alpha:1.0)
     
     let hikeImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Hike"))
@@ -111,7 +111,7 @@ class DiveIn: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = backgroundYellow
+        view.backgroundColor = backgroundOrange
         setupBottomControls()
         setupLayout()
 //        searchBar.searchBarStyle = UISearchBarStyle.prominent
@@ -166,17 +166,14 @@ class DiveIn: UIViewController {
         descriptionView.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor).isActive = true
         descriptionView.centerYAnchor.constraint(equalTo: topContainerView.centerYAnchor).isActive = true
         descriptionView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.5).isActive = true
-        descriptionView.backgroundColor = backgroundYellow
+        descriptionView.backgroundColor = backgroundOrange
         
         let searchController = UISearchController(searchResultsController: nil)
         let topConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 500)
         let leftConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: topContainerView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 0)
         let rightConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: topContainerView, attribute: NSLayoutAttribute.right, multiplier: 1, constant: 0)
         let heightConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 44)
-        
-        //searchController.searchBar.addConstraint(topConstraint)
-//        searchController.searchBar.addConstraint(leftConstraint)
-//        searchController.searchBar.addConstraint(rightConstraint)
+
         searchController.searchBar.addConstraint(heightConstraint)
         self.view.addSubview(searchController.searchBar)
         self.view.addConstraints([topConstraint, leftConstraint, rightConstraint])

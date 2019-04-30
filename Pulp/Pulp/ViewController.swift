@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let backgroundYellow = UIColor(red:1.00, green:0.97, blue:0.84, alpha:1.0)
+    //let backgroundYellow = UIColor(red:1.00, green:0.97, blue:0.84, alpha:1.0)
+    let backgroundOrange = UIColor(red:250/255, green:154/255, blue:70/255, alpha:1.0)
+
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "profileKatMiao"))
@@ -22,8 +24,8 @@ class ViewController: UIViewController {
     
     let profileDescriptionView: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Katherine Miao", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20)])
-        attributedText.append(NSAttributedString(string: "\n\nAge: 19\nGender: Female\nLocation: Los Angeles, CA", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15), NSAttributedStringKey.foregroundColor: UIColor.gray]))
+        let attributedText = NSMutableAttributedString(string: "Katherine Miao", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 40), NSAttributedStringKey.foregroundColor: UIColor.white])
+        attributedText.append(NSAttributedString(string: "\n\nAge: 19\nGender: Female\nLocation: Los Angeles, CA", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 25), NSAttributedStringKey.foregroundColor: UIColor.white]))
         
         textView.attributedText = attributedText
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -97,7 +99,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = backgroundYellow
+        view.backgroundColor = backgroundOrange
         view.addSubview(profileDescriptionView)
         setupBottomControls()
         setupLayout()
@@ -139,7 +141,7 @@ class ViewController: UIViewController {
         profileDescriptionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
         profileDescriptionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25).isActive = true
         profileDescriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        profileDescriptionView.backgroundColor = backgroundYellow
+        profileDescriptionView.backgroundColor = backgroundOrange
     }
 
 }

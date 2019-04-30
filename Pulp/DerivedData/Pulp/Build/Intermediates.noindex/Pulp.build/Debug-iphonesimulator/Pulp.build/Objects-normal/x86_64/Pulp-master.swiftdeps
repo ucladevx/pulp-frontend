@@ -1,13 +1,13 @@
 version: "Apple Swift version 4.0.1 (swiftlang-900.0.66 clang-900.0.37)"
 options: "4bba128b9302e43cccabd46dfeb87660"
-build_time: [1555990090, 239963000]
+build_time: [1556596019, 52004000]
 inputs:
   "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ExploreResults.swift": [1552603497, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ViewController.swift": [1555980674, 0]
+  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ViewController.swift": [1556596018, 0]
   "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ResultCell.swift": [1555560646, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/DiveIn.swift": [1555990088, 0]
+  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/DiveIn.swift": [1556589832, 0]
   "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/AppDelegate.swift": [1552598737, 0]
   "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ResultsViewController.swift": [1552605244, 0]
   "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ExploreViewController.swift": [1552601653, 0]
   "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/PageCell.swift": [1552589674, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/SwipingController.swift": [1552589679, 0]
+  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/SwipingController.swift": [1556589750, 0]

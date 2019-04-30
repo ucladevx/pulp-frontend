@@ -29,12 +29,6 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
-        
-        // definitely don't try this, it is a very bad idea
-        //        let imageView = UIImageView()
-        //        cell.addSubview(imageView)
-        
-        //        cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .green
         return cell
     }
     

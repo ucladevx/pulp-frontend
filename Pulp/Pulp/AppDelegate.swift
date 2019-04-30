@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    //TODO: uncomment this after login page completely tested
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 //        window = UIWindow()
 //        window?.makeKeyAndVisible()
@@ -23,9 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let swipingController = SwipingController(collectionViewLayout: layout)
 //
 //        window?.rootViewController = swipingController
-        
+        window = UIWindow(frame:UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = LogInController()
         return true
     }
+    
+//    func applicationDidFinishLaunching(_ application: UIApplication) {
+//        window = UIWindow(frame:UIScreen.main.bounds)
+//        window?.makeKeyAndVisible()
+//        window?.rootViewController = LogInController()
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

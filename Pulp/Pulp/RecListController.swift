@@ -6,6 +6,8 @@
 //  Copyright © 2019 Katherine Miao. All rights reserved.
 //
 
+
+//TODO: RecList still to be determined
 import UIKit
 
 class RecListController: UIViewController, UITableViewDelegate, UITableViewDataSource {

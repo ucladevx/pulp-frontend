@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let feedController =  FeedController(collectionViewLayout: UICollectionViewFlowLayout())
         let navigationController = UINavigationController(rootViewController: feedController)
         
-        window?.rootViewController = spotsMapView()
+        window?.rootViewController = LogInController()
         return true
     }
 

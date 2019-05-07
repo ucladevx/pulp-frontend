@@ -43,7 +43,7 @@
 		83042234227801D000DDC8B2 /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		83042236228134D000DDC8B2 /* RecListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecListController.swift; sourceTree = "<group>"; };
 		8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
-		8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscoverFeedController.swift; path = ../../../../../Downloads/DiscoverFeedController.swift; sourceTree = "<group>"; };
+		8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverFeedController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

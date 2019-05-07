@@ -27,8 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame:UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
+        //Below code is for Aryan
         let feedController =  FeedController(collectionViewLayout: UICollectionViewFlowLayout())
         let navigationController = UINavigationController(rootViewController: feedController)
+        
         window?.rootViewController = CreateProfileViewController()
         return true
     }

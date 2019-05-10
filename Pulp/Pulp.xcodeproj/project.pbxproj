@@ -23,6 +23,7 @@
 		8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */; };
 		8304223D22813A1B00DDC8B2 /* DiscoverFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */; };
 		83ABFFED2281686D00DB0F7C /* spotsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEC2281686D00DB0F7C /* spotsMapView.swift */; };
+		83ABFFEF228531C000DB0F7C /* selectInterestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEE228531C000DB0F7C /* selectInterestController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverFeedController.swift; sourceTree = "<group>"; };
 		83ABFFEC2281686D00DB0F7C /* spotsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotsMapView.swift; sourceTree = "<group>"; };
+		83ABFFEE228531C000DB0F7C /* selectInterestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectInterestController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				83042234227801D000DDC8B2 /* LogInController.swift */,
 				83ABFFEC2281686D00DB0F7C /* spotsMapView.swift */,
 				8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */,
+				83ABFFEE228531C000DB0F7C /* selectInterestController.swift */,
 				8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */,
 				4363F34B223ADA8F008C2969 /* SwipingController.swift */,
 				4363F34D223ADABE008C2969 /* PageCell.swift */,
@@ -176,6 +179,7 @@
 				8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */,
 				43AC38312227500600652A70 /* AppDelegate.swift in Sources */,
 				4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */,
+				83ABFFEF228531C000DB0F7C /* selectInterestController.swift in Sources */,
 				83ABFFED2281686D00DB0F7C /* spotsMapView.swift in Sources */,
 				4363F350223B05FB008C2969 /* ExploreViewController.swift in Sources */,
 				8304223D22813A1B00DDC8B2 /* DiscoverFeedController.swift in Sources */,

@@ -12,19 +12,32 @@ import MapKit
 class spotsMapView: UIViewController, CLLocationManagerDelegate {
     
     var window: UIWindow?
-    var mapView: MKMapView?
+//    var mapView: MKMapView?
     var locationManager: CLLocationManager?
     //The range (meter) of how much we want to see arround the user's location
     let distanceSpan: Double = 500
+    
+    private let contentView:UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    var mapView:MKMapView = {
+        let mView = MKMapView();
+        mView.translatesAutoresizingMaskIntoConstraints = false;
+        return mView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.view.backgroundColor = .white
+        view.backgroundColor = UIColor(rgb: 0xF7F7F7)
         
-        self.mapView = MKMapView(frame: CGRect(x:0, y:20, width:(self.window?.frame.width)!, height:300))
-        self.view.addSubview(self.mapView!)
+        self.view.addSubview(self.mapView)
+//        contentView.addSubview(mapView)
+        view.addSubview(contentView)
         
         self.locationManager = CLLocationManager()
         if let locationManager = self.locationManager {
@@ -34,14 +47,28 @@ class spotsMapView: UIViewController, CLLocationManagerDelegate {
             locationManager.distanceFilter = 50
             locationManager.startUpdatingLocation()
         }
+        
+        setUpAutoLayout()
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        if let mapView = self.mapView {
-            let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, self.distanceSpan, self.distanceSpan)
-            mapView.setRegion(region, animated: true)
-            mapView.showsUserLocation = true
-        }
+        let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, self.distanceSpan, self.distanceSpan)
+        mapView.setRegion(region, animated: true)
+        mapView.showsUserLocation = true
+    }
+    
+    func setUpAutoLayout()
+    {
+        contentView.leftAnchor.constraint(equalTo:view.leftAnchor, constant: 20).isActive = true
+        contentView.rightAnchor.constraint(equalTo:view.rightAnchor, constant: -20).isActive = true
+        contentView.heightAnchor.constraint(equalToConstant: view.frame.height*2/3).isActive = true
+//        contentView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true //this line of code centers the view
+        
+        mapView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
+        mapView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
+        mapView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        mapView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        mapView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
 }

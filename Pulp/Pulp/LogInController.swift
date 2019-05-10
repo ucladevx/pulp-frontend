@@ -191,7 +191,6 @@ class LogInController : UIViewController
         
         createAcctLabel.leftAnchor.constraint(equalTo: loginContentView.leftAnchor, constant: 20).isActive=true
         createAcctLabel.topAnchor.constraint(equalTo: btnLogin.bottomAnchor, constant: 10).isActive = true
-        
     }
 }
 

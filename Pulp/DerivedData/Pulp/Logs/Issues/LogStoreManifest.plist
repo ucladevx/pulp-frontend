@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>FAF2BC49-056C-47B9-B828-807CC646FB13</key>
+		<key>5CDC4BAB-5C4E-49E5-982F-2D27FF312817</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,19 +15,19 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
 			<key>fileName</key>
-			<string>FAF2BC49-056C-47B9-B828-807CC646FB13.xcactivitylog</string>
+			<string>5CDC4BAB-5C4E-49E5-982F-2D27FF312817.xcactivitylog</string>
 			<key>highLevelStatus</key>
-			<string>W</string>
+			<string>S</string>
 			<key>signature</key>
 			<string>Pulp-fgelfdbphyixsabboooupbijsfbu</string>
 			<key>timeStartedRecording</key>
-			<real>579154403.70718801</real>
+			<real>579496151.70899701</real>
 			<key>timeStoppedRecording</key>
-			<real>579154405.74272096</real>
+			<real>579496153.66693401</real>
 			<key>title</key>
 			<string>Build target Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>FAF2BC49-056C-47B9-B828-807CC646FB13</string>
+			<string>5CDC4BAB-5C4E-49E5-982F-2D27FF312817</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>

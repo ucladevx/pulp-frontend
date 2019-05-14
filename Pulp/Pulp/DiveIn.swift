@@ -206,7 +206,7 @@ class DiveIn: UIViewController {
         backgroundImageView.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
         backgroundImageView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
         backgroundImageView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
-        backgroundImageView.heightAnchor.constraint(equalToConstant:view.frame.height/2).isActive = true
+        backgroundImageView.heightAnchor.constraint(equalToConstant:view.frame.height/1.9).isActive = true
         
         topView.topAnchor.constraint(equalTo:view.topAnchor, constant:view.frame.height/10).isActive = true
         topView.leftAnchor.constraint(equalTo:view.leftAnchor, constant:view.frame.width/8).isActive = true

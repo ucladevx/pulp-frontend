@@ -1,11 +1,24 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
+- "Recommendation"
 provides-nominal:
+- "4Pulp14RecommendationV"
 provides-member:
+- ["4Pulp14RecommendationV", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "Recommendation"
+- "String"
+- "UIImage"
 depends-member:
+- ["4Pulp14RecommendationV", "String"]
+- ["4Pulp14RecommendationV", "UIImage"]
+- ["4Pulp14RecommendationV", "init"]
+- ["4Pulp14RecommendationV", "recDescription"]
+- ["4Pulp14RecommendationV", "recImage"]
+- ["4Pulp14RecommendationV", "recName"]
 depends-nominal:
+- "4Pulp14RecommendationV"
 depends-dynamic-lookup:
 depends-external:
 - "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
@@ -31,4 +44,4 @@ depends-external:
 - "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
 - "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "5bf39d8b5f0094ca83c744a0da4fb204"
+interface-hash: "42deeb6377a6b55bec9c566c40c4fc4a"

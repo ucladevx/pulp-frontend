@@ -1,13 +1,17 @@
-version: "Apple Swift version 4.0.1 (swiftlang-900.0.66 clang-900.0.37)"
-options: "4bba128b9302e43cccabd46dfeb87660"
-build_time: [1556595987, 409180000]
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "2d898a3e2e03c4e68ba44c86264e6bee"
+build_time: [1557810323, 1786000]
 inputs:
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ExploreResults.swift": [1552603497, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ViewController.swift": !dirty [1556595983, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ResultCell.swift": [1555560646, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/DiveIn.swift": [1556589832, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/AppDelegate.swift": [1552598737, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ResultsViewController.swift": [1552605244, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/ExploreViewController.swift": [1552601653, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/PageCell.swift": [1552589674, 0]
-  "/Users/katmiao/Desktop/pulp-frontend/Pulp/Pulp/SwipingController.swift": [1556589750, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ExploreResults.swift": [1557202940, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ViewController.swift": [1557804681, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ResultCell.swift": [1557202940, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/DiveIn.swift": [1557810322, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/CreateProfileViewController.swift": [1557806330, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/AppDelegate.swift": [1557805628, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ResultsViewController.swift": [1557202940, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ExploreViewController.swift": [1557202940, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/DiscoverFeedController.swift": [1557202940, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/LogInController.swift": [1557202940, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/RecListController.swift": [1557202940, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/PageCell.swift": [1557202940, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/SwipingController.swift": [1557202940, 0]

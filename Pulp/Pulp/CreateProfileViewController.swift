@@ -10,6 +10,14 @@ import UIKit
 
 class CreateProfileViewController: UIViewController {
     
+    private let graphicView:UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Fruits.png"))
+        //imageView.backgroundColor = .green
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     private let loginContentView:UIView = {
         let view = UIView()
         //view.backgroundColor = .green
@@ -145,12 +153,18 @@ class CreateProfileViewController: UIViewController {
         
         buttonView.addSubview(nextButton)
         
+        view.addSubview(graphicView)
         view.addSubview(buttonView)
         view.addSubview(loginContentView)
         setUpAutoLayout()
     }
     
     func setUpAutoLayout() {
+    
+        graphicView.topAnchor.constraint(equalTo:view.topAnchor, constant: -view.frame.height/20).isActive = true
+        graphicView.rightAnchor.constraint(equalTo:view.rightAnchor, constant: view.frame.width/11).isActive = true
+        graphicView.widthAnchor.constraint(equalToConstant:view.frame.width/1.1).isActive = true
+        graphicView.heightAnchor.constraint(equalToConstant:view.frame.height/3.2).isActive = true
         
         loginContentView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/6).isActive = true
         loginContentView.leftAnchor.constraint(equalTo:view.leftAnchor, constant: view.frame.width/4).isActive = true

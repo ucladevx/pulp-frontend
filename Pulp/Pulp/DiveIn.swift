@@ -27,7 +27,7 @@ class DiveIn: UIViewController {
     
     let hikeButton: UIButton = {
         let btn = UIButton()
-        btn.setBackgroundImage(#imageLiteral(resourceName: "Hike.png"), for: UIControlState.normal)
+        btn.setBackgroundImage(#imageLiteral(resourceName: "Hike.png"), for: UIControl.State.normal)
         btn.imageView?.contentMode = .scaleAspectFit
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -110,7 +110,7 @@ class DiveIn: UIViewController {
         let searchbar = UISearchBar()
         searchbar.layer.borderWidth = 0
         searchbar.layer.borderColor = UIColor.white.cgColor
-        searchbar.searchBarStyle = UISearchBarStyle.minimal
+        searchbar.searchBarStyle = UISearchBar.Style.minimal
         var textField = searchbar.value(forKey: "searchField") as? UITextField
         textField?.backgroundColor = .white
         searchbar.translatesAutoresizingMaskIntoConstraints = false

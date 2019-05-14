@@ -24,6 +24,15 @@ class DiveIn: UIViewController {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    let hikeButton: UIButton = {
+        let btn = UIButton()
+        btn.setBackgroundImage(#imageLiteral(resourceName: "Hike.png"), for: UIControlState.normal)
+        btn.imageView?.contentMode = .scaleAspectFit
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     let museumImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Museum"))
         // enable autolayout for profileImage
@@ -99,8 +108,8 @@ class DiveIn: UIViewController {
     
     let searchBar: UISearchBar = {
         let searchbar = UISearchBar()
-        searchbar.layer.borderWidth = 1
-        //searchbar.layer.borderColor = UIColor.white.cgColor
+        searchbar.layer.borderWidth = 0
+        searchbar.layer.borderColor = UIColor.white.cgColor
         searchbar.searchBarStyle = UISearchBarStyle.minimal
         var textField = searchbar.value(forKey: "searchField") as? UITextField
         textField?.backgroundColor = .white
@@ -268,56 +277,75 @@ class DiveIn: UIViewController {
         searchController.searchBar.addConstraint(heightConstraint)
         self.view.addSubview(searchController.searchBar)
         self.view.addConstraints([topConstraint, leftConstraint, rightConstraint])
-
+ */
 
         let bottomContainerView = UIView()
         view.addSubview(bottomContainerView)
         bottomContainerView.translatesAutoresizingMaskIntoConstraints = false
-        bottomContainerView.topAnchor.constraint(equalTo: topContainerView.bottomAnchor).isActive = true
+        bottomContainerView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor).isActive = true
         bottomContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         bottomContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         bottomContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+        bottomContainerView.backgroundColor = .orange
         
-        bottomContainerView.addSubview(hikeImageView)
-        hikeImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -150).isActive = true
-        hikeImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 100).isActive = true
-        hikeImageView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.25).isActive = true
+        bottomContainerView.addSubview(hikeButton)
+        hikeButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
+        hikeButton.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        //hikeImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
+        hikeButton.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+        hikeButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        //hikeButton.backgroundColor = .green
+        //hikeButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         
         bottomContainerView.addSubview(museumImageView)
-        museumImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -50).isActive = true
-        museumImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 100).isActive = true
-        museumImageView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.25).isActive = true
+        museumImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/9).isActive = true
+        museumImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        //museumImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
+        museumImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+
         
         bottomContainerView.addSubview(festivalImageView)
-        festivalImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: 50).isActive = true
-        festivalImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 100).isActive = true
-        festivalImageView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.25).isActive = true
+        festivalImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/9).isActive = true
+        festivalImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        //festivalImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
+        festivalImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+
         
         bottomContainerView.addSubview(thrillImageView)
-        thrillImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: 150).isActive = true
-        thrillImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 100).isActive = true
-        thrillImageView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.25).isActive = true
+        thrillImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/3).isActive = true
+        thrillImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        //thrillImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
+        thrillImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+
         
         bottomContainerView.addSubview(photoImageView)
-        photoImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -150).isActive = true
-        photoImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 200).isActive = true
-        photoImageView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.25).isActive = true
+        photoImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
+        photoImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/4.3).isActive = true
+        //photoImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
+        photoImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+
         
         bottomContainerView.addSubview(animalImageView)
-        animalImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -50).isActive = true
-        animalImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 200).isActive = true
-        animalImageView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.25).isActive = true
+        animalImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/9).isActive = true
+        animalImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/4.3).isActive = true
+        //animalImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
+        animalImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+
         
         bottomContainerView.addSubview(landscapeImageView)
-        landscapeImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: 50).isActive = true
-        landscapeImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 200).isActive = true
-        landscapeImageView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.25).isActive = true
+        landscapeImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/9).isActive = true
+        landscapeImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/4.3).isActive = true
+        //landscapeImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
+        landscapeImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+
         
         bottomContainerView.addSubview(aquaticImageView)
-        aquaticImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: 150).isActive = true
-        aquaticImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 200).isActive = true
-        aquaticImageView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.25).isActive = true
-        */
+        aquaticImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/3).isActive = true
+        aquaticImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/4.3).isActive = true
+        //aquaticImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
+        aquaticImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+
+ 
     }
 
     

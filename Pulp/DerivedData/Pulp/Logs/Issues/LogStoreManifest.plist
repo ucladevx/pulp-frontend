@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>9</integer>
+	<key>logs</key>
+	<dict>
+		<key>5CDC4BAB-5C4E-49E5-982F-2D27FF312817</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
+			<key>fileName</key>
+			<string>5CDC4BAB-5C4E-49E5-982F-2D27FF312817.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>signature</key>
+			<string>Pulp-fgelfdbphyixsabboooupbijsfbu</string>
+			<key>timeStartedRecording</key>
+			<real>579496151.70899701</real>
+			<key>timeStoppedRecording</key>
+			<real>579496153.66693401</real>
+			<key>title</key>
+			<string>Build target Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>5CDC4BAB-5C4E-49E5-982F-2D27FF312817</string>
+		</dict>
+	</dict>
+	<key>preserveOldLogs</key>
+	<true/>
+</dict>
+</plist>

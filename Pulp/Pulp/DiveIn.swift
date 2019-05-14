@@ -10,7 +10,12 @@ import UIKit
 
 class DiveIn: UIViewController {
     
-    let backgroundOrange = UIColor(red:250/255, green:154/255, blue:70/255, alpha:1.0)
+    let backgroundImageView: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Wave_DiveIn.png"))
+        imageView.backgroundColor = .green
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     let hikeImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Hike"))
@@ -69,18 +74,54 @@ class DiveIn: UIViewController {
         return imageView
     }()
     
-    let descriptionView: UITextView = {
-        let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Dive in.", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 50), NSAttributedStringKey.foregroundColor: UIColor.white])
-        attributedText.append(NSAttributedString(string: "\nWhat are you looking for?", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30), NSAttributedStringKey.foregroundColor: UIColor.white]))
-        
-        textView.attributedText = attributedText
+    let descriptionView: UILabel = {
+        let textView = UILabel()
+        textView.text = "Dive in."
+        textView.textColor = .white
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.textAlignment = .left
-        textView.isEditable = false
-        textView.isScrollEnabled = false
         return textView
+    }()
+    
+    let subheadingView: UILabel = {
+        let textView = UILabel()
+        textView.text = "What are you looking for?"
+        textView.textColor = .white
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
+    }()
+    
+    let searchBarView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let searchBar: UISearchBar = {
+        let searchbar = UISearchBar()
+        searchbar.layer.borderWidth = 1
+        //searchbar.layer.borderColor = UIColor.white.cgColor
+        searchbar.searchBarStyle = UISearchBarStyle.minimal
+        var textField = searchbar.value(forKey: "searchField") as? UITextField
+        textField?.backgroundColor = .white
+        searchbar.translatesAutoresizingMaskIntoConstraints = false
         
+        
+        return searchbar
+    }()
+    
+    let zipView: UIView = {
+        let view = UIView();
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let topView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .yellow
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private let exploreButton: UIButton = {
@@ -111,7 +152,15 @@ class DiveIn: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = backgroundOrange
+        view.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.97, alpha:1.0)
+        
+        view.addSubview(backgroundImageView)
+        topView.addSubview(descriptionView)
+        topView.addSubview(subheadingView)
+        topView.addSubview(searchBarView)
+        searchBarView.addSubview(searchBar)
+        topView.addSubview(zipView)
+        view.addSubview(topView)
         setupBottomControls()
         setupLayout()
 //        searchBar.searchBarStyle = UISearchBarStyle.prominent
@@ -154,6 +203,49 @@ class DiveIn: UIViewController {
     }
     
     private func setupLayout(){
+        backgroundImageView.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
+        backgroundImageView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
+        backgroundImageView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
+        backgroundImageView.heightAnchor.constraint(equalToConstant:view.frame.height/1.9).isActive = true
+        
+        topView.topAnchor.constraint(equalTo:view.topAnchor, constant:view.frame.height/10).isActive = true
+        topView.leftAnchor.constraint(equalTo:view.leftAnchor, constant:view.frame.width/8).isActive = true
+        topView.rightAnchor.constraint(equalTo:view.rightAnchor, constant:-view.frame.width/8).isActive = true
+        topView.heightAnchor.constraint(equalToConstant:view.frame.height/3).isActive = true
+        topView.backgroundColor = .brown
+        
+        descriptionView.topAnchor.constraint(equalTo:topView.topAnchor).isActive = true
+        descriptionView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
+        descriptionView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
+        descriptionView.backgroundColor = .gray
+        descriptionView.font = UIFont(name: "Avenir-Black", size: view.frame.height/23)
+
+
+        subheadingView.topAnchor.constraint(equalTo:descriptionView.bottomAnchor).isActive = true
+        subheadingView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
+        subheadingView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
+        subheadingView.font = UIFont(name: "Avenir-MediumOblique", size: view.frame.height/38)
+
+        searchBarView.topAnchor.constraint(equalTo:subheadingView.bottomAnchor, constant:view.frame.height/40).isActive = true
+        searchBarView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
+        searchBarView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
+        searchBarView.heightAnchor.constraint(equalToConstant: view.frame.height/20).isActive = true
+        searchBarView.layer.cornerRadius = view.frame.width/40
+        
+        searchBar.centerXAnchor.constraint(equalTo:searchBarView.centerXAnchor).isActive = true
+        searchBar.centerYAnchor.constraint(equalTo:searchBarView.centerYAnchor).isActive = true
+        searchBar.leftAnchor.constraint(equalTo:searchBarView.leftAnchor).isActive = true
+        searchBar.rightAnchor.constraint(equalTo:searchBarView.rightAnchor).isActive = true
+        searchBar.heightAnchor.constraint(equalToConstant: view.frame.height/10).isActive = true
+        
+        zipView.topAnchor.constraint(equalTo:searchBarView.bottomAnchor, constant:view.frame.height/40).isActive = true
+        zipView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
+        zipView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
+        zipView.heightAnchor.constraint(equalToConstant: view.frame.height/20).isActive = true
+        zipView.layer.cornerRadius = view.frame.width/40
+
+
+        /*
         let topContainerView = UIView()
         view.addSubview(topContainerView)
         topContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -166,7 +258,6 @@ class DiveIn: UIViewController {
         descriptionView.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor).isActive = true
         descriptionView.centerYAnchor.constraint(equalTo: topContainerView.centerYAnchor).isActive = true
         descriptionView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.5).isActive = true
-        descriptionView.backgroundColor = backgroundOrange
         
         let searchController = UISearchController(searchResultsController: nil)
         let topConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 500)
@@ -226,7 +317,7 @@ class DiveIn: UIViewController {
         aquaticImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: 150).isActive = true
         aquaticImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 200).isActive = true
         aquaticImageView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.25).isActive = true
-        
+        */
     }
 
     

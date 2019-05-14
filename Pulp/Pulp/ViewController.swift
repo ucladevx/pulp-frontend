@@ -15,7 +15,8 @@ class ViewController: UIViewController {
 
     
     let profileImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "profileKatMiao"))
+        let image = UIImage(named: "profileKatMiao")
+        let imageView = UIImageView(image: image)
         // enable autolayout for profileImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -24,8 +25,8 @@ class ViewController: UIViewController {
     
     let profileDescriptionView: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Katherine Miao", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 40), NSAttributedStringKey.foregroundColor: UIColor.white])
-        attributedText.append(NSAttributedString(string: "\n\nAge: 19\nGender: Female\nLocation: Los Angeles, CA", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 25), NSAttributedStringKey.foregroundColor: UIColor.white]))
+        let attributedText = NSMutableAttributedString(string: "Katherine Miao", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 40), NSAttributedString.Key.foregroundColor: UIColor.white])
+        attributedText.append(NSAttributedString(string: "\n\nAge: 19\nGender: Female\nLocation: Los Angeles, CA", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25), NSAttributedString.Key.foregroundColor: UIColor.white]))
         
         textView.attributedText = attributedText
         textView.translatesAutoresizingMaskIntoConstraints = false

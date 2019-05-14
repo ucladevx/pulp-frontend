@@ -6,6 +6,8 @@
 //  Copyright © 2019 Katherine Miao. All rights reserved.
 //
 
+//NO LONGER CONTAINED IN MVP
+
 import UIKit
 
 class CreateProfileViewController: UIViewController {
@@ -20,7 +22,6 @@ class CreateProfileViewController: UIViewController {
     
     private let loginContentView:UIView = {
         let view = UIView()
-        //view.backgroundColor = .green
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -37,7 +38,6 @@ class CreateProfileViewController: UIViewController {
         let view = UILabel()
         view.text = "Tell us \nabout \nyourself."
         view.textColor = .black
-        //view.backgroundColor = .orange
         view.textAlignment = .left
         view.translatesAutoresizingMaskIntoConstraints = false
         view.numberOfLines = 0

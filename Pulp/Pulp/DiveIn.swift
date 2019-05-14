@@ -200,10 +200,10 @@ class DiveIn: UIViewController {
     
     private func setupSearchBar(){
         let searchController = UISearchController(searchResultsController: nil)
-        let topConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 100)
-        let leftConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 0)
-        let rightConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.right, multiplier: 1, constant: 0)
-        let heightConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 44)
+        let topConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 100)
+        let leftConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1, constant: 0)
+        let rightConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutConstraint.Attribute.right, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.right, multiplier: 1, constant: 0)
+        let heightConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 44)
         
         
         searchController.searchBar.addConstraint(heightConstraint)

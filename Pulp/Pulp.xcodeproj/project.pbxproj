@@ -19,13 +19,17 @@
 		43AC38362227500600652A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43AC38342227500600652A70 /* Main.storyboard */; };
 		43AC38382227500600652A70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43AC38372227500600652A70 /* Assets.xcassets */; };
 		43AC383B2227500600652A70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43AC38392227500600652A70 /* LaunchScreen.storyboard */; };
-		83042235227801D000DDC8B2 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83042234227801D000DDC8B2 /* LogInController.swift */; };
-		83042237228134D000DDC8B2 /* RecListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83042236228134D000DDC8B2 /* RecListController.swift */; };
+		45479B1C527F2552AF0AD66D /* Pods_Pulp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B2A3E5E03FABCDE89D353E /* Pods_Pulp.framework */; };
+		83042235227801D000DDC8B2 /* UnusedLogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83042234227801D000DDC8B2 /* UnusedLogInController.swift */; };
 		8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */; };
 		8304223D22813A1B00DDC8B2 /* DiscoverFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */; };
+		83ABFFED2281686D00DB0F7C /* SpotsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEC2281686D00DB0F7C /* SpotsMapView.swift */; };
+		83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */; };
+		83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFF0228AA88F00DB0F7C /* LogInController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E70D046F479E62C24E589B8 /* Pods-Pulp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pulp/Pods-Pulp.release.xcconfig"; sourceTree = "<group>"; };
 		4363F34B223ADA8F008C2969 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		4363F34D223ADABE008C2969 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		4363F34F223B05FB008C2969 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -40,10 +44,14 @@
 		43AC38372227500600652A70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43AC383A2227500600652A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43AC383C2227500600652A70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83042234227801D000DDC8B2 /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
-		83042236228134D000DDC8B2 /* RecListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecListController.swift; sourceTree = "<group>"; };
+		66B2A3E5E03FABCDE89D353E /* Pods_Pulp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pulp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83042234227801D000DDC8B2 /* UnusedLogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnusedLogInController.swift; sourceTree = "<group>"; };
 		8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverFeedController.swift; sourceTree = "<group>"; };
+		83ABFFEC2281686D00DB0F7C /* SpotsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsMapView.swift; sourceTree = "<group>"; };
+		83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestController.swift; sourceTree = "<group>"; };
+		83ABFFF0228AA88F00DB0F7C /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
+		F2D3A961FAB7F84721E06C26 /* Pods-Pulp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pulp/Pods-Pulp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45479B1C527F2552AF0AD66D /* Pods_Pulp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +71,8 @@
 			children = (
 				43AC382F2227500600652A70 /* Pulp */,
 				43AC382E2227500600652A70 /* Products */,
+				CA309C48B4795A6226203DDB /* Pods */,
+				4F3A73F8A8CC843E7CD83408 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,8 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				43AC38302227500600652A70 /* AppDelegate.swift */,
-				83042234227801D000DDC8B2 /* LogInController.swift */,
-				83042236228134D000DDC8B2 /* RecListController.swift */,
+				83042234227801D000DDC8B2 /* UnusedLogInController.swift */,
+				83ABFFF0228AA88F00DB0F7C /* LogInController.swift */,
+				83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */,
+				83ABFFEC2281686D00DB0F7C /* SpotsMapView.swift */,
 				8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */,
 				8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */,
 				4363F34B223ADA8F008C2969 /* SwipingController.swift */,
@@ -97,6 +110,23 @@
 			path = Pulp;
 			sourceTree = "<group>";
 		};
+		4F3A73F8A8CC843E7CD83408 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66B2A3E5E03FABCDE89D353E /* Pods_Pulp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA309C48B4795A6226203DDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2D3A961FAB7F84721E06C26 /* Pods-Pulp.debug.xcconfig */,
+				3E70D046F479E62C24E589B8 /* Pods-Pulp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43AC383F2227500600652A70 /* Build configuration list for PBXNativeTarget "Pulp" */;
 			buildPhases = (
+				9A0626E21DE1A8508A92CC8C /* [CP] Check Pods Manifest.lock */,
 				43AC38292227500600652A70 /* Sources */,
 				43AC382A2227500600652A70 /* Frameworks */,
 				43AC382B2227500600652A70 /* Resources */,
+				FCCC05CABAAECBBD6B1EB2EB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,11 +156,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Andy Cai";
 				TargetAttributes = {
 					43AC382C2227500600652A70 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -164,6 +197,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9A0626E21DE1A8508A92CC8C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pulp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCCC05CABAAECBBD6B1EB2EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pulp/Pods-Pulp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pulp/Pods-Pulp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		43AC38292227500600652A70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -176,10 +270,12 @@
 				8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */,
 				43AC38312227500600652A70 /* AppDelegate.swift in Sources */,
 				4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */,
+				83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */,
+				83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */,
+				83ABFFED2281686D00DB0F7C /* SpotsMapView.swift in Sources */,
 				4363F350223B05FB008C2969 /* ExploreViewController.swift in Sources */,
 				8304223D22813A1B00DDC8B2 /* DiscoverFeedController.swift in Sources */,
-				83042235227801D000DDC8B2 /* LogInController.swift in Sources */,
-				83042237228134D000DDC8B2 /* RecListController.swift in Sources */,
+				83042235227801D000DDC8B2 /* UnusedLogInController.swift in Sources */,
 				4363F34E223ADABE008C2969 /* PageCell.swift in Sources */,
 				4363F34C223ADA8F008C2969 /* SwipingController.swift in Sources */,
 			);
@@ -221,6 +317,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -228,6 +325,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -278,6 +376,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -285,6 +384,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -316,30 +416,32 @@
 		};
 		43AC38402227500600652A70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2D3A961FAB7F84721E06C26 /* Pods-Pulp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AR2LU2RNA6;
+				DEVELOPMENT_TEAM = 682Y7UP5X7;
 				INFOPLIST_FILE = Pulp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DevX.Pulp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		43AC38412227500600652A70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E70D046F479E62C24E589B8 /* Pods-Pulp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AR2LU2RNA6;
+				DEVELOPMENT_TEAM = 682Y7UP5X7;
 				INFOPLIST_FILE = Pulp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DevX.Pulp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

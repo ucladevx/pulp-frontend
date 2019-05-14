@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,26 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     //TODO: uncomment this after login page completely tested
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        window = UIWindow()
-//        window?.makeKeyAndVisible()
-//
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        let swipingController = SwipingController(collectionViewLayout: layout)
-//
-//        window?.rootViewController = swipingController
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        //Facebook SDK code below
+        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         window = UIWindow(frame:UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        //Below code is for Aryan
-        let feedController =  FeedController(collectionViewLayout: UICollectionViewFlowLayout())
-        let navigationController = UINavigationController(rootViewController: feedController)
+        window?.rootViewController = CreateProfileViewController()
         
-        window?.rootViewController = ViewController()
         return true
     }
-
+    
+    //Below functions are for Facebook Authentication, don't touch
+//    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+//        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+//        return true
+//    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return SDKApplicationDelegate.shared.application(app, open: url, options: options)
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

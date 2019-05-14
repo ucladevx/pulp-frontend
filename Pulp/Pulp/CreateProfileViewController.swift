@@ -13,9 +13,9 @@ import UIKit
 class CreateProfileViewController: UIViewController {
     
     private let graphicView:UIImageView = {
-        let imageName = "Fruits"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Fruits.png"))
+        //imageView.backgroundColor = .green
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -160,7 +160,7 @@ class CreateProfileViewController: UIViewController {
     }
     
     func setUpAutoLayout() {
-        
+    
         graphicView.topAnchor.constraint(equalTo:view.topAnchor, constant: -view.frame.height/20).isActive = true
         graphicView.rightAnchor.constraint(equalTo:view.rightAnchor, constant: view.frame.width/11).isActive = true
         graphicView.widthAnchor.constraint(equalToConstant:view.frame.width/1.1).isActive = true

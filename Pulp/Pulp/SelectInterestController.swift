@@ -72,11 +72,11 @@ class SelectInterestController: UIViewController {
         welcomeTxt.font = UIFont(name: "Avenir-Black", size: view.frame.height/23)
         
         
-        nameLabel.topAnchor.constraint(equalTo:welcomeTxt.bottomAnchor).isActive = true;
-        nameLabel.leftAnchor.constraint(equalTo:contentView.leftAnchor).isActive = true
-        nameLabel.rightAnchor.constraint(equalTo:contentView.rightAnchor).isActive = true
-        nameLabel.heightAnchor.constraint(equalToConstant:view.frame.height/30).isActive = true
-        nameLabel.font = UIFont(name: "Avenir-Book", size: view.frame.height/50)
+        describeLabel.topAnchor.constraint(equalTo:welcomeTxt.bottomAnchor).isActive = true;
+        describeLabel.leftAnchor.constraint(equalTo:contentView.leftAnchor).isActive = true
+        describeLabel.rightAnchor.constraint(equalTo:contentView.rightAnchor).isActive = true
+        describeLabel.heightAnchor.constraint(equalToConstant:view.frame.height/30).isActive = true
+        describeLabel.font = UIFont(name: "Avenir-Book", size: view.frame.height/50)
         
         
         buttonView.heightAnchor.constraint(equalToConstant:view.frame.height/12).isActive = true

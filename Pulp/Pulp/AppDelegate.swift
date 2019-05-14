@@ -30,8 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Below code is for Aryan
         let feedController =  FeedController(collectionViewLayout: UICollectionViewFlowLayout())
         let navigationController = UINavigationController(rootViewController: feedController)
-        
         window?.rootViewController = SelectInterestController()
+//=======
+        window?.rootViewController = CreateProfileViewController()
+//>>>>>>> 197e7d93339e7d148c76507046abd9a83a7317cd
         return true
     }
 

@@ -11,7 +11,8 @@ import UIKit
 class PageCell: UICollectionViewCell {
     
     let bearImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "profileKatMiao"))
+        let image = UIImage(named: "profileKatMiao")
+        let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -20,9 +21,9 @@ class PageCell: UICollectionViewCell {
     let descriptionTextView: UITextView = {
         let textView = UITextView()
         
-        let attributedText = NSMutableAttributedString(string: "Join us today in our fun and games!", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18)])
+        let attributedText = NSMutableAttributedString(string: "Join us today in our fun and games!", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
         
-        attributedText.append(NSAttributedString(string: "\n\n\nAre you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon.", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13), NSAttributedStringKey.foregroundColor: UIColor.gray]))
+        attributedText.append(NSAttributedString(string: "\n\n\nAre you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray]))
         
         textView.attributedText = attributedText
         textView.translatesAutoresizingMaskIntoConstraints = false

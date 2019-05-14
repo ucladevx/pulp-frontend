@@ -10,11 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pulp/SelectInterestController.swift"
-            timestampString = "579497558.972116"
+            timestampString = "579505994.187734"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90">
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "SelectInterestController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -52,7 +52,7 @@ class SpotsMapView: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, self.distanceSpan, self.distanceSpan)
+        let region = MKCoordinateRegion.init(center: newLocation.coordinate, latitudinalMeters: self.distanceSpan, longitudinalMeters: self.distanceSpan)
         mapView.setRegion(region, animated: true)
         mapView.showsUserLocation = true
     }

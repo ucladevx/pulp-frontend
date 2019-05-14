@@ -6,12 +6,16 @@
 //  Copyright © 2019 Katherine Miao. All rights reserved.
 //
 
+//NO LONGER CONTAINED IN MVP
+
 import UIKit
 
 class CreateProfileViewController: UIViewController {
     
     private let graphicView:UIImageView = {
-        let imageView = UIImageView(image:#imageLiteral(resourceName: "Fruits.png"))
+        let imageName = "Fruits"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
         //imageView.backgroundColor = .green
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class spotsMapView: UIViewController, CLLocationManagerDelegate {
+class SpotsMapView: UIViewController, CLLocationManagerDelegate {
     
     var window: UIWindow?
 //    var mapView: MKMapView?

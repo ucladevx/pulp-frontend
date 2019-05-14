@@ -46,9 +46,7 @@ class LogInController : UIViewController
     }
     private let loginContentView:UIView = {
         let view = UIView()
-        
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .gray
         return view
     }()
     

@@ -16,14 +16,12 @@ class CreateProfileViewController: UIViewController {
         let imageName = "Fruits"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
-        //imageView.backgroundColor = .green
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private let loginContentView:UIView = {
         let view = UIView()
-        //view.backgroundColor = .green
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -40,7 +38,6 @@ class CreateProfileViewController: UIViewController {
         let view = UILabel()
         view.text = "Tell us \nabout \nyourself."
         view.textColor = .black
-        //view.backgroundColor = .orange
         view.textAlignment = .left
         view.translatesAutoresizingMaskIntoConstraints = false
         view.numberOfLines = 0

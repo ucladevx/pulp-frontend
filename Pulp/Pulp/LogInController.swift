@@ -9,6 +9,7 @@
 import Foundation
 import FacebookLogin
 import SnapKit
+import FBSDKLoginKit
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -31,20 +32,24 @@ extension UIColor {
 
 class LogInController : UIViewController {
     override func viewDidLoad() {
+        super.viewDidLoad()
+        if(FBSDKAccessToken.current() == nil)
+        {
+            print("not logged in")
+        }
+        else{
+            print("logged in already")
+            let vc = DiveIn()
+            //fix this part
+            self.present(vc, animated: true, completion: {
+                print("You have logged in already!")
+            })
+        }
+        
         view.backgroundColor = UIColor(rgb: 0xF7F7F7)
         setUpLoginButton()
-
-        view.addSubview(loginContentView)
-        loginContentView.addSubview(welcomeTxt)
-        loginContentView.addSubview(describeLabel)
-        loginContentView.addSubview(FBLoginButton)
-        loginContentView.addSubview(graphicView)
-        loginContentView.addSubview(pulpLogo)
         setUpAutoLayout()
         
-//        if let accessToken = AccessToken.current {
-//            // User is logged in, use 'accessToken' here.
-//        }
     }
     
     private let loginContentView:UIView = {
@@ -120,12 +125,24 @@ class LogInController : UIViewController {
                 print("User cancelled login.")
             case .success( _, _, _):
                 print("Logged in!")
+                let vc = DiveIn() //your view controller, this is just for testing
+                self.present(vc, animated: true, completion: {
+                    print("You have logged in successfully!")
+                })
             }
         }
     }
     
     func setUpAutoLayout()
     {
+        loginContentView.addSubview(welcomeTxt)
+        loginContentView.addSubview(describeLabel)
+        loginContentView.addSubview(FBLoginButton)
+        loginContentView.addSubview(graphicView)
+        loginContentView.addSubview(pulpLogo)
+        
+        view.addSubview(loginContentView)
+        
         loginContentView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(40)
             make.right.equalTo(view).offset(-40)

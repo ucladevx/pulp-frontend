@@ -15,7 +15,7 @@ class CreateProfileViewController: UIViewController {
     private let graphicView:UIImageView = {
         let imageView = UIImageView(image:#imageLiteral(resourceName: "Fruits.png"))
         //imageView.backgroundColor = .green
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

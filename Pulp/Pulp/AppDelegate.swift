@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame:UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = CreateProfileViewController()
+        window?.rootViewController = LogInController()
         
         return true
     }

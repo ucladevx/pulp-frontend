@@ -5,31 +5,7 @@
 	<key>logFormatVersion</key>
 	<integer>9</integer>
 	<key>logs</key>
-	<dict>
-		<key>94920DE7-65E8-4C8A-9EFD-BC158F7E02B0</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
-			<key>fileName</key>
-			<string>94920DE7-65E8-4C8A-9EFD-BC158F7E02B0.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>E</string>
-			<key>signature</key>
-			<string>Pulp-fgelfdbphyixsabboooupbijsfbu</string>
-			<key>timeStartedRecording</key>
-			<real>580075772.87991595</real>
-			<key>timeStoppedRecording</key>
-			<real>580075773.67648995</real>
-			<key>title</key>
-			<string>Build target Pulp</string>
-			<key>uniqueIdentifier</key>
-			<string>94920DE7-65E8-4C8A-9EFD-BC158F7E02B0</string>
-		</dict>
-	</dict>
+	<dict/>
 	<key>preserveOldLogs</key>
 	<true/>
 </dict>

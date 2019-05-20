@@ -568,7 +568,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "viewDidLoad"]
 - !private ["So21UIAppearanceContainerP", "widthAnchor"]
 - !private ["So21UIAppearanceContainerP", "window"]
-- !private ["So7UIColorC", "init"]
+- ["So7UIColorC", "init"]
 - !private ["So18UIContentContainerP", "CLLocationManager"]
 - !private ["So18UIContentContainerP", "MKCoordinateRegion"]
 - ["So18UIContentContainerP", "MKMapView"]
@@ -1001,7 +1001,7 @@ depends-nominal:
 - "So29UIAccessibilityIdentificationP"
 - "So12UIAppearanceP"
 - "So21UIAppearanceContainerP"
-- !private "So7UIColorC"
+- "So7UIColorC"
 - "So18UIContentContainerP"
 - "So17UICoordinateSpaceP"
 - "So13UIDynamicItemP"

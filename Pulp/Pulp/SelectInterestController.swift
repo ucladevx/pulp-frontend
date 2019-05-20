@@ -21,7 +21,6 @@ class SelectInterestController: UIViewController {
         let imageName = "Fruits"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
-        //imageView.backgroundColor = .green
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

@@ -1,11 +1,11 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "32ad342ef48235d489200cbe3902dfd0"
-build_time: [1558382825, 172278000]
+build_time: [1558382972, 940767000]
 inputs:
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ExploreResults.swift": !dirty [1557202940, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ViewController.swift": !dirty [1557825463, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ResultCell.swift": !dirty [1557825463, 0]
-  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/DiveIn.swift": !dirty [1557825704, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/DiveIn.swift": !dirty [1558382970, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/CreateProfileViewController.swift": !dirty [1557825463, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/AppDelegate.swift": !dirty [1557825463, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ResultsViewController.swift": !dirty [1557202940, 0]

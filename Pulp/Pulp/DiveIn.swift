@@ -11,37 +11,29 @@ import UIKit
 class DiveIn: UIViewController {
     
     let backgroundImageView: UIImageView = {
-        let imageView = UIImageView(image:#imageLiteral(resourceName: "Wave_DiveIn.png"))
+        let imageView = UIImageView(image:"Wave_DiveIn")
         imageView.backgroundColor = .green
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     let hikeImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Hike"))
+        let imageView = UIImageView(image: "Hike")
         // enable autolayout for profileImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let hikeButton: UIButton = {
-        let btn = UIButton()
-        btn.setBackgroundImage(#imageLiteral(resourceName: "Hike.png"), for: UIControl.State.normal)
-        btn.imageView?.contentMode = .scaleAspectFit
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
-    
     let museumImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Museum"))
+        let imageView = UIImageView(image: "Museum")
         // enable autolayout for profileImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     let festivalImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Festival"))
+        let imageView = UIImageView(image: "Festival")
         // enable autolayout for profileImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -288,14 +280,11 @@ class DiveIn: UIViewController {
         bottomContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
         bottomContainerView.backgroundColor = .orange
         
-        bottomContainerView.addSubview(hikeButton)
-        hikeButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
-        hikeButton.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        bottomContainerView.addSubview(hikeImageView)
+        hikeImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
+        hikeImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
         //hikeImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
-        hikeButton.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
-        hikeButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
-        //hikeButton.backgroundColor = .green
-        //hikeButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        hikeImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
         
         bottomContainerView.addSubview(museumImageView)
         museumImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/9).isActive = true

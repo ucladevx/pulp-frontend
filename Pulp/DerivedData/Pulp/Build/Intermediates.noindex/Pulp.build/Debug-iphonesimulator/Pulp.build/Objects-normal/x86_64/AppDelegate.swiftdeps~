@@ -19,25 +19,21 @@ depends-top-level:
 - "Bool"
 - !private "BooleanLiteralType"
 - !private "CreateProfileViewController"
-- !private "FeedController"
+- !private "SDKApplicationDelegate"
 - "UIApplication"
 - "UIApplicationDelegate"
-- "UIApplicationLaunchOptionsKey"
-- !private "UICollectionViewFlowLayout"
-- !private "UINavigationController"
 - "UIResponder"
 - !private "UIScreen"
 - "UIWindow"
+- "URL"
 depends-member:
 - ["4Pulp11AppDelegateC", "Bool"]
 - !private ["4Pulp11AppDelegateC", "CreateProfileViewController"]
-- !private ["4Pulp11AppDelegateC", "FeedController"]
+- !private ["4Pulp11AppDelegateC", "SDKApplicationDelegate"]
 - ["4Pulp11AppDelegateC", "UIApplication"]
-- ["4Pulp11AppDelegateC", "UIApplicationLaunchOptionsKey"]
-- !private ["4Pulp11AppDelegateC", "UICollectionViewFlowLayout"]
-- !private ["4Pulp11AppDelegateC", "UINavigationController"]
 - !private ["4Pulp11AppDelegateC", "UIScreen"]
 - ["4Pulp11AppDelegateC", "UIWindow"]
+- ["4Pulp11AppDelegateC", "URL"]
 - ["4Pulp11AppDelegateC", "application"]
 - ["4Pulp11AppDelegateC", "applicationDidBecomeActive"]
 - ["4Pulp11AppDelegateC", "applicationDidEnterBackground"]
@@ -57,9 +53,9 @@ depends-member:
 - !private ["So15CALayerDelegateP", "makeKeyAndVisible"]
 - !private ["So15CALayerDelegateP", "rootViewController"]
 - !private ["s7CVarArgP", "CreateProfileViewController"]
-- !private ["s7CVarArgP", "FeedController"]
-- !private ["s7CVarArgP", "UICollectionViewFlowLayout"]
-- !private ["s7CVarArgP", "UINavigationController"]
+- ["s7CVarArgP", "LaunchOptionsKey"]
+- ["s7CVarArgP", "OpenURLOptionsKey"]
+- !private ["s7CVarArgP", "SDKApplicationDelegate"]
 - !private ["s7CVarArgP", "UIScreen"]
 - !private ["s7CVarArgP", "UIWindow"]
 - ["s7CVarArgP", ""]
@@ -85,9 +81,9 @@ depends-member:
 - !private ["4Pulp27CreateProfileViewControllerC", "deinit"]
 - !private ["4Pulp27CreateProfileViewControllerC", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "CreateProfileViewController"]
-- !private ["s28CustomDebugStringConvertibleP", "FeedController"]
-- !private ["s28CustomDebugStringConvertibleP", "UICollectionViewFlowLayout"]
-- !private ["s28CustomDebugStringConvertibleP", "UINavigationController"]
+- ["s28CustomDebugStringConvertibleP", "LaunchOptionsKey"]
+- ["s28CustomDebugStringConvertibleP", "OpenURLOptionsKey"]
+- !private ["s28CustomDebugStringConvertibleP", "SDKApplicationDelegate"]
 - !private ["s28CustomDebugStringConvertibleP", "UIScreen"]
 - !private ["s28CustomDebugStringConvertibleP", "UIWindow"]
 - ["s28CustomDebugStringConvertibleP", ""]
@@ -111,9 +107,9 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "rootViewController"]
 - ["s28CustomDebugStringConvertibleP", "window"]
 - !private ["s23CustomStringConvertibleP", "CreateProfileViewController"]
-- !private ["s23CustomStringConvertibleP", "FeedController"]
-- !private ["s23CustomStringConvertibleP", "UICollectionViewFlowLayout"]
-- !private ["s23CustomStringConvertibleP", "UINavigationController"]
+- ["s23CustomStringConvertibleP", "LaunchOptionsKey"]
+- ["s23CustomStringConvertibleP", "OpenURLOptionsKey"]
+- !private ["s23CustomStringConvertibleP", "SDKApplicationDelegate"]
 - !private ["s23CustomStringConvertibleP", "UIScreen"]
 - !private ["s23CustomStringConvertibleP", "UIWindow"]
 - ["s23CustomStringConvertibleP", ""]
@@ -137,9 +133,9 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "rootViewController"]
 - ["s23CustomStringConvertibleP", "window"]
 - !private ["SQ", "CreateProfileViewController"]
-- !private ["SQ", "FeedController"]
-- !private ["SQ", "UICollectionViewFlowLayout"]
-- !private ["SQ", "UINavigationController"]
+- ["SQ", "LaunchOptionsKey"]
+- ["SQ", "OpenURLOptionsKey"]
+- !private ["SQ", "SDKApplicationDelegate"]
 - !private ["SQ", "UIScreen"]
 - !private ["SQ", "UIWindow"]
 - ["SQ", ""]
@@ -162,12 +158,10 @@ depends-member:
 - !private ["SQ", "makeKeyAndVisible"]
 - !private ["SQ", "rootViewController"]
 - ["SQ", "window"]
-- !private ["4Pulp14FeedControllerC", "deinit"]
-- !private ["4Pulp14FeedControllerC", "init"]
 - !private ["SH", "CreateProfileViewController"]
-- !private ["SH", "FeedController"]
-- !private ["SH", "UICollectionViewFlowLayout"]
-- !private ["SH", "UINavigationController"]
+- ["SH", "LaunchOptionsKey"]
+- ["SH", "OpenURLOptionsKey"]
+- !private ["SH", "SDKApplicationDelegate"]
 - !private ["SH", "UIScreen"]
 - !private ["SH", "UIWindow"]
 - ["SH", ""]
@@ -196,13 +190,13 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "init"]
 - ["So8NSObjectC", "Bool"]
 - !private ["So8NSObjectC", "CreateProfileViewController"]
-- !private ["So8NSObjectC", "FeedController"]
+- ["So8NSObjectC", "LaunchOptionsKey"]
+- ["So8NSObjectC", "OpenURLOptionsKey"]
+- !private ["So8NSObjectC", "SDKApplicationDelegate"]
 - ["So8NSObjectC", "UIApplication"]
-- ["So8NSObjectC", "UIApplicationLaunchOptionsKey"]
-- !private ["So8NSObjectC", "UICollectionViewFlowLayout"]
-- !private ["So8NSObjectC", "UINavigationController"]
 - !private ["So8NSObjectC", "UIScreen"]
 - ["So8NSObjectC", "UIWindow"]
+- ["So8NSObjectC", "URL"]
 - ["So8NSObjectC", "application"]
 - ["So8NSObjectC", "applicationDidBecomeActive"]
 - ["So8NSObjectC", "applicationDidEnterBackground"]
@@ -223,9 +217,9 @@ depends-member:
 - !private ["So8NSObjectC", "rootViewController"]
 - ["So8NSObjectC", "window"]
 - !private ["So8NSObjectP", "CreateProfileViewController"]
-- !private ["So8NSObjectP", "FeedController"]
-- !private ["So8NSObjectP", "UICollectionViewFlowLayout"]
-- !private ["So8NSObjectP", "UINavigationController"]
+- ["So8NSObjectP", "LaunchOptionsKey"]
+- ["So8NSObjectP", "OpenURLOptionsKey"]
+- !private ["So8NSObjectP", "SDKApplicationDelegate"]
 - !private ["So8NSObjectP", "UIScreen"]
 - !private ["So8NSObjectP", "UIWindow"]
 - ["So8NSObjectP", ""]
@@ -257,10 +251,10 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "init"]
 - !private ["So21UIAppearanceContainerP", "makeKeyAndVisible"]
 - !private ["So21UIAppearanceContainerP", "rootViewController"]
+- ["So13UIApplicationC", "LaunchOptionsKey"]
+- ["So13UIApplicationC", "OpenURLOptionsKey"]
 - !private ["So21UIApplicationDelegateP", "CreateProfileViewController"]
-- !private ["So21UIApplicationDelegateP", "FeedController"]
-- !private ["So21UIApplicationDelegateP", "UICollectionViewFlowLayout"]
-- !private ["So21UIApplicationDelegateP", "UINavigationController"]
+- !private ["So21UIApplicationDelegateP", "SDKApplicationDelegate"]
 - !private ["So21UIApplicationDelegateP", "UIScreen"]
 - !private ["So21UIApplicationDelegateP", "UIWindow"]
 - ["So21UIApplicationDelegateP", ""]
@@ -277,12 +271,6 @@ depends-member:
 - ["So21UIApplicationDelegateP", "applicationWillResignActive"]
 - ["So21UIApplicationDelegateP", "applicationWillTerminate"]
 - ["So21UIApplicationDelegateP", "window"]
-- !private ["So26UICollectionViewControllerC", "init"]
-- !private ["So26UICollectionViewDataSourceP", "init"]
-- !private ["So24UICollectionViewDelegateP", "init"]
-- !private ["So34UICollectionViewDelegateFlowLayoutP", "init"]
-- !private ["So26UICollectionViewFlowLayoutC", "init"]
-- !private ["So22UICollectionViewLayoutC", "init"]
 - !private ["So18UIContentContainerP", "init"]
 - !private ["So17UICoordinateSpaceP", "init"]
 - !private ["So17UICoordinateSpaceP", "makeKeyAndVisible"]
@@ -299,11 +287,10 @@ depends-member:
 - !private ["So20UIFocusItemContainerP", "init"]
 - !private ["So20UIFocusItemContainerP", "makeKeyAndVisible"]
 - !private ["So20UIFocusItemContainerP", "rootViewController"]
-- !private ["So22UINavigationControllerC", "init"]
 - !private ["So30UIPasteConfigurationSupportingP", "CreateProfileViewController"]
-- !private ["So30UIPasteConfigurationSupportingP", "FeedController"]
-- !private ["So30UIPasteConfigurationSupportingP", "UICollectionViewFlowLayout"]
-- !private ["So30UIPasteConfigurationSupportingP", "UINavigationController"]
+- ["So30UIPasteConfigurationSupportingP", "LaunchOptionsKey"]
+- ["So30UIPasteConfigurationSupportingP", "OpenURLOptionsKey"]
+- !private ["So30UIPasteConfigurationSupportingP", "SDKApplicationDelegate"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIScreen"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIWindow"]
 - ["So30UIPasteConfigurationSupportingP", ""]
@@ -326,13 +313,13 @@ depends-member:
 - ["So30UIPasteConfigurationSupportingP", "window"]
 - ["So11UIResponderC", "Bool"]
 - !private ["So11UIResponderC", "CreateProfileViewController"]
-- !private ["So11UIResponderC", "FeedController"]
+- ["So11UIResponderC", "LaunchOptionsKey"]
+- ["So11UIResponderC", "OpenURLOptionsKey"]
+- !private ["So11UIResponderC", "SDKApplicationDelegate"]
 - ["So11UIResponderC", "UIApplication"]
-- ["So11UIResponderC", "UIApplicationLaunchOptionsKey"]
-- !private ["So11UIResponderC", "UICollectionViewFlowLayout"]
-- !private ["So11UIResponderC", "UINavigationController"]
 - !private ["So11UIResponderC", "UIScreen"]
 - ["So11UIResponderC", "UIWindow"]
+- ["So11UIResponderC", "URL"]
 - ["So11UIResponderC", ""]
 - ["So11UIResponderC", "application"]
 - ["So11UIResponderC", "applicationDidBecomeActive"]
@@ -352,9 +339,9 @@ depends-member:
 - !private ["So11UIResponderC", "rootViewController"]
 - ["So11UIResponderC", "window"]
 - !private ["So30UIResponderStandardEditActionsP", "CreateProfileViewController"]
-- !private ["So30UIResponderStandardEditActionsP", "FeedController"]
-- !private ["So30UIResponderStandardEditActionsP", "UICollectionViewFlowLayout"]
-- !private ["So30UIResponderStandardEditActionsP", "UINavigationController"]
+- ["So30UIResponderStandardEditActionsP", "LaunchOptionsKey"]
+- ["So30UIResponderStandardEditActionsP", "OpenURLOptionsKey"]
+- !private ["So30UIResponderStandardEditActionsP", "SDKApplicationDelegate"]
 - !private ["So30UIResponderStandardEditActionsP", "UIScreen"]
 - !private ["So30UIResponderStandardEditActionsP", "UIWindow"]
 - ["So30UIResponderStandardEditActionsP", ""]
@@ -377,7 +364,6 @@ depends-member:
 - ["So30UIResponderStandardEditActionsP", "window"]
 - !private ["So8UIScreenC", "bounds"]
 - !private ["So8UIScreenC", "main"]
-- !private ["So20UIScrollViewDelegateP", "init"]
 - !private ["So16UIStateRestoringP", "init"]
 - !private ["So18UITraitEnvironmentP", "bounds"]
 - !private ["So18UITraitEnvironmentP", "init"]
@@ -385,9 +371,9 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "makeKeyAndVisible"]
 - !private ["So18UITraitEnvironmentP", "rootViewController"]
 - !private ["So23UIUserActivityRestoringP", "CreateProfileViewController"]
-- !private ["So23UIUserActivityRestoringP", "FeedController"]
-- !private ["So23UIUserActivityRestoringP", "UICollectionViewFlowLayout"]
-- !private ["So23UIUserActivityRestoringP", "UINavigationController"]
+- ["So23UIUserActivityRestoringP", "LaunchOptionsKey"]
+- ["So23UIUserActivityRestoringP", "OpenURLOptionsKey"]
+- !private ["So23UIUserActivityRestoringP", "SDKApplicationDelegate"]
 - !private ["So23UIUserActivityRestoringP", "UIScreen"]
 - !private ["So23UIUserActivityRestoringP", "UIWindow"]
 - ["So23UIUserActivityRestoringP", ""]
@@ -419,9 +405,9 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "makeKeyAndVisible"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "rootViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateProfileViewController"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "FeedController"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "UICollectionViewFlowLayout"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "UINavigationController"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "LaunchOptionsKey"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "OpenURLOptionsKey"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SDKApplicationDelegate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIScreen"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIWindow"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
@@ -452,7 +438,6 @@ depends-nominal:
 - "s28CustomDebugStringConvertibleP"
 - "s23CustomStringConvertibleP"
 - "SQ"
-- !private "4Pulp14FeedControllerC"
 - "SH"
 - !private "So8NSCodingP"
 - !private "So26NSExtensionRequestHandlingP"
@@ -461,25 +446,18 @@ depends-nominal:
 - !private "So29UIAccessibilityIdentificationP"
 - !private "So12UIAppearanceP"
 - !private "So21UIAppearanceContainerP"
+- "So13UIApplicationC"
 - "So21UIApplicationDelegateP"
-- !private "So26UICollectionViewControllerC"
-- !private "So26UICollectionViewDataSourceP"
-- !private "So24UICollectionViewDelegateP"
-- !private "So34UICollectionViewDelegateFlowLayoutP"
-- !private "So26UICollectionViewFlowLayoutC"
-- !private "So22UICollectionViewLayoutC"
 - !private "So18UIContentContainerP"
 - !private "So17UICoordinateSpaceP"
 - !private "So13UIDynamicItemP"
 - !private "So18UIFocusEnvironmentP"
 - !private "So11UIFocusItemP"
 - !private "So20UIFocusItemContainerP"
-- !private "So22UINavigationControllerC"
 - "So30UIPasteConfigurationSupportingP"
 - "So11UIResponderC"
 - "So30UIResponderStandardEditActionsP"
 - !private "So8UIScreenC"
-- !private "So20UIScrollViewDelegateP"
 - !private "So16UIStateRestoringP"
 - !private "So18UITraitEnvironmentP"
 - "So23UIUserActivityRestoringP"
@@ -497,11 +475,13 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
@@ -509,9 +489,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "39b3012234996ab26d7217426d30560c"
+interface-hash: "1620f687009193c4a74df541181068e5"

@@ -27,7 +27,6 @@ depends-top-level:
 - "UIImageView"
 - "UILabel"
 - "UITableViewCell"
-- "UITableViewCellStyle"
 - "UnicodeScalarType"
 - "_ImageLiteralType"
 - !private "fatalError"
@@ -36,6 +35,7 @@ depends-member:
 - ["SK", "init"]
 - !private ["Sz", "init"]
 - ["So12UIButtonTypeV", "custom"]
+- ["So15CALayerDelegateP", "CellStyle"]
 - !private ["So15CALayerDelegateP", "Int"]
 - ["So15CALayerDelegateP", "UIButton"]
 - ["So15CALayerDelegateP", "UIFont"]
@@ -63,6 +63,7 @@ depends-member:
 - ["So15CALayerDelegateP", "text"]
 - ["So15CALayerDelegateP", "textAlignment"]
 - ["So15CALayerDelegateP", "textColor"]
+- ["s7CVarArgP", "CellStyle"]
 - !private ["s7CVarArgP", "Int"]
 - ["s7CVarArgP", "UIButton"]
 - ["s7CVarArgP", "UIFont"]
@@ -100,6 +101,7 @@ depends-member:
 - ["SL", "init"]
 - ["So17UIViewContentModeV", "scaleAspectFill"]
 - ["So17UIViewContentModeV", "scaleAspectFit"]
+- ["s28CustomDebugStringConvertibleP", "CellStyle"]
 - !private ["s28CustomDebugStringConvertibleP", "Int"]
 - ["s28CustomDebugStringConvertibleP", "UIButton"]
 - ["s28CustomDebugStringConvertibleP", "UIFont"]
@@ -136,6 +138,7 @@ depends-member:
 - ["s17CustomReflectableP", "black"]
 - ["s17CustomReflectableP", "init"]
 - ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "CellStyle"]
 - !private ["s23CustomStringConvertibleP", "Int"]
 - ["s23CustomStringConvertibleP", "UIButton"]
 - ["s23CustomStringConvertibleP", "UIFont"]
@@ -173,6 +176,7 @@ depends-member:
 - ["SE", "black"]
 - ["SE", "init"]
 - ["SE", "init"]
+- ["SQ", "CellStyle"]
 - !private ["SQ", "Int"]
 - ["SQ", "UIButton"]
 - ["SQ", "UIFont"]
@@ -219,6 +223,7 @@ depends-member:
 - ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s17FixedWidthIntegerP", "init"]
+- ["SH", "CellStyle"]
 - !private ["SH", "Int"]
 - ["SH", "UIButton"]
 - ["SH", "UIFont"]
@@ -259,6 +264,7 @@ depends-member:
 - ["s25LosslessStringConvertibleP", "init"]
 - ["s10MirrorPathP", "init"]
 - ["s10MirrorPathP", "init"]
+- ["So8NSCodingP", "CellStyle"]
 - !private ["So8NSCodingP", "Int"]
 - ["So8NSCodingP", "UIButton"]
 - ["So8NSCodingP", "UIFont"]
@@ -292,6 +298,7 @@ depends-member:
 - ["So9NSCopyingP", "systemFont"]
 - ["So21NSItemProviderReadingP", "black"]
 - ["So21NSItemProviderWritingP", "black"]
+- ["So8NSObjectC", "CellStyle"]
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "NSCoder"]
 - ["So8NSObjectC", "Result"]
@@ -301,7 +308,7 @@ depends-member:
 - ["So8NSObjectC", "UIImage"]
 - ["So8NSObjectC", "UIImageView"]
 - ["So8NSObjectC", "UILabel"]
-- ["So8NSObjectC", "UITableViewCellStyle"]
+- ["So8NSObjectC", "UITableViewCell"]
 - !private ["So8NSObjectC", "addSubview"]
 - ["So8NSObjectC", "black"]
 - ["So8NSObjectC", "boldSystemFont"]
@@ -328,6 +335,7 @@ depends-member:
 - ["So8NSObjectC", "text"]
 - ["So8NSObjectC", "textAlignment"]
 - ["So8NSObjectC", "textColor"]
+- ["So8NSObjectP", "CellStyle"]
 - !private ["So8NSObjectP", "Int"]
 - ["So8NSObjectP", "UIButton"]
 - ["So8NSObjectP", "UIFont"]
@@ -372,7 +380,7 @@ depends-member:
 - ["4Pulp11ProductCellC", "UIImage"]
 - ["4Pulp11ProductCellC", "UIImageView"]
 - ["4Pulp11ProductCellC", "UILabel"]
-- ["4Pulp11ProductCellC", "UITableViewCellStyle"]
+- ["4Pulp11ProductCellC", "UITableViewCell"]
 - !private ["4Pulp11ProductCellC", "addSubview"]
 - ["4Pulp11ProductCellC", "changeQuantity"]
 - !private ["4Pulp11ProductCellC", "decreaseButton"]
@@ -422,6 +430,7 @@ depends-member:
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "imageView"]
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "init"]
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "setImage"]
+- ["So29UIAccessibilityIdentificationP", "CellStyle"]
 - !private ["So29UIAccessibilityIdentificationP", "Int"]
 - ["So29UIAccessibilityIdentificationP", "UIButton"]
 - ["So29UIAccessibilityIdentificationP", "UIFont"]
@@ -449,6 +458,7 @@ depends-member:
 - ["So29UIAccessibilityIdentificationP", "text"]
 - ["So29UIAccessibilityIdentificationP", "textAlignment"]
 - ["So29UIAccessibilityIdentificationP", "textColor"]
+- ["So12UIAppearanceP", "CellStyle"]
 - !private ["So12UIAppearanceP", "Int"]
 - ["So12UIAppearanceP", "UIButton"]
 - ["So12UIAppearanceP", "UIFont"]
@@ -476,6 +486,7 @@ depends-member:
 - ["So12UIAppearanceP", "text"]
 - ["So12UIAppearanceP", "textAlignment"]
 - ["So12UIAppearanceP", "textColor"]
+- ["So21UIAppearanceContainerP", "CellStyle"]
 - !private ["So21UIAppearanceContainerP", "Int"]
 - ["So21UIAppearanceContainerP", "UIButton"]
 - ["So21UIAppearanceContainerP", "UIFont"]
@@ -516,6 +527,7 @@ depends-member:
 - ["So9UIControlC", "imageView"]
 - ["So9UIControlC", "init"]
 - ["So9UIControlC", "setImage"]
+- ["So17UICoordinateSpaceP", "CellStyle"]
 - !private ["So17UICoordinateSpaceP", "Int"]
 - ["So17UICoordinateSpaceP", "UIButton"]
 - ["So17UICoordinateSpaceP", "UIFont"]
@@ -543,6 +555,7 @@ depends-member:
 - ["So17UICoordinateSpaceP", "text"]
 - ["So17UICoordinateSpaceP", "textAlignment"]
 - ["So17UICoordinateSpaceP", "textColor"]
+- ["So13UIDynamicItemP", "CellStyle"]
 - !private ["So13UIDynamicItemP", "Int"]
 - ["So13UIDynamicItemP", "UIButton"]
 - ["So13UIDynamicItemP", "UIFont"]
@@ -570,6 +583,7 @@ depends-member:
 - ["So13UIDynamicItemP", "text"]
 - ["So13UIDynamicItemP", "textAlignment"]
 - ["So13UIDynamicItemP", "textColor"]
+- ["So18UIFocusEnvironmentP", "CellStyle"]
 - !private ["So18UIFocusEnvironmentP", "Int"]
 - ["So18UIFocusEnvironmentP", "UIButton"]
 - ["So18UIFocusEnvironmentP", "UIFont"]
@@ -597,6 +611,7 @@ depends-member:
 - ["So18UIFocusEnvironmentP", "text"]
 - ["So18UIFocusEnvironmentP", "textAlignment"]
 - ["So18UIFocusEnvironmentP", "textColor"]
+- ["So11UIFocusItemP", "CellStyle"]
 - !private ["So11UIFocusItemP", "Int"]
 - ["So11UIFocusItemP", "UIButton"]
 - ["So11UIFocusItemP", "UIFont"]
@@ -624,6 +639,7 @@ depends-member:
 - ["So11UIFocusItemP", "text"]
 - ["So11UIFocusItemP", "textAlignment"]
 - ["So11UIFocusItemP", "textColor"]
+- ["So20UIFocusItemContainerP", "CellStyle"]
 - !private ["So20UIFocusItemContainerP", "Int"]
 - ["So20UIFocusItemContainerP", "UIButton"]
 - ["So20UIFocusItemContainerP", "UIFont"]
@@ -653,6 +669,7 @@ depends-member:
 - ["So20UIFocusItemContainerP", "textColor"]
 - ["So6UIFontC", "boldSystemFont"]
 - ["So6UIFontC", "systemFont"]
+- ["So27UIGestureRecognizerDelegateP", "CellStyle"]
 - !private ["So27UIGestureRecognizerDelegateP", "Int"]
 - ["So27UIGestureRecognizerDelegateP", "UIButton"]
 - ["So27UIGestureRecognizerDelegateP", "UIFont"]
@@ -680,6 +697,7 @@ depends-member:
 - ["So7UILabelC", "text"]
 - ["So7UILabelC", "textAlignment"]
 - ["So7UILabelC", "textColor"]
+- ["So30UIPasteConfigurationSupportingP", "CellStyle"]
 - !private ["So30UIPasteConfigurationSupportingP", "Int"]
 - ["So30UIPasteConfigurationSupportingP", "UIButton"]
 - ["So30UIPasteConfigurationSupportingP", "UIFont"]
@@ -707,6 +725,7 @@ depends-member:
 - ["So30UIPasteConfigurationSupportingP", "text"]
 - ["So30UIPasteConfigurationSupportingP", "textAlignment"]
 - ["So30UIPasteConfigurationSupportingP", "textColor"]
+- ["So11UIResponderC", "CellStyle"]
 - ["So11UIResponderC", "Int"]
 - ["So11UIResponderC", "NSCoder"]
 - ["So11UIResponderC", "Result"]
@@ -716,7 +735,7 @@ depends-member:
 - ["So11UIResponderC", "UIImage"]
 - ["So11UIResponderC", "UIImageView"]
 - ["So11UIResponderC", "UILabel"]
-- ["So11UIResponderC", "UITableViewCellStyle"]
+- ["So11UIResponderC", "UITableViewCell"]
 - !private ["So11UIResponderC", "addSubview"]
 - ["So11UIResponderC", "changeQuantity"]
 - ["So11UIResponderC", "clipsToBounds"]
@@ -740,6 +759,7 @@ depends-member:
 - ["So11UIResponderC", "text"]
 - ["So11UIResponderC", "textAlignment"]
 - ["So11UIResponderC", "textColor"]
+- ["So30UIResponderStandardEditActionsP", "CellStyle"]
 - !private ["So30UIResponderStandardEditActionsP", "Int"]
 - ["So30UIResponderStandardEditActionsP", "UIButton"]
 - ["So30UIResponderStandardEditActionsP", "UIFont"]
@@ -770,6 +790,7 @@ depends-member:
 - ["So35UISpringLoadedInteractionSupportingP", "imageView"]
 - ["So35UISpringLoadedInteractionSupportingP", "init"]
 - ["So35UISpringLoadedInteractionSupportingP", "setImage"]
+- ["So15UITableViewCellC", "CellStyle"]
 - ["So15UITableViewCellC", "Int"]
 - ["So15UITableViewCellC", "NSCoder"]
 - ["So15UITableViewCellC", "Result"]
@@ -779,7 +800,7 @@ depends-member:
 - ["So15UITableViewCellC", "UIImage"]
 - ["So15UITableViewCellC", "UIImageView"]
 - ["So15UITableViewCellC", "UILabel"]
-- ["So15UITableViewCellC", "UITableViewCellStyle"]
+- ["So15UITableViewCellC", "UITableViewCell"]
 - ["So15UITableViewCellC", ""]
 - !private ["So15UITableViewCellC", "addSubview"]
 - ["So15UITableViewCellC", "changeQuantity"]
@@ -794,6 +815,7 @@ depends-member:
 - ["So15UITableViewCellC", "resultDescriptionLabel"]
 - ["So15UITableViewCellC", "resultImage"]
 - ["So15UITableViewCellC", "resultNameLabel"]
+- ["So18UITraitEnvironmentP", "CellStyle"]
 - !private ["So18UITraitEnvironmentP", "Int"]
 - ["So18UITraitEnvironmentP", "UIButton"]
 - ["So18UITraitEnvironmentP", "UIFont"]
@@ -821,6 +843,7 @@ depends-member:
 - ["So18UITraitEnvironmentP", "text"]
 - ["So18UITraitEnvironmentP", "textAlignment"]
 - ["So18UITraitEnvironmentP", "textColor"]
+- ["So23UIUserActivityRestoringP", "CellStyle"]
 - !private ["So23UIUserActivityRestoringP", "Int"]
 - ["So23UIUserActivityRestoringP", "UIButton"]
 - ["So23UIUserActivityRestoringP", "UIFont"]
@@ -848,6 +871,7 @@ depends-member:
 - ["So23UIUserActivityRestoringP", "text"]
 - ["So23UIUserActivityRestoringP", "textAlignment"]
 - ["So23UIUserActivityRestoringP", "textColor"]
+- ["So6UIViewC", "CellStyle"]
 - ["So6UIViewC", "Int"]
 - ["So6UIViewC", "NSCoder"]
 - ["So6UIViewC", "Result"]
@@ -857,7 +881,7 @@ depends-member:
 - ["So6UIViewC", "UIImage"]
 - ["So6UIViewC", "UIImageView"]
 - ["So6UIViewC", "UILabel"]
-- ["So6UIViewC", "UITableViewCellStyle"]
+- ["So6UIViewC", "UITableViewCell"]
 - !private ["So6UIViewC", "addSubview"]
 - ["So6UIViewC", "changeQuantity"]
 - ["So6UIViewC", "clipsToBounds"]
@@ -882,6 +906,7 @@ depends-member:
 - ["So6UIViewC", "textAlignment"]
 - ["So6UIViewC", "textColor"]
 - !private ["s18_BitwiseOperationsP", "init"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", "CellStyle"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "Int"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "UIButton"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "UIFont"]
@@ -922,6 +947,7 @@ depends-member:
 - ["s33_ExpressibleByStringInterpolationP", "init"]
 - ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "CellStyle"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIButton"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIFont"]
@@ -1057,11 +1083,13 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
@@ -1069,9 +1097,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "6e0db43942af55a6bdc3cc15bc99264b"
+interface-hash: "31baa7f1cdf0ff5dba6d0539db472c22"

@@ -22,13 +22,13 @@ depends-top-level:
 - "FloatLiteralType"
 - "IntegerLiteralType"
 - "NSAttributedString"
-- "NSAttributedStringKey"
 - !private "NSLayoutConstraint"
 - "NSMutableAttributedString"
 - "StringLiteralType"
 - "UIButton"
 - "UIColor"
 - "UIFont"
+- "UIImage"
 - "UIImageView"
 - "UIPageControl"
 - !private "UIStackView"
@@ -36,7 +36,6 @@ depends-top-level:
 - !private "UIView"
 - "UIViewController"
 - "ViewController"
-- "_ImageLiteralType"
 depends-member:
 - ["SK", "init"]
 - ["SK", "init"]
@@ -76,13 +75,14 @@ depends-member:
 - !private ["s7CVarArgP", "CreateProfileViewController"]
 - !private ["s7CVarArgP", "DiveIn"]
 - !private ["s7CVarArgP", "ExploreViewController"]
+- !private ["s7CVarArgP", "Key"]
 - ["s7CVarArgP", "NSAttributedString"]
-- ["s7CVarArgP", "NSAttributedStringKey"]
 - !private ["s7CVarArgP", "NSLayoutConstraint"]
 - ["s7CVarArgP", "NSMutableAttributedString"]
 - ["s7CVarArgP", "UIButton"]
 - ["s7CVarArgP", "UIColor"]
 - ["s7CVarArgP", "UIFont"]
+- ["s7CVarArgP", "UIImage"]
 - ["s7CVarArgP", "UIImageView"]
 - ["s7CVarArgP", "UIPageControl"]
 - !private ["s7CVarArgP", "UIStackView"]
@@ -155,13 +155,14 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "CreateProfileViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "DiveIn"]
 - !private ["s28CustomDebugStringConvertibleP", "ExploreViewController"]
+- !private ["s28CustomDebugStringConvertibleP", "Key"]
 - ["s28CustomDebugStringConvertibleP", "NSAttributedString"]
-- ["s28CustomDebugStringConvertibleP", "NSAttributedStringKey"]
 - !private ["s28CustomDebugStringConvertibleP", "NSLayoutConstraint"]
 - ["s28CustomDebugStringConvertibleP", "NSMutableAttributedString"]
 - ["s28CustomDebugStringConvertibleP", "UIButton"]
 - ["s28CustomDebugStringConvertibleP", "UIColor"]
 - ["s28CustomDebugStringConvertibleP", "UIFont"]
+- ["s28CustomDebugStringConvertibleP", "UIImage"]
 - ["s28CustomDebugStringConvertibleP", "UIImageView"]
 - ["s28CustomDebugStringConvertibleP", "UIPageControl"]
 - !private ["s28CustomDebugStringConvertibleP", "UIStackView"]
@@ -244,13 +245,14 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "CreateProfileViewController"]
 - !private ["s23CustomStringConvertibleP", "DiveIn"]
 - !private ["s23CustomStringConvertibleP", "ExploreViewController"]
+- !private ["s23CustomStringConvertibleP", "Key"]
 - ["s23CustomStringConvertibleP", "NSAttributedString"]
-- ["s23CustomStringConvertibleP", "NSAttributedStringKey"]
 - !private ["s23CustomStringConvertibleP", "NSLayoutConstraint"]
 - ["s23CustomStringConvertibleP", "NSMutableAttributedString"]
 - ["s23CustomStringConvertibleP", "UIButton"]
 - ["s23CustomStringConvertibleP", "UIColor"]
 - ["s23CustomStringConvertibleP", "UIFont"]
+- ["s23CustomStringConvertibleP", "UIImage"]
 - ["s23CustomStringConvertibleP", "UIImageView"]
 - ["s23CustomStringConvertibleP", "UIPageControl"]
 - !private ["s23CustomStringConvertibleP", "UIStackView"]
@@ -349,13 +351,14 @@ depends-member:
 - !private ["SQ", "CreateProfileViewController"]
 - !private ["SQ", "DiveIn"]
 - !private ["SQ", "ExploreViewController"]
+- !private ["SQ", "Key"]
 - ["SQ", "NSAttributedString"]
-- ["SQ", "NSAttributedStringKey"]
 - !private ["SQ", "NSLayoutConstraint"]
 - ["SQ", "NSMutableAttributedString"]
 - ["SQ", "UIButton"]
 - ["SQ", "UIColor"]
 - ["SQ", "UIFont"]
+- ["SQ", "UIImage"]
 - ["SQ", "UIImageView"]
 - ["SQ", "UIPageControl"]
 - !private ["SQ", "UIStackView"]
@@ -452,13 +455,14 @@ depends-member:
 - !private ["SH", "CreateProfileViewController"]
 - !private ["SH", "DiveIn"]
 - !private ["SH", "ExploreViewController"]
+- !private ["SH", "Key"]
 - ["SH", "NSAttributedString"]
-- ["SH", "NSAttributedStringKey"]
 - !private ["SH", "NSLayoutConstraint"]
 - ["SH", "NSMutableAttributedString"]
 - ["SH", "UIButton"]
 - ["SH", "UIColor"]
 - ["SH", "UIFont"]
+- ["SH", "UIImage"]
 - ["SH", "UIImageView"]
 - ["SH", "UIPageControl"]
 - !private ["SH", "UIStackView"]
@@ -532,18 +536,20 @@ depends-member:
 - ["s25LosslessStringConvertibleP", "init"]
 - ["s10MirrorPathP", "init"]
 - ["s10MirrorPathP", "init"]
+- !private ["So18NSAttributedStringC", "Key"]
 - ["So18NSAttributedStringC", "append"]
 - ["So18NSAttributedStringC", "init"]
 - !private ["So8NSCodingP", "CreateProfileViewController"]
 - !private ["So8NSCodingP", "DiveIn"]
 - !private ["So8NSCodingP", "ExploreViewController"]
+- !private ["So8NSCodingP", "Key"]
 - ["So8NSCodingP", "NSAttributedString"]
-- ["So8NSCodingP", "NSAttributedStringKey"]
 - !private ["So8NSCodingP", "NSLayoutConstraint"]
 - ["So8NSCodingP", "NSMutableAttributedString"]
 - ["So8NSCodingP", "UIButton"]
 - ["So8NSCodingP", "UIColor"]
 - ["So8NSCodingP", "UIFont"]
+- ["So8NSCodingP", "UIImage"]
 - ["So8NSCodingP", "UIImageView"]
 - ["So8NSCodingP", "UIPageControl"]
 - !private ["So8NSCodingP", "UIStackView"]
@@ -601,6 +607,7 @@ depends-member:
 - !private ["So8NSCodingP", "view"]
 - !private ["So8NSCodingP", "viewDidLoad"]
 - ["So8NSCodingP", "white"]
+- !private ["So9NSCopyingP", "Key"]
 - ["So9NSCopyingP", "append"]
 - ["So9NSCopyingP", "black"]
 - ["So9NSCopyingP", "boldSystemFont"]
@@ -614,12 +621,12 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "DiveIn"]
 - !private ["So26NSExtensionRequestHandlingP", "ExploreViewController"]
 - ["So26NSExtensionRequestHandlingP", "NSAttributedString"]
-- ["So26NSExtensionRequestHandlingP", "NSAttributedStringKey"]
 - !private ["So26NSExtensionRequestHandlingP", "NSLayoutConstraint"]
 - ["So26NSExtensionRequestHandlingP", "NSMutableAttributedString"]
 - ["So26NSExtensionRequestHandlingP", "UIButton"]
 - ["So26NSExtensionRequestHandlingP", "UIColor"]
 - ["So26NSExtensionRequestHandlingP", "UIFont"]
+- ["So26NSExtensionRequestHandlingP", "UIImage"]
 - ["So26NSExtensionRequestHandlingP", "UIImageView"]
 - ["So26NSExtensionRequestHandlingP", "UIPageControl"]
 - !private ["So26NSExtensionRequestHandlingP", "UIStackView"]
@@ -641,6 +648,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "setupLayout"]
 - !private ["So26NSExtensionRequestHandlingP", "view"]
 - !private ["So26NSExtensionRequestHandlingP", "viewDidLoad"]
+- !private ["So21NSItemProviderReadingP", "Key"]
 - ["So21NSItemProviderReadingP", "append"]
 - ["So21NSItemProviderReadingP", "black"]
 - ["So21NSItemProviderReadingP", "gray"]
@@ -648,6 +656,7 @@ depends-member:
 - ["So21NSItemProviderReadingP", "lightGray"]
 - ["So21NSItemProviderReadingP", "red"]
 - ["So21NSItemProviderReadingP", "white"]
+- !private ["So21NSItemProviderWritingP", "Key"]
 - ["So21NSItemProviderWritingP", "append"]
 - ["So21NSItemProviderWritingP", "black"]
 - ["So21NSItemProviderWritingP", "gray"]
@@ -663,18 +672,20 @@ depends-member:
 - !private ["So19NSLayoutYAxisAnchorC", "constraint"]
 - ["So25NSMutableAttributedStringC", "append"]
 - ["So25NSMutableAttributedStringC", "init"]
+- !private ["So16NSMutableCopyingP", "Key"]
 - ["So16NSMutableCopyingP", "append"]
 - ["So16NSMutableCopyingP", "init"]
 - !private ["So8NSObjectC", "CreateProfileViewController"]
 - !private ["So8NSObjectC", "DiveIn"]
 - !private ["So8NSObjectC", "ExploreViewController"]
+- !private ["So8NSObjectC", "Key"]
 - ["So8NSObjectC", "NSAttributedString"]
-- ["So8NSObjectC", "NSAttributedStringKey"]
 - !private ["So8NSObjectC", "NSLayoutConstraint"]
 - ["So8NSObjectC", "NSMutableAttributedString"]
 - ["So8NSObjectC", "UIButton"]
 - ["So8NSObjectC", "UIColor"]
 - ["So8NSObjectC", "UIFont"]
+- ["So8NSObjectC", "UIImage"]
 - ["So8NSObjectC", "UIImageView"]
 - ["So8NSObjectC", "UIPageControl"]
 - !private ["So8NSObjectC", "UIStackView"]
@@ -743,13 +754,14 @@ depends-member:
 - !private ["So8NSObjectP", "CreateProfileViewController"]
 - !private ["So8NSObjectP", "DiveIn"]
 - !private ["So8NSObjectP", "ExploreViewController"]
+- !private ["So8NSObjectP", "Key"]
 - ["So8NSObjectP", "NSAttributedString"]
-- ["So8NSObjectP", "NSAttributedStringKey"]
 - !private ["So8NSObjectP", "NSLayoutConstraint"]
 - ["So8NSObjectP", "NSMutableAttributedString"]
 - ["So8NSObjectP", "UIButton"]
 - ["So8NSObjectP", "UIColor"]
 - ["So8NSObjectP", "UIFont"]
+- ["So8NSObjectP", "UIImage"]
 - ["So8NSObjectP", "UIImageView"]
 - ["So8NSObjectP", "UIPageControl"]
 - !private ["So8NSObjectP", "UIStackView"]
@@ -812,6 +824,7 @@ depends-member:
 - !private ["So8NSObjectP", "view"]
 - !private ["So8NSObjectP", "viewDidLoad"]
 - ["So8NSObjectP", "white"]
+- !private ["So14NSSecureCodingP", "Key"]
 - ["So14NSSecureCodingP", "append"]
 - ["So14NSSecureCodingP", "black"]
 - ["So14NSSecureCodingP", "cornerRadius"]
@@ -935,12 +948,12 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "DiveIn"]
 - !private ["So21UIAppearanceContainerP", "ExploreViewController"]
 - ["So21UIAppearanceContainerP", "NSAttributedString"]
-- ["So21UIAppearanceContainerP", "NSAttributedStringKey"]
 - !private ["So21UIAppearanceContainerP", "NSLayoutConstraint"]
 - ["So21UIAppearanceContainerP", "NSMutableAttributedString"]
 - ["So21UIAppearanceContainerP", "UIButton"]
 - ["So21UIAppearanceContainerP", "UIColor"]
 - ["So21UIAppearanceContainerP", "UIFont"]
+- ["So21UIAppearanceContainerP", "UIImage"]
 - ["So21UIAppearanceContainerP", "UIImageView"]
 - ["So21UIAppearanceContainerP", "UIPageControl"]
 - !private ["So21UIAppearanceContainerP", "UIStackView"]
@@ -1009,12 +1022,12 @@ depends-member:
 - !private ["So18UIContentContainerP", "DiveIn"]
 - !private ["So18UIContentContainerP", "ExploreViewController"]
 - ["So18UIContentContainerP", "NSAttributedString"]
-- ["So18UIContentContainerP", "NSAttributedStringKey"]
 - !private ["So18UIContentContainerP", "NSLayoutConstraint"]
 - ["So18UIContentContainerP", "NSMutableAttributedString"]
 - ["So18UIContentContainerP", "UIButton"]
 - ["So18UIContentContainerP", "UIColor"]
 - ["So18UIContentContainerP", "UIFont"]
+- ["So18UIContentContainerP", "UIImage"]
 - ["So18UIContentContainerP", "UIImageView"]
 - ["So18UIContentContainerP", "UIPageControl"]
 - !private ["So18UIContentContainerP", "UIStackView"]
@@ -1124,12 +1137,12 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "DiveIn"]
 - !private ["So18UIFocusEnvironmentP", "ExploreViewController"]
 - ["So18UIFocusEnvironmentP", "NSAttributedString"]
-- ["So18UIFocusEnvironmentP", "NSAttributedStringKey"]
 - !private ["So18UIFocusEnvironmentP", "NSLayoutConstraint"]
 - ["So18UIFocusEnvironmentP", "NSMutableAttributedString"]
 - ["So18UIFocusEnvironmentP", "UIButton"]
 - ["So18UIFocusEnvironmentP", "UIColor"]
 - ["So18UIFocusEnvironmentP", "UIFont"]
+- ["So18UIFocusEnvironmentP", "UIImage"]
 - ["So18UIFocusEnvironmentP", "UIImageView"]
 - ["So18UIFocusEnvironmentP", "UIPageControl"]
 - !private ["So18UIFocusEnvironmentP", "UIStackView"]
@@ -1253,12 +1266,14 @@ depends-member:
 - ["So30UIFocusItemScrollableContainerP", "translatesAutoresizingMaskIntoConstraints"]
 - ["So6UIFontC", "boldSystemFont"]
 - ["So6UIFontC", "systemFont"]
+- ["So7UIImageC", "init"]
 - !private ["So11UIImageViewC", "centerXAnchor"]
 - !private ["So11UIImageViewC", "centerYAnchor"]
 - ["So11UIImageViewC", "contentMode"]
 - !private ["So11UIImageViewC", "heightAnchor"]
 - ["So11UIImageViewC", "init"]
 - ["So11UIImageViewC", "translatesAutoresizingMaskIntoConstraints"]
+- ["So39UIItemProviderPresentationSizeProvidingP", "init"]
 - ["So10UIKeyInputP", "attributedText"]
 - !private ["So10UIKeyInputP", "backgroundColor"]
 - !private ["So10UIKeyInputP", "bottomAnchor"]
@@ -1283,12 +1298,12 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "DiveIn"]
 - !private ["So30UIPasteConfigurationSupportingP", "ExploreViewController"]
 - ["So30UIPasteConfigurationSupportingP", "NSAttributedString"]
-- ["So30UIPasteConfigurationSupportingP", "NSAttributedStringKey"]
 - !private ["So30UIPasteConfigurationSupportingP", "NSLayoutConstraint"]
 - ["So30UIPasteConfigurationSupportingP", "NSMutableAttributedString"]
 - ["So30UIPasteConfigurationSupportingP", "UIButton"]
 - ["So30UIPasteConfigurationSupportingP", "UIColor"]
 - ["So30UIPasteConfigurationSupportingP", "UIFont"]
+- ["So30UIPasteConfigurationSupportingP", "UIImage"]
 - ["So30UIPasteConfigurationSupportingP", "UIImageView"]
 - ["So30UIPasteConfigurationSupportingP", "UIPageControl"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIStackView"]
@@ -1343,12 +1358,12 @@ depends-member:
 - !private ["So11UIResponderC", "DiveIn"]
 - !private ["So11UIResponderC", "ExploreViewController"]
 - ["So11UIResponderC", "NSAttributedString"]
-- ["So11UIResponderC", "NSAttributedStringKey"]
 - !private ["So11UIResponderC", "NSLayoutConstraint"]
 - ["So11UIResponderC", "NSMutableAttributedString"]
 - ["So11UIResponderC", "UIButton"]
 - ["So11UIResponderC", "UIColor"]
 - ["So11UIResponderC", "UIFont"]
+- ["So11UIResponderC", "UIImage"]
 - ["So11UIResponderC", "UIImageView"]
 - ["So11UIResponderC", "UIPageControl"]
 - !private ["So11UIResponderC", "UIStackView"]
@@ -1406,12 +1421,12 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "DiveIn"]
 - !private ["So30UIResponderStandardEditActionsP", "ExploreViewController"]
 - ["So30UIResponderStandardEditActionsP", "NSAttributedString"]
-- ["So30UIResponderStandardEditActionsP", "NSAttributedStringKey"]
 - !private ["So30UIResponderStandardEditActionsP", "NSLayoutConstraint"]
 - ["So30UIResponderStandardEditActionsP", "NSMutableAttributedString"]
 - ["So30UIResponderStandardEditActionsP", "UIButton"]
 - ["So30UIResponderStandardEditActionsP", "UIColor"]
 - ["So30UIResponderStandardEditActionsP", "UIFont"]
+- ["So30UIResponderStandardEditActionsP", "UIImage"]
 - ["So30UIResponderStandardEditActionsP", "UIImageView"]
 - ["So30UIResponderStandardEditActionsP", "UIPageControl"]
 - !private ["So30UIResponderStandardEditActionsP", "UIStackView"]
@@ -1492,12 +1507,12 @@ depends-member:
 - !private ["So16UIStateRestoringP", "DiveIn"]
 - !private ["So16UIStateRestoringP", "ExploreViewController"]
 - ["So16UIStateRestoringP", "NSAttributedString"]
-- ["So16UIStateRestoringP", "NSAttributedStringKey"]
 - !private ["So16UIStateRestoringP", "NSLayoutConstraint"]
 - ["So16UIStateRestoringP", "NSMutableAttributedString"]
 - ["So16UIStateRestoringP", "UIButton"]
 - ["So16UIStateRestoringP", "UIColor"]
 - ["So16UIStateRestoringP", "UIFont"]
+- ["So16UIStateRestoringP", "UIImage"]
 - ["So16UIStateRestoringP", "UIImageView"]
 - ["So16UIStateRestoringP", "UIPageControl"]
 - !private ["So16UIStateRestoringP", "UIStackView"]
@@ -1589,12 +1604,12 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "DiveIn"]
 - !private ["So18UITraitEnvironmentP", "ExploreViewController"]
 - ["So18UITraitEnvironmentP", "NSAttributedString"]
-- ["So18UITraitEnvironmentP", "NSAttributedStringKey"]
 - !private ["So18UITraitEnvironmentP", "NSLayoutConstraint"]
 - ["So18UITraitEnvironmentP", "NSMutableAttributedString"]
 - ["So18UITraitEnvironmentP", "UIButton"]
 - ["So18UITraitEnvironmentP", "UIColor"]
 - ["So18UITraitEnvironmentP", "UIFont"]
+- ["So18UITraitEnvironmentP", "UIImage"]
 - ["So18UITraitEnvironmentP", "UIImageView"]
 - ["So18UITraitEnvironmentP", "UIPageControl"]
 - !private ["So18UITraitEnvironmentP", "UIStackView"]
@@ -1649,12 +1664,12 @@ depends-member:
 - !private ["So23UIUserActivityRestoringP", "DiveIn"]
 - !private ["So23UIUserActivityRestoringP", "ExploreViewController"]
 - ["So23UIUserActivityRestoringP", "NSAttributedString"]
-- ["So23UIUserActivityRestoringP", "NSAttributedStringKey"]
 - !private ["So23UIUserActivityRestoringP", "NSLayoutConstraint"]
 - ["So23UIUserActivityRestoringP", "NSMutableAttributedString"]
 - ["So23UIUserActivityRestoringP", "UIButton"]
 - ["So23UIUserActivityRestoringP", "UIColor"]
 - ["So23UIUserActivityRestoringP", "UIFont"]
+- ["So23UIUserActivityRestoringP", "UIImage"]
 - ["So23UIUserActivityRestoringP", "UIImageView"]
 - ["So23UIUserActivityRestoringP", "UIPageControl"]
 - !private ["So23UIUserActivityRestoringP", "UIStackView"]
@@ -1739,12 +1754,12 @@ depends-member:
 - !private ["So16UIViewControllerC", "DiveIn"]
 - !private ["So16UIViewControllerC", "ExploreViewController"]
 - ["So16UIViewControllerC", "NSAttributedString"]
-- ["So16UIViewControllerC", "NSAttributedStringKey"]
 - !private ["So16UIViewControllerC", "NSLayoutConstraint"]
 - ["So16UIViewControllerC", "NSMutableAttributedString"]
 - ["So16UIViewControllerC", "UIButton"]
 - ["So16UIViewControllerC", "UIColor"]
 - ["So16UIViewControllerC", "UIFont"]
+- ["So16UIViewControllerC", "UIImage"]
 - ["So16UIViewControllerC", "UIImageView"]
 - ["So16UIViewControllerC", "UIPageControl"]
 - !private ["So16UIViewControllerC", "UIStackView"]
@@ -1774,12 +1789,12 @@ depends-member:
 - !private ["4Pulp14ViewControllerC", "DiveIn"]
 - !private ["4Pulp14ViewControllerC", "ExploreViewController"]
 - ["4Pulp14ViewControllerC", "NSAttributedString"]
-- ["4Pulp14ViewControllerC", "NSAttributedStringKey"]
 - !private ["4Pulp14ViewControllerC", "NSLayoutConstraint"]
 - ["4Pulp14ViewControllerC", "NSMutableAttributedString"]
 - ["4Pulp14ViewControllerC", "UIButton"]
 - ["4Pulp14ViewControllerC", "UIColor"]
 - ["4Pulp14ViewControllerC", "UIFont"]
+- ["4Pulp14ViewControllerC", "UIImage"]
 - ["4Pulp14ViewControllerC", "UIImageView"]
 - ["4Pulp14ViewControllerC", "UIPageControl"]
 - !private ["4Pulp14ViewControllerC", "UIStackView"]
@@ -1848,6 +1863,7 @@ depends-member:
 - ["s26_ExpressibleByColorLiteralP", "lightGray"]
 - ["s26_ExpressibleByColorLiteralP", "red"]
 - ["s26_ExpressibleByColorLiteralP", "white"]
+- ["s26_ExpressibleByImageLiteralP", "init"]
 - ["s33_ExpressibleByStringInterpolationP", "init"]
 - ["s33_ExpressibleByStringInterpolationP", "init"]
 - ["s35_HasCustomAnyHashableRepresentationP", "font"]
@@ -1855,13 +1871,14 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateProfileViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DiveIn"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "ExploreViewController"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Key"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "NSAttributedString"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "NSAttributedStringKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "NSLayoutConstraint"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "NSMutableAttributedString"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIButton"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIFont"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "UIImage"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIImageView"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIPageControl"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIStackView"]
@@ -2020,7 +2037,9 @@ depends-nominal:
 - "So20UIFocusItemContainerP"
 - "So30UIFocusItemScrollableContainerP"
 - "So6UIFontC"
+- "So7UIImageC"
 - "So11UIImageViewC"
+- "So39UIItemProviderPresentationSizeProvidingP"
 - "So10UIKeyInputP"
 - "So7UILabelC"
 - !private "So13UILayoutGuideC"
@@ -2049,6 +2068,7 @@ depends-nominal:
 - "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - "s26_ExpressibleByColorLiteralP"
+- "s26_ExpressibleByImageLiteralP"
 - "s33_ExpressibleByStringInterpolationP"
 - "s35_HasCustomAnyHashableRepresentationP"
 - "10Foundation27_KeyValueCodingAndObservingP"
@@ -2064,11 +2084,13 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
@@ -2076,9 +2098,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "19b4198e31afdd16a45f30eead6eaebf"
+interface-hash: "0a6a126985c94ea7eff917aef9a303d5"

@@ -35,6 +35,35 @@
 			<key>uniqueIdentifier</key>
 			<string>75ABA5C0-6B8C-4B3B-A802-D03C8340F3BA</string>
 		</dict>
+		<key>B711FF40-C42C-4AAC-8EAF-BF0F60C61472</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B711FF40-C42C-4AAC-8EAF-BF0F60C61472.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>E</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580076227.74620104</real>
+			<key>timeStoppedRecording</key>
+			<real>580076228.53359401</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>B711FF40-C42C-4AAC-8EAF-BF0F60C61472</string>
+		</dict>
 		<key>DA58BF03-73AD-4540-99C1-0C34788014D8</key>
 		<dict>
 			<key>className</key>

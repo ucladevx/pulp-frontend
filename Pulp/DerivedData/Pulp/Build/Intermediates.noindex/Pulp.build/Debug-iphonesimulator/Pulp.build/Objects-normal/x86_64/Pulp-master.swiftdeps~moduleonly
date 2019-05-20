@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "32ad342ef48235d489200cbe3902dfd0"
-build_time: [1558383256, 814113000]
+build_time: [1558383427, 810282000]
 inputs:
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ExploreResults.swift": !dirty [1557202940, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ViewController.swift": !dirty [1557825463, 0]

@@ -67,8 +67,8 @@ class SpotsMapView: UIViewController, CLLocationManagerDelegate {
         mapView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
         mapView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
         mapView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        mapView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        mapView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        mapView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
 }

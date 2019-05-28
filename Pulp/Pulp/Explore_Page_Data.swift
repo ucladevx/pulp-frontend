@@ -28,5 +28,5 @@ Review(imageName: "1", text: "The canals themselves offer great reflections of t
 ]
 
 var FBFriendsData: [FBFriend] = [
-FBFriend(imageName: <#T##String?#>), 
+FBFriend(imageName: "4"), FBFriend(imageName:"3" ), FBFriend(imageName: "Profile Photo"), FBFriend(imageName: "1")
 ]

@@ -18,7 +18,7 @@ depends-top-level:
 - "AssignmentPrecedence"
 - "Bool"
 - !private "BooleanLiteralType"
-- !private "LogInController"
+- !private "DiveIn"
 - !private "SDKApplicationDelegate"
 - "UIApplication"
 - "UIApplicationDelegate"
@@ -28,7 +28,7 @@ depends-top-level:
 - "URL"
 depends-member:
 - ["4Pulp11AppDelegateC", "Bool"]
-- !private ["4Pulp11AppDelegateC", "LogInController"]
+- !private ["4Pulp11AppDelegateC", "DiveIn"]
 - !private ["4Pulp11AppDelegateC", "SDKApplicationDelegate"]
 - ["4Pulp11AppDelegateC", "UIApplication"]
 - !private ["4Pulp11AppDelegateC", "UIScreen"]
@@ -52,8 +52,8 @@ depends-member:
 - !private ["So15CALayerDelegateP", "init"]
 - !private ["So15CALayerDelegateP", "makeKeyAndVisible"]
 - !private ["So15CALayerDelegateP", "rootViewController"]
+- !private ["s7CVarArgP", "DiveIn"]
 - ["s7CVarArgP", "LaunchOptionsKey"]
-- !private ["s7CVarArgP", "LogInController"]
 - ["s7CVarArgP", "OpenURLOptionsKey"]
 - !private ["s7CVarArgP", "SDKApplicationDelegate"]
 - !private ["s7CVarArgP", "UIScreen"]
@@ -78,8 +78,11 @@ depends-member:
 - !private ["s7CVarArgP", "makeKeyAndVisible"]
 - !private ["s7CVarArgP", "rootViewController"]
 - ["s7CVarArgP", "window"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "init"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "makeKeyAndVisible"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "rootViewController"]
+- !private ["s28CustomDebugStringConvertibleP", "DiveIn"]
 - ["s28CustomDebugStringConvertibleP", "LaunchOptionsKey"]
-- !private ["s28CustomDebugStringConvertibleP", "LogInController"]
 - ["s28CustomDebugStringConvertibleP", "OpenURLOptionsKey"]
 - !private ["s28CustomDebugStringConvertibleP", "SDKApplicationDelegate"]
 - !private ["s28CustomDebugStringConvertibleP", "UIScreen"]
@@ -104,8 +107,8 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "makeKeyAndVisible"]
 - !private ["s28CustomDebugStringConvertibleP", "rootViewController"]
 - ["s28CustomDebugStringConvertibleP", "window"]
+- !private ["s23CustomStringConvertibleP", "DiveIn"]
 - ["s23CustomStringConvertibleP", "LaunchOptionsKey"]
-- !private ["s23CustomStringConvertibleP", "LogInController"]
 - ["s23CustomStringConvertibleP", "OpenURLOptionsKey"]
 - !private ["s23CustomStringConvertibleP", "SDKApplicationDelegate"]
 - !private ["s23CustomStringConvertibleP", "UIScreen"]
@@ -130,8 +133,10 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "makeKeyAndVisible"]
 - !private ["s23CustomStringConvertibleP", "rootViewController"]
 - ["s23CustomStringConvertibleP", "window"]
+- !private ["4Pulp6DiveInC", "deinit"]
+- !private ["4Pulp6DiveInC", "init"]
+- !private ["SQ", "DiveIn"]
 - ["SQ", "LaunchOptionsKey"]
-- !private ["SQ", "LogInController"]
 - ["SQ", "OpenURLOptionsKey"]
 - !private ["SQ", "SDKApplicationDelegate"]
 - !private ["SQ", "UIScreen"]
@@ -156,8 +161,8 @@ depends-member:
 - !private ["SQ", "makeKeyAndVisible"]
 - !private ["SQ", "rootViewController"]
 - ["SQ", "window"]
+- !private ["SH", "DiveIn"]
 - ["SH", "LaunchOptionsKey"]
-- !private ["SH", "LogInController"]
 - ["SH", "OpenURLOptionsKey"]
 - !private ["SH", "SDKApplicationDelegate"]
 - !private ["SH", "UIScreen"]
@@ -182,13 +187,16 @@ depends-member:
 - !private ["SH", "makeKeyAndVisible"]
 - !private ["SH", "rootViewController"]
 - ["SH", "window"]
-- !private ["4Pulp15LogInControllerC", "init"]
+- !private ["7SnapKit20LayoutConstraintItemP", "init"]
+- !private ["7SnapKit20LayoutConstraintItemP", "makeKeyAndVisible"]
+- !private ["7SnapKit20LayoutConstraintItemP", "rootViewController"]
 - !private ["So8NSCodingP", "init"]
 - !private ["So8NSCodingP", "makeKeyAndVisible"]
 - !private ["So8NSCodingP", "rootViewController"]
+- !private ["So26NSExtensionRequestHandlingP", "init"]
 - ["So8NSObjectC", "Bool"]
+- !private ["So8NSObjectC", "DiveIn"]
 - ["So8NSObjectC", "LaunchOptionsKey"]
-- !private ["So8NSObjectC", "LogInController"]
 - ["So8NSObjectC", "OpenURLOptionsKey"]
 - !private ["So8NSObjectC", "SDKApplicationDelegate"]
 - ["So8NSObjectC", "UIApplication"]
@@ -214,8 +222,8 @@ depends-member:
 - !private ["So8NSObjectC", "makeKeyAndVisible"]
 - !private ["So8NSObjectC", "rootViewController"]
 - ["So8NSObjectC", "window"]
+- !private ["So8NSObjectP", "DiveIn"]
 - ["So8NSObjectP", "LaunchOptionsKey"]
-- !private ["So8NSObjectP", "LogInController"]
 - ["So8NSObjectP", "OpenURLOptionsKey"]
 - !private ["So8NSObjectP", "SDKApplicationDelegate"]
 - !private ["So8NSObjectP", "UIScreen"]
@@ -240,6 +248,8 @@ depends-member:
 - !private ["So8NSObjectP", "makeKeyAndVisible"]
 - !private ["So8NSObjectP", "rootViewController"]
 - ["So8NSObjectP", "window"]
+- !private ["12FacebookCore22SDKApplicationDelegateC", "application"]
+- !private ["12FacebookCore22SDKApplicationDelegateC", "shared"]
 - !private ["So29UIAccessibilityIdentificationP", "init"]
 - !private ["So29UIAccessibilityIdentificationP", "makeKeyAndVisible"]
 - !private ["So29UIAccessibilityIdentificationP", "rootViewController"]
@@ -251,7 +261,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "rootViewController"]
 - ["So13UIApplicationC", "LaunchOptionsKey"]
 - ["So13UIApplicationC", "OpenURLOptionsKey"]
-- !private ["So21UIApplicationDelegateP", "LogInController"]
+- !private ["So21UIApplicationDelegateP", "DiveIn"]
 - !private ["So21UIApplicationDelegateP", "SDKApplicationDelegate"]
 - !private ["So21UIApplicationDelegateP", "UIScreen"]
 - !private ["So21UIApplicationDelegateP", "UIWindow"]
@@ -269,6 +279,7 @@ depends-member:
 - ["So21UIApplicationDelegateP", "applicationWillResignActive"]
 - ["So21UIApplicationDelegateP", "applicationWillTerminate"]
 - ["So21UIApplicationDelegateP", "window"]
+- !private ["So18UIContentContainerP", "init"]
 - !private ["So17UICoordinateSpaceP", "init"]
 - !private ["So17UICoordinateSpaceP", "makeKeyAndVisible"]
 - !private ["So17UICoordinateSpaceP", "rootViewController"]
@@ -284,8 +295,8 @@ depends-member:
 - !private ["So20UIFocusItemContainerP", "init"]
 - !private ["So20UIFocusItemContainerP", "makeKeyAndVisible"]
 - !private ["So20UIFocusItemContainerP", "rootViewController"]
+- !private ["So30UIPasteConfigurationSupportingP", "DiveIn"]
 - ["So30UIPasteConfigurationSupportingP", "LaunchOptionsKey"]
-- !private ["So30UIPasteConfigurationSupportingP", "LogInController"]
 - ["So30UIPasteConfigurationSupportingP", "OpenURLOptionsKey"]
 - !private ["So30UIPasteConfigurationSupportingP", "SDKApplicationDelegate"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIScreen"]
@@ -309,8 +320,8 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "rootViewController"]
 - ["So30UIPasteConfigurationSupportingP", "window"]
 - ["So11UIResponderC", "Bool"]
+- !private ["So11UIResponderC", "DiveIn"]
 - ["So11UIResponderC", "LaunchOptionsKey"]
-- !private ["So11UIResponderC", "LogInController"]
 - ["So11UIResponderC", "OpenURLOptionsKey"]
 - !private ["So11UIResponderC", "SDKApplicationDelegate"]
 - ["So11UIResponderC", "UIApplication"]
@@ -335,8 +346,8 @@ depends-member:
 - !private ["So11UIResponderC", "makeKeyAndVisible"]
 - !private ["So11UIResponderC", "rootViewController"]
 - ["So11UIResponderC", "window"]
+- !private ["So30UIResponderStandardEditActionsP", "DiveIn"]
 - ["So30UIResponderStandardEditActionsP", "LaunchOptionsKey"]
-- !private ["So30UIResponderStandardEditActionsP", "LogInController"]
 - ["So30UIResponderStandardEditActionsP", "OpenURLOptionsKey"]
 - !private ["So30UIResponderStandardEditActionsP", "SDKApplicationDelegate"]
 - !private ["So30UIResponderStandardEditActionsP", "UIScreen"]
@@ -361,13 +372,14 @@ depends-member:
 - ["So30UIResponderStandardEditActionsP", "window"]
 - !private ["So8UIScreenC", "bounds"]
 - !private ["So8UIScreenC", "main"]
+- !private ["So16UIStateRestoringP", "init"]
 - !private ["So18UITraitEnvironmentP", "bounds"]
 - !private ["So18UITraitEnvironmentP", "init"]
 - !private ["So18UITraitEnvironmentP", "main"]
 - !private ["So18UITraitEnvironmentP", "makeKeyAndVisible"]
 - !private ["So18UITraitEnvironmentP", "rootViewController"]
+- !private ["So23UIUserActivityRestoringP", "DiveIn"]
 - ["So23UIUserActivityRestoringP", "LaunchOptionsKey"]
-- !private ["So23UIUserActivityRestoringP", "LogInController"]
 - ["So23UIUserActivityRestoringP", "OpenURLOptionsKey"]
 - !private ["So23UIUserActivityRestoringP", "SDKApplicationDelegate"]
 - !private ["So23UIUserActivityRestoringP", "UIScreen"]
@@ -393,14 +405,15 @@ depends-member:
 - !private ["So6UIViewC", "init"]
 - !private ["So6UIViewC", "makeKeyAndVisible"]
 - !private ["So6UIViewC", "rootViewController"]
+- !private ["So16UIViewControllerC", "init"]
 - !private ["So8UIWindowC", "init"]
 - !private ["So8UIWindowC", "makeKeyAndVisible"]
 - !private ["So8UIWindowC", "rootViewController"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "init"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "makeKeyAndVisible"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "rootViewController"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DiveIn"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "LaunchOptionsKey"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "LogInController"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "OpenURLOptionsKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "SDKApplicationDelegate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIScreen"]
@@ -429,19 +442,24 @@ depends-nominal:
 - "4Pulp11AppDelegateC"
 - !private "So15CALayerDelegateP"
 - "s7CVarArgP"
+- !private "7SnapKit25ConstraintRelatableTargetP"
 - "s28CustomDebugStringConvertibleP"
 - "s23CustomStringConvertibleP"
+- !private "4Pulp6DiveInC"
 - "SQ"
 - "SH"
-- !private "4Pulp15LogInControllerC"
+- !private "7SnapKit20LayoutConstraintItemP"
 - !private "So8NSCodingP"
+- !private "So26NSExtensionRequestHandlingP"
 - "So8NSObjectC"
 - "So8NSObjectP"
+- !private "12FacebookCore22SDKApplicationDelegateC"
 - !private "So29UIAccessibilityIdentificationP"
 - !private "So12UIAppearanceP"
 - !private "So21UIAppearanceContainerP"
 - "So13UIApplicationC"
 - "So21UIApplicationDelegateP"
+- !private "So18UIContentContainerP"
 - !private "So17UICoordinateSpaceP"
 - !private "So13UIDynamicItemP"
 - !private "So18UIFocusEnvironmentP"
@@ -451,15 +469,20 @@ depends-nominal:
 - "So11UIResponderC"
 - "So30UIResponderStandardEditActionsP"
 - !private "So8UIScreenC"
+- !private "So16UIStateRestoringP"
 - !private "So18UITraitEnvironmentP"
 - "So23UIUserActivityRestoringP"
 - !private "So6UIViewC"
+- !private "So16UIViewControllerC"
 - !private "So8UIWindowC"
 - !private "s37_DefaultCustomPlaygroundQuickLookableP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/FacebookCore.swiftmodule/x86_64.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/FacebookLogin.swiftmodule/x86_64.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Modules/SnapKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
@@ -474,6 +497,69 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFURL.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Headers/SnapKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFGeneric.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfile.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUserDataStore.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCopying.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLink.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTask.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKButton.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginButton.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginCodeInfo.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKSettings.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMacros.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKConstants.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginConstants.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Headers/SnapKit-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManagerLoginResult.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginManagerResult.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKTooltipView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginTooltipView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUtility.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -484,6 +570,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/WebKit.framework/Headers/WebKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"

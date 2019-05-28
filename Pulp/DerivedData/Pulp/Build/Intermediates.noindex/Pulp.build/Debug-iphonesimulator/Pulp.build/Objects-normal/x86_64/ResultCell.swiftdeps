@@ -31,6 +31,8 @@ depends-top-level:
 - "_ImageLiteralType"
 - !private "fatalError"
 depends-member:
+- ["12FacebookCore26AppEventParameterValueTypeP", "init"]
+- ["12FacebookCore26AppEventParameterValueTypeP", "init"]
 - ["SK", "init"]
 - ["SK", "init"]
 - !private ["Sz", "init"]
@@ -99,6 +101,39 @@ depends-member:
 - ["Sl", "init"]
 - ["SL", "init"]
 - ["SL", "init"]
+- !private ["7SnapKit24ConstraintConstantTargetP", "init"]
+- !private ["7SnapKit21ConstraintInsetTargetP", "init"]
+- !private ["7SnapKit26ConstraintMultiplierTargetP", "init"]
+- !private ["7SnapKit22ConstraintOffsetTargetP", "init"]
+- !private ["7SnapKit24ConstraintPriorityTargetP", "init"]
+- ["7SnapKit25ConstraintRelatableTargetP", "CellStyle"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "Int"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UIButton"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UIFont"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UIImageView"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UILabel"]
+- ["7SnapKit25ConstraintRelatableTargetP", ""]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "addSubview"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "changeQuantity"]
+- ["7SnapKit25ConstraintRelatableTargetP", "clipsToBounds"]
+- ["7SnapKit25ConstraintRelatableTargetP", "contentMode"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "decreaseButton"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "fatalError"]
+- ["7SnapKit25ConstraintRelatableTargetP", "font"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "image"]
+- ["7SnapKit25ConstraintRelatableTargetP", "imageView"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "increaseButton"]
+- ["7SnapKit25ConstraintRelatableTargetP", "init"]
+- ["7SnapKit25ConstraintRelatableTargetP", "numberOfLines"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "productQuantity"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "result"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "resultDescriptionLabel"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "resultImage"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "resultNameLabel"]
+- ["7SnapKit25ConstraintRelatableTargetP", "setImage"]
+- ["7SnapKit25ConstraintRelatableTargetP", "text"]
+- ["7SnapKit25ConstraintRelatableTargetP", "textAlignment"]
+- ["7SnapKit25ConstraintRelatableTargetP", "textColor"]
 - ["So17UIViewContentModeV", "scaleAspectFill"]
 - ["So17UIViewContentModeV", "scaleAspectFit"]
 - ["s28CustomDebugStringConvertibleP", "CellStyle"]
@@ -260,6 +295,34 @@ depends-member:
 - ["SH", "textAlignment"]
 - ["SH", "textColor"]
 - !private ["Si", "init"]
+- ["7SnapKit20LayoutConstraintItemP", "CellStyle"]
+- !private ["7SnapKit20LayoutConstraintItemP", "Int"]
+- ["7SnapKit20LayoutConstraintItemP", "UIButton"]
+- ["7SnapKit20LayoutConstraintItemP", "UIFont"]
+- ["7SnapKit20LayoutConstraintItemP", "UIImageView"]
+- ["7SnapKit20LayoutConstraintItemP", "UILabel"]
+- ["7SnapKit20LayoutConstraintItemP", ""]
+- !private ["7SnapKit20LayoutConstraintItemP", "addSubview"]
+- !private ["7SnapKit20LayoutConstraintItemP", "changeQuantity"]
+- ["7SnapKit20LayoutConstraintItemP", "clipsToBounds"]
+- ["7SnapKit20LayoutConstraintItemP", "contentMode"]
+- !private ["7SnapKit20LayoutConstraintItemP", "decreaseButton"]
+- !private ["7SnapKit20LayoutConstraintItemP", "fatalError"]
+- ["7SnapKit20LayoutConstraintItemP", "font"]
+- !private ["7SnapKit20LayoutConstraintItemP", "image"]
+- ["7SnapKit20LayoutConstraintItemP", "imageView"]
+- !private ["7SnapKit20LayoutConstraintItemP", "increaseButton"]
+- ["7SnapKit20LayoutConstraintItemP", "init"]
+- ["7SnapKit20LayoutConstraintItemP", "numberOfLines"]
+- !private ["7SnapKit20LayoutConstraintItemP", "productQuantity"]
+- !private ["7SnapKit20LayoutConstraintItemP", "result"]
+- !private ["7SnapKit20LayoutConstraintItemP", "resultDescriptionLabel"]
+- !private ["7SnapKit20LayoutConstraintItemP", "resultImage"]
+- !private ["7SnapKit20LayoutConstraintItemP", "resultNameLabel"]
+- ["7SnapKit20LayoutConstraintItemP", "setImage"]
+- ["7SnapKit20LayoutConstraintItemP", "text"]
+- ["7SnapKit20LayoutConstraintItemP", "textAlignment"]
+- ["7SnapKit20LayoutConstraintItemP", "textColor"]
 - ["s25LosslessStringConvertibleP", "init"]
 - ["s25LosslessStringConvertibleP", "init"]
 - ["s10MirrorPathP", "init"]
@@ -984,6 +1047,7 @@ depends-member:
 - ["s16_SwiftStringViewP", "init"]
 - ["s16_SwiftStringViewP", "init"]
 depends-nominal:
+- "12FacebookCore26AppEventParameterValueTypeP"
 - "SK"
 - !private "Sz"
 - "So12UIButtonTypeV"
@@ -991,6 +1055,12 @@ depends-nominal:
 - "s7CVarArgP"
 - "Sl"
 - "SL"
+- !private "7SnapKit24ConstraintConstantTargetP"
+- !private "7SnapKit21ConstraintInsetTargetP"
+- !private "7SnapKit26ConstraintMultiplierTargetP"
+- !private "7SnapKit22ConstraintOffsetTargetP"
+- !private "7SnapKit24ConstraintPriorityTargetP"
+- "7SnapKit25ConstraintRelatableTargetP"
 - "So17UIViewContentModeV"
 - "s28CustomDebugStringConvertibleP"
 - "s29CustomPlaygroundQuickLookableP"
@@ -1008,6 +1078,7 @@ depends-nominal:
 - !private "s17FixedWidthIntegerP"
 - "SH"
 - !private "Si"
+- "7SnapKit20LayoutConstraintItemP"
 - "s25LosslessStringConvertibleP"
 - "s10MirrorPathP"
 - "So8NSCodingP"
@@ -1077,6 +1148,9 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/FacebookCore.swiftmodule/x86_64.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/FacebookLogin.swiftmodule/x86_64.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Modules/SnapKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
@@ -1091,6 +1165,69 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFURL.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Headers/SnapKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFGeneric.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfile.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUserDataStore.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCopying.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLink.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTask.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKButton.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginButton.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginCodeInfo.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKSettings.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMacros.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKConstants.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginConstants.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Headers/SnapKit-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManagerLoginResult.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginManagerResult.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKTooltipView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginTooltipView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUtility.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -1101,6 +1238,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/WebKit.framework/Headers/WebKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"

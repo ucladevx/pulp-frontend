@@ -11,68 +11,169 @@ import UIKit
 class DiveIn: UIViewController {
     
     let backgroundImageView: UIImageView = {
-        let imageView = UIImageView(image:"Wave_DiveIn")
-        imageView.backgroundColor = .green
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Wave_DiveIn"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     let hikeImageView: UIImageView = {
-        let imageView = UIImageView(image: "Hike")
-        // enable autolayout for profileImage
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Hike"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
+    let hikeButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let hikeLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Hikes"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     let museumImageView: UIImageView = {
-        let imageView = UIImageView(image: "Museum")
-        // enable autolayout for profileImage
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Museum"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    let museumLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Museums"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let museumButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     let festivalImageView: UIImageView = {
-        let imageView = UIImageView(image: "Festival")
-        // enable autolayout for profileImage
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Festival"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    let festivalLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Festivals"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let festivalButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     let thrillImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Thrill"))
-        // enable autolayout for profileImage
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Thrill"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    let thrillLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Thrill"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let thrillButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     let photoImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Photo Op"))
-        // enable autolayout for profileImage
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Photo Op"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    let photoLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Photo Ops"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let photoButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     let animalImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Animal"))
-        // enable autolayout for profileImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    let animalLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Animals"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let animalButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     let landscapeImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Landscape"))
-        // enable autolayout for profileImage
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Landscape"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    let landscapeLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Landscapes"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let landscapeButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     let aquaticImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Aquatic"))
-        // enable autolayout for profileImage
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Aquatic"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
+    }()
+    
+    let aquaticLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Aquatic"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let aquaticButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
     }()
     
     let descriptionView: UILabel = {
@@ -98,17 +199,18 @@ class DiveIn: UIViewController {
         return view
     }()
     
-    let searchBar: UISearchBar = {
-        let searchbar = UISearchBar()
-        searchbar.layer.borderWidth = 0
-        searchbar.layer.borderColor = UIColor.white.cgColor
-        searchbar.searchBarStyle = UISearchBar.Style.minimal
-        var textField = searchbar.value(forKey: "searchField") as? UITextField
-        textField?.backgroundColor = .white
-        searchbar.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        return searchbar
+    let searchBarIcon: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "SearchIcon"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let searchBar: UITextField = {
+        let txtField = UITextField()
+        txtField.placeholder = "Parks, museums, bars, etc."
+        txtField.translatesAutoresizingMaskIntoConstraints = false
+        txtField.textColor = UIColor.gray
+        return txtField
     }()
     
     let zipView: UIView = {
@@ -118,9 +220,48 @@ class DiveIn: UIViewController {
         return view
     }()
     
+    let zipBar: UITextField = {
+        let txtField = UITextField()
+        txtField.placeholder = "Enter zip code"
+        txtField.translatesAutoresizingMaskIntoConstraints = false
+        return txtField
+    }()
+    
+    let zipBarIcon: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "ZipCode"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let currentLocationView:UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let currentLocationButton: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Use my current location", for: .normal)
+        btn.setTitleColor(UIColor.white, for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let currentLocationIcon: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "LocationIcon"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let searchButton: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Search", for: .normal)
+        btn.setTitleColor(UIColor.gray, for: .normal)
+        return btn
+    }()
+    
     let topView: UIView = {
         let view = UIView()
-        view.backgroundColor = .yellow
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -212,16 +353,13 @@ class DiveIn: UIViewController {
         topView.topAnchor.constraint(equalTo:view.topAnchor, constant:view.frame.height/10).isActive = true
         topView.leftAnchor.constraint(equalTo:view.leftAnchor, constant:view.frame.width/8).isActive = true
         topView.rightAnchor.constraint(equalTo:view.rightAnchor, constant:-view.frame.width/8).isActive = true
-        topView.heightAnchor.constraint(equalToConstant:view.frame.height/3).isActive = true
-        topView.backgroundColor = .brown
+        topView.heightAnchor.constraint(equalToConstant:view.frame.height/2.5).isActive = true
         
         descriptionView.topAnchor.constraint(equalTo:topView.topAnchor).isActive = true
         descriptionView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
         descriptionView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
-        descriptionView.backgroundColor = .gray
         descriptionView.font = UIFont(name: "Avenir-Black", size: view.frame.height/23)
-
-
+        
         subheadingView.topAnchor.constraint(equalTo:descriptionView.bottomAnchor).isActive = true
         subheadingView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
         subheadingView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
@@ -233,43 +371,59 @@ class DiveIn: UIViewController {
         searchBarView.heightAnchor.constraint(equalToConstant: view.frame.height/20).isActive = true
         searchBarView.layer.cornerRadius = view.frame.width/40
         
+        searchBarView.addSubview(searchBar)
         searchBar.centerXAnchor.constraint(equalTo:searchBarView.centerXAnchor).isActive = true
         searchBar.centerYAnchor.constraint(equalTo:searchBarView.centerYAnchor).isActive = true
-        searchBar.leftAnchor.constraint(equalTo:searchBarView.leftAnchor).isActive = true
-        searchBar.rightAnchor.constraint(equalTo:searchBarView.rightAnchor).isActive = true
-        searchBar.heightAnchor.constraint(equalToConstant: view.frame.height/10).isActive = true
+        searchBar.leftAnchor.constraint(equalTo:searchBarView.leftAnchor, constant:view.frame.width/13).isActive = true
+        searchBar.rightAnchor.constraint(equalTo:searchBarView.rightAnchor, constant:-5).isActive = true
+        searchBar.heightAnchor.constraint(equalToConstant: view.frame.height/25).isActive = true
+        searchBar.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
         
+        searchBarView.addSubview(searchBarIcon)
+        searchBarIcon.leftAnchor.constraint(equalTo:searchBarView.leftAnchor, constant:5).isActive = true
+        searchBarIcon.centerYAnchor.constraint(equalTo:searchBarView.centerYAnchor).isActive = true
+
         zipView.topAnchor.constraint(equalTo:searchBarView.bottomAnchor, constant:view.frame.height/40).isActive = true
         zipView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
         zipView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
         zipView.heightAnchor.constraint(equalToConstant: view.frame.height/20).isActive = true
         zipView.layer.cornerRadius = view.frame.width/40
-
-
-        /*
-        let topContainerView = UIView()
-        view.addSubview(topContainerView)
-        topContainerView.translatesAutoresizingMaskIntoConstraints = false
-        topContainerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        topContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        topContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        topContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
         
-        topContainerView.addSubview(descriptionView)
-        descriptionView.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor).isActive = true
-        descriptionView.centerYAnchor.constraint(equalTo: topContainerView.centerYAnchor).isActive = true
-        descriptionView.heightAnchor.constraint(equalTo: topContainerView.heightAnchor, multiplier: 0.5).isActive = true
+        zipView.addSubview(zipBar)
+        zipBar.centerXAnchor.constraint(equalTo:zipView.centerXAnchor).isActive = true
+        zipBar.centerYAnchor.constraint(equalTo:zipView.centerYAnchor).isActive = true
+        zipBar.leftAnchor.constraint(equalTo:zipView.leftAnchor, constant:view.frame.width/13).isActive = true
+        zipBar.rightAnchor.constraint(equalTo:zipView.rightAnchor, constant:-5).isActive = true
+        zipBar.heightAnchor.constraint(equalToConstant: view.frame.height/25).isActive = true
+        zipBar.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
         
-        let searchController = UISearchController(searchResultsController: nil)
-        let topConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 500)
-        let leftConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: topContainerView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 0)
-        let rightConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: topContainerView, attribute: NSLayoutAttribute.right, multiplier: 1, constant: 0)
-        let heightConstraint = NSLayoutConstraint(item: searchController.searchBar, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 44)
+        zipView.addSubview(zipBarIcon)
+        zipBarIcon.leftAnchor.constraint(equalTo:zipView.leftAnchor, constant:5).isActive = true
+        zipBarIcon.centerYAnchor.constraint(equalTo:zipView.centerYAnchor).isActive = true
+        
+        topView.addSubview(searchButton)
+        searchButton.layer.cornerRadius = 10
+        searchButton.titleEdgeInsets.left = 10
+        searchButton.titleEdgeInsets.right = 10
+        searchButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: view.frame.width/5, height: 30)
+        searchButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+        searchButton.backgroundColor = .white
+        
+        topView.addSubview(currentLocationView)
+        currentLocationView.topAnchor.constraint(equalTo:zipView.bottomAnchor, constant:5).isActive = true
+        currentLocationView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
+        currentLocationView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
+        currentLocationView.heightAnchor.constraint(equalToConstant: view.frame.height/25).isActive = true
 
-        searchController.searchBar.addConstraint(heightConstraint)
-        self.view.addSubview(searchController.searchBar)
-        self.view.addConstraints([topConstraint, leftConstraint, rightConstraint])
- */
+        currentLocationView.addSubview(currentLocationButton)
+        currentLocationButton.centerYAnchor.constraint(equalTo:currentLocationView.centerYAnchor).isActive = true
+        currentLocationButton.heightAnchor.constraint(equalToConstant:view.frame.height/30).isActive = true
+        currentLocationButton.leftAnchor.constraint(equalTo:currentLocationView.leftAnchor, constant:view.frame.width/13).isActive = true
+        currentLocationButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+
+        currentLocationView.addSubview(currentLocationIcon)
+        currentLocationIcon.leftAnchor.constraint(equalTo:currentLocationView.leftAnchor, constant:5).isActive = true
+        currentLocationIcon.centerYAnchor.constraint(equalTo:currentLocationView.centerYAnchor).isActive = true
 
         let bottomContainerView = UIView()
         view.addSubview(bottomContainerView)
@@ -278,61 +432,150 @@ class DiveIn: UIViewController {
         bottomContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         bottomContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         bottomContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
-        bottomContainerView.backgroundColor = .orange
         
+        
+        // HIKE BUTTON
         bottomContainerView.addSubview(hikeImageView)
         hikeImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
         hikeImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
-        //hikeImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
-        hikeImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+        hikeImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
         
+        bottomContainerView.addSubview(hikeLabel)
+        hikeLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
+        hikeLabel.topAnchor.constraint(equalTo:hikeImageView.bottomAnchor).isActive = true
+        hikeLabel.font = UIFont(name: "Avenir-Medium", size: view.frame.height/50)
+        
+        bottomContainerView.addSubview(hikeButton)
+        hikeButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
+        hikeButton.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        hikeButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        hikeButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        
+        
+        // MUSEUM BUTTON
         bottomContainerView.addSubview(museumImageView)
         museumImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/9).isActive = true
         museumImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
-        //museumImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
-        museumImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+        museumImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+
+        bottomContainerView.addSubview(museumLabel)
+        museumLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/9).isActive = true
+        museumLabel.topAnchor.constraint(equalTo:museumImageView.bottomAnchor).isActive = true
+        museumLabel.font = UIFont(name: "Avenir-Medium", size: view.frame.height/50)
+        
+        bottomContainerView.addSubview(museumButton)
+        museumButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/9).isActive = true
+        museumButton.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        museumButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        museumButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
 
         
+        // FESTIVAL BUTTON
         bottomContainerView.addSubview(festivalImageView)
         festivalImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/9).isActive = true
         festivalImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
-        //festivalImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
-        festivalImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+        festivalImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
 
+        bottomContainerView.addSubview(festivalLabel)
+        festivalLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/9).isActive = true
+        festivalLabel.topAnchor.constraint(equalTo:festivalImageView.bottomAnchor).isActive = true
+        festivalLabel.font = UIFont(name: "Avenir-Medium", size: view.frame.height/50)
+
+        bottomContainerView.addSubview(festivalButton)
+        festivalButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/9).isActive = true
+        festivalButton.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        festivalButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        festivalButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
         
+        
+        // THRILL BUTTON
         bottomContainerView.addSubview(thrillImageView)
         thrillImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/3).isActive = true
         thrillImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
-        //thrillImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
-        thrillImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+        thrillImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        
+        bottomContainerView.addSubview(thrillLabel)
+        thrillLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/3).isActive = true
+        thrillLabel.topAnchor.constraint(equalTo:thrillImageView.bottomAnchor).isActive = true
+        thrillLabel.font = UIFont(name: "Avenir-Medium", size: view.frame.height/50)
+
+        bottomContainerView.addSubview(thrillButton)
+        thrillButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/3).isActive = true
+        thrillButton.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        thrillButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        thrillButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
 
         
+        // PHOTO BUTTON
         bottomContainerView.addSubview(photoImageView)
         photoImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
-        photoImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/4.3).isActive = true
-        //photoImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
-        photoImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+        photoImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        photoImageView.topAnchor.constraint(equalTo:hikeLabel.bottomAnchor).isActive = true
+
+        bottomContainerView.addSubview(photoLabel)
+        photoLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
+        photoLabel.topAnchor.constraint(equalTo:photoImageView.bottomAnchor).isActive = true
+        photoLabel.font = UIFont(name: "Avenir-Medium", size: view.frame.height/50)
+        
+        bottomContainerView.addSubview(photoButton)
+        photoButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
+        photoButton.topAnchor.constraint(equalTo:hikeLabel.bottomAnchor).isActive = true
+        photoButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        photoButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
 
         
+        // ANIMAL BUTTON
         bottomContainerView.addSubview(animalImageView)
         animalImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/9).isActive = true
-        animalImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/4.3).isActive = true
-        //animalImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
-        animalImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+        animalImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        animalImageView.topAnchor.constraint(equalTo:museumLabel.bottomAnchor).isActive = true
+
+        bottomContainerView.addSubview(animalLabel)
+        animalLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/9).isActive = true
+        animalLabel.topAnchor.constraint(equalTo:animalImageView.bottomAnchor).isActive = true
+        animalLabel.font = UIFont(name: "Avenir-Medium", size: view.frame.height/50)
+        
+        bottomContainerView.addSubview(animalButton)
+        animalButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/9).isActive = true
+        animalButton.topAnchor.constraint(equalTo:museumLabel.bottomAnchor).isActive = true
+        animalButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        animalButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
 
         
+        // LANDSCAPE BUTTON
         bottomContainerView.addSubview(landscapeImageView)
         landscapeImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/9).isActive = true
-        landscapeImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/4.3).isActive = true
-        //landscapeImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
-        landscapeImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+        landscapeImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        landscapeImageView.topAnchor.constraint(equalTo:festivalLabel.bottomAnchor).isActive = true
 
+        bottomContainerView.addSubview(landscapeLabel)
+        landscapeLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/9).isActive = true
+        landscapeLabel.topAnchor.constraint(equalTo:landscapeImageView.bottomAnchor).isActive = true
+        landscapeLabel.font = UIFont(name: "Avenir-Medium", size: view.frame.height/50)
+
+        bottomContainerView.addSubview(landscapeButton)
+        landscapeButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/9).isActive = true
+        landscapeButton.topAnchor.constraint(equalTo:festivalLabel.bottomAnchor).isActive = true
+        landscapeButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        landscapeButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
         
+        
+        // AQUATIC BUTTON
         bottomContainerView.addSubview(aquaticImageView)
         aquaticImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/3).isActive = true
-        aquaticImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/4.3).isActive = true
-        //aquaticImageView.heightAnchor.constraint(equalTo: backgroundImageView.heightAnchor, multiplier: 0.25).isActive = true
-        aquaticImageView.heightAnchor.constraint(equalToConstant:view.frame.height/9).isActive = true
+        aquaticImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        aquaticImageView.topAnchor.constraint(equalTo:thrillLabel.bottomAnchor).isActive = true
+        
+        bottomContainerView.addSubview(aquaticLabel)
+        aquaticLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/3).isActive = true
+        aquaticLabel.topAnchor.constraint(equalTo:aquaticImageView.bottomAnchor).isActive = true
+        aquaticLabel.font = UIFont(name: "Avenir-Medium", size: view.frame.height/50)
+        
+        bottomContainerView.addSubview(aquaticButton)
+        aquaticButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: view.frame.width/3).isActive = true
+        aquaticButton.topAnchor.constraint(equalTo:thrillLabel.bottomAnchor).isActive = true
+        aquaticButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        aquaticButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
 
  
     }

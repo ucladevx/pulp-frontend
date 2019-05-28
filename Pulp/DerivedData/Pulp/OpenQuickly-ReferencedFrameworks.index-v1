@@ -2,12 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
+	<string>MapKit</string>
 	<string>Foundation</string>
 	<string>FacebookCore</string>
-	<string>FBSDKLoginKit</string>
+	<string>AppKit</string>
 	<string>SnapKit</string>
-	<string>MapKit</string>
+	<string>CommonCrypto</string>
+	<string>CoreGraphics</string>
+	<string>WebKit</string>
+	<string>QuartzCore</string>
+	<string>Security</string>
+	<string>libkern</string>
+	<string>CoreText</string>
+	<string>FBSDKCoreKit</string>
+	<string>SafariServices</string>
+	<string>Social</string>
+	<string>sys</string>
 	<string>UIKit</string>
+	<string>ObjectiveC</string>
+	<string>Photos</string>
+	<string>AdSupport</string>
+	<string>FBSDKShareKit</string>
+	<string>MobileCoreServices</string>
+	<string>StoreKit</string>
+	<string>AssetsLibrary</string>
+	<string>FBSDKLoginKit</string>
+	<string>Bolts</string>
+	<string>AudioToolbox</string>
 	<string>FacebookLogin</string>
+	<string>Accounts</string>
+	<string>CoreTelephony</string>
+	<string>objc</string>
 </array>
 </plist>

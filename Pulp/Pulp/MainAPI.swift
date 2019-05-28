@@ -12,10 +12,18 @@ enum MainAPI {
     case fbLogin(accessToken: String)
 }
 extension MainAPI: TargetType {
-    var BaseURL: URL {
+    var sampleData: Data {
+        <#code#>
+    }
+
+    var headers: [String : String]? {
+        <#code#>
+    }
+
+    var baseURL: URL {
         switch self {
         case .fbLogin:
-            return URL(string: "https://localhost:3000")
+            return URL(string: "https://localhost:3000")!
         }
     }
     var path: String {

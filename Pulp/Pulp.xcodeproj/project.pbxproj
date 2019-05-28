@@ -22,7 +22,7 @@
 		45479B1C527F2552AF0AD66D /* Pods_Pulp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B2A3E5E03FABCDE89D353E /* Pods_Pulp.framework */; };
 		8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */; };
 		8304223D22813A1B00DDC8B2 /* DiscoverFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */; };
-		83ABFFED2281686D00DB0F7C /* SpotsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEC2281686D00DB0F7C /* SpotsMapView.swift */; };
+		83ABFFED2281686D00DB0F7C /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEC2281686D00DB0F7C /* MapScreen.swift */; };
 		83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */; };
 		83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFF0228AA88F00DB0F7C /* LogInController.swift */; };
 /* End PBXBuildFile section */
@@ -47,7 +47,7 @@
 		83042234227801D000DDC8B2 /* UnusedLogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnusedLogInController.swift; sourceTree = "<group>"; };
 		8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverFeedController.swift; sourceTree = "<group>"; };
-		83ABFFEC2281686D00DB0F7C /* SpotsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsMapView.swift; sourceTree = "<group>"; };
+		83ABFFEC2281686D00DB0F7C /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestController.swift; sourceTree = "<group>"; };
 		83ABFFF0228AA88F00DB0F7C /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		83DE57172293BE4000294FC9 /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 				83DE57172293BE4000294FC9 /* MainAPI.swift */,
 				83DE57192293BE8100294FC9 /* UserManager.swift */,
 				83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */,
-				83ABFFEC2281686D00DB0F7C /* SpotsMapView.swift */,
+				83ABFFEC2281686D00DB0F7C /* MapScreen.swift */,
 				8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */,
 				8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */,
 				4363F34B223ADA8F008C2969 /* SwipingController.swift */,
@@ -281,7 +281,7 @@
 				4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */,
 				83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */,
 				83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */,
-				83ABFFED2281686D00DB0F7C /* SpotsMapView.swift in Sources */,
+				83ABFFED2281686D00DB0F7C /* MapScreen.swift in Sources */,
 				4363F350223B05FB008C2969 /* ExploreViewController.swift in Sources */,
 				8304223D22813A1B00DDC8B2 /* DiscoverFeedController.swift in Sources */,
 				4363F34E223ADABE008C2969 /* PageCell.swift in Sources */,

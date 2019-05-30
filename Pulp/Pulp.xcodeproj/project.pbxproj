@@ -26,7 +26,6 @@
 		83ABFFED2281686D00DB0F7C /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEC2281686D00DB0F7C /* MapScreen.swift */; };
 		83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */; };
 		83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFF0228AA88F00DB0F7C /* LogInController.swift */; };
-		923DFF952295EF1200D92FAD /* welc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DFF942295EF1200D92FAD /* welc.swift */; };
 		92AE975E2293AE02006245B1 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE975D2293AE02006245B1 /* ExploreController.swift */; };
 		92D4D98A229CAA5100BBF080 /* Explore_Page_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */; };
 /* End PBXBuildFile section */
@@ -57,7 +56,6 @@
 		83ABFFF0228AA88F00DB0F7C /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		83DE57172293BE4000294FC9 /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
 		83DE57192293BE8100294FC9 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		923DFF942295EF1200D92FAD /* welc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welc.swift; sourceTree = "<group>"; };
 		92AE975D2293AE02006245B1 /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explore_Page_Data.swift; sourceTree = "<group>"; };
 		92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPI.swift; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 		43AC38242227500600652A70 = {
 			isa = PBXGroup;
 			children = (
-				923DFF942295EF1200D92FAD /* welc.swift */,
 				43AC382F2227500600652A70 /* Pulp */,
 				43AC382E2227500600652A70 /* Products */,
 				CA309C48B4795A6226203DDB /* Pods */,
@@ -296,7 +293,6 @@
 				8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */,
 				43AC38312227500600652A70 /* AppDelegate.swift in Sources */,
 				4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */,
-				923DFF952295EF1200D92FAD /* welc.swift in Sources */,
 				83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */,
 				83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */,
 				83ABFFED2281686D00DB0F7C /* MapScreen.swift in Sources */,

@@ -39,7 +39,9 @@ class ChatListAPI {
             }
         }
     }
-}struct ChatListResult: Codable {
+}
+
+struct ChatListResult: Codable {
     var chatListItems: [Match]
 }
 

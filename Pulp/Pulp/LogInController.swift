@@ -11,25 +11,6 @@ import FacebookLogin
 import SnapKit
 import FBSDKLoginKit
 
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    
-    convenience init(rgb: Int) {
-        self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF
-        )
-    }
-}
-
-
 class LogInController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +19,16 @@ class LogInController : UIViewController {
             print("not logged in")
         }
         else{
+            //Below code sends token to local host 3000
+            accessTokenGETRequest(accessToken: (FBSDKAccessToken.current()?.tokenString)!)
             print("logged in already")
             let vc = DiveIn()
-            //fix this part
+            //Below code performs a segue to another page
             self.present(vc, animated: true, completion: {
                 print("You have logged in already!")
             })
         }
+        
         
         view.backgroundColor = UIColor(rgb: 0xF7F7F7)
         setUpLoginButton()
@@ -101,14 +85,20 @@ class LogInController : UIViewController {
     
     let FBLoginButton : UIButton = {
         let myLoginButton = UIButton(type: .custom)
-        myLoginButton.setTitle("Log in", for: .normal)
-        myLoginButton.titleLabel?.font = UIFont(name: "Avenir-Medium", size:30)
-        myLoginButton.titleLabel?.textColor = UIColor.white
-        myLoginButton.titleLabel?.textAlignment = .right
-        myLoginButton.backgroundColor = UIColor(rgb: 0x1170ED)
-        myLoginButton.layer.cornerRadius = 12
+//        myLoginButton.setTitle("Log in", for: .normal)
+//        myLoginButton.titleLabel?.font = UIFont(name: "Avenir-Medium", size:30)
+//        myLoginButton.titleLabel?.textColor = UIColor.white
+//        myLoginButton.titleLabel?.textAlignment = .right
+//        myLoginButton.backgroundColor = UIColor(rgb: 0x1170ED)
+//        myLoginButton.layer.cornerRadius = 12
+        myLoginButton.setImage(UIImage(named: "Log In Button"), for: .normal)
         return myLoginButton
     }()
+    
+    func accessTokenGETRequest( accessToken: String)
+    {
+        
+    }
     
     func setUpLoginButton()
     {
@@ -178,3 +168,23 @@ class LogInController : UIViewController {
     }
     
 }
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
+}
+
+

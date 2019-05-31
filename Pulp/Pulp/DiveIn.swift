@@ -310,10 +310,10 @@ class DiveIn: UIViewController {
         return button
     }()
     */
-    @objc func openExploreView(){
-        let exploreVC = ViewController()
-        present(exploreVC, animated: true, completion: nil)
-    }
+//    @objc func openExploreView(){
+//        let exploreVC = ViewController()
+//        present(exploreVC, animated: true, completion: nil)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

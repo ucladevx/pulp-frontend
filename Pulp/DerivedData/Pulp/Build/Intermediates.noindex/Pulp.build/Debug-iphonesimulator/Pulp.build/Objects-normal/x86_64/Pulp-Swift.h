@@ -321,7 +321,6 @@ SWIFT_CLASS("_TtC4Pulp17SwipingController")
 
 SWIFT_CLASS("_TtC4Pulp14ViewController")
 @interface ViewController : UIViewController
-- (void)openCreateProfileView;
 - (void)openExploreView;
 - (void)openDiveIn;
 - (void)viewDidLoad;

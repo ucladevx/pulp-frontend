@@ -1,13 +1,13 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "0c42379c9efe49bb0c9588d9031ee1f5"
-build_time: [1559083806, 868752000]
+build_time: [1559276657, 688682000]
 inputs:
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ExploreResults.swift": [1557202940, 0]
-  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ViewController.swift": [1557825463, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ViewController.swift": [1559273189, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ResultCell.swift": [1557825463, 0]
-  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/DiveIn.swift": [1559083805, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/DiveIn.swift": [1559276656, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/CreateProfileViewController.swift": [1558383253, 0]
-  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/AppDelegate.swift": [1559077768, 0]
+  "/Users/ryanlam/pulp-frontend/Pulp/Pulp/AppDelegate.swift": [1559272606, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/ResultsViewController.swift": [1557202940, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/LogInController.swift": [1558383253, 0]
   "/Users/ryanlam/pulp-frontend/Pulp/Pulp/SelectInterestController.swift": [1558383253, 0]

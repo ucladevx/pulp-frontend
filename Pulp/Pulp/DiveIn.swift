@@ -24,7 +24,7 @@ class DiveIn: UIViewController {
     }()
     
     let hikeButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -51,7 +51,7 @@ class DiveIn: UIViewController {
     }()
     
     let museumButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -71,7 +71,7 @@ class DiveIn: UIViewController {
     }()
     
     let festivalButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -91,7 +91,7 @@ class DiveIn: UIViewController {
     }()
     
     let thrillButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -111,7 +111,7 @@ class DiveIn: UIViewController {
     }()
     
     let photoButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -131,7 +131,7 @@ class DiveIn: UIViewController {
     }()
     
     let animalButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -151,7 +151,7 @@ class DiveIn: UIViewController {
     }()
     
     let landscapeButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -171,7 +171,7 @@ class DiveIn: UIViewController {
     }()
     
     let aquaticButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -240,7 +240,7 @@ class DiveIn: UIViewController {
     }()
     
     let currentLocationButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.setTitle("Use my current location", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -254,7 +254,7 @@ class DiveIn: UIViewController {
     }()
     
     let searchButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(type: .system)
         btn.setTitle("Search", for: .normal)
         btn.setTitleColor(UIColor.gray, for: .normal)
         return btn
@@ -266,31 +266,54 @@ class DiveIn: UIViewController {
         return view
     }()
     
+    let exploreButton: UIButton = {
+        let btn = UIButton()
+        btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        btn.setImage(#imageLiteral(resourceName: "Footer_ExpClick"), for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let profileButton: UIButton = {
+        let btn = UIButton()
+        btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        btn.setImage(#imageLiteral(resourceName: "Footer_Prof"), for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let faveButton: UIButton = {
+        let btn = UIButton()
+        btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        btn.setImage(#imageLiteral(resourceName: "Footer_Fave"), for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let bottomControlView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    /*
     private let exploreButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.lightGray
+        button.backgroundColor = UIColor.white
         button.setTitle("Explore!", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 5
+        //button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(openExploreView), for: .touchUpInside)
         return button
     }()
-    
+    */
     @objc func openExploreView(){
-        let exploreVC = ExploreViewController()
+        let exploreVC = ViewController()
         present(exploreVC, animated: true, completion: nil)
     }
-    
-    private let pageControl: UIPageControl = {
-        let pc = UIPageControl()
-        pc.currentPage = 0
-        pc.numberOfPages = 4
-        pc.currentPageIndicatorTintColor = .red
-        pc.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
-        return pc
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -303,31 +326,25 @@ class DiveIn: UIViewController {
         searchBarView.addSubview(searchBar)
         topView.addSubview(zipView)
         view.addSubview(topView)
+        view.addSubview(bottomControlView)
         setupBottomControls()
         setupLayout()
-//        searchBar.searchBarStyle = UISearchBarStyle.prominent
-//        searchBar.placeholder = " Search..."
-//        searchBar.sizeToFit()
-//        searchBar.isTranslucent = false
-//        searchBar.backgroundImage = UIImage()
-//        searchBar.delegate = self as? UISearchBarDelegate
-//        navigationItem.titleView = searchBar
-        //setupSearchBar()
         
 
     }
     
     fileprivate func setupBottomControls() {
-        let bottomControlsStackView = UIStackView(arrangedSubviews: [exploreButton])
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [exploreButton, profileButton, faveButton])
+        bottomControlsStackView.backgroundColor = .white
         bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
         bottomControlsStackView.distribution = .fillEqually
+        bottomControlsStackView.spacing = 20
         
-        view.addSubview(bottomControlsStackView)
+        bottomControlView.addSubview(bottomControlsStackView)
         NSLayoutConstraint.activate([
-            bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
+            bottomControlsStackView.centerXAnchor.constraint(equalTo:bottomControlView.centerXAnchor),
+            bottomControlsStackView.centerYAnchor.constraint(equalTo:bottomControlView.centerYAnchor),
+            bottomControlsStackView.heightAnchor.constraint(equalToConstant: view.frame.height/14)
             ])
     }
     
@@ -345,6 +362,11 @@ class DiveIn: UIViewController {
     }
     
     private func setupLayout(){
+        bottomControlView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        bottomControlView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        bottomControlView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        bottomControlView.heightAnchor.constraint(equalToConstant: view.frame.height/12).isActive = true
+        
         backgroundImageView.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
         backgroundImageView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
         backgroundImageView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true

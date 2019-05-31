@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame:UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = DiveIn()
+        window?.rootViewController = ViewController()
         
         return true
     }

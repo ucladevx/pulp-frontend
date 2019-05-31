@@ -6,15 +6,15 @@
 	<string>Foundation</string>
 	<string>FacebookCore</string>
 	<string>AppKit</string>
+	<string>objc</string>
 	<string>SnapKit</string>
-	<string>CommonCrypto</string>
 	<string>CoreGraphics</string>
 	<string>WebKit</string>
 	<string>QuartzCore</string>
 	<string>Security</string>
 	<string>libkern</string>
-	<string>CoreText</string>
 	<string>FBSDKCoreKit</string>
+	<string>CoreText</string>
 	<string>SafariServices</string>
 	<string>Social</string>
 	<string>sys</string>
@@ -32,6 +32,6 @@
 	<string>FacebookLogin</string>
 	<string>Accounts</string>
 	<string>CoreTelephony</string>
-	<string>objc</string>
+	<string>CommonCrypto</string>
 </array>
 </plist>

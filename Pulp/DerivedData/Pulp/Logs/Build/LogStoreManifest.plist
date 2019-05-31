@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>01D5E801-E00B-4E28-A293-2D6EC11B57ED</key>
+		<key>00894693-D0F6-409C-BF5B-075892580AF8</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>01D5E801-E00B-4E28-A293-2D6EC11B57ED.xcactivitylog</string>
+			<string>00894693-D0F6-409C-BF5B-075892580AF8.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -27,15 +27,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580775815.15800095</real>
+			<real>580967436.02932596</real>
 			<key>timeStoppedRecording</key>
-			<real>580775817.35234106</real>
+			<real>580967438.73444998</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>01D5E801-E00B-4E28-A293-2D6EC11B57ED</string>
+			<string>00894693-D0F6-409C-BF5B-075892580AF8</string>
 		</dict>
-		<key>0ACB561E-E47F-4233-BB52-BA2D286AD659</key>
+		<key>04C28067-507C-4557-9E1E-269BB8AF2C6F</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -44,7 +44,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>0ACB561E-E47F-4233-BB52-BA2D286AD659.xcactivitylog</string>
+			<string>04C28067-507C-4557-9E1E-269BB8AF2C6F.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -56,15 +56,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580773818.14577401</real>
+			<real>580968678.262169</real>
 			<key>timeStoppedRecording</key>
-			<real>580773820.38737404</real>
+			<real>580968680.726192</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>0ACB561E-E47F-4233-BB52-BA2D286AD659</string>
+			<string>04C28067-507C-4557-9E1E-269BB8AF2C6F</string>
 		</dict>
-		<key>0C7A3199-2311-488B-ADC3-E29F83703DDD</key>
+		<key>050A4018-5C47-4015-85CC-83522D4D1A81</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -73,7 +73,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>0C7A3199-2311-488B-ADC3-E29F83703DDD.xcactivitylog</string>
+			<string>050A4018-5C47-4015-85CC-83522D4D1A81.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -85,15 +85,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580776454.509094</real>
+			<real>580966657.04879105</real>
 			<key>timeStoppedRecording</key>
-			<real>580776456.88762999</real>
+			<real>580966660.21617603</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>0C7A3199-2311-488B-ADC3-E29F83703DDD</string>
+			<string>050A4018-5C47-4015-85CC-83522D4D1A81</string>
 		</dict>
-		<key>16A6BB55-68C5-4BCC-AF07-F01A2E0F6B0C</key>
+		<key>0A0BEE94-0066-4BAE-A6B2-22F9542430F1</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -102,7 +102,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>16A6BB55-68C5-4BCC-AF07-F01A2E0F6B0C.xcactivitylog</string>
+			<string>0A0BEE94-0066-4BAE-A6B2-22F9542430F1.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -114,15 +114,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774059.36879098</real>
+			<real>580968692.20132995</real>
 			<key>timeStoppedRecording</key>
-			<real>580774061.43879199</real>
+			<real>580968694.49487102</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>16A6BB55-68C5-4BCC-AF07-F01A2E0F6B0C</string>
+			<string>0A0BEE94-0066-4BAE-A6B2-22F9542430F1</string>
 		</dict>
-		<key>1D48B6BD-45BA-41A9-AF9B-EC0CE2C78194</key>
+		<key>0EC520FB-2F21-48D7-91B9-DE440B2CB1EF</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -131,7 +131,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>1D48B6BD-45BA-41A9-AF9B-EC0CE2C78194.xcactivitylog</string>
+			<string>0EC520FB-2F21-48D7-91B9-DE440B2CB1EF.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -143,15 +143,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774050.40662706</real>
+			<real>580969215.57816899</real>
 			<key>timeStoppedRecording</key>
-			<real>580774052.54322696</real>
+			<real>580969218.04297996</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>1D48B6BD-45BA-41A9-AF9B-EC0CE2C78194</string>
+			<string>0EC520FB-2F21-48D7-91B9-DE440B2CB1EF</string>
 		</dict>
-		<key>25AA8F48-3B43-457F-8265-05066736BC8A</key>
+		<key>0EF09F1C-71A3-4184-8EA9-C2F7D5AAB35B</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -160,7 +160,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>25AA8F48-3B43-457F-8265-05066736BC8A.xcactivitylog</string>
+			<string>0EF09F1C-71A3-4184-8EA9-C2F7D5AAB35B.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -172,15 +172,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774116.23861003</real>
+			<real>580969038.44301796</real>
 			<key>timeStoppedRecording</key>
-			<real>580774118.56034696</real>
+			<real>580969041.09126699</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>25AA8F48-3B43-457F-8265-05066736BC8A</string>
+			<string>0EF09F1C-71A3-4184-8EA9-C2F7D5AAB35B</string>
 		</dict>
-		<key>299EF79F-5B1B-4012-B99B-A313C154DCEC</key>
+		<key>117DDA61-6FE4-4A9C-9E2D-4BF0E4CC4058</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -189,7 +189,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>299EF79F-5B1B-4012-B99B-A313C154DCEC.xcactivitylog</string>
+			<string>117DDA61-6FE4-4A9C-9E2D-4BF0E4CC4058.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -201,15 +201,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774422.317981</real>
+			<real>580965421.55024695</real>
 			<key>timeStoppedRecording</key>
-			<real>580774424.342067</real>
+			<real>580965421.77080297</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>299EF79F-5B1B-4012-B99B-A313C154DCEC</string>
+			<string>117DDA61-6FE4-4A9C-9E2D-4BF0E4CC4058</string>
 		</dict>
-		<key>2B1DD31C-D813-4494-966F-81B522B42F4C</key>
+		<key>1B816BD2-4336-4C7D-AA2A-1E5833BB4A9D</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -218,7 +218,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>2B1DD31C-D813-4494-966F-81B522B42F4C.xcactivitylog</string>
+			<string>1B816BD2-4336-4C7D-AA2A-1E5833BB4A9D.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -230,15 +230,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580776626.47744703</real>
+			<real>580965230.61654699</real>
 			<key>timeStoppedRecording</key>
-			<real>580776631.04534101</real>
+			<real>580965235.43459702</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>2B1DD31C-D813-4494-966F-81B522B42F4C</string>
+			<string>1B816BD2-4336-4C7D-AA2A-1E5833BB4A9D</string>
 		</dict>
-		<key>2ECAA6A4-E4E0-4754-8C78-C49B7C534B56</key>
+		<key>1D59C3D1-4581-4A6A-8BFC-399A94EC5772</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -247,7 +247,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>2ECAA6A4-E4E0-4754-8C78-C49B7C534B56.xcactivitylog</string>
+			<string>1D59C3D1-4581-4A6A-8BFC-399A94EC5772.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -259,15 +259,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580773848.93524396</real>
+			<real>580968731.73902202</real>
 			<key>timeStoppedRecording</key>
-			<real>580773853.20234704</real>
+			<real>580968734.07919502</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>2ECAA6A4-E4E0-4754-8C78-C49B7C534B56</string>
+			<string>1D59C3D1-4581-4A6A-8BFC-399A94EC5772</string>
 		</dict>
-		<key>2F0845BE-2844-4827-9E5F-D87B4324D2B1</key>
+		<key>1F9BD391-893A-4C95-87E3-D8A75A264C55</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -276,7 +276,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>2F0845BE-2844-4827-9E5F-D87B4324D2B1.xcactivitylog</string>
+			<string>1F9BD391-893A-4C95-87E3-D8A75A264C55.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -288,15 +288,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580772858.11463499</real>
+			<real>580967351.31102502</real>
 			<key>timeStoppedRecording</key>
-			<real>580772859.02968597</real>
+			<real>580967355.05443704</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>2F0845BE-2844-4827-9E5F-D87B4324D2B1</string>
+			<string>1F9BD391-893A-4C95-87E3-D8A75A264C55</string>
 		</dict>
-		<key>313BF5D9-5BA7-4DCE-9AE7-2CC0F1179B32</key>
+		<key>21772ADA-6E05-4356-AD25-20378B1F2A15</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -305,7 +305,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>313BF5D9-5BA7-4DCE-9AE7-2CC0F1179B32.xcactivitylog</string>
+			<string>21772ADA-6E05-4356-AD25-20378B1F2A15.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -317,15 +317,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580773559.91304398</real>
+			<real>580966026.36158097</real>
 			<key>timeStoppedRecording</key>
-			<real>580773576.75516295</real>
+			<real>580966029.45622396</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>313BF5D9-5BA7-4DCE-9AE7-2CC0F1179B32</string>
+			<string>21772ADA-6E05-4356-AD25-20378B1F2A15</string>
 		</dict>
-		<key>36043BA1-6F25-4D21-9D45-6052517A5552</key>
+		<key>2633E52E-3F7A-44EB-AE69-A44438D9867E</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -334,7 +334,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>36043BA1-6F25-4D21-9D45-6052517A5552.xcactivitylog</string>
+			<string>2633E52E-3F7A-44EB-AE69-A44438D9867E.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -346,13 +346,535 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580773679.87979996</real>
+			<real>580965547.34865606</real>
 			<key>timeStoppedRecording</key>
-			<real>580773681.72836006</real>
+			<real>580965549.76762104</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>36043BA1-6F25-4D21-9D45-6052517A5552</string>
+			<string>2633E52E-3F7A-44EB-AE69-A44438D9867E</string>
+		</dict>
+		<key>2649833B-5321-4129-8E7F-6589F70AE007</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>2649833B-5321-4129-8E7F-6589F70AE007.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580966178.78620696</real>
+			<key>timeStoppedRecording</key>
+			<real>580966181.54773498</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>2649833B-5321-4129-8E7F-6589F70AE007</string>
+		</dict>
+		<key>270AE566-BFBF-489E-9EF0-C3684A4B96F9</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>270AE566-BFBF-489E-9EF0-C3684A4B96F9.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>E</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967194.96051204</real>
+			<key>timeStoppedRecording</key>
+			<real>580967195.81087196</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>270AE566-BFBF-489E-9EF0-C3684A4B96F9</string>
+		</dict>
+		<key>324FE0D6-1EA3-4C2C-A75F-3349C709833A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>324FE0D6-1EA3-4C2C-A75F-3349C709833A.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969361.21799505</real>
+			<key>timeStoppedRecording</key>
+			<real>580969363.52410102</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>324FE0D6-1EA3-4C2C-A75F-3349C709833A</string>
+		</dict>
+		<key>340AA950-45BA-41C3-BD39-9455F1428592</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>340AA950-45BA-41C3-BD39-9455F1428592.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580966760.69328904</real>
+			<key>timeStoppedRecording</key>
+			<real>580966761.09088898</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>340AA950-45BA-41C3-BD39-9455F1428592</string>
+		</dict>
+		<key>351414DC-960C-4E5C-BAEA-230F624BEC62</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>351414DC-960C-4E5C-BAEA-230F624BEC62.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580965726.92998695</real>
+			<key>timeStoppedRecording</key>
+			<real>580965729.12828302</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>351414DC-960C-4E5C-BAEA-230F624BEC62</string>
+		</dict>
+		<key>366432DA-E028-493E-8DD4-1453AD64BE96</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>366432DA-E028-493E-8DD4-1453AD64BE96.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580968201.37558103</real>
+			<key>timeStoppedRecording</key>
+			<real>580968204.20266998</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>366432DA-E028-493E-8DD4-1453AD64BE96</string>
+		</dict>
+		<key>3A641B4A-535D-4730-BF51-A433257621BE</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3A641B4A-535D-4730-BF51-A433257621BE.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580965211.13322794</real>
+			<key>timeStoppedRecording</key>
+			<real>580965213.38058305</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>3A641B4A-535D-4730-BF51-A433257621BE</string>
+		</dict>
+		<key>3BBDDDB5-7F56-4447-873E-5F8341AD2903</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3BBDDDB5-7F56-4447-873E-5F8341AD2903.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969167.20841801</real>
+			<key>timeStoppedRecording</key>
+			<real>580969169.50172102</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>3BBDDDB5-7F56-4447-873E-5F8341AD2903</string>
+		</dict>
+		<key>3DBCA138-F951-4ED6-994B-DE8254213F62</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3DBCA138-F951-4ED6-994B-DE8254213F62.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969246.82079995</real>
+			<key>timeStoppedRecording</key>
+			<real>580969249.08736503</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>3DBCA138-F951-4ED6-994B-DE8254213F62</string>
+		</dict>
+		<key>3E8AFB13-C972-4A10-A4DB-DEDB68BA6BDA</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3E8AFB13-C972-4A10-A4DB-DEDB68BA6BDA.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967132.05094802</real>
+			<key>timeStoppedRecording</key>
+			<real>580967134.44029701</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>3E8AFB13-C972-4A10-A4DB-DEDB68BA6BDA</string>
+		</dict>
+		<key>4329FB8F-CEF9-4277-A2F8-C8A76F81CB5A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>4329FB8F-CEF9-4277-A2F8-C8A76F81CB5A.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967827.70494902</real>
+			<key>timeStoppedRecording</key>
+			<real>580967830.31705296</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>4329FB8F-CEF9-4277-A2F8-C8A76F81CB5A</string>
+		</dict>
+		<key>43A0342F-11B9-4800-AAE2-97655B8F75AE</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>43A0342F-11B9-4800-AAE2-97655B8F75AE.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969487.51698303</real>
+			<key>timeStoppedRecording</key>
+			<real>580969493.71566999</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>43A0342F-11B9-4800-AAE2-97655B8F75AE</string>
+		</dict>
+		<key>43ABB9EF-3382-411E-B759-87170390E72F</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>43ABB9EF-3382-411E-B759-87170390E72F.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580966080.17245603</real>
+			<key>timeStoppedRecording</key>
+			<real>580966082.83069098</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>43ABB9EF-3382-411E-B759-87170390E72F</string>
+		</dict>
+		<key>445BB21F-05A6-4A95-9914-FBBAC0B1B3E9</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>445BB21F-05A6-4A95-9914-FBBAC0B1B3E9.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580968782.07863402</real>
+			<key>timeStoppedRecording</key>
+			<real>580968784.341151</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>445BB21F-05A6-4A95-9914-FBBAC0B1B3E9</string>
+		</dict>
+		<key>472FE0BB-8ECD-49FB-BDD7-32BE3EF5EBE0</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>472FE0BB-8ECD-49FB-BDD7-32BE3EF5EBE0.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969050.95155394</real>
+			<key>timeStoppedRecording</key>
+			<real>580969053.52292204</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>472FE0BB-8ECD-49FB-BDD7-32BE3EF5EBE0</string>
+		</dict>
+		<key>482B62E4-FF86-45E4-9C3B-43710DA4C7CF</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>482B62E4-FF86-45E4-9C3B-43710DA4C7CF.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580965466.31658006</real>
+			<key>timeStoppedRecording</key>
+			<real>580965466.52919304</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>482B62E4-FF86-45E4-9C3B-43710DA4C7CF</string>
+		</dict>
+		<key>49606F75-7576-4A97-865D-1E101840F157</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>49606F75-7576-4A97-865D-1E101840F157.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580966238.48506796</real>
+			<key>timeStoppedRecording</key>
+			<real>580966241.12919796</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>49606F75-7576-4A97-865D-1E101840F157</string>
+		</dict>
+		<key>4AEBAAF2-0F25-4131-BCE1-DBDB9CA43E0B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>4AEBAAF2-0F25-4131-BCE1-DBDB9CA43E0B.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967806.89902103</real>
+			<key>timeStoppedRecording</key>
+			<real>580967809.58229101</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>4AEBAAF2-0F25-4131-BCE1-DBDB9CA43E0B</string>
 		</dict>
 		<key>4B9418EF-DCB0-421D-938C-7B8A704BC1D8</key>
 		<dict>
@@ -383,7 +905,7 @@
 			<key>uniqueIdentifier</key>
 			<string>4B9418EF-DCB0-421D-938C-7B8A704BC1D8</string>
 		</dict>
-		<key>4C3B359B-8684-4915-93C3-1499F433EE21</key>
+		<key>53D74750-045E-466F-9264-E4D55EC76BF5</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -392,7 +914,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>4C3B359B-8684-4915-93C3-1499F433EE21.xcactivitylog</string>
+			<string>53D74750-045E-466F-9264-E4D55EC76BF5.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -404,15 +926,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774073.49839497</real>
+			<real>580968950.97833896</real>
 			<key>timeStoppedRecording</key>
-			<real>580774075.67019701</real>
+			<real>580968953.56245899</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>4C3B359B-8684-4915-93C3-1499F433EE21</string>
+			<string>53D74750-045E-466F-9264-E4D55EC76BF5</string>
 		</dict>
-		<key>4EF8DEBA-699F-4DA8-8A1B-BA695C64F97A</key>
+		<key>6B791B88-606D-4926-8556-867248D68F72</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -421,7 +943,36 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>4EF8DEBA-699F-4DA8-8A1B-BA695C64F97A.xcactivitylog</string>
+			<string>6B791B88-606D-4926-8556-867248D68F72.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580965191.26808095</real>
+			<key>timeStoppedRecording</key>
+			<real>580965194.27604902</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>6B791B88-606D-4926-8556-867248D68F72</string>
+		</dict>
+		<key>6F8DFC58-75AD-4576-8B6C-9A9CA1DBCD70</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>6F8DFC58-75AD-4576-8B6C-9A9CA1DBCD70.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -433,15 +984,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774391.82183695</real>
+			<real>580968000.68490303</real>
 			<key>timeStoppedRecording</key>
-			<real>580774393.94266903</real>
+			<real>580968002.94580305</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>4EF8DEBA-699F-4DA8-8A1B-BA695C64F97A</string>
+			<string>6F8DFC58-75AD-4576-8B6C-9A9CA1DBCD70</string>
 		</dict>
-		<key>5E979AB0-EE57-4FD9-875F-B711AC0000F9</key>
+		<key>704D8D57-095D-4324-9FA9-75F1A015545E</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -450,7 +1001,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>5E979AB0-EE57-4FD9-875F-B711AC0000F9.xcactivitylog</string>
+			<string>704D8D57-095D-4324-9FA9-75F1A015545E.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -462,15 +1013,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774356.79329598</real>
+			<real>580969396.36844397</real>
 			<key>timeStoppedRecording</key>
-			<real>580774358.94392502</real>
+			<real>580969399.092044</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>5E979AB0-EE57-4FD9-875F-B711AC0000F9</string>
+			<string>704D8D57-095D-4324-9FA9-75F1A015545E</string>
 		</dict>
-		<key>7C4D7967-2155-410C-8B24-82C4B80B8743</key>
+		<key>7A7448C5-3AC9-499F-B981-C2A26478FA26</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -479,7 +1030,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>7C4D7967-2155-410C-8B24-82C4B80B8743.xcactivitylog</string>
+			<string>7A7448C5-3AC9-499F-B981-C2A26478FA26.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -491,15 +1042,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774165.80285704</real>
+			<real>580969457.49169004</real>
 			<key>timeStoppedRecording</key>
-			<real>580774168.41163397</real>
+			<real>580969459.89327395</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>7C4D7967-2155-410C-8B24-82C4B80B8743</string>
+			<string>7A7448C5-3AC9-499F-B981-C2A26478FA26</string>
 		</dict>
-		<key>85C80F08-BBBC-40CC-B3A3-0F127E912B87</key>
+		<key>7B6E7279-5639-4181-9ACA-F0E156C711F1</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -508,7 +1059,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>85C80F08-BBBC-40CC-B3A3-0F127E912B87.xcactivitylog</string>
+			<string>7B6E7279-5639-4181-9ACA-F0E156C711F1.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -520,15 +1071,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774008.06451702</real>
+			<real>580967987.06014097</real>
 			<key>timeStoppedRecording</key>
-			<real>580774010.26057506</real>
+			<real>580967989.26091897</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>85C80F08-BBBC-40CC-B3A3-0F127E912B87</string>
+			<string>7B6E7279-5639-4181-9ACA-F0E156C711F1</string>
 		</dict>
-		<key>863F5DC5-CC3B-4B88-BD07-9870CB64357C</key>
+		<key>7C9C0A96-B21C-4EBC-BD98-D6ED40A20F5B</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -537,7 +1088,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>863F5DC5-CC3B-4B88-BD07-9870CB64357C.xcactivitylog</string>
+			<string>7C9C0A96-B21C-4EBC-BD98-D6ED40A20F5B.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -549,15 +1100,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580773992.11534405</real>
+			<real>580967626.40347302</real>
 			<key>timeStoppedRecording</key>
-			<real>580773994.30589402</real>
+			<real>580967632.63814604</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>863F5DC5-CC3B-4B88-BD07-9870CB64357C</string>
+			<string>7C9C0A96-B21C-4EBC-BD98-D6ED40A20F5B</string>
 		</dict>
-		<key>8D251B97-CDBA-493E-B70E-EC439C1E8D88</key>
+		<key>803C393F-6DB7-4B1C-BD09-2974A5561A8E</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -566,7 +1117,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>8D251B97-CDBA-493E-B70E-EC439C1E8D88.xcactivitylog</string>
+			<string>803C393F-6DB7-4B1C-BD09-2974A5561A8E.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -578,15 +1129,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774401.98250496</real>
+			<real>580965902.58171499</real>
 			<key>timeStoppedRecording</key>
-			<real>580774404.12876594</real>
+			<real>580965902.83102596</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>8D251B97-CDBA-493E-B70E-EC439C1E8D88</string>
+			<string>803C393F-6DB7-4B1C-BD09-2974A5561A8E</string>
 		</dict>
-		<key>9AAC4CF9-F39B-4EEC-BB31-8B0B240780AF</key>
+		<key>871C055C-51C2-4F8B-9020-535CC4FA5F60</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -595,7 +1146,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>9AAC4CF9-F39B-4EEC-BB31-8B0B240780AF.xcactivitylog</string>
+			<string>871C055C-51C2-4F8B-9020-535CC4FA5F60.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -607,15 +1158,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774438.11035395</real>
+			<real>580966760.30265701</real>
 			<key>timeStoppedRecording</key>
-			<real>580774440.32677996</real>
+			<real>580966760.57589698</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>9AAC4CF9-F39B-4EEC-BB31-8B0B240780AF</string>
+			<string>871C055C-51C2-4F8B-9020-535CC4FA5F60</string>
 		</dict>
-		<key>A64EC96E-2717-429A-819F-3C5EE4C01020</key>
+		<key>8741E116-33C9-4954-A536-828967424001</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -624,7 +1175,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>A64EC96E-2717-429A-819F-3C5EE4C01020.xcactivitylog</string>
+			<string>8741E116-33C9-4954-A536-828967424001.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -636,15 +1187,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580776606.78737295</real>
+			<real>580967095.27426696</real>
 			<key>timeStoppedRecording</key>
-			<real>580776609.13521802</real>
+			<real>580967100.08194995</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>A64EC96E-2717-429A-819F-3C5EE4C01020</string>
+			<string>8741E116-33C9-4954-A536-828967424001</string>
 		</dict>
-		<key>AB6F45E3-2129-4081-AC56-2A706B642913</key>
+		<key>88FAEECB-4D9D-4437-9D7D-34437F74C8EE</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -653,7 +1204,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>AB6F45E3-2129-4081-AC56-2A706B642913.xcactivitylog</string>
+			<string>88FAEECB-4D9D-4437-9D7D-34437F74C8EE.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -665,15 +1216,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774191.07714605</real>
+			<real>580967375.20890403</real>
 			<key>timeStoppedRecording</key>
-			<real>580774193.28271198</real>
+			<real>580967379.92256105</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>AB6F45E3-2129-4081-AC56-2A706B642913</string>
+			<string>88FAEECB-4D9D-4437-9D7D-34437F74C8EE</string>
 		</dict>
-		<key>AD66B3A7-C75E-4B04-87B4-A19FA25FB637</key>
+		<key>8C4F0AD2-8F35-4CD1-B68F-B43FC48856FB</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -682,7 +1233,36 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>AD66B3A7-C75E-4B04-87B4-A19FA25FB637.xcactivitylog</string>
+			<string>8C4F0AD2-8F35-4CD1-B68F-B43FC48856FB.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580965059.44109797</real>
+			<key>timeStoppedRecording</key>
+			<real>580965062.86641896</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>8C4F0AD2-8F35-4CD1-B68F-B43FC48856FB</string>
+		</dict>
+		<key>98DE789C-7FBD-4BAD-9866-456347CF8E90</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>98DE789C-7FBD-4BAD-9866-456347CF8E90.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -694,15 +1274,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580775887.95620704</real>
+			<real>580965407.27032804</real>
 			<key>timeStoppedRecording</key>
-			<real>580775890.60022795</real>
+			<real>580965409.59484696</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>AD66B3A7-C75E-4B04-87B4-A19FA25FB637</string>
+			<string>98DE789C-7FBD-4BAD-9866-456347CF8E90</string>
 		</dict>
-		<key>B0F0C0B6-5504-48EC-A152-799F1AAB24EE</key>
+		<key>A2723CAF-61BD-412A-90DF-696A13121643</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -711,7 +1291,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>B0F0C0B6-5504-48EC-A152-799F1AAB24EE.xcactivitylog</string>
+			<string>A2723CAF-61BD-412A-90DF-696A13121643.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -723,15 +1303,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580776001.92308605</real>
+			<real>580968919.13826096</real>
 			<key>timeStoppedRecording</key>
-			<real>580776004.36706197</real>
+			<real>580968921.24305904</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>B0F0C0B6-5504-48EC-A152-799F1AAB24EE</string>
+			<string>A2723CAF-61BD-412A-90DF-696A13121643</string>
 		</dict>
-		<key>B6F0FCB4-70D7-4BA0-9629-249DC4543556</key>
+		<key>A3B6ACD9-A60F-4C0E-AEC8-4CA438D7C557</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -740,7 +1320,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>B6F0FCB4-70D7-4BA0-9629-249DC4543556.xcactivitylog</string>
+			<string>A3B6ACD9-A60F-4C0E-AEC8-4CA438D7C557.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -752,15 +1332,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580773981.24777305</real>
+			<real>580968632.73409295</real>
 			<key>timeStoppedRecording</key>
-			<real>580773984.01234198</real>
+			<real>580968635.01618505</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>B6F0FCB4-70D7-4BA0-9629-249DC4543556</string>
+			<string>A3B6ACD9-A60F-4C0E-AEC8-4CA438D7C557</string>
 		</dict>
-		<key>C6296105-6EBF-491F-A77E-2B9136295345</key>
+		<key>A4C49E8F-A07F-4503-856B-360F2817CE61</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -769,7 +1349,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>C6296105-6EBF-491F-A77E-2B9136295345.xcactivitylog</string>
+			<string>A4C49E8F-A07F-4503-856B-360F2817CE61.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -781,15 +1361,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774545.22075498</real>
+			<real>580968445.96674502</real>
 			<key>timeStoppedRecording</key>
-			<real>580774549.59577203</real>
+			<real>580968448.2902</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>C6296105-6EBF-491F-A77E-2B9136295345</string>
+			<string>A4C49E8F-A07F-4503-856B-360F2817CE61</string>
 		</dict>
-		<key>C9E345A3-B4F7-4CCC-A8F9-E38A7B3B46FA</key>
+		<key>A81E1533-EA2A-431F-A43E-530A73F18A0F</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -798,7 +1378,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>C9E345A3-B4F7-4CCC-A8F9-E38A7B3B46FA.xcactivitylog</string>
+			<string>A81E1533-EA2A-431F-A43E-530A73F18A0F.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -810,15 +1390,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580773663.720873</real>
+			<real>580966112.40665495</real>
 			<key>timeStoppedRecording</key>
-			<real>580773667.17118299</real>
+			<real>580966114.98784494</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>C9E345A3-B4F7-4CCC-A8F9-E38A7B3B46FA</string>
+			<string>A81E1533-EA2A-431F-A43E-530A73F18A0F</string>
 		</dict>
-		<key>D0B47B73-A29B-4186-ABD8-E4F75B9D0CD5</key>
+		<key>AAA41846-949D-4137-8000-9D97C3D2A4D6</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -827,7 +1407,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>D0B47B73-A29B-4186-ABD8-E4F75B9D0CD5.xcactivitylog</string>
+			<string>AAA41846-949D-4137-8000-9D97C3D2A4D6.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -839,15 +1419,15 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774500.87407303</real>
+			<real>580967406.97103</real>
 			<key>timeStoppedRecording</key>
-			<real>580774503.60706699</real>
+			<real>580967409.59953904</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>D0B47B73-A29B-4186-ABD8-E4F75B9D0CD5</string>
+			<string>AAA41846-949D-4137-8000-9D97C3D2A4D6</string>
 		</dict>
-		<key>D2CBFA66-E0CF-481C-A956-148D8C4B44E7</key>
+		<key>ACD7A33A-09FD-415D-8EC0-7C9CA34E7992</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -856,123 +1436,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>D2CBFA66-E0CF-481C-A956-148D8C4B44E7.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>W</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>Pulp project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Pulp</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Build Pulp</string>
-			<key>timeStartedRecording</key>
-			<real>580774296.60410798</real>
-			<key>timeStoppedRecording</key>
-			<real>580774298.89228594</real>
-			<key>title</key>
-			<string>Build Pulp</string>
-			<key>uniqueIdentifier</key>
-			<string>D2CBFA66-E0CF-481C-A956-148D8C4B44E7</string>
-		</dict>
-		<key>D962DC92-D80B-452A-9C0B-90F385D0E969</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>D962DC92-D80B-452A-9C0B-90F385D0E969.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>W</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>Pulp project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Pulp</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Build Pulp</string>
-			<key>timeStartedRecording</key>
-			<real>580776412.00779295</real>
-			<key>timeStoppedRecording</key>
-			<real>580776414.63227999</real>
-			<key>title</key>
-			<string>Build Pulp</string>
-			<key>uniqueIdentifier</key>
-			<string>D962DC92-D80B-452A-9C0B-90F385D0E969</string>
-		</dict>
-		<key>EC4911E2-135F-4A02-935C-48BBFEE73B9A</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>EC4911E2-135F-4A02-935C-48BBFEE73B9A.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>W</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>Pulp project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Pulp</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Build Pulp</string>
-			<key>timeStartedRecording</key>
-			<real>580773758.04297304</real>
-			<key>timeStoppedRecording</key>
-			<real>580773760.42971897</real>
-			<key>title</key>
-			<string>Build Pulp</string>
-			<key>uniqueIdentifier</key>
-			<string>EC4911E2-135F-4A02-935C-48BBFEE73B9A</string>
-		</dict>
-		<key>EDCD66DE-649B-43AE-BCB5-A06478A089CE</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>EDCD66DE-649B-43AE-BCB5-A06478A089CE.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>W</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>Pulp project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Pulp</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Build Pulp</string>
-			<key>timeStartedRecording</key>
-			<real>580773691.72440302</real>
-			<key>timeStoppedRecording</key>
-			<real>580773693.930493</real>
-			<key>title</key>
-			<string>Build Pulp</string>
-			<key>uniqueIdentifier</key>
-			<string>EDCD66DE-649B-43AE-BCB5-A06478A089CE</string>
-		</dict>
-		<key>FDF31321-8C32-4C2C-BD96-F66E33C6938D</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>FDF31321-8C32-4C2C-BD96-F66E33C6938D.xcactivitylog</string>
+			<string>ACD7A33A-09FD-415D-8EC0-7C9CA34E7992.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>E</string>
 			<key>schemeIdentifier-containerName</key>
@@ -984,13 +1448,709 @@
 			<key>signature</key>
 			<string>Build Pulp</string>
 			<key>timeStartedRecording</key>
-			<real>580774292.74680102</real>
+			<real>580967082.66383398</real>
 			<key>timeStoppedRecording</key>
-			<real>580774295.50171494</real>
+			<real>580967084.91244197</real>
 			<key>title</key>
 			<string>Build Pulp</string>
 			<key>uniqueIdentifier</key>
-			<string>FDF31321-8C32-4C2C-BD96-F66E33C6938D</string>
+			<string>ACD7A33A-09FD-415D-8EC0-7C9CA34E7992</string>
+		</dict>
+		<key>AFF581BE-575E-4203-B750-54191E718A23</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>AFF581BE-575E-4203-B750-54191E718A23.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580968745.48740995</real>
+			<key>timeStoppedRecording</key>
+			<real>580968747.85009301</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>AFF581BE-575E-4203-B750-54191E718A23</string>
+		</dict>
+		<key>B83A2E36-5DDD-4E54-9023-18CAD6064393</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B83A2E36-5DDD-4E54-9023-18CAD6064393.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969125.09765196</real>
+			<key>timeStoppedRecording</key>
+			<real>580969127.67500401</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>B83A2E36-5DDD-4E54-9023-18CAD6064393</string>
+		</dict>
+		<key>B90CF72F-0F5A-4304-A69E-DFCF4DF3F21F</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B90CF72F-0F5A-4304-A69E-DFCF4DF3F21F.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580968272.80691302</real>
+			<key>timeStoppedRecording</key>
+			<real>580968274.95060098</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>B90CF72F-0F5A-4304-A69E-DFCF4DF3F21F</string>
+		</dict>
+		<key>BB5C5C91-4764-47F2-92B5-22AA92EB6152</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>BB5C5C91-4764-47F2-92B5-22AA92EB6152.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580968885.98003602</real>
+			<key>timeStoppedRecording</key>
+			<real>580968888.76879096</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>BB5C5C91-4764-47F2-92B5-22AA92EB6152</string>
+		</dict>
+		<key>BDC75892-E421-4096-BC5A-7D08238D66EF</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>BDC75892-E421-4096-BC5A-7D08238D66EF.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580968254.52164495</real>
+			<key>timeStoppedRecording</key>
+			<real>580968256.69755197</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>BDC75892-E421-4096-BC5A-7D08238D66EF</string>
+		</dict>
+		<key>C71904F6-D850-49AC-A491-62AB7701B606</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C71904F6-D850-49AC-A491-62AB7701B606.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967478.10015905</real>
+			<key>timeStoppedRecording</key>
+			<real>580967481.55051696</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>C71904F6-D850-49AC-A491-62AB7701B606</string>
+		</dict>
+		<key>C7AEC33E-987C-40A6-8B3E-592D3222A2E1</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C7AEC33E-987C-40A6-8B3E-592D3222A2E1.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580964889.26335001</real>
+			<key>timeStoppedRecording</key>
+			<real>580964890.800789</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>C7AEC33E-987C-40A6-8B3E-592D3222A2E1</string>
+		</dict>
+		<key>D2AD0D18-0AF3-4306-8109-4DA4950E9BB2</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D2AD0D18-0AF3-4306-8109-4DA4950E9BB2.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967199.411569</real>
+			<key>timeStoppedRecording</key>
+			<real>580967201.78001702</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>D2AD0D18-0AF3-4306-8109-4DA4950E9BB2</string>
+		</dict>
+		<key>D450799B-5232-45F1-8F68-1930AB5A7D10</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D450799B-5232-45F1-8F68-1930AB5A7D10.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580965705.38316298</real>
+			<key>timeStoppedRecording</key>
+			<real>580965707.62223005</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>D450799B-5232-45F1-8F68-1930AB5A7D10</string>
+		</dict>
+		<key>D646EAC2-1BF7-4D2B-A73E-E3C472329DE5</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D646EAC2-1BF7-4D2B-A73E-E3C472329DE5.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969433.12138605</real>
+			<key>timeStoppedRecording</key>
+			<real>580969435.43080497</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>D646EAC2-1BF7-4D2B-A73E-E3C472329DE5</string>
+		</dict>
+		<key>D7F4BA75-84CA-48A4-A825-4BE970116596</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D7F4BA75-84CA-48A4-A825-4BE970116596.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967952.12976301</real>
+			<key>timeStoppedRecording</key>
+			<real>580967954.99428701</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>D7F4BA75-84CA-48A4-A825-4BE970116596</string>
+		</dict>
+		<key>D9CC66E3-0084-40CC-9AF2-877C342AA7F9</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D9CC66E3-0084-40CC-9AF2-877C342AA7F9.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967678.83366001</real>
+			<key>timeStoppedRecording</key>
+			<real>580967681.15369201</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>D9CC66E3-0084-40CC-9AF2-877C342AA7F9</string>
+		</dict>
+		<key>DF58187D-F883-41AA-ACEE-0007A6FEF991</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>DF58187D-F883-41AA-ACEE-0007A6FEF991.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580966350.778597</real>
+			<key>timeStoppedRecording</key>
+			<real>580966353.47224998</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>DF58187D-F883-41AA-ACEE-0007A6FEF991</string>
+		</dict>
+		<key>E0DB2240-12E4-4DE0-BA5D-014A6E6EDCD7</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E0DB2240-12E4-4DE0-BA5D-014A6E6EDCD7.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580968366.60045695</real>
+			<key>timeStoppedRecording</key>
+			<real>580968369.44505405</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>E0DB2240-12E4-4DE0-BA5D-014A6E6EDCD7</string>
+		</dict>
+		<key>E1001E5E-50FA-42A6-88B8-C53341022463</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E1001E5E-50FA-42A6-88B8-C53341022463.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969095.18196499</real>
+			<key>timeStoppedRecording</key>
+			<real>580969097.83844995</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>E1001E5E-50FA-42A6-88B8-C53341022463</string>
+		</dict>
+		<key>E1893B78-C870-4F93-95F6-49EFAE09E748</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E1893B78-C870-4F93-95F6-49EFAE09E748.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967463.31197405</real>
+			<key>timeStoppedRecording</key>
+			<real>580967465.63401794</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>E1893B78-C870-4F93-95F6-49EFAE09E748</string>
+		</dict>
+		<key>E6B26435-720C-40DC-AAA6-E6AA6506C877</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E6B26435-720C-40DC-AAA6-E6AA6506C877.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969271.151214</real>
+			<key>timeStoppedRecording</key>
+			<real>580969273.52801502</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>E6B26435-720C-40DC-AAA6-E6AA6506C877</string>
+		</dict>
+		<key>EAFF40A6-4E0D-467D-B35A-288B6A670608</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>EAFF40A6-4E0D-467D-B35A-288B6A670608.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969141.20026898</real>
+			<key>timeStoppedRecording</key>
+			<real>580969143.85110497</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>EAFF40A6-4E0D-467D-B35A-288B6A670608</string>
+		</dict>
+		<key>EC60541C-171B-4FA1-BA00-0141A5ED3274</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>EC60541C-171B-4FA1-BA00-0141A5ED3274.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580968600.47785795</real>
+			<key>timeStoppedRecording</key>
+			<real>580968602.78291702</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>EC60541C-171B-4FA1-BA00-0141A5ED3274</string>
+		</dict>
+		<key>EDC69F8C-80DD-4F5B-A8CD-E4CE806EDC35</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>EDC69F8C-80DD-4F5B-A8CD-E4CE806EDC35.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580965655.84554803</real>
+			<key>timeStoppedRecording</key>
+			<real>580965657.96851599</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>EDC69F8C-80DD-4F5B-A8CD-E4CE806EDC35</string>
+		</dict>
+		<key>F1492435-388D-4CE1-8760-5E7FD5CFE478</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>F1492435-388D-4CE1-8760-5E7FD5CFE478.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580968489.91666806</real>
+			<key>timeStoppedRecording</key>
+			<real>580968492.56244004</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>F1492435-388D-4CE1-8760-5E7FD5CFE478</string>
+		</dict>
+		<key>F8B8C46A-B2C8-464C-82B1-E437E4A97011</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>F8B8C46A-B2C8-464C-82B1-E437E4A97011.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967844.24715102</real>
+			<key>timeStoppedRecording</key>
+			<real>580967847.010656</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>F8B8C46A-B2C8-464C-82B1-E437E4A97011</string>
+		</dict>
+		<key>FAA405D5-9DBB-4549-82F1-B71E47CE05FB</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>FAA405D5-9DBB-4549-82F1-B71E47CE05FB.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580969340.60458601</real>
+			<key>timeStoppedRecording</key>
+			<real>580969342.93429101</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>FAA405D5-9DBB-4549-82F1-B71E47CE05FB</string>
+		</dict>
+		<key>FCB50D45-A465-48D6-8350-A80B7024F33A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>FCB50D45-A465-48D6-8350-A80B7024F33A.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pulp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pulp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Pulp</string>
+			<key>timeStartedRecording</key>
+			<real>580967956.13092303</real>
+			<key>timeStoppedRecording</key>
+			<real>580967958.526636</real>
+			<key>title</key>
+			<string>Build Pulp</string>
+			<key>uniqueIdentifier</key>
+			<string>FCB50D45-A465-48D6-8350-A80B7024F33A</string>
 		</dict>
 	</dict>
 </dict>

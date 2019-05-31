@@ -14,7 +14,9 @@ depends-top-level:
 - !private "+="
 - "AssignmentPrecedence"
 - "BooleanLiteralType"
+- "FloatLiteralType"
 - "Int"
+- "IntegerLiteralType"
 - "NSCoder"
 - "ProductCell"
 - "String"
@@ -25,18 +27,23 @@ depends-top-level:
 - "UIImageView"
 - "UILabel"
 - "UITableViewCell"
-- "UITableViewCellStyle"
 - "UnicodeScalarType"
 - "_ImageLiteralType"
 - !private "fatalError"
 depends-member:
-- ["s23BidirectionalCollectionP", "init"]
-- !private ["s13BinaryIntegerP", "init"]
+- ["12FacebookCore26AppEventParameterValueTypeP", "init"]
+- ["12FacebookCore26AppEventParameterValueTypeP", "init"]
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sz", "init"]
+- ["So12UIButtonTypeV", "custom"]
+- ["So15CALayerDelegateP", "CellStyle"]
 - !private ["So15CALayerDelegateP", "Int"]
 - ["So15CALayerDelegateP", "UIButton"]
 - ["So15CALayerDelegateP", "UIFont"]
 - ["So15CALayerDelegateP", "UIImageView"]
 - ["So15CALayerDelegateP", "UILabel"]
+- ["So15CALayerDelegateP", ""]
 - !private ["So15CALayerDelegateP", "addSubview"]
 - !private ["So15CALayerDelegateP", "changeQuantity"]
 - ["So15CALayerDelegateP", "clipsToBounds"]
@@ -58,12 +65,13 @@ depends-member:
 - ["So15CALayerDelegateP", "text"]
 - ["So15CALayerDelegateP", "textAlignment"]
 - ["So15CALayerDelegateP", "textColor"]
-- ["So15CALayerDelegateP", ""]
+- ["s7CVarArgP", "CellStyle"]
 - !private ["s7CVarArgP", "Int"]
 - ["s7CVarArgP", "UIButton"]
 - ["s7CVarArgP", "UIFont"]
 - ["s7CVarArgP", "UIImageView"]
 - ["s7CVarArgP", "UILabel"]
+- ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "addSubview"]
 - ["s7CVarArgP", "black"]
 - ["s7CVarArgP", "boldSystemFont"]
@@ -77,6 +85,7 @@ depends-member:
 - ["s7CVarArgP", "imageView"]
 - !private ["s7CVarArgP", "increaseButton"]
 - ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
 - ["s7CVarArgP", "numberOfLines"]
 - !private ["s7CVarArgP", "productQuantity"]
 - !private ["s7CVarArgP", "result"]
@@ -88,14 +97,52 @@ depends-member:
 - ["s7CVarArgP", "text"]
 - ["s7CVarArgP", "textAlignment"]
 - ["s7CVarArgP", "textColor"]
-- ["s7CVarArgP", ""]
-- ["s10CollectionP", "init"]
-- ["s10ComparableP", "init"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["7SnapKit24ConstraintConstantTargetP", "init"]
+- !private ["7SnapKit21ConstraintInsetTargetP", "init"]
+- !private ["7SnapKit26ConstraintMultiplierTargetP", "init"]
+- !private ["7SnapKit22ConstraintOffsetTargetP", "init"]
+- !private ["7SnapKit24ConstraintPriorityTargetP", "init"]
+- ["7SnapKit25ConstraintRelatableTargetP", "CellStyle"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "Int"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UIButton"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UIFont"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UIImageView"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UILabel"]
+- ["7SnapKit25ConstraintRelatableTargetP", ""]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "addSubview"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "changeQuantity"]
+- ["7SnapKit25ConstraintRelatableTargetP", "clipsToBounds"]
+- ["7SnapKit25ConstraintRelatableTargetP", "contentMode"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "decreaseButton"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "fatalError"]
+- ["7SnapKit25ConstraintRelatableTargetP", "font"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "image"]
+- ["7SnapKit25ConstraintRelatableTargetP", "imageView"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "increaseButton"]
+- ["7SnapKit25ConstraintRelatableTargetP", "init"]
+- ["7SnapKit25ConstraintRelatableTargetP", "numberOfLines"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "productQuantity"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "result"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "resultDescriptionLabel"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "resultImage"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "resultNameLabel"]
+- ["7SnapKit25ConstraintRelatableTargetP", "setImage"]
+- ["7SnapKit25ConstraintRelatableTargetP", "text"]
+- ["7SnapKit25ConstraintRelatableTargetP", "textAlignment"]
+- ["7SnapKit25ConstraintRelatableTargetP", "textColor"]
+- ["So17UIViewContentModeV", "scaleAspectFill"]
+- ["So17UIViewContentModeV", "scaleAspectFit"]
+- ["s28CustomDebugStringConvertibleP", "CellStyle"]
 - !private ["s28CustomDebugStringConvertibleP", "Int"]
 - ["s28CustomDebugStringConvertibleP", "UIButton"]
 - ["s28CustomDebugStringConvertibleP", "UIFont"]
 - ["s28CustomDebugStringConvertibleP", "UIImageView"]
 - ["s28CustomDebugStringConvertibleP", "UILabel"]
+- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "addSubview"]
 - ["s28CustomDebugStringConvertibleP", "black"]
 - ["s28CustomDebugStringConvertibleP", "boldSystemFont"]
@@ -109,6 +156,7 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "imageView"]
 - !private ["s28CustomDebugStringConvertibleP", "increaseButton"]
 - ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
 - ["s28CustomDebugStringConvertibleP", "numberOfLines"]
 - !private ["s28CustomDebugStringConvertibleP", "productQuantity"]
 - !private ["s28CustomDebugStringConvertibleP", "result"]
@@ -120,14 +168,18 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "text"]
 - ["s28CustomDebugStringConvertibleP", "textAlignment"]
 - ["s28CustomDebugStringConvertibleP", "textColor"]
-- ["s28CustomDebugStringConvertibleP", ""]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s17CustomReflectableP", "black"]
 - ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "CellStyle"]
 - !private ["s23CustomStringConvertibleP", "Int"]
 - ["s23CustomStringConvertibleP", "UIButton"]
 - ["s23CustomStringConvertibleP", "UIFont"]
 - ["s23CustomStringConvertibleP", "UIImageView"]
 - ["s23CustomStringConvertibleP", "UILabel"]
+- ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "addSubview"]
 - ["s23CustomStringConvertibleP", "black"]
 - ["s23CustomStringConvertibleP", "boldSystemFont"]
@@ -141,6 +193,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "imageView"]
 - !private ["s23CustomStringConvertibleP", "increaseButton"]
 - ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
 - ["s23CustomStringConvertibleP", "numberOfLines"]
 - !private ["s23CustomStringConvertibleP", "productQuantity"]
 - !private ["s23CustomStringConvertibleP", "result"]
@@ -152,94 +205,135 @@ depends-member:
 - ["s23CustomStringConvertibleP", "text"]
 - ["s23CustomStringConvertibleP", "textAlignment"]
 - ["s23CustomStringConvertibleP", "textColor"]
-- ["s23CustomStringConvertibleP", ""]
-- ["s9DecodableP", "init"]
-- ["s9EncodableP", "init"]
-- !private ["s9EquatableP", "Int"]
-- ["s9EquatableP", "UIButton"]
-- ["s9EquatableP", "UIFont"]
-- ["s9EquatableP", "UIImageView"]
-- ["s9EquatableP", "UILabel"]
-- !private ["s9EquatableP", "addSubview"]
-- ["s9EquatableP", "black"]
-- ["s9EquatableP", "boldSystemFont"]
-- !private ["s9EquatableP", "changeQuantity"]
-- ["s9EquatableP", "clipsToBounds"]
-- ["s9EquatableP", "contentMode"]
-- ["s9EquatableP", "custom"]
-- !private ["s9EquatableP", "decreaseButton"]
-- !private ["s9EquatableP", "fatalError"]
-- ["s9EquatableP", "font"]
-- !private ["s9EquatableP", "image"]
-- ["s9EquatableP", "imageView"]
-- !private ["s9EquatableP", "increaseButton"]
-- ["s9EquatableP", "init"]
-- ["s9EquatableP", "left"]
-- ["s9EquatableP", "normal"]
-- ["s9EquatableP", "numberOfLines"]
-- !private ["s9EquatableP", "productQuantity"]
-- !private ["s9EquatableP", "result"]
-- !private ["s9EquatableP", "resultDescriptionLabel"]
-- !private ["s9EquatableP", "resultImage"]
-- !private ["s9EquatableP", "resultNameLabel"]
-- ["s9EquatableP", "scaleAspectFill"]
-- ["s9EquatableP", "scaleAspectFit"]
-- ["s9EquatableP", "setImage"]
-- ["s9EquatableP", "systemFont"]
-- ["s9EquatableP", "text"]
-- ["s9EquatableP", "textAlignment"]
-- ["s9EquatableP", "textColor"]
-- ["s9EquatableP", ""]
+- ["Se", "black"]
+- ["Se", "init"]
+- ["Se", "init"]
+- ["SE", "black"]
+- ["SE", "init"]
+- ["SE", "init"]
+- ["SQ", "CellStyle"]
+- !private ["SQ", "Int"]
+- ["SQ", "UIButton"]
+- ["SQ", "UIFont"]
+- ["SQ", "UIImageView"]
+- ["SQ", "UILabel"]
+- ["SQ", ""]
+- !private ["SQ", "addSubview"]
+- ["SQ", "black"]
+- ["SQ", "boldSystemFont"]
+- !private ["SQ", "changeQuantity"]
+- ["SQ", "clipsToBounds"]
+- ["SQ", "contentMode"]
+- ["SQ", "custom"]
+- !private ["SQ", "decreaseButton"]
+- !private ["SQ", "fatalError"]
+- ["SQ", "font"]
+- !private ["SQ", "image"]
+- ["SQ", "imageView"]
+- !private ["SQ", "increaseButton"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "left"]
+- ["SQ", "normal"]
+- ["SQ", "numberOfLines"]
+- !private ["SQ", "productQuantity"]
+- !private ["SQ", "result"]
+- !private ["SQ", "resultDescriptionLabel"]
+- !private ["SQ", "resultImage"]
+- !private ["SQ", "resultNameLabel"]
+- ["SQ", "scaleAspectFill"]
+- ["SQ", "scaleAspectFit"]
+- ["SQ", "setImage"]
+- ["SQ", "systemFont"]
+- ["SQ", "text"]
+- ["SQ", "textAlignment"]
+- ["SQ", "textColor"]
 - ["s25ExpressibleByArrayLiteralP", "normal"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s27ExpressibleByIntegerLiteralP", "init"]
 - ["s23ExpressibleByNilLiteralP", "black"]
 - ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s17FixedWidthIntegerP", "init"]
-- !private ["s8HashableP", "Int"]
-- ["s8HashableP", "UIButton"]
-- ["s8HashableP", "UIFont"]
-- ["s8HashableP", "UIImageView"]
-- ["s8HashableP", "UILabel"]
-- !private ["s8HashableP", "addSubview"]
-- ["s8HashableP", "black"]
-- ["s8HashableP", "boldSystemFont"]
-- !private ["s8HashableP", "changeQuantity"]
-- ["s8HashableP", "clipsToBounds"]
-- ["s8HashableP", "contentMode"]
-- ["s8HashableP", "custom"]
-- !private ["s8HashableP", "decreaseButton"]
-- !private ["s8HashableP", "fatalError"]
-- ["s8HashableP", "font"]
-- !private ["s8HashableP", "image"]
-- ["s8HashableP", "imageView"]
-- !private ["s8HashableP", "increaseButton"]
-- ["s8HashableP", "init"]
-- ["s8HashableP", "left"]
-- ["s8HashableP", "numberOfLines"]
-- !private ["s8HashableP", "productQuantity"]
-- !private ["s8HashableP", "result"]
-- !private ["s8HashableP", "resultDescriptionLabel"]
-- !private ["s8HashableP", "resultImage"]
-- !private ["s8HashableP", "resultNameLabel"]
-- ["s8HashableP", "scaleAspectFill"]
-- ["s8HashableP", "scaleAspectFit"]
-- ["s8HashableP", "setImage"]
-- ["s8HashableP", "systemFont"]
-- ["s8HashableP", "text"]
-- ["s8HashableP", "textAlignment"]
-- ["s8HashableP", "textColor"]
-- ["s8HashableP", ""]
-- ["SQ", "black"]
+- ["SH", "CellStyle"]
+- !private ["SH", "Int"]
+- ["SH", "UIButton"]
+- ["SH", "UIFont"]
+- ["SH", "UIImageView"]
+- ["SH", "UILabel"]
+- ["SH", ""]
+- !private ["SH", "addSubview"]
+- ["SH", "black"]
+- ["SH", "boldSystemFont"]
+- !private ["SH", "changeQuantity"]
+- ["SH", "clipsToBounds"]
+- ["SH", "contentMode"]
+- ["SH", "custom"]
+- !private ["SH", "decreaseButton"]
+- !private ["SH", "fatalError"]
+- ["SH", "font"]
+- !private ["SH", "image"]
+- ["SH", "imageView"]
+- !private ["SH", "increaseButton"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "left"]
+- ["SH", "numberOfLines"]
+- !private ["SH", "productQuantity"]
+- !private ["SH", "result"]
+- !private ["SH", "resultDescriptionLabel"]
+- !private ["SH", "resultImage"]
+- !private ["SH", "resultNameLabel"]
+- ["SH", "scaleAspectFill"]
+- ["SH", "scaleAspectFit"]
+- ["SH", "setImage"]
+- ["SH", "systemFont"]
+- ["SH", "text"]
+- ["SH", "textAlignment"]
+- ["SH", "textColor"]
 - !private ["Si", "init"]
+- ["7SnapKit20LayoutConstraintItemP", "CellStyle"]
+- !private ["7SnapKit20LayoutConstraintItemP", "Int"]
+- ["7SnapKit20LayoutConstraintItemP", "UIButton"]
+- ["7SnapKit20LayoutConstraintItemP", "UIFont"]
+- ["7SnapKit20LayoutConstraintItemP", "UIImageView"]
+- ["7SnapKit20LayoutConstraintItemP", "UILabel"]
+- ["7SnapKit20LayoutConstraintItemP", ""]
+- !private ["7SnapKit20LayoutConstraintItemP", "addSubview"]
+- !private ["7SnapKit20LayoutConstraintItemP", "changeQuantity"]
+- ["7SnapKit20LayoutConstraintItemP", "clipsToBounds"]
+- ["7SnapKit20LayoutConstraintItemP", "contentMode"]
+- !private ["7SnapKit20LayoutConstraintItemP", "decreaseButton"]
+- !private ["7SnapKit20LayoutConstraintItemP", "fatalError"]
+- ["7SnapKit20LayoutConstraintItemP", "font"]
+- !private ["7SnapKit20LayoutConstraintItemP", "image"]
+- ["7SnapKit20LayoutConstraintItemP", "imageView"]
+- !private ["7SnapKit20LayoutConstraintItemP", "increaseButton"]
+- ["7SnapKit20LayoutConstraintItemP", "init"]
+- ["7SnapKit20LayoutConstraintItemP", "numberOfLines"]
+- !private ["7SnapKit20LayoutConstraintItemP", "productQuantity"]
+- !private ["7SnapKit20LayoutConstraintItemP", "result"]
+- !private ["7SnapKit20LayoutConstraintItemP", "resultDescriptionLabel"]
+- !private ["7SnapKit20LayoutConstraintItemP", "resultImage"]
+- !private ["7SnapKit20LayoutConstraintItemP", "resultNameLabel"]
+- ["7SnapKit20LayoutConstraintItemP", "setImage"]
+- ["7SnapKit20LayoutConstraintItemP", "text"]
+- ["7SnapKit20LayoutConstraintItemP", "textAlignment"]
+- ["7SnapKit20LayoutConstraintItemP", "textColor"]
+- ["s25LosslessStringConvertibleP", "init"]
 - ["s25LosslessStringConvertibleP", "init"]
 - ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["So8NSCodingP", "CellStyle"]
 - !private ["So8NSCodingP", "Int"]
 - ["So8NSCodingP", "UIButton"]
 - ["So8NSCodingP", "UIFont"]
 - ["So8NSCodingP", "UIImageView"]
 - ["So8NSCodingP", "UILabel"]
+- ["So8NSCodingP", ""]
 - !private ["So8NSCodingP", "addSubview"]
 - ["So8NSCodingP", "black"]
 - !private ["So8NSCodingP", "changeQuantity"]
@@ -262,16 +356,12 @@ depends-member:
 - ["So8NSCodingP", "text"]
 - ["So8NSCodingP", "textAlignment"]
 - ["So8NSCodingP", "textColor"]
-- ["So8NSCodingP", ""]
 - ["So9NSCopyingP", "black"]
 - ["So9NSCopyingP", "boldSystemFont"]
-- ["So9NSCopyingP", "init"]
 - ["So9NSCopyingP", "systemFont"]
 - ["So21NSItemProviderReadingP", "black"]
-- ["So21NSItemProviderReadingP", "init"]
 - ["So21NSItemProviderWritingP", "black"]
-- ["So21NSItemProviderWritingP", "init"]
-- ["So16NSMutableCopyingP", "init"]
+- ["So8NSObjectC", "CellStyle"]
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "NSCoder"]
 - ["So8NSObjectC", "Result"]
@@ -281,7 +371,7 @@ depends-member:
 - ["So8NSObjectC", "UIImage"]
 - ["So8NSObjectC", "UIImageView"]
 - ["So8NSObjectC", "UILabel"]
-- ["So8NSObjectC", "UITableViewCellStyle"]
+- ["So8NSObjectC", "UITableViewCell"]
 - !private ["So8NSObjectC", "addSubview"]
 - ["So8NSObjectC", "black"]
 - ["So8NSObjectC", "boldSystemFont"]
@@ -308,42 +398,42 @@ depends-member:
 - ["So8NSObjectC", "text"]
 - ["So8NSObjectC", "textAlignment"]
 - ["So8NSObjectC", "textColor"]
-- !private ["So16NSObjectProtocolP", "Int"]
-- ["So16NSObjectProtocolP", "UIButton"]
-- ["So16NSObjectProtocolP", "UIFont"]
-- ["So16NSObjectProtocolP", "UIImageView"]
-- ["So16NSObjectProtocolP", "UILabel"]
-- !private ["So16NSObjectProtocolP", "addSubview"]
-- ["So16NSObjectProtocolP", "black"]
-- ["So16NSObjectProtocolP", "boldSystemFont"]
-- !private ["So16NSObjectProtocolP", "changeQuantity"]
-- ["So16NSObjectProtocolP", "clipsToBounds"]
-- ["So16NSObjectProtocolP", "contentMode"]
-- !private ["So16NSObjectProtocolP", "decreaseButton"]
-- !private ["So16NSObjectProtocolP", "fatalError"]
-- ["So16NSObjectProtocolP", "font"]
-- !private ["So16NSObjectProtocolP", "image"]
-- ["So16NSObjectProtocolP", "imageView"]
-- !private ["So16NSObjectProtocolP", "increaseButton"]
-- ["So16NSObjectProtocolP", "init"]
-- ["So16NSObjectProtocolP", "numberOfLines"]
-- !private ["So16NSObjectProtocolP", "productQuantity"]
-- !private ["So16NSObjectProtocolP", "result"]
-- !private ["So16NSObjectProtocolP", "resultDescriptionLabel"]
-- !private ["So16NSObjectProtocolP", "resultImage"]
-- !private ["So16NSObjectProtocolP", "resultNameLabel"]
-- ["So16NSObjectProtocolP", "setImage"]
-- ["So16NSObjectProtocolP", "systemFont"]
-- ["So16NSObjectProtocolP", "text"]
-- ["So16NSObjectProtocolP", "textAlignment"]
-- ["So16NSObjectProtocolP", "textColor"]
-- ["So16NSObjectProtocolP", ""]
+- ["So8NSObjectP", "CellStyle"]
+- !private ["So8NSObjectP", "Int"]
+- ["So8NSObjectP", "UIButton"]
+- ["So8NSObjectP", "UIFont"]
+- ["So8NSObjectP", "UIImageView"]
+- ["So8NSObjectP", "UILabel"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "addSubview"]
+- ["So8NSObjectP", "black"]
+- ["So8NSObjectP", "boldSystemFont"]
+- !private ["So8NSObjectP", "changeQuantity"]
+- ["So8NSObjectP", "clipsToBounds"]
+- ["So8NSObjectP", "contentMode"]
+- !private ["So8NSObjectP", "decreaseButton"]
+- !private ["So8NSObjectP", "fatalError"]
+- ["So8NSObjectP", "font"]
+- !private ["So8NSObjectP", "image"]
+- ["So8NSObjectP", "imageView"]
+- !private ["So8NSObjectP", "increaseButton"]
+- ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "numberOfLines"]
+- !private ["So8NSObjectP", "productQuantity"]
+- !private ["So8NSObjectP", "result"]
+- !private ["So8NSObjectP", "resultDescriptionLabel"]
+- !private ["So8NSObjectP", "resultImage"]
+- !private ["So8NSObjectP", "resultNameLabel"]
+- ["So8NSObjectP", "setImage"]
+- ["So8NSObjectP", "systemFont"]
+- ["So8NSObjectP", "text"]
+- ["So8NSObjectP", "textAlignment"]
+- ["So8NSObjectP", "textColor"]
 - ["So14NSSecureCodingP", "black"]
-- ["So14NSSecureCodingP", "init"]
-- ["So8NSStringC", "init"]
-- ["SC15NSTextAlignmentO", "left"]
-- !private ["s7NumericP", "init"]
+- ["So15NSTextAlignmentV", "left"]
+- !private ["Sj", "init"]
 - ["s9OptionSetP", "normal"]
+- ["Sq", "black"]
 - ["4Pulp11ProductCellC", "Int"]
 - ["4Pulp11ProductCellC", "NSCoder"]
 - ["4Pulp11ProductCellC", "Result"]
@@ -353,12 +443,11 @@ depends-member:
 - ["4Pulp11ProductCellC", "UIImage"]
 - ["4Pulp11ProductCellC", "UIImageView"]
 - ["4Pulp11ProductCellC", "UILabel"]
-- ["4Pulp11ProductCellC", "UITableViewCellStyle"]
+- ["4Pulp11ProductCellC", "UITableViewCell"]
 - !private ["4Pulp11ProductCellC", "addSubview"]
 - ["4Pulp11ProductCellC", "changeQuantity"]
 - !private ["4Pulp11ProductCellC", "decreaseButton"]
 - ["4Pulp11ProductCellC", "decreaseFunc"]
-- ["4Pulp11ProductCellC", "deinit"]
 - !private ["4Pulp11ProductCellC", "fatalError"]
 - !private ["4Pulp11ProductCellC", "increaseButton"]
 - ["4Pulp11ProductCellC", "increaseFunc"]
@@ -368,27 +457,35 @@ depends-member:
 - !private ["4Pulp11ProductCellC", "resultDescriptionLabel"]
 - !private ["4Pulp11ProductCellC", "resultImage"]
 - !private ["4Pulp11ProductCellC", "resultNameLabel"]
-- ["s26RangeReplaceableCollectionP", "init"]
-- ["s16RawRepresentableP", "custom"]
-- ["s16RawRepresentableP", "left"]
-- ["s16RawRepresentableP", "normal"]
-- ["s16RawRepresentableP", "scaleAspectFill"]
-- ["s16RawRepresentableP", "scaleAspectFit"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "custom"]
+- ["SY", "left"]
+- ["SY", "normal"]
+- ["SY", "scaleAspectFill"]
+- ["SY", "scaleAspectFit"]
 - ["4Pulp11ProductCellC6ResultV", "String"]
 - ["4Pulp11ProductCellC6ResultV", "UIImage"]
 - ["4Pulp11ProductCellC6ResultV", "init"]
 - ["4Pulp11ProductCellC6ResultV", "resultDesc"]
 - ["4Pulp11ProductCellC6ResultV", "resultImage"]
 - ["4Pulp11ProductCellC6ResultV", "resultName"]
-- ["s8SequenceP", "init"]
+- ["ST", "init"]
+- ["ST", "init"]
 - ["s10SetAlgebraP", "normal"]
-- !private ["s13SignedIntegerP", "init"]
+- !private ["SZ", "init"]
 - !private ["s13SignedNumericP", "init"]
+- ["So14UIControlStateV", "normal"]
 - !private ["s12StaticStringV", "init"]
-- !private ["s10StrideableP", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["Sx", "init"]
 - ["SS", "init"]
-- ["s14StringProtocolP", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
 - ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
 - ["s20TextOutputStreamableP", "init"]
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "clipsToBounds"]
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "contentMode"]
@@ -396,11 +493,13 @@ depends-member:
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "imageView"]
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "init"]
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "setImage"]
+- ["So29UIAccessibilityIdentificationP", "CellStyle"]
 - !private ["So29UIAccessibilityIdentificationP", "Int"]
 - ["So29UIAccessibilityIdentificationP", "UIButton"]
 - ["So29UIAccessibilityIdentificationP", "UIFont"]
 - ["So29UIAccessibilityIdentificationP", "UIImageView"]
 - ["So29UIAccessibilityIdentificationP", "UILabel"]
+- ["So29UIAccessibilityIdentificationP", ""]
 - !private ["So29UIAccessibilityIdentificationP", "addSubview"]
 - !private ["So29UIAccessibilityIdentificationP", "changeQuantity"]
 - ["So29UIAccessibilityIdentificationP", "clipsToBounds"]
@@ -422,12 +521,13 @@ depends-member:
 - ["So29UIAccessibilityIdentificationP", "text"]
 - ["So29UIAccessibilityIdentificationP", "textAlignment"]
 - ["So29UIAccessibilityIdentificationP", "textColor"]
-- ["So29UIAccessibilityIdentificationP", ""]
+- ["So12UIAppearanceP", "CellStyle"]
 - !private ["So12UIAppearanceP", "Int"]
 - ["So12UIAppearanceP", "UIButton"]
 - ["So12UIAppearanceP", "UIFont"]
 - ["So12UIAppearanceP", "UIImageView"]
 - ["So12UIAppearanceP", "UILabel"]
+- ["So12UIAppearanceP", ""]
 - !private ["So12UIAppearanceP", "addSubview"]
 - !private ["So12UIAppearanceP", "changeQuantity"]
 - ["So12UIAppearanceP", "clipsToBounds"]
@@ -449,12 +549,13 @@ depends-member:
 - ["So12UIAppearanceP", "text"]
 - ["So12UIAppearanceP", "textAlignment"]
 - ["So12UIAppearanceP", "textColor"]
-- ["So12UIAppearanceP", ""]
+- ["So21UIAppearanceContainerP", "CellStyle"]
 - !private ["So21UIAppearanceContainerP", "Int"]
 - ["So21UIAppearanceContainerP", "UIButton"]
 - ["So21UIAppearanceContainerP", "UIFont"]
 - ["So21UIAppearanceContainerP", "UIImageView"]
 - ["So21UIAppearanceContainerP", "UILabel"]
+- ["So21UIAppearanceContainerP", ""]
 - !private ["So21UIAppearanceContainerP", "addSubview"]
 - !private ["So21UIAppearanceContainerP", "changeQuantity"]
 - ["So21UIAppearanceContainerP", "clipsToBounds"]
@@ -476,11 +577,9 @@ depends-member:
 - ["So21UIAppearanceContainerP", "text"]
 - ["So21UIAppearanceContainerP", "textAlignment"]
 - ["So21UIAppearanceContainerP", "textColor"]
-- ["So21UIAppearanceContainerP", ""]
 - ["So8UIButtonC", "imageView"]
 - ["So8UIButtonC", "init"]
 - ["So8UIButtonC", "setImage"]
-- ["SC12UIButtonTypeO", "custom"]
 - ["So7UIColorC", "black"]
 - ["So30UIContentSizeCategoryAdjustingP", "font"]
 - ["So30UIContentSizeCategoryAdjustingP", "init"]
@@ -491,12 +590,13 @@ depends-member:
 - ["So9UIControlC", "imageView"]
 - ["So9UIControlC", "init"]
 - ["So9UIControlC", "setImage"]
-- ["SC14UIControlStateV", "normal"]
+- ["So17UICoordinateSpaceP", "CellStyle"]
 - !private ["So17UICoordinateSpaceP", "Int"]
 - ["So17UICoordinateSpaceP", "UIButton"]
 - ["So17UICoordinateSpaceP", "UIFont"]
 - ["So17UICoordinateSpaceP", "UIImageView"]
 - ["So17UICoordinateSpaceP", "UILabel"]
+- ["So17UICoordinateSpaceP", ""]
 - !private ["So17UICoordinateSpaceP", "addSubview"]
 - !private ["So17UICoordinateSpaceP", "changeQuantity"]
 - ["So17UICoordinateSpaceP", "clipsToBounds"]
@@ -518,12 +618,13 @@ depends-member:
 - ["So17UICoordinateSpaceP", "text"]
 - ["So17UICoordinateSpaceP", "textAlignment"]
 - ["So17UICoordinateSpaceP", "textColor"]
-- ["So17UICoordinateSpaceP", ""]
+- ["So13UIDynamicItemP", "CellStyle"]
 - !private ["So13UIDynamicItemP", "Int"]
 - ["So13UIDynamicItemP", "UIButton"]
 - ["So13UIDynamicItemP", "UIFont"]
 - ["So13UIDynamicItemP", "UIImageView"]
 - ["So13UIDynamicItemP", "UILabel"]
+- ["So13UIDynamicItemP", ""]
 - !private ["So13UIDynamicItemP", "addSubview"]
 - !private ["So13UIDynamicItemP", "changeQuantity"]
 - ["So13UIDynamicItemP", "clipsToBounds"]
@@ -545,12 +646,13 @@ depends-member:
 - ["So13UIDynamicItemP", "text"]
 - ["So13UIDynamicItemP", "textAlignment"]
 - ["So13UIDynamicItemP", "textColor"]
-- ["So13UIDynamicItemP", ""]
+- ["So18UIFocusEnvironmentP", "CellStyle"]
 - !private ["So18UIFocusEnvironmentP", "Int"]
 - ["So18UIFocusEnvironmentP", "UIButton"]
 - ["So18UIFocusEnvironmentP", "UIFont"]
 - ["So18UIFocusEnvironmentP", "UIImageView"]
 - ["So18UIFocusEnvironmentP", "UILabel"]
+- ["So18UIFocusEnvironmentP", ""]
 - !private ["So18UIFocusEnvironmentP", "addSubview"]
 - !private ["So18UIFocusEnvironmentP", "changeQuantity"]
 - ["So18UIFocusEnvironmentP", "clipsToBounds"]
@@ -572,12 +674,13 @@ depends-member:
 - ["So18UIFocusEnvironmentP", "text"]
 - ["So18UIFocusEnvironmentP", "textAlignment"]
 - ["So18UIFocusEnvironmentP", "textColor"]
-- ["So18UIFocusEnvironmentP", ""]
+- ["So11UIFocusItemP", "CellStyle"]
 - !private ["So11UIFocusItemP", "Int"]
 - ["So11UIFocusItemP", "UIButton"]
 - ["So11UIFocusItemP", "UIFont"]
 - ["So11UIFocusItemP", "UIImageView"]
 - ["So11UIFocusItemP", "UILabel"]
+- ["So11UIFocusItemP", ""]
 - !private ["So11UIFocusItemP", "addSubview"]
 - !private ["So11UIFocusItemP", "changeQuantity"]
 - ["So11UIFocusItemP", "clipsToBounds"]
@@ -599,14 +702,43 @@ depends-member:
 - ["So11UIFocusItemP", "text"]
 - ["So11UIFocusItemP", "textAlignment"]
 - ["So11UIFocusItemP", "textColor"]
-- ["So11UIFocusItemP", ""]
+- ["So20UIFocusItemContainerP", "CellStyle"]
+- !private ["So20UIFocusItemContainerP", "Int"]
+- ["So20UIFocusItemContainerP", "UIButton"]
+- ["So20UIFocusItemContainerP", "UIFont"]
+- ["So20UIFocusItemContainerP", "UIImageView"]
+- ["So20UIFocusItemContainerP", "UILabel"]
+- ["So20UIFocusItemContainerP", ""]
+- !private ["So20UIFocusItemContainerP", "addSubview"]
+- !private ["So20UIFocusItemContainerP", "changeQuantity"]
+- ["So20UIFocusItemContainerP", "clipsToBounds"]
+- ["So20UIFocusItemContainerP", "contentMode"]
+- !private ["So20UIFocusItemContainerP", "decreaseButton"]
+- !private ["So20UIFocusItemContainerP", "fatalError"]
+- ["So20UIFocusItemContainerP", "font"]
+- !private ["So20UIFocusItemContainerP", "image"]
+- ["So20UIFocusItemContainerP", "imageView"]
+- !private ["So20UIFocusItemContainerP", "increaseButton"]
+- ["So20UIFocusItemContainerP", "init"]
+- ["So20UIFocusItemContainerP", "numberOfLines"]
+- !private ["So20UIFocusItemContainerP", "productQuantity"]
+- !private ["So20UIFocusItemContainerP", "result"]
+- !private ["So20UIFocusItemContainerP", "resultDescriptionLabel"]
+- !private ["So20UIFocusItemContainerP", "resultImage"]
+- !private ["So20UIFocusItemContainerP", "resultNameLabel"]
+- ["So20UIFocusItemContainerP", "setImage"]
+- ["So20UIFocusItemContainerP", "text"]
+- ["So20UIFocusItemContainerP", "textAlignment"]
+- ["So20UIFocusItemContainerP", "textColor"]
 - ["So6UIFontC", "boldSystemFont"]
 - ["So6UIFontC", "systemFont"]
+- ["So27UIGestureRecognizerDelegateP", "CellStyle"]
 - !private ["So27UIGestureRecognizerDelegateP", "Int"]
 - ["So27UIGestureRecognizerDelegateP", "UIButton"]
 - ["So27UIGestureRecognizerDelegateP", "UIFont"]
 - ["So27UIGestureRecognizerDelegateP", "UIImageView"]
 - ["So27UIGestureRecognizerDelegateP", "UILabel"]
+- ["So27UIGestureRecognizerDelegateP", ""]
 - !private ["So27UIGestureRecognizerDelegateP", "addSubview"]
 - !private ["So27UIGestureRecognizerDelegateP", "changeQuantity"]
 - !private ["So27UIGestureRecognizerDelegateP", "decreaseButton"]
@@ -618,7 +750,6 @@ depends-member:
 - !private ["So27UIGestureRecognizerDelegateP", "resultDescriptionLabel"]
 - !private ["So27UIGestureRecognizerDelegateP", "resultImage"]
 - !private ["So27UIGestureRecognizerDelegateP", "resultNameLabel"]
-- ["So27UIGestureRecognizerDelegateP", ""]
 - ["So11UIImageViewC", "clipsToBounds"]
 - ["So11UIImageViewC", "contentMode"]
 - !private ["So11UIImageViewC", "image"]
@@ -629,11 +760,13 @@ depends-member:
 - ["So7UILabelC", "text"]
 - ["So7UILabelC", "textAlignment"]
 - ["So7UILabelC", "textColor"]
+- ["So30UIPasteConfigurationSupportingP", "CellStyle"]
 - !private ["So30UIPasteConfigurationSupportingP", "Int"]
 - ["So30UIPasteConfigurationSupportingP", "UIButton"]
 - ["So30UIPasteConfigurationSupportingP", "UIFont"]
 - ["So30UIPasteConfigurationSupportingP", "UIImageView"]
 - ["So30UIPasteConfigurationSupportingP", "UILabel"]
+- ["So30UIPasteConfigurationSupportingP", ""]
 - !private ["So30UIPasteConfigurationSupportingP", "addSubview"]
 - !private ["So30UIPasteConfigurationSupportingP", "changeQuantity"]
 - ["So30UIPasteConfigurationSupportingP", "clipsToBounds"]
@@ -655,7 +788,7 @@ depends-member:
 - ["So30UIPasteConfigurationSupportingP", "text"]
 - ["So30UIPasteConfigurationSupportingP", "textAlignment"]
 - ["So30UIPasteConfigurationSupportingP", "textColor"]
-- ["So30UIPasteConfigurationSupportingP", ""]
+- ["So11UIResponderC", "CellStyle"]
 - ["So11UIResponderC", "Int"]
 - ["So11UIResponderC", "NSCoder"]
 - ["So11UIResponderC", "Result"]
@@ -665,7 +798,7 @@ depends-member:
 - ["So11UIResponderC", "UIImage"]
 - ["So11UIResponderC", "UIImageView"]
 - ["So11UIResponderC", "UILabel"]
-- ["So11UIResponderC", "UITableViewCellStyle"]
+- ["So11UIResponderC", "UITableViewCell"]
 - !private ["So11UIResponderC", "addSubview"]
 - ["So11UIResponderC", "changeQuantity"]
 - ["So11UIResponderC", "clipsToBounds"]
@@ -689,11 +822,13 @@ depends-member:
 - ["So11UIResponderC", "text"]
 - ["So11UIResponderC", "textAlignment"]
 - ["So11UIResponderC", "textColor"]
+- ["So30UIResponderStandardEditActionsP", "CellStyle"]
 - !private ["So30UIResponderStandardEditActionsP", "Int"]
 - ["So30UIResponderStandardEditActionsP", "UIButton"]
 - ["So30UIResponderStandardEditActionsP", "UIFont"]
 - ["So30UIResponderStandardEditActionsP", "UIImageView"]
 - ["So30UIResponderStandardEditActionsP", "UILabel"]
+- ["So30UIResponderStandardEditActionsP", ""]
 - !private ["So30UIResponderStandardEditActionsP", "addSubview"]
 - !private ["So30UIResponderStandardEditActionsP", "changeQuantity"]
 - ["So30UIResponderStandardEditActionsP", "clipsToBounds"]
@@ -715,10 +850,10 @@ depends-member:
 - ["So30UIResponderStandardEditActionsP", "text"]
 - ["So30UIResponderStandardEditActionsP", "textAlignment"]
 - ["So30UIResponderStandardEditActionsP", "textColor"]
-- ["So30UIResponderStandardEditActionsP", ""]
 - ["So35UISpringLoadedInteractionSupportingP", "imageView"]
 - ["So35UISpringLoadedInteractionSupportingP", "init"]
 - ["So35UISpringLoadedInteractionSupportingP", "setImage"]
+- ["So15UITableViewCellC", "CellStyle"]
 - ["So15UITableViewCellC", "Int"]
 - ["So15UITableViewCellC", "NSCoder"]
 - ["So15UITableViewCellC", "Result"]
@@ -728,7 +863,8 @@ depends-member:
 - ["So15UITableViewCellC", "UIImage"]
 - ["So15UITableViewCellC", "UIImageView"]
 - ["So15UITableViewCellC", "UILabel"]
-- ["So15UITableViewCellC", "UITableViewCellStyle"]
+- ["So15UITableViewCellC", "UITableViewCell"]
+- ["So15UITableViewCellC", ""]
 - !private ["So15UITableViewCellC", "addSubview"]
 - ["So15UITableViewCellC", "changeQuantity"]
 - ["So15UITableViewCellC", "decreaseButton"]
@@ -742,12 +878,13 @@ depends-member:
 - ["So15UITableViewCellC", "resultDescriptionLabel"]
 - ["So15UITableViewCellC", "resultImage"]
 - ["So15UITableViewCellC", "resultNameLabel"]
-- ["So15UITableViewCellC", ""]
+- ["So18UITraitEnvironmentP", "CellStyle"]
 - !private ["So18UITraitEnvironmentP", "Int"]
 - ["So18UITraitEnvironmentP", "UIButton"]
 - ["So18UITraitEnvironmentP", "UIFont"]
 - ["So18UITraitEnvironmentP", "UIImageView"]
 - ["So18UITraitEnvironmentP", "UILabel"]
+- ["So18UITraitEnvironmentP", ""]
 - !private ["So18UITraitEnvironmentP", "addSubview"]
 - !private ["So18UITraitEnvironmentP", "changeQuantity"]
 - ["So18UITraitEnvironmentP", "clipsToBounds"]
@@ -769,7 +906,35 @@ depends-member:
 - ["So18UITraitEnvironmentP", "text"]
 - ["So18UITraitEnvironmentP", "textAlignment"]
 - ["So18UITraitEnvironmentP", "textColor"]
-- ["So18UITraitEnvironmentP", ""]
+- ["So23UIUserActivityRestoringP", "CellStyle"]
+- !private ["So23UIUserActivityRestoringP", "Int"]
+- ["So23UIUserActivityRestoringP", "UIButton"]
+- ["So23UIUserActivityRestoringP", "UIFont"]
+- ["So23UIUserActivityRestoringP", "UIImageView"]
+- ["So23UIUserActivityRestoringP", "UILabel"]
+- ["So23UIUserActivityRestoringP", ""]
+- !private ["So23UIUserActivityRestoringP", "addSubview"]
+- !private ["So23UIUserActivityRestoringP", "changeQuantity"]
+- ["So23UIUserActivityRestoringP", "clipsToBounds"]
+- ["So23UIUserActivityRestoringP", "contentMode"]
+- !private ["So23UIUserActivityRestoringP", "decreaseButton"]
+- !private ["So23UIUserActivityRestoringP", "fatalError"]
+- ["So23UIUserActivityRestoringP", "font"]
+- !private ["So23UIUserActivityRestoringP", "image"]
+- ["So23UIUserActivityRestoringP", "imageView"]
+- !private ["So23UIUserActivityRestoringP", "increaseButton"]
+- ["So23UIUserActivityRestoringP", "init"]
+- ["So23UIUserActivityRestoringP", "numberOfLines"]
+- !private ["So23UIUserActivityRestoringP", "productQuantity"]
+- !private ["So23UIUserActivityRestoringP", "result"]
+- !private ["So23UIUserActivityRestoringP", "resultDescriptionLabel"]
+- !private ["So23UIUserActivityRestoringP", "resultImage"]
+- !private ["So23UIUserActivityRestoringP", "resultNameLabel"]
+- ["So23UIUserActivityRestoringP", "setImage"]
+- ["So23UIUserActivityRestoringP", "text"]
+- ["So23UIUserActivityRestoringP", "textAlignment"]
+- ["So23UIUserActivityRestoringP", "textColor"]
+- ["So6UIViewC", "CellStyle"]
 - ["So6UIViewC", "Int"]
 - ["So6UIViewC", "NSCoder"]
 - ["So6UIViewC", "Result"]
@@ -779,7 +944,7 @@ depends-member:
 - ["So6UIViewC", "UIImage"]
 - ["So6UIViewC", "UIImageView"]
 - ["So6UIViewC", "UILabel"]
-- ["So6UIViewC", "UITableViewCellStyle"]
+- ["So6UIViewC", "UITableViewCell"]
 - !private ["So6UIViewC", "addSubview"]
 - ["So6UIViewC", "changeQuantity"]
 - ["So6UIViewC", "clipsToBounds"]
@@ -803,15 +968,14 @@ depends-member:
 - ["So6UIViewC", "text"]
 - ["So6UIViewC", "textAlignment"]
 - ["So6UIViewC", "textColor"]
-- ["SC17UIViewContentModeO", "scaleAspectFill"]
-- ["SC17UIViewContentModeO", "scaleAspectFit"]
-- ["s23_BidirectionalIndexableP", "init"]
 - !private ["s18_BitwiseOperationsP", "init"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", "CellStyle"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "Int"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "UIButton"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "UIFont"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "UIImageView"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "UILabel"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", ""]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "addSubview"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "changeQuantity"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "clipsToBounds"]
@@ -833,22 +997,26 @@ depends-member:
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "text"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "textAlignment"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "textColor"]
-- ["s37_DefaultCustomPlaygroundQuickLookableP", ""]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
 - ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
 - ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
 - ["s26_ExpressibleByColorLiteralP", "black"]
 - ["s33_ExpressibleByStringInterpolationP", "init"]
-- ["s35_HasCustomAnyHashableRepresentationP", "init"]
-- ["s10_IndexableP", "init"]
-- ["s14_IndexableBaseP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "CellStyle"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIButton"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIFont"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIImageView"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UILabel"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "addSubview"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "black"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "boldSystemFont"]
@@ -873,26 +1041,34 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "text"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "textAlignment"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "textColor"]
-- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - ["s21_ObjectiveCBridgeableP", "black"]
 - ["s21_ObjectiveCBridgeableP", "init"]
-- ["s26_RangeReplaceableIndexableP", "init"]
-- !private ["s11_StrideableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
 - ["s16_SwiftStringViewP", "init"]
 depends-nominal:
-- "s23BidirectionalCollectionP"
-- !private "s13BinaryIntegerP"
+- "12FacebookCore26AppEventParameterValueTypeP"
+- "SK"
+- !private "Sz"
+- "So12UIButtonTypeV"
 - "So15CALayerDelegateP"
 - "s7CVarArgP"
-- "s10CollectionP"
-- "s10ComparableP"
+- "Sl"
+- "SL"
+- !private "7SnapKit24ConstraintConstantTargetP"
+- !private "7SnapKit21ConstraintInsetTargetP"
+- !private "7SnapKit26ConstraintMultiplierTargetP"
+- !private "7SnapKit22ConstraintOffsetTargetP"
+- !private "7SnapKit24ConstraintPriorityTargetP"
+- "7SnapKit25ConstraintRelatableTargetP"
+- "So17UIViewContentModeV"
 - "s28CustomDebugStringConvertibleP"
 - "s29CustomPlaygroundQuickLookableP"
 - "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
-- "s9DecodableP"
-- "s9EncodableP"
-- "s9EquatableP"
+- "Se"
+- "SE"
+- "SQ"
 - "s25ExpressibleByArrayLiteralP"
 - "s43ExpressibleByExtendedGraphemeClusterLiteralP"
 - !private "s27ExpressibleByIntegerLiteralP"
@@ -900,35 +1076,35 @@ depends-nominal:
 - "s26ExpressibleByStringLiteralP"
 - "s33ExpressibleByUnicodeScalarLiteralP"
 - !private "s17FixedWidthIntegerP"
-- "s8HashableP"
-- "SQ"
+- "SH"
 - !private "Si"
+- "7SnapKit20LayoutConstraintItemP"
 - "s25LosslessStringConvertibleP"
 - "s10MirrorPathP"
 - "So8NSCodingP"
 - "So9NSCopyingP"
 - "So21NSItemProviderReadingP"
 - "So21NSItemProviderWritingP"
-- "So16NSMutableCopyingP"
 - "So8NSObjectC"
-- "So16NSObjectProtocolP"
+- "So8NSObjectP"
 - "So14NSSecureCodingP"
-- "So8NSStringC"
-- "SC15NSTextAlignmentO"
-- !private "s7NumericP"
+- "So15NSTextAlignmentV"
+- !private "Sj"
 - "s9OptionSetP"
+- "Sq"
 - "4Pulp11ProductCellC"
-- "s26RangeReplaceableCollectionP"
-- "s16RawRepresentableP"
+- "Sm"
+- "SY"
 - "4Pulp11ProductCellC6ResultV"
-- "s8SequenceP"
+- "ST"
 - "s10SetAlgebraP"
-- !private "s13SignedIntegerP"
+- !private "SZ"
 - !private "s13SignedNumericP"
+- "So14UIControlStateV"
 - !private "s12StaticStringV"
-- !private "s10StrideableP"
+- !private "Sx"
 - "SS"
-- "s14StringProtocolP"
+- "Sy"
 - "s16TextOutputStreamP"
 - "s20TextOutputStreamableP"
 - "So48UIAccessibilityContentSizeCategoryImageAdjustingP"
@@ -936,15 +1112,14 @@ depends-nominal:
 - "So12UIAppearanceP"
 - "So21UIAppearanceContainerP"
 - "So8UIButtonC"
-- "SC12UIButtonTypeO"
 - "So7UIColorC"
 - "So30UIContentSizeCategoryAdjustingP"
 - "So9UIControlC"
-- "SC14UIControlStateV"
 - "So17UICoordinateSpaceP"
 - "So13UIDynamicItemP"
 - "So18UIFocusEnvironmentP"
 - "So11UIFocusItemP"
+- "So20UIFocusItemContainerP"
 - "So6UIFontC"
 - "So27UIGestureRecognizerDelegateP"
 - "So11UIImageViewC"
@@ -955,9 +1130,8 @@ depends-nominal:
 - "So35UISpringLoadedInteractionSupportingP"
 - "So15UITableViewCellC"
 - "So18UITraitEnvironmentP"
+- "So23UIUserActivityRestoringP"
 - "So6UIViewC"
-- "SC17UIViewContentModeO"
-- "s23_BidirectionalIndexableP"
 - !private "s18_BitwiseOperationsP"
 - "s37_DefaultCustomPlaygroundQuickLookableP"
 - "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
@@ -967,28 +1141,105 @@ depends-nominal:
 - "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - "s26_ExpressibleByColorLiteralP"
 - "s33_ExpressibleByStringInterpolationP"
-- "s35_HasCustomAnyHashableRepresentationP"
-- "s10_IndexableP"
-- "s14_IndexableBaseP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 - "s21_ObjectiveCBridgeableP"
-- "s26_RangeReplaceableIndexableP"
-- !private "s11_StrideableP"
 - "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/katmiao/Downloads/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-interface-hash: "38f69b4de7fd40f87113ab2045220c64"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/FacebookCore.swiftmodule/x86_64.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/FacebookLogin.swiftmodule/x86_64.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Modules/SnapKit.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFURL.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Headers/SnapKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFGeneric.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfile.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUserDataStore.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCopying.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLink.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTask.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKButton.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginButton.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginCodeInfo.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKSettings.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMacros.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKConstants.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginConstants.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Headers/SnapKit-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManagerLoginResult.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginManagerResult.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKTooltipView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginTooltipView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUtility.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/WebKit.framework/Headers/WebKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "31baa7f1cdf0ff5dba6d0539db472c22"

@@ -63,14 +63,10 @@ class ViewController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 5
-        button.addTarget(self, action: #selector(openCreateProfileView), for: .touchUpInside)
+        button.addTarget(self, action: #selector(openExploreView), for: .touchUpInside)
         return button
     }()
-    
-    @objc func openCreateProfileView(){
-        let createProfileVC = CreateProfileViewController()
-        present(createProfileVC, animated: true, completion: nil)
-    }
+
     
     @objc func openExploreView(){
         let exploreVC = ExploreViewController()

@@ -8,6 +8,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     var window: UIWindow?
     var mapView: MKMapView?
+    var attractionList = []
     
     //The range (meter) of how much we want to see arround the user's location
     let distanceSpan: Double = 500

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		093363F2229DAB730070517F /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093363F1229DAB730070517F /* WelcomePageController.swift */; };
 		4363F34C223ADA8F008C2969 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F34B223ADA8F008C2969 /* SwipingController.swift */; };
 		4363F34E223ADABE008C2969 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F34D223ADABE008C2969 /* PageCell.swift */; };
 		4363F350223B05FB008C2969 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F34F223B05FB008C2969 /* ExploreViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		093363F1229DAB730070517F /* WelcomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
 		3E70D046F479E62C24E589B8 /* Pods-Pulp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pulp/Pods-Pulp.release.xcconfig"; sourceTree = "<group>"; };
 		4363F34B223ADA8F008C2969 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		4363F34D223ADABE008C2969 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				43AC38302227500600652A70 /* AppDelegate.swift */,
+				093363F1229DAB730070517F /* WelcomePageController.swift */,
 				83042234227801D000DDC8B2 /* UnusedLogInController.swift */,
 				83ABFFF0228AA88F00DB0F7C /* LogInController.swift */,
 				83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */,
@@ -202,15 +205,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Pulp-checkManifestLockResult.txt",
 			);
@@ -224,8 +223,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pulp/Pods-Pulp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -238,8 +235,6 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -265,6 +260,7 @@
 				4363F352223B1071008C2969 /* ExploreResults.swift in Sources */,
 				43AC38332227500600652A70 /* ViewController.swift in Sources */,
 				4363F356223B17C9008C2969 /* ResultCell.swift in Sources */,
+				093363F2229DAB730070517F /* WelcomePageController.swift in Sources */,
 				437F2854226E96D600E32525 /* DiveIn.swift in Sources */,
 				8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */,
 				43AC38312227500600652A70 /* AppDelegate.swift in Sources */,
@@ -418,10 +414,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 682Y7UP5X7;
+				DEVELOPMENT_TEAM = G9A54T2R6Y;
 				INFOPLIST_FILE = Pulp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DevX.Pulp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.michelle.welcome-page";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -434,10 +430,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 682Y7UP5X7;
+				DEVELOPMENT_TEAM = G9A54T2R6Y;
 				INFOPLIST_FILE = Pulp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DevX.Pulp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.michelle.welcome-page";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

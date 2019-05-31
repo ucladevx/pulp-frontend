@@ -27,15 +27,17 @@ depends-top-level:
 - "UIImageView"
 - "UILabel"
 - "UITableViewCell"
-- "UITableViewCellStyle"
 - "UnicodeScalarType"
 - "_ImageLiteralType"
 - !private "fatalError"
 depends-member:
+- ["12FacebookCore26AppEventParameterValueTypeP", "init"]
+- ["12FacebookCore26AppEventParameterValueTypeP", "init"]
 - ["SK", "init"]
 - ["SK", "init"]
 - !private ["Sz", "init"]
 - ["So12UIButtonTypeV", "custom"]
+- ["So15CALayerDelegateP", "CellStyle"]
 - !private ["So15CALayerDelegateP", "Int"]
 - ["So15CALayerDelegateP", "UIButton"]
 - ["So15CALayerDelegateP", "UIFont"]
@@ -63,6 +65,7 @@ depends-member:
 - ["So15CALayerDelegateP", "text"]
 - ["So15CALayerDelegateP", "textAlignment"]
 - ["So15CALayerDelegateP", "textColor"]
+- ["s7CVarArgP", "CellStyle"]
 - !private ["s7CVarArgP", "Int"]
 - ["s7CVarArgP", "UIButton"]
 - ["s7CVarArgP", "UIFont"]
@@ -98,8 +101,42 @@ depends-member:
 - ["Sl", "init"]
 - ["SL", "init"]
 - ["SL", "init"]
+- !private ["7SnapKit24ConstraintConstantTargetP", "init"]
+- !private ["7SnapKit21ConstraintInsetTargetP", "init"]
+- !private ["7SnapKit26ConstraintMultiplierTargetP", "init"]
+- !private ["7SnapKit22ConstraintOffsetTargetP", "init"]
+- !private ["7SnapKit24ConstraintPriorityTargetP", "init"]
+- ["7SnapKit25ConstraintRelatableTargetP", "CellStyle"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "Int"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UIButton"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UIFont"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UIImageView"]
+- ["7SnapKit25ConstraintRelatableTargetP", "UILabel"]
+- ["7SnapKit25ConstraintRelatableTargetP", ""]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "addSubview"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "changeQuantity"]
+- ["7SnapKit25ConstraintRelatableTargetP", "clipsToBounds"]
+- ["7SnapKit25ConstraintRelatableTargetP", "contentMode"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "decreaseButton"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "fatalError"]
+- ["7SnapKit25ConstraintRelatableTargetP", "font"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "image"]
+- ["7SnapKit25ConstraintRelatableTargetP", "imageView"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "increaseButton"]
+- ["7SnapKit25ConstraintRelatableTargetP", "init"]
+- ["7SnapKit25ConstraintRelatableTargetP", "numberOfLines"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "productQuantity"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "result"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "resultDescriptionLabel"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "resultImage"]
+- !private ["7SnapKit25ConstraintRelatableTargetP", "resultNameLabel"]
+- ["7SnapKit25ConstraintRelatableTargetP", "setImage"]
+- ["7SnapKit25ConstraintRelatableTargetP", "text"]
+- ["7SnapKit25ConstraintRelatableTargetP", "textAlignment"]
+- ["7SnapKit25ConstraintRelatableTargetP", "textColor"]
 - ["So17UIViewContentModeV", "scaleAspectFill"]
 - ["So17UIViewContentModeV", "scaleAspectFit"]
+- ["s28CustomDebugStringConvertibleP", "CellStyle"]
 - !private ["s28CustomDebugStringConvertibleP", "Int"]
 - ["s28CustomDebugStringConvertibleP", "UIButton"]
 - ["s28CustomDebugStringConvertibleP", "UIFont"]
@@ -136,6 +173,7 @@ depends-member:
 - ["s17CustomReflectableP", "black"]
 - ["s17CustomReflectableP", "init"]
 - ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "CellStyle"]
 - !private ["s23CustomStringConvertibleP", "Int"]
 - ["s23CustomStringConvertibleP", "UIButton"]
 - ["s23CustomStringConvertibleP", "UIFont"]
@@ -173,6 +211,7 @@ depends-member:
 - ["SE", "black"]
 - ["SE", "init"]
 - ["SE", "init"]
+- ["SQ", "CellStyle"]
 - !private ["SQ", "Int"]
 - ["SQ", "UIButton"]
 - ["SQ", "UIFont"]
@@ -219,6 +258,7 @@ depends-member:
 - ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s17FixedWidthIntegerP", "init"]
+- ["SH", "CellStyle"]
 - !private ["SH", "Int"]
 - ["SH", "UIButton"]
 - ["SH", "UIFont"]
@@ -255,10 +295,39 @@ depends-member:
 - ["SH", "textAlignment"]
 - ["SH", "textColor"]
 - !private ["Si", "init"]
+- ["7SnapKit20LayoutConstraintItemP", "CellStyle"]
+- !private ["7SnapKit20LayoutConstraintItemP", "Int"]
+- ["7SnapKit20LayoutConstraintItemP", "UIButton"]
+- ["7SnapKit20LayoutConstraintItemP", "UIFont"]
+- ["7SnapKit20LayoutConstraintItemP", "UIImageView"]
+- ["7SnapKit20LayoutConstraintItemP", "UILabel"]
+- ["7SnapKit20LayoutConstraintItemP", ""]
+- !private ["7SnapKit20LayoutConstraintItemP", "addSubview"]
+- !private ["7SnapKit20LayoutConstraintItemP", "changeQuantity"]
+- ["7SnapKit20LayoutConstraintItemP", "clipsToBounds"]
+- ["7SnapKit20LayoutConstraintItemP", "contentMode"]
+- !private ["7SnapKit20LayoutConstraintItemP", "decreaseButton"]
+- !private ["7SnapKit20LayoutConstraintItemP", "fatalError"]
+- ["7SnapKit20LayoutConstraintItemP", "font"]
+- !private ["7SnapKit20LayoutConstraintItemP", "image"]
+- ["7SnapKit20LayoutConstraintItemP", "imageView"]
+- !private ["7SnapKit20LayoutConstraintItemP", "increaseButton"]
+- ["7SnapKit20LayoutConstraintItemP", "init"]
+- ["7SnapKit20LayoutConstraintItemP", "numberOfLines"]
+- !private ["7SnapKit20LayoutConstraintItemP", "productQuantity"]
+- !private ["7SnapKit20LayoutConstraintItemP", "result"]
+- !private ["7SnapKit20LayoutConstraintItemP", "resultDescriptionLabel"]
+- !private ["7SnapKit20LayoutConstraintItemP", "resultImage"]
+- !private ["7SnapKit20LayoutConstraintItemP", "resultNameLabel"]
+- ["7SnapKit20LayoutConstraintItemP", "setImage"]
+- ["7SnapKit20LayoutConstraintItemP", "text"]
+- ["7SnapKit20LayoutConstraintItemP", "textAlignment"]
+- ["7SnapKit20LayoutConstraintItemP", "textColor"]
 - ["s25LosslessStringConvertibleP", "init"]
 - ["s25LosslessStringConvertibleP", "init"]
 - ["s10MirrorPathP", "init"]
 - ["s10MirrorPathP", "init"]
+- ["So8NSCodingP", "CellStyle"]
 - !private ["So8NSCodingP", "Int"]
 - ["So8NSCodingP", "UIButton"]
 - ["So8NSCodingP", "UIFont"]
@@ -292,6 +361,7 @@ depends-member:
 - ["So9NSCopyingP", "systemFont"]
 - ["So21NSItemProviderReadingP", "black"]
 - ["So21NSItemProviderWritingP", "black"]
+- ["So8NSObjectC", "CellStyle"]
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "NSCoder"]
 - ["So8NSObjectC", "Result"]
@@ -301,7 +371,7 @@ depends-member:
 - ["So8NSObjectC", "UIImage"]
 - ["So8NSObjectC", "UIImageView"]
 - ["So8NSObjectC", "UILabel"]
-- ["So8NSObjectC", "UITableViewCellStyle"]
+- ["So8NSObjectC", "UITableViewCell"]
 - !private ["So8NSObjectC", "addSubview"]
 - ["So8NSObjectC", "black"]
 - ["So8NSObjectC", "boldSystemFont"]
@@ -328,6 +398,7 @@ depends-member:
 - ["So8NSObjectC", "text"]
 - ["So8NSObjectC", "textAlignment"]
 - ["So8NSObjectC", "textColor"]
+- ["So8NSObjectP", "CellStyle"]
 - !private ["So8NSObjectP", "Int"]
 - ["So8NSObjectP", "UIButton"]
 - ["So8NSObjectP", "UIFont"]
@@ -372,7 +443,7 @@ depends-member:
 - ["4Pulp11ProductCellC", "UIImage"]
 - ["4Pulp11ProductCellC", "UIImageView"]
 - ["4Pulp11ProductCellC", "UILabel"]
-- ["4Pulp11ProductCellC", "UITableViewCellStyle"]
+- ["4Pulp11ProductCellC", "UITableViewCell"]
 - !private ["4Pulp11ProductCellC", "addSubview"]
 - ["4Pulp11ProductCellC", "changeQuantity"]
 - !private ["4Pulp11ProductCellC", "decreaseButton"]
@@ -422,6 +493,7 @@ depends-member:
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "imageView"]
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "init"]
 - ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "setImage"]
+- ["So29UIAccessibilityIdentificationP", "CellStyle"]
 - !private ["So29UIAccessibilityIdentificationP", "Int"]
 - ["So29UIAccessibilityIdentificationP", "UIButton"]
 - ["So29UIAccessibilityIdentificationP", "UIFont"]
@@ -449,6 +521,7 @@ depends-member:
 - ["So29UIAccessibilityIdentificationP", "text"]
 - ["So29UIAccessibilityIdentificationP", "textAlignment"]
 - ["So29UIAccessibilityIdentificationP", "textColor"]
+- ["So12UIAppearanceP", "CellStyle"]
 - !private ["So12UIAppearanceP", "Int"]
 - ["So12UIAppearanceP", "UIButton"]
 - ["So12UIAppearanceP", "UIFont"]
@@ -476,6 +549,7 @@ depends-member:
 - ["So12UIAppearanceP", "text"]
 - ["So12UIAppearanceP", "textAlignment"]
 - ["So12UIAppearanceP", "textColor"]
+- ["So21UIAppearanceContainerP", "CellStyle"]
 - !private ["So21UIAppearanceContainerP", "Int"]
 - ["So21UIAppearanceContainerP", "UIButton"]
 - ["So21UIAppearanceContainerP", "UIFont"]
@@ -516,6 +590,7 @@ depends-member:
 - ["So9UIControlC", "imageView"]
 - ["So9UIControlC", "init"]
 - ["So9UIControlC", "setImage"]
+- ["So17UICoordinateSpaceP", "CellStyle"]
 - !private ["So17UICoordinateSpaceP", "Int"]
 - ["So17UICoordinateSpaceP", "UIButton"]
 - ["So17UICoordinateSpaceP", "UIFont"]
@@ -543,6 +618,7 @@ depends-member:
 - ["So17UICoordinateSpaceP", "text"]
 - ["So17UICoordinateSpaceP", "textAlignment"]
 - ["So17UICoordinateSpaceP", "textColor"]
+- ["So13UIDynamicItemP", "CellStyle"]
 - !private ["So13UIDynamicItemP", "Int"]
 - ["So13UIDynamicItemP", "UIButton"]
 - ["So13UIDynamicItemP", "UIFont"]
@@ -570,6 +646,7 @@ depends-member:
 - ["So13UIDynamicItemP", "text"]
 - ["So13UIDynamicItemP", "textAlignment"]
 - ["So13UIDynamicItemP", "textColor"]
+- ["So18UIFocusEnvironmentP", "CellStyle"]
 - !private ["So18UIFocusEnvironmentP", "Int"]
 - ["So18UIFocusEnvironmentP", "UIButton"]
 - ["So18UIFocusEnvironmentP", "UIFont"]
@@ -597,6 +674,7 @@ depends-member:
 - ["So18UIFocusEnvironmentP", "text"]
 - ["So18UIFocusEnvironmentP", "textAlignment"]
 - ["So18UIFocusEnvironmentP", "textColor"]
+- ["So11UIFocusItemP", "CellStyle"]
 - !private ["So11UIFocusItemP", "Int"]
 - ["So11UIFocusItemP", "UIButton"]
 - ["So11UIFocusItemP", "UIFont"]
@@ -624,6 +702,7 @@ depends-member:
 - ["So11UIFocusItemP", "text"]
 - ["So11UIFocusItemP", "textAlignment"]
 - ["So11UIFocusItemP", "textColor"]
+- ["So20UIFocusItemContainerP", "CellStyle"]
 - !private ["So20UIFocusItemContainerP", "Int"]
 - ["So20UIFocusItemContainerP", "UIButton"]
 - ["So20UIFocusItemContainerP", "UIFont"]
@@ -653,6 +732,7 @@ depends-member:
 - ["So20UIFocusItemContainerP", "textColor"]
 - ["So6UIFontC", "boldSystemFont"]
 - ["So6UIFontC", "systemFont"]
+- ["So27UIGestureRecognizerDelegateP", "CellStyle"]
 - !private ["So27UIGestureRecognizerDelegateP", "Int"]
 - ["So27UIGestureRecognizerDelegateP", "UIButton"]
 - ["So27UIGestureRecognizerDelegateP", "UIFont"]
@@ -680,6 +760,7 @@ depends-member:
 - ["So7UILabelC", "text"]
 - ["So7UILabelC", "textAlignment"]
 - ["So7UILabelC", "textColor"]
+- ["So30UIPasteConfigurationSupportingP", "CellStyle"]
 - !private ["So30UIPasteConfigurationSupportingP", "Int"]
 - ["So30UIPasteConfigurationSupportingP", "UIButton"]
 - ["So30UIPasteConfigurationSupportingP", "UIFont"]
@@ -707,6 +788,7 @@ depends-member:
 - ["So30UIPasteConfigurationSupportingP", "text"]
 - ["So30UIPasteConfigurationSupportingP", "textAlignment"]
 - ["So30UIPasteConfigurationSupportingP", "textColor"]
+- ["So11UIResponderC", "CellStyle"]
 - ["So11UIResponderC", "Int"]
 - ["So11UIResponderC", "NSCoder"]
 - ["So11UIResponderC", "Result"]
@@ -716,7 +798,7 @@ depends-member:
 - ["So11UIResponderC", "UIImage"]
 - ["So11UIResponderC", "UIImageView"]
 - ["So11UIResponderC", "UILabel"]
-- ["So11UIResponderC", "UITableViewCellStyle"]
+- ["So11UIResponderC", "UITableViewCell"]
 - !private ["So11UIResponderC", "addSubview"]
 - ["So11UIResponderC", "changeQuantity"]
 - ["So11UIResponderC", "clipsToBounds"]
@@ -740,6 +822,7 @@ depends-member:
 - ["So11UIResponderC", "text"]
 - ["So11UIResponderC", "textAlignment"]
 - ["So11UIResponderC", "textColor"]
+- ["So30UIResponderStandardEditActionsP", "CellStyle"]
 - !private ["So30UIResponderStandardEditActionsP", "Int"]
 - ["So30UIResponderStandardEditActionsP", "UIButton"]
 - ["So30UIResponderStandardEditActionsP", "UIFont"]
@@ -770,6 +853,7 @@ depends-member:
 - ["So35UISpringLoadedInteractionSupportingP", "imageView"]
 - ["So35UISpringLoadedInteractionSupportingP", "init"]
 - ["So35UISpringLoadedInteractionSupportingP", "setImage"]
+- ["So15UITableViewCellC", "CellStyle"]
 - ["So15UITableViewCellC", "Int"]
 - ["So15UITableViewCellC", "NSCoder"]
 - ["So15UITableViewCellC", "Result"]
@@ -779,7 +863,7 @@ depends-member:
 - ["So15UITableViewCellC", "UIImage"]
 - ["So15UITableViewCellC", "UIImageView"]
 - ["So15UITableViewCellC", "UILabel"]
-- ["So15UITableViewCellC", "UITableViewCellStyle"]
+- ["So15UITableViewCellC", "UITableViewCell"]
 - ["So15UITableViewCellC", ""]
 - !private ["So15UITableViewCellC", "addSubview"]
 - ["So15UITableViewCellC", "changeQuantity"]
@@ -794,6 +878,7 @@ depends-member:
 - ["So15UITableViewCellC", "resultDescriptionLabel"]
 - ["So15UITableViewCellC", "resultImage"]
 - ["So15UITableViewCellC", "resultNameLabel"]
+- ["So18UITraitEnvironmentP", "CellStyle"]
 - !private ["So18UITraitEnvironmentP", "Int"]
 - ["So18UITraitEnvironmentP", "UIButton"]
 - ["So18UITraitEnvironmentP", "UIFont"]
@@ -821,6 +906,7 @@ depends-member:
 - ["So18UITraitEnvironmentP", "text"]
 - ["So18UITraitEnvironmentP", "textAlignment"]
 - ["So18UITraitEnvironmentP", "textColor"]
+- ["So23UIUserActivityRestoringP", "CellStyle"]
 - !private ["So23UIUserActivityRestoringP", "Int"]
 - ["So23UIUserActivityRestoringP", "UIButton"]
 - ["So23UIUserActivityRestoringP", "UIFont"]
@@ -848,6 +934,7 @@ depends-member:
 - ["So23UIUserActivityRestoringP", "text"]
 - ["So23UIUserActivityRestoringP", "textAlignment"]
 - ["So23UIUserActivityRestoringP", "textColor"]
+- ["So6UIViewC", "CellStyle"]
 - ["So6UIViewC", "Int"]
 - ["So6UIViewC", "NSCoder"]
 - ["So6UIViewC", "Result"]
@@ -857,7 +944,7 @@ depends-member:
 - ["So6UIViewC", "UIImage"]
 - ["So6UIViewC", "UIImageView"]
 - ["So6UIViewC", "UILabel"]
-- ["So6UIViewC", "UITableViewCellStyle"]
+- ["So6UIViewC", "UITableViewCell"]
 - !private ["So6UIViewC", "addSubview"]
 - ["So6UIViewC", "changeQuantity"]
 - ["So6UIViewC", "clipsToBounds"]
@@ -882,6 +969,7 @@ depends-member:
 - ["So6UIViewC", "textAlignment"]
 - ["So6UIViewC", "textColor"]
 - !private ["s18_BitwiseOperationsP", "init"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", "CellStyle"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "Int"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "UIButton"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "UIFont"]
@@ -922,6 +1010,7 @@ depends-member:
 - ["s33_ExpressibleByStringInterpolationP", "init"]
 - ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "CellStyle"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIButton"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIFont"]
@@ -958,6 +1047,7 @@ depends-member:
 - ["s16_SwiftStringViewP", "init"]
 - ["s16_SwiftStringViewP", "init"]
 depends-nominal:
+- "12FacebookCore26AppEventParameterValueTypeP"
 - "SK"
 - !private "Sz"
 - "So12UIButtonTypeV"
@@ -965,6 +1055,12 @@ depends-nominal:
 - "s7CVarArgP"
 - "Sl"
 - "SL"
+- !private "7SnapKit24ConstraintConstantTargetP"
+- !private "7SnapKit21ConstraintInsetTargetP"
+- !private "7SnapKit26ConstraintMultiplierTargetP"
+- !private "7SnapKit22ConstraintOffsetTargetP"
+- !private "7SnapKit24ConstraintPriorityTargetP"
+- "7SnapKit25ConstraintRelatableTargetP"
 - "So17UIViewContentModeV"
 - "s28CustomDebugStringConvertibleP"
 - "s29CustomPlaygroundQuickLookableP"
@@ -982,6 +1078,7 @@ depends-nominal:
 - !private "s17FixedWidthIntegerP"
 - "SH"
 - !private "Si"
+- "7SnapKit20LayoutConstraintItemP"
 - "s25LosslessStringConvertibleP"
 - "s10MirrorPathP"
 - "So8NSCodingP"
@@ -1051,27 +1148,98 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/FacebookCore.swiftmodule/x86_64.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/FacebookLogin.swiftmodule/x86_64.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Modules/SnapKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFURL.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Headers/SnapKit-umbrella.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFGeneric.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfile.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUserDataStore.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCopying.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLink.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTask.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKButton.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginButton.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginCodeInfo.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKSettings.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMacros.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKConstants.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginConstants.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Headers/SnapKit-Swift.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManagerLoginResult.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKDeviceLoginManagerResult.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKTooltipView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginTooltipView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUtility.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Modules/module.modulemap"
+- "/Users/ryanlam/pulp-frontend/Pulp/DerivedData/Pulp/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/WebKit.framework/Headers/WebKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "6e0db43942af55a6bdc3cc15bc99264b"
+interface-hash: "31baa7f1cdf0ff5dba6d0539db472c22"

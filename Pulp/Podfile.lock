@@ -25,6 +25,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.36.0):
     - FBSDKCoreKit (~> 4.36.0)
+  - MapKitGoogleStyler (0.1.1)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya/Core (12.0.1):
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - MapKitGoogleStyler
   - Moya (~> 12.0.1)
   - SnapKit (~> 4.0.0)
 
@@ -50,6 +52,7 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
+    - MapKitGoogleStyler
     - Moya
     - Result
     - SnapKit
@@ -63,10 +66,11 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 3b8e6570eedb443f9fc4af196a7bf39f18e3a3d8
   FBSDKLoginKit: 8bccb6064708ab2f4251a7fc4e3b6d8d00ad91ba
   FBSDKShareKit: 7090fdd55c39b03941efddb64c83a64ff6b3949f
+  MapKitGoogleStyler: 8efdceb664fc1748a62a9e3b50a34b67a34247bc
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: a89b6f26d8b45c0e18917a58f104bb4d9e80f5f2
+PODFILE CHECKSUM: 67ac60c69a08c2402dd6c096effbed0c3e0f0f97
 
 COCOAPODS: 1.5.3

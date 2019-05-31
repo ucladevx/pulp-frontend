@@ -8,6 +8,6 @@
 import Foundation
 import Moya
 class UserManager {
-    static let provider = MoyaProvider<VMAPI>.init(stubClosure: MoyaProvider<VMAPI>.immediatelyStub)
+    private let provider = MoyaProvider<MainAPI>()
 }
 

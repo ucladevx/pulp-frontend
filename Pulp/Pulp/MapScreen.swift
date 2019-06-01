@@ -8,7 +8,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     var window: UIWindow?
     var mapView: MKMapView?
-    var pointAnnotation:CustomPointAnnotation!
+    var pointAnnotationList:[CustomPointAnnotation] = []
     var pinAnnotationView:MKPinAnnotationView!
     
     //The range (meter) of how much we want to see arround the user's location
@@ -133,13 +133,22 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
         mapView!.setRegion(region, animated: true)
         
-        //Toggle the new pin's parameters, thinking of creating a function to create pins with these parameters
-        pointAnnotation = CustomPointAnnotation()
-        pointAnnotation.pinCustomImageName = "MapFaveIcon"
+        
+        //Below code adds pins to the map
+        addPin(imageName: "MapFaveIcon", location: location, title: "Cai's Residence", subtitle: "What's good")
+        addPin(imageName: "MapShopIcon", location: location, title: "Cai's shop", subtitle: "")
+    }
+    
+    //addPin function adds new pins to the map
+    private func addPin(imageName:String, location:CLLocationCoordinate2D, title:String, subtitle:String)
+    {
+        let pointAnnotation = CustomPointAnnotation()
+        pointAnnotation.pinCustomImageName = imageName
         pointAnnotation.coordinate = location
-        pointAnnotation.title = "Random Attraction"
-        pointAnnotation.subtitle = "Some random attraction"
-
+        pointAnnotation.title = title
+        pointAnnotation.subtitle = subtitle
+        pointAnnotationList.append(pointAnnotation)
+        
         pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
         mapView!.addAnnotation(pinAnnotationView.annotation!)
     }

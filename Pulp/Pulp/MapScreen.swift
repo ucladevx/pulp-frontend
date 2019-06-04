@@ -269,7 +269,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
         mapView!.setRegion(region, animated: true)
         
-        
         //Below code adds pins to the map
         addPin(imageName: "MapFaveIcon", location: location, title: "Cai's Residence", subtitle: "What's good")
         addPin(imageName: "MapShopIcon", location: location, title: "Cai's shop", subtitle: "")
@@ -301,6 +300,35 @@ extension MapScreen: MKMapViewDelegate {
         } else {
             return MKOverlayRenderer(overlay: overlay)
         }
+    }
+    
+    //MARK: - Custom Annotation
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //Below code checks if the pin is the user location pin, if it is, skips the rest of the code
+        if (annotation.isKind(of: MKUserLocation.self)){
+            return nil
+        }
+        
+        //Otherwise, create a customized Pulp pin
+        let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        if let customPointAnnotation = annotation as? CustomPointAnnotation {
+            annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
+        }
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        mapView.setCenter(userLocation.coordinate, animated: true)
     }
 }
 

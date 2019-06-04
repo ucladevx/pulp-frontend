@@ -103,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				43AC38302227500600652A70 /* AppDelegate.swift */,
+				83ABFFEC2281686D00DB0F7C /* MapScreen.swift */,
 				92D4D99522A65A8D00BBF080 /* overlay.json */,
 				92D4D99122A648E000BBF080 /* WelcomePageController.swift */,
 				92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */,
@@ -115,7 +116,6 @@
 				83DE57172293BE4000294FC9 /* MainAPI.swift */,
 				83DE57192293BE8100294FC9 /* UserManager.swift */,
 				83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */,
-				83ABFFEC2281686D00DB0F7C /* MapScreen.swift */,
 				8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */,
 				8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */,
 				4363F34B223ADA8F008C2969 /* SwipingController.swift */,

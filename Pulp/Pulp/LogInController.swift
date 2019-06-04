@@ -24,7 +24,7 @@ class LogInController : UIViewController {
             print("logged in already")
             let vc = DiveIn()
             //Below code performs a segue to another page
-            self.present(vc, animated: true, completion: {
+            self.present(vc, animated: true,completion: {
                 print("You have logged in already!")
             })
         }

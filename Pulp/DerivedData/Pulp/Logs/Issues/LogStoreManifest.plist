@@ -98,29 +98,6 @@
 			<key>uniqueIdentifier</key>
 			<string>90723E11-3511-4542-8EB0-BFC26D9D324E</string>
 		</dict>
-		<key>9367AD48-BDD1-4CF6-AD84-4A6FF41B401D</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
-			<key>fileName</key>
-			<string>9367AD48-BDD1-4CF6-AD84-4A6FF41B401D.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>W</string>
-			<key>signature</key>
-			<string>Pulp-fgelfdbphyixsabboooupbijsfbu</string>
-			<key>timeStartedRecording</key>
-			<real>580972532.76407003</real>
-			<key>timeStoppedRecording</key>
-			<real>580972535.32114005</real>
-			<key>title</key>
-			<string>Build target Pulp</string>
-			<key>uniqueIdentifier</key>
-			<string>9367AD48-BDD1-4CF6-AD84-4A6FF41B401D</string>
-		</dict>
 		<key>9A75BCDB-4837-4452-B0EC-7FF2E0A79CC7</key>
 		<dict>
 			<key>className</key>

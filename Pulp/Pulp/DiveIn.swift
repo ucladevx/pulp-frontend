@@ -352,13 +352,13 @@ class DiveIn: UIViewController {
     
     @objc func registerTapped(_ sender: UIButton) {
         print("hi")
-        let exploreVC = ViewController()
+        let exploreVC = ProfileScreen()
         present(exploreVC, animated: true, completion: nil)
     }
     
     @objc func printfunction(_ sender: UIButton) {
         print("hi")
-        let exploreVC = ViewController()
+        let exploreVC = ProfileScreen()
         present(exploreVC, animated: true, completion: nil)
     }
     

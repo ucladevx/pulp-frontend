@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame:UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = MapScreen()
+        window?.rootViewController = LogInController()
+//        window?.rootViewController = MapScreen()
         
         return true
     }

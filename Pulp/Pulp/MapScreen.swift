@@ -10,6 +10,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     var mapView: MKMapView?
     var pointAnnotationList:[CustomPointAnnotation] = []
     var pinAnnotationView:MKPinAnnotationView!
+    var selectedAnnotation:MKPointAnnotation!
     
     //The range (meter) of how much we want to see arround the user's location
     let distanceSpan: Double = 500
@@ -40,6 +41,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         searchbar.placeholder = "Parks, museums, bars, etc.";
         //var textField = searchbar.value(forKey: "searchField") as? UITextField
         //textField?.backgroundColor = .white
+        searchbar.textAlignment = .left
         searchbar.font = UIFont(name: "Avenir-Light", size:15)
         searchbar.translatesAutoresizingMaskIntoConstraints = false
         return searchbar
@@ -269,8 +271,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         searchBarView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(40)
             make.right.equalTo(view).offset(-40)
-            make.height.equalTo(view.frame.height/10)
-            make.top.equalTo(view).offset(20)
+            make.height.equalTo(view.frame.height/20)
+            make.top.equalTo(view).offset(60)
         }
         
         searchBar.snp.makeConstraints { (make) -> Void in
@@ -347,6 +349,14 @@ extension MapScreen: MKMapViewDelegate {
             return MKTileOverlayRenderer(tileOverlay: tileOverlay)
         } else {
             return MKOverlayRenderer(overlay: overlay)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.selectedAnnotation = view.annotation as? CustomPointAnnotation
+        let nextVC = Explore_Controller()
+        self.present(nextVC, animated: true) {
+            print("Segue to explore view successfully!")
         }
     }
     

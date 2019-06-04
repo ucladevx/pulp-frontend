@@ -22,7 +22,7 @@ class LogInController : UIViewController {
             //Below code sends token to local host 3000
             accessTokenGETRequest(accessToken: (FBSDKAccessToken.current()?.tokenString)!)
             print("logged in already")
-            let vc = DiveIn()
+            let vc = MapScreen()
             //Below code performs a segue to another page
             self.present(vc, animated: true, completion: {
                 print("You have logged in already!")

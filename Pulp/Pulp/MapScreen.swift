@@ -12,7 +12,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     var pinAnnotationView:MKPinAnnotationView!
     
     //The range (meter) of how much we want to see arround the user's location
-    let distanceSpan: Double = 200
+    let distanceSpan: Double = 500
     
     var locationManager: CLLocationManager = {
         var locationManager = CLLocationManager()
@@ -25,6 +25,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     let searchBarView: UIView = {
         let view = UIView()
+        //        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -41,6 +42,59 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         searchbar.translatesAutoresizingMaskIntoConstraints = false
         return searchbar
     }()
+    
+    // Background of the popup
+    let popupView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    // Picture of the experience
+    let contentImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "Default Pic"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 15
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
+    // Title of the experience
+    let titleTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = "Venice Canals"
+        textView.textColor = .black
+        textView.isEditable = false
+        textView.font = UIFont(name: "Avenir-Book", size: 18)
+        textView.backgroundColor = .clear
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
+    } ()
+    
+    // Experience location
+    let locationTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = "Venice Canals, Venice, CA"
+        textView.textColor = UIColor(red: 126/255, green: 126/255, blue: 126/255, alpha: 1)
+        textView.isEditable = false
+        textView.font = UIFont(name: "Avenir-Oblique", size: 12)
+        textView.backgroundColor = .clear
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
+    } ()
+    
+    // Experience category
+    let categoryTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = "Nature, Photo Ops"
+        textView.textColor = UIColor(red: 126/255, green: 126/255, blue: 126/255, alpha: 1)
+        textView.isEditable = false
+        textView.font = UIFont(name: "Avenir-Oblique", size: 12)
+        textView.backgroundColor = .clear
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
+    } ()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +118,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         self.mapView!.showsBuildings = true
         self.mapView!.showsUserLocation = true
         self.view.addSubview(self.mapView!)
-        self.searchBarView.addSubview(searchBar)
+        
+        searchBarView.addSubview(searchBar)
         self.view.addSubview(searchBarView)
         
         let buttonItem = MKUserTrackingButton(mapView: mapView)
@@ -73,18 +128,99 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         view.addSubview(buttonItem)
         
         setUpSearchBar()
+        
+        popupLayout()
+        popupView.addGestureRecognizer(tapRecognizer)
+    }
+    
+    private var bottomConstraint = NSLayoutConstraint()
+    
+    private func popupLayout() {
+        popupView.layer.cornerRadius = 15
+        popupView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(popupView)
+        popupView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        popupView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        bottomConstraint = popupView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 440)
+        bottomConstraint.isActive = true
+        popupView.heightAnchor.constraint(equalToConstant: 450).isActive = true
+        
+        contentImageView.translatesAutoresizingMaskIntoConstraints = false
+        popupView.addSubview(contentImageView)
+        contentImageView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor, constant: 20).isActive = true
+        contentImageView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor, constant: -190).isActive = true
+        contentImageView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor, constant: -315).isActive = true
+        contentImageView.heightAnchor.constraint(equalToConstant: 115).isActive = true
+        
+        titleTextView.translatesAutoresizingMaskIntoConstraints = false
+        popupView.addSubview(titleTextView)
+        titleTextView.leadingAnchor.constraint(equalTo: contentImageView.trailingAnchor, constant: 10).isActive = true
+        titleTextView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
+        titleTextView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor, constant: -305).isActive = true
+        titleTextView.heightAnchor.constraint(equalToConstant: 130).isActive = true
+        
+        locationTextView.translatesAutoresizingMaskIntoConstraints = false
+        popupView.addSubview(locationTextView)
+        locationTextView.leadingAnchor.constraint(equalTo: titleTextView.leadingAnchor).isActive = true
+        locationTextView.trailingAnchor.constraint(equalTo: titleTextView.trailingAnchor).isActive = true
+        locationTextView.topAnchor.constraint(equalTo: titleTextView.topAnchor, constant: 25).isActive = true
+        locationTextView.heightAnchor.constraint(equalToConstant: 130).isActive = true
+        
+        categoryTextView.translatesAutoresizingMaskIntoConstraints = false
+        popupView.addSubview(categoryTextView)
+        categoryTextView.leadingAnchor.constraint(equalTo: titleTextView.leadingAnchor).isActive = true
+        categoryTextView.trailingAnchor.constraint(equalTo: titleTextView.trailingAnchor).isActive = true
+        categoryTextView.topAnchor.constraint(equalTo: titleTextView.topAnchor, constant: 40).isActive = true
+        categoryTextView.heightAnchor.constraint(equalToConstant: 130).isActive = true
+    }
+    
+    private var currentState: State = .closed
+    
+    private lazy var tapRecognizer: UITapGestureRecognizer = {
+        let recognizer = UITapGestureRecognizer()
+        recognizer.addTarget(self, action: #selector(popupViewTapped(recognizer:)))
+        return recognizer
+    }()
+    
+    @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
+        let state = currentState.opposite
+        let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
+            switch state {
+            case .open:
+                self.bottomConstraint.constant = 290
+            case .closed:
+                self.bottomConstraint.constant = 440
+            }
+            self.view.layoutIfNeeded()
+        })
+        transitionAnimator.addCompletion { position in
+            switch position {
+            case .start:
+                self.currentState = state.opposite
+            case .end:
+                self.currentState = state
+            case .current:
+                ()
+            }
+            switch self.currentState {
+            case .open:
+                self.bottomConstraint.constant = 290
+            case .closed:
+                self.bottomConstraint.constant = 440
+            }
+        }
+        transitionAnimator.startAnimation()
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         if let mapView = self.mapView {
-            let region = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: self.distanceSpan, longitudinalMeters: self.distanceSpan)
-//            let viewRegion = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
-            mapView.setRegion(region, animated: true)
+            //            let region = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: self.distanceSpan, longitudinalMeters: self.distanceSpan)
+            let viewRegion = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+            mapView.setRegion(viewRegion, animated: true)
+            mapView.showsUserLocation = true
             mapView.isZoomEnabled = true
         }
     }
-    
-    
     
     private func configureTileOverlay() {
         // We first need to have the path of the overlay configuration JSON
@@ -117,6 +253,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
             make.bottom.equalTo(searchBarView)
         }
     }
+<<<<<<< HEAD
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -153,6 +290,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         mapView!.addAnnotation(pinAnnotationView.annotation!)
     }
     
+=======
+>>>>>>> ce2287fe508f1ed24e9dad8c90586ed080ba77a9
 }
 
 extension MapScreen: MKMapViewDelegate {
@@ -166,34 +305,17 @@ extension MapScreen: MKMapViewDelegate {
             return MKOverlayRenderer(overlay: overlay)
         }
     }
-    
-    //MARK: - Custom Annotation
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        //Below code checks if the pin is the user location pin, if it is, skips the rest of the code
-        if (annotation.isKind(of: MKUserLocation.self)){
-            return nil
-        }
-        
-        //Otherwise, create a customized Pulp pin
-        let reuseIdentifier = "pin"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-        
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            annotationView?.canShowCallout = true
-        } else {
-            annotationView?.annotation = annotation
-        }
-        
-        if let customPointAnnotation = annotation as? CustomPointAnnotation {
-        annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
-        }
-        
-        return annotationView
-    }
-    
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        mapView.setCenter(userLocation.coordinate, animated: true)
-    }
 }
 
+private enum State {
+    case closed
+    case open
+}
+extension State {
+    var opposite: State {
+        switch self {
+        case .open: return .closed
+        case .closed: return.open
+        }
+    }
+}

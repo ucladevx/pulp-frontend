@@ -27,14 +27,16 @@ UICollectionViewDelegateFlowLayout {
     }()
     
     let locationImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Image"))
+        let imageView = UIImageView()
+        var image = locationData[0].placeImage
+        imageView.image = UIImage(named: image!)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     let locationTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = UIColor(red: 20/255, green: 121/255, blue: 201/255, alpha: 1)
-        textView.text = "Los Angeles, California"
+        textView.text = locationData[0].placeCityState
         textView.textColor = UIColor(red: 183/255, green: 217/255, blue: 249/255, alpha: 1)
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book Italic", size: 15)
@@ -57,7 +59,7 @@ UICollectionViewDelegateFlowLayout {
     }()
     let PlaceNameTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "Venice\nBeach Canals"
+        textView.text = locationData[0].placeName
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book", size: 30)
         textView.font = UIFont.boldSystemFont(ofSize: 30)
@@ -67,7 +69,7 @@ UICollectionViewDelegateFlowLayout {
     }()
     let PlaceDescriptionTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "The Venice Canal Historic District are great to capture during the day or at sunset."
+        textView.text = locationData[0].placeDescription
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book", size: 15)
         textView.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
@@ -77,9 +79,9 @@ UICollectionViewDelegateFlowLayout {
     }()
     let DistanceOpenTextView: UITextView = {
         let textView = UITextView()
-        var distance = 1.2
-        var hours = 24
-        textView.text = "\(distance) miles away  Open \(hours) hrs"
+        var distance = locationData[0].placeDistance
+        var hours = locationData[0].placeHours
+        textView.text = "\(distance ?? 0) miles away  Open \(hours ?? 0) hrs"
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book", size: 14)
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -88,8 +90,8 @@ UICollectionViewDelegateFlowLayout {
     }()
     let RatingPulpsTextView:UITextView = {
         let textView = UITextView()
-        var avRating = 4.5
-        textView.text = "\(avRating) Pulps"
+        var avRating = locationData[0].placeRating
+        textView.text = "\(avRating ?? 0) Pulps"
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book", size: 15)
         textView.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
@@ -271,8 +273,8 @@ UICollectionViewDelegateFlowLayout {
         collectionView?.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         collectionView?.leadingAnchor.constraint(equalTo: AddReviewTextView.leadingAnchor).isActive = true
         collectionView?.topAnchor.constraint(equalTo: AddReviewTextView.bottomAnchor).isActive = true
-        collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView?.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        collectionView?.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         collectionView?.backgroundColor = .white
         
         let collectionViewFlowLayout = UICollectionViewFlowLayout()

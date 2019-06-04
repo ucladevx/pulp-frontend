@@ -44,5 +44,6 @@ FBFriend(imageName: "4"), FBFriend(imageName:"3" ), FBFriend(imageName: "Profile
 ]
 
 var locationData: [Location] = [
-    Location(placeImage: "Image", placeName: "Venice\nBeach Canals",placeCityState: "Los Angeles, California" ,placeLocation: "Venice Canals, Venice, CA", placeType: "Nature, Photo Ops",placeDescription:"The Venice Canal Historic District are great to capture during the day or at sunset." ,placeRating: 4.5,placeDistance: 1.2, placeHours: 24, fbfriends: FBFriendsData)
+    Location(placeImage: "Image", placeName: "Venice\nBeach Canals",placeCityState: "Los Angeles, California" ,placeLocation: "Venice Canals, Venice, CA", placeType: "Nature, Photo Ops",placeDescription:"The Venice Canal Historic District are great to capture during the day or at sunset." ,placeRating: 4.5,placeDistance: 1.2, placeHours: 24, fbfriends: FBFriendsData),
+    
 ]

@@ -17,12 +17,13 @@ UICollectionViewDelegateFlowLayout {
     let cellId = "Example Cell"
     let cellSpacing:CGFloat = 10
     var locations: [Location] = locationData
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        
         setupList()
         
         
@@ -35,17 +36,31 @@ UICollectionViewDelegateFlowLayout {
     }
     
     private func setupList() {
-            let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 100))
+            let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
             view.addSubview(navigationBar)
             navigationBar.barStyle = UIBarStyle.black
-            collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
+        let placeType: UITextView = UITextView()
+        view.addSubview(placeType)
+        placeType.font = UIFont(name: "Avenir Book", size: 25)
+        placeType.font = UIFont.boldSystemFont(ofSize: 25)
+        placeType.textColor = .white
+        placeType.text = "    Restaurants near you"
+        placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+        placeType.translatesAutoresizingMaskIntoConstraints = false
+        placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
+        placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        placeType.isEditable = false
+        placeType.isScrollEnabled = false
+        
+        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
             collectionView?.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(collectionView!)
             
             collectionView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             collectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             collectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            collectionView?.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
+            collectionView?.topAnchor.constraint(equalTo: placeType.bottomAnchor).isActive = true
             collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             collectionView?.backgroundColor = .white
@@ -74,13 +89,17 @@ UICollectionViewDelegateFlowLayout {
             cell.location = locations[0]
             let registerButton: UIButton = {
                 let button = UIButton(type: .system)
-                button.backgroundColor = UIColor.black
-                button.setTitle("Register", for: .normal)
-                button.layer.cornerRadius = 5
+                button.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+                button.setTitle("Check this out.", for: .normal)
+                button.setTitleColor(.white, for: .normal)
+                button.layer.cornerRadius = 20
                 button.translatesAutoresizingMaskIntoConstraints = false
                 return button
             }()
             cell.addSubview(registerButton)
+            registerButton.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
+            registerButton.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 35).isActive = true
+            registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
             registerButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
             return cell
         }
@@ -119,7 +138,7 @@ class LocationCollectionCell: UICollectionViewCell {
         placeImage.translatesAutoresizingMaskIntoConstraints = false
         placeImage.heightAnchor.constraint(equalToConstant: 150).isActive = true
         placeImage.leftAnchor.constraint(equalTo: stackView.leftAnchor)
-        placeImage.centerYAnchor.constraint(equalTo: stackView.centerYAnchor).isActive = true
+        placeImage.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
         placeImage.widthAnchor.constraint(equalToConstant: 180).isActive = true
         
         stackView.addSubview(placeName)
@@ -166,7 +185,7 @@ class LocationCollectionCell: UICollectionViewCell {
         
         stackView.addSubview(profile1ImageView)
         profile1ImageView.translatesAutoresizingMaskIntoConstraints = false
-        profile1ImageView.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 40).isActive = true
+        profile1ImageView.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 20).isActive = true
         profile1ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
         profile1ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
         profile1ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true

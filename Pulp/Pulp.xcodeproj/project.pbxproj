@@ -25,11 +25,13 @@
 		83ABFFED2281686D00DB0F7C /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEC2281686D00DB0F7C /* MapScreen.swift */; };
 		83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */; };
 		83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFF0228AA88F00DB0F7C /* LogInController.swift */; };
-		923DFF952295EF1200D92FAD /* welc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DFF942295EF1200D92FAD /* welc.swift */; };
 		92AE975E2293AE02006245B1 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE975D2293AE02006245B1 /* ExploreController.swift */; };
 		92D4D98A229CAA5100BBF080 /* Explore_Page_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */; };
 		92D4D98C229CE8D700BBF080 /* PlacesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */; };
 		92D4D98E22A0927800BBF080 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D98D22A0927800BBF080 /* ListViewController.swift */; };
+		92D4D99222A648E000BBF080 /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D99122A648E000BBF080 /* WelcomePageController.swift */; };
+		92D4D99622A65A8D00BBF080 /* overlay.json in Resources */ = {isa = PBXBuildFile; fileRef = 92D4D99522A65A8D00BBF080 /* overlay.json */; };
+		92D4D99822A65B3000BBF080 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D99722A65B3000BBF080 /* CustomPointAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,11 +59,13 @@
 		83ABFFF0228AA88F00DB0F7C /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		83DE57172293BE4000294FC9 /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
 		83DE57192293BE8100294FC9 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		923DFF942295EF1200D92FAD /* welc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welc.swift; sourceTree = "<group>"; };
 		92AE975D2293AE02006245B1 /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explore_Page_Data.swift; sourceTree = "<group>"; };
 		92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPI.swift; sourceTree = "<group>"; };
 		92D4D98D22A0927800BBF080 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		92D4D99122A648E000BBF080 /* WelcomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
+		92D4D99522A65A8D00BBF080 /* overlay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = overlay.json; sourceTree = "<group>"; };
+		92D4D99722A65B3000BBF080 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		F2D3A961FAB7F84721E06C26 /* Pods-Pulp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pulp/Pods-Pulp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +84,6 @@
 		43AC38242227500600652A70 = {
 			isa = PBXGroup;
 			children = (
-				923DFF942295EF1200D92FAD /* welc.swift */,
 				43AC382F2227500600652A70 /* Pulp */,
 				43AC382E2227500600652A70 /* Products */,
 				CA309C48B4795A6226203DDB /* Pods */,
@@ -100,12 +103,15 @@
 			isa = PBXGroup;
 			children = (
 				43AC38302227500600652A70 /* AppDelegate.swift */,
+				92D4D99522A65A8D00BBF080 /* overlay.json */,
+				92D4D99122A648E000BBF080 /* WelcomePageController.swift */,
 				92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */,
 				83042234227801D000DDC8B2 /* UnusedLogInController.swift */,
 				83ABFFF0228AA88F00DB0F7C /* LogInController.swift */,
 				92D4D98D22A0927800BBF080 /* ListViewController.swift */,
 				92AE975D2293AE02006245B1 /* ExploreController.swift */,
 				92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */,
+				92D4D99722A65B3000BBF080 /* CustomPointAnnotation.swift */,
 				83DE57172293BE4000294FC9 /* MainAPI.swift */,
 				83DE57192293BE8100294FC9 /* UserManager.swift */,
 				83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */,
@@ -209,6 +215,7 @@
 			files = (
 				43AC383B2227500600652A70 /* LaunchScreen.storyboard in Resources */,
 				43AC38382227500600652A70 /* Assets.xcassets in Resources */,
+				92D4D99622A65A8D00BBF080 /* overlay.json in Resources */,
 				43AC38362227500600652A70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +260,7 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/MapKitGoogleStyler/MapKitGoogleStyler.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -267,6 +275,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapKitGoogleStyler.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -289,10 +298,10 @@
 				437F2854226E96D600E32525 /* DiveIn.swift in Sources */,
 				92D4D98C229CE8D700BBF080 /* PlacesAPI.swift in Sources */,
 				8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */,
+				92D4D99822A65B3000BBF080 /* CustomPointAnnotation.swift in Sources */,
 				43AC38312227500600652A70 /* AppDelegate.swift in Sources */,
 				4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */,
 				92D4D98E22A0927800BBF080 /* ListViewController.swift in Sources */,
-				923DFF952295EF1200D92FAD /* welc.swift in Sources */,
 				83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */,
 				83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */,
 				83ABFFED2281686D00DB0F7C /* MapScreen.swift in Sources */,
@@ -302,6 +311,7 @@
 				4363F34E223ADABE008C2969 /* PageCell.swift in Sources */,
 				92D4D98A229CAA5100BBF080 /* Explore_Page_Data.swift in Sources */,
 				4363F34C223ADA8F008C2969 /* SwipingController.swift in Sources */,
+				92D4D99222A648E000BBF080 /* WelcomePageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

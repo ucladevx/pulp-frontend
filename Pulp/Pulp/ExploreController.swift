@@ -13,7 +13,9 @@ class Explore_Controller: UIViewController,
 UICollectionViewDelegateFlowLayout {
     let scrollView = UIScrollView()
     let contentView = UIView()
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     var collectionView: UICollectionView?
     let cellId = "Example Cell"
     let cellSpacing:CGFloat = 10
@@ -143,6 +145,10 @@ UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
+        view.addSubview(navigationBar)
+        navigationBar.tintColor = .black
+        navigationBar.barStyle = UIBarStyle.black
         setupScrollView()
         contentView.backgroundColor = .white
         setupLayout()
@@ -160,7 +166,7 @@ UICollectionViewDelegateFlowLayout {
         
         scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true

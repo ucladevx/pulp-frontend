@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>0D1D84BC-6063-4AA6-9D21-8A68698CD732</key>
+		<key>B533AD4E-824A-4C7E-9AA7-01D82761B0E6</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,21 +15,21 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.ProvisioningLog</string>
 			<key>fileName</key>
-			<string>0D1D84BC-6063-4AA6-9D21-8A68698CD732.xcactivitylog</string>
+			<string>B533AD4E-824A-4C7E-9AA7-01D82761B0E6.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>E</string>
 			<key>signature</key>
 			<string>Update Signing</string>
 			<key>timeStartedRecording</key>
-			<real>580964875.97469604</real>
+			<real>580970344.07061195</real>
 			<key>timeStoppedRecording</key>
-			<real>580964876.26241601</real>
+			<real>580970344.62121797</real>
 			<key>title</key>
 			<string>Update Signing</string>
 			<key>uniqueIdentifier</key>
-			<string>0D1D84BC-6063-4AA6-9D21-8A68698CD732</string>
+			<string>B533AD4E-824A-4C7E-9AA7-01D82761B0E6</string>
 		</dict>
-		<key>15F61366-F943-4202-BDB4-C0513FE6A687</key>
+		<key>C3743AF1-A1CA-4BA6-AC0E-61755A35F106</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -38,19 +38,19 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.ProvisioningLog</string>
 			<key>fileName</key>
-			<string>15F61366-F943-4202-BDB4-C0513FE6A687.xcactivitylog</string>
+			<string>C3743AF1-A1CA-4BA6-AC0E-61755A35F106.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>E</string>
 			<key>signature</key>
 			<string>Update Signing</string>
 			<key>timeStartedRecording</key>
-			<real>580773441.25322402</real>
+			<real>581311364.80292797</real>
 			<key>timeStoppedRecording</key>
-			<real>580773441.93111002</real>
+			<real>581311365.13198304</real>
 			<key>title</key>
 			<string>Update Signing</string>
 			<key>uniqueIdentifier</key>
-			<string>15F61366-F943-4202-BDB4-C0513FE6A687</string>
+			<string>C3743AF1-A1CA-4BA6-AC0E-61755A35F106</string>
 		</dict>
 	</dict>
 </dict>

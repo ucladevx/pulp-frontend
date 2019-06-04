@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		yT7HkqKnc8plZkaYMR1lg9piguc=
+		FuDjUm62iKh1ho4MpWrqmZXrDrQ=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -31,6 +31,18 @@
 		<key>Base.lproj/Main.storyboardc/UIViewController-BYZ-38-t0r.nib</key>
 		<data>
 		azcez0mx9j3Uc0jzrMgcA4XGpiE=
+		</data>
+		<key>Frameworks/Alamofire.framework/Alamofire</key>
+		<data>
+		Gupx1WdQmKDFbABVroqvUcA4xjk=
+		</data>
+		<key>Frameworks/Alamofire.framework/Info.plist</key>
+		<data>
+		PJ5q3TquIKp8wgxZKE+5zfywGPs=
+		</data>
+		<key>Frameworks/Alamofire.framework/_CodeSignature/CodeResources</key>
+		<data>
+		mKUJV2TfNIHkBFGnoZ1tScPHYX4=
 		</data>
 		<key>Frameworks/Bolts.framework/Bolts</key>
 		<data>
@@ -512,13 +524,49 @@
 		<data>
 		FHGfoDl+1uje5SPXnvI60f6K3k4=
 		</data>
+		<key>Frameworks/MapKitGoogleStyler.framework/Info.plist</key>
+		<data>
+		NrKOwqT9emwa3Np9OfwFjrwrDyA=
+		</data>
+		<key>Frameworks/MapKitGoogleStyler.framework/MapKitGoogleStyler</key>
+		<data>
+		gKyJ7nzvaVyE7O2v490EKbnbhwg=
+		</data>
+		<key>Frameworks/MapKitGoogleStyler.framework/_CodeSignature/CodeResources</key>
+		<data>
+		D48JXWtytUZCdBQWuE87xC9RWJs=
+		</data>
+		<key>Frameworks/Moya.framework/Info.plist</key>
+		<data>
+		LqfiYjf1RwXC2wq2o1VnFKc16kE=
+		</data>
+		<key>Frameworks/Moya.framework/Moya</key>
+		<data>
+		ZZK9IqKHrsZ6A80YkLmixK9PYzg=
+		</data>
+		<key>Frameworks/Moya.framework/_CodeSignature/CodeResources</key>
+		<data>
+		/oDg3ZrBBnEwZEkEDCnsPuZ7pTg=
+		</data>
+		<key>Frameworks/Result.framework/Info.plist</key>
+		<data>
+		176dH0ADj3EuzzOt+E9LMzwOC18=
+		</data>
+		<key>Frameworks/Result.framework/Result</key>
+		<data>
+		APEceukIqHOA/cclhMjLa7Plee8=
+		</data>
+		<key>Frameworks/Result.framework/_CodeSignature/CodeResources</key>
+		<data>
+		MV2CSZ6m9wydGB5zAe3Y9tgt7jk=
+		</data>
 		<key>Frameworks/SnapKit.framework/Info.plist</key>
 		<data>
 		wJY5tFgav4a9xPXRA0y1r/jEDkg=
 		</data>
 		<key>Frameworks/SnapKit.framework/SnapKit</key>
 		<data>
-		6m48IxW38+QeoeouhK0kqECRjl4=
+		v/P6/qF5h7XThFGq/oXzvbHpyt0=
 		</data>
 		<key>Frameworks/SnapKit.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -586,7 +634,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		KT8qO2Osju65ZonKOXT2Hj1LC0k=
+		ITLj6RIcGIwbonQ4QMszF17ctZs=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -596,6 +644,10 @@
 		<data>
 		s7ona7AnRrumtUKclaVHhamjsDg=
 		</data>
+		<key>overlay.json</key>
+		<data>
+		kYq6kYbhi6ObtMS7zWaKCNs1JDA=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -603,7 +655,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YaMAJOmWTXK6vDC3Dn/F9HJCt6uyTEUHHQvycCS4tLc=
+			hoqCK0EMa0x5P01SdODdHjcY1InyP9SpiW7lWsfdgWo=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -646,6 +698,27 @@
 			<key>hash2</key>
 			<data>
 			rbuwlfbZp2EEQXwgGMpi97vLFhPv+9IcUH7j8K7UHxs=
+			</data>
+		</dict>
+		<key>Frameworks/Alamofire.framework/Alamofire</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bjZj8i+zdTzsGNKlr8YAxtcXilalkAXk86UgPdKc9/c=
+			</data>
+		</dict>
+		<key>Frameworks/Alamofire.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			NCBbp8QuUxotXO96bplF/gj5Kdb4Lqnk2v50k59gfh4=
+			</data>
+		</dict>
+		<key>Frameworks/Alamofire.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zHKgjBw8vFItL9LsXODT3uMKob2uuZKfbeq51y/Gh8g=
 			</data>
 		</dict>
 		<key>Frameworks/Bolts.framework/Bolts</key>
@@ -1191,6 +1264,69 @@
 			raKoilojiqLs0IUyOoBWF0TNADeZerdmloyW5nBkxn8=
 			</data>
 		</dict>
+		<key>Frameworks/MapKitGoogleStyler.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dflisLJH0qLy/hh/9tCzITfVG5dc69nn+p6zdkdXC1Q=
+			</data>
+		</dict>
+		<key>Frameworks/MapKitGoogleStyler.framework/MapKitGoogleStyler</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			shaWbpsCmB/ZxiWn0xHcZSTl3YBcjPr3hymHZZeGfB0=
+			</data>
+		</dict>
+		<key>Frameworks/MapKitGoogleStyler.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			J6let+yFIZLi1cgJ5oX7gXCLiCKjKh6LRc/o0xgP6fY=
+			</data>
+		</dict>
+		<key>Frameworks/Moya.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2zg+wyFQKfpaxyuFhQRIBLih7xg3Ps7RCHV7RDHRxl8=
+			</data>
+		</dict>
+		<key>Frameworks/Moya.framework/Moya</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ztvD7PY2c+GGGVx+16tObndmhqZzb2kiepY0bdnTelo=
+			</data>
+		</dict>
+		<key>Frameworks/Moya.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			23rXeT+yYLoadd4hdyb0DFl/JjYw20VI9Z2d3fX32sc=
+			</data>
+		</dict>
+		<key>Frameworks/Result.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			l7jgmm5gCL/W4OA6YpyPmNNa8BjJPnUfM17gZc7B2do=
+			</data>
+		</dict>
+		<key>Frameworks/Result.framework/Result</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JE6jetPIM8YsB0DEYCAZXrY/NGPzfoXSGaWCam8lhSc=
+			</data>
+		</dict>
+		<key>Frameworks/Result.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			V5vRrZSJyavZXqkWhj8Ec9bYAK8Pfd6h+1a7iuoxgB8=
+			</data>
+		</dict>
 		<key>Frameworks/SnapKit.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
@@ -1202,7 +1338,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			t0RCTuj8mr9gS/p/eynrPvmjtiQAQevgK2cgBoSBltY=
+			8e2fG9vj2hvjlzgX7mjfylwCxdBOmcbH5mY6/WHdFFo=
 			</data>
 		</dict>
 		<key>Frameworks/SnapKit.framework/_CodeSignature/CodeResources</key>
@@ -1322,6 +1458,13 @@
 			<key>hash2</key>
 			<data>
 			4GGtFhjWbkrl7cXmNqDKd0XMq1o5tsG/YtXAPAR8Mrk=
+			</data>
+		</dict>
+		<key>overlay.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			akmyrUuz9v15S8PIkbj/tmPMFNVIfnMQmVF94yYjODk=
 			</data>
 		</dict>
 	</dict>

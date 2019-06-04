@@ -266,13 +266,33 @@ class DiveIn: UIViewController {
         return view
     }()
     
+    /*
     let exploreButton: UIButton = {
         let btn = UIButton()
         btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         btn.setImage(#imageLiteral(resourceName: "Footer_ExpClick"), for: .normal)
+        btn.backgroundColor = .green
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
+    */
+    private let exploreButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.lightGray
+        button.setTitle("Explore!", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 5
+        return button
+    }()
+    
+    
+    @objc func openExploreView(){
+        let exploreVC = ExploreViewController()
+        present(exploreVC, animated: true, completion: nil)
+    }
+    
     
     let profileButton: UIButton = {
         let btn = UIButton()
@@ -310,10 +330,7 @@ class DiveIn: UIViewController {
         return button
     }()
     */
-    @objc func openExploreView(){
-        let exploreVC = ViewController()
-        present(exploreVC, animated: true, completion: nil)
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -333,12 +350,28 @@ class DiveIn: UIViewController {
 
     }
     
+    @objc func registerTapped(_ sender: UIButton) {
+        print("hi")
+        let exploreVC = ViewController()
+        present(exploreVC, animated: true, completion: nil)
+    }
+    
+    @objc func printfunction(_ sender: UIButton) {
+        print("hi")
+        let exploreVC = ViewController()
+        present(exploreVC, animated: true, completion: nil)
+    }
+    
+    
     fileprivate func setupBottomControls() {
         let bottomControlsStackView = UIStackView(arrangedSubviews: [exploreButton, profileButton, faveButton])
         bottomControlsStackView.backgroundColor = .white
         bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
         bottomControlsStackView.distribution = .fillEqually
         bottomControlsStackView.spacing = 20
+        
+        exploreButton.addTarget(self, action: #selector(self.printfunction(_:)), for: .touchUpInside)
+
         
         bottomControlView.addSubview(bottomControlsStackView)
         NSLayoutConstraint.activate([
@@ -366,6 +399,10 @@ class DiveIn: UIViewController {
         bottomControlView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         bottomControlView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         bottomControlView.heightAnchor.constraint(equalToConstant: view.frame.height/12).isActive = true
+        
+        //view.addSubview(exploreButton)
+        //exploreButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+
         
         backgroundImageView.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
         backgroundImageView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
@@ -443,6 +480,8 @@ class DiveIn: UIViewController {
         currentLocationButton.leftAnchor.constraint(equalTo:currentLocationView.leftAnchor, constant:view.frame.width/13).isActive = true
         currentLocationButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
 
+        //currentLocationButton.addTarget(self,  action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+        
         currentLocationView.addSubview(currentLocationIcon)
         currentLocationIcon.leftAnchor.constraint(equalTo:currentLocationView.leftAnchor, constant:5).isActive = true
         currentLocationIcon.centerYAnchor.constraint(equalTo:currentLocationView.centerYAnchor).isActive = true

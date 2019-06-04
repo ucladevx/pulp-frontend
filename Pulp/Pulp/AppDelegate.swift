@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
 
-        window?.rootViewController = WelcomePageController()
+        window?.rootViewController = DiveIn()
         
         return true
     }

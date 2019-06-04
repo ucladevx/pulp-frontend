@@ -166,6 +166,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreGraphics;
 @import CoreLocation;
 @import Foundation;
+@import MapKit;
 @import UIKit;
 #endif
 
@@ -210,11 +211,14 @@ SWIFT_CLASS("_TtC4Pulp27CreateProfileViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIButton;
 
 SWIFT_CLASS("_TtC4Pulp6DiveIn")
 @interface DiveIn : UIViewController
 - (void)openExploreView;
 - (void)viewDidLoad;
+- (void)registerTapped:(UIButton * _Nonnull)sender;
+- (void)printfunction:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -228,6 +232,20 @@ SWIFT_CLASS("_TtC4Pulp21ExploreViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UICollectionView;
+@class UICollectionViewCell;
+@class UICollectionViewLayout;
+
+SWIFT_CLASS("_TtC4Pulp18Explore_Controller")
+@interface Explore_Controller : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+- (void)viewDidLoad;
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS("_TtC4Pulp8FeedCell")
 @interface FeedCell : UICollectionViewCell
@@ -235,8 +253,6 @@ SWIFT_CLASS("_TtC4Pulp8FeedCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UICollectionView;
-@class UICollectionViewLayout;
 
 SWIFT_CLASS("_TtC4Pulp14FeedController")
 @interface FeedController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
@@ -256,6 +272,22 @@ SWIFT_CLASS("_TtC4Pulp15LogInController")
 - (void)loginButtonClicked;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4Pulp9MapScreen")
+@interface MapScreen : UIViewController <CLLocationManagerDelegate>
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class MKMapView;
+@protocol MKOverlay;
+@class MKOverlayRenderer;
+
+@interface MapScreen (SWIFT_EXTENSION(Pulp)) <MKMapViewDelegate>
+- (MKOverlayRenderer * _Nonnull)mapView:(MKMapView * _Nonnull)mapView rendererForOverlay:(id <MKOverlay> _Nonnull)overlay SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -288,16 +320,15 @@ SWIFT_CLASS("_TtC4Pulp21ResultsViewController")
 @end
 
 
-SWIFT_CLASS("_TtC4Pulp24SelectInterestController")
-@interface SelectInterestController : UIViewController
-- (void)viewDidLoad;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS("_TtC4Pulp20ReviewCollectionCell")
+@interface ReviewCollectionCell : UICollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_CLASS("_TtC4Pulp12SpotsMapView")
-@interface SpotsMapView : UIViewController <CLLocationManagerDelegate>
+SWIFT_CLASS("_TtC4Pulp24SelectInterestController")
+@interface SelectInterestController : UIViewController
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -324,6 +355,15 @@ SWIFT_CLASS("_TtC4Pulp14ViewController")
 - (void)openExploreView;
 - (void)openDiveIn;
 - (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4Pulp21WelcomePageController")
+@interface WelcomePageController : UIViewController
+- (void)viewDidLoad;
+- (void)buttonClickedWithSender:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

@@ -2,36 +2,44 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>MapKit</string>
-	<string>Foundation</string>
-	<string>FacebookCore</string>
-	<string>AppKit</string>
-	<string>objc</string>
-	<string>SnapKit</string>
-	<string>CoreGraphics</string>
-	<string>WebKit</string>
-	<string>QuartzCore</string>
-	<string>Security</string>
-	<string>libkern</string>
-	<string>FBSDKCoreKit</string>
-	<string>CoreText</string>
+	<string>CommonCrypto</string>
+	<string>CoreLocation</string>
+	<string>Moya</string>
 	<string>SafariServices</string>
-	<string>Social</string>
+	<string>MapKitGoogleStyler</string>
+	<string>AudioToolbox</string>
+	<string>objc</string>
+	<string>FacebookCore</string>
+	<string>SnapKit</string>
+	<string>MobileCoreServices</string>
+	<string>Bolts</string>
 	<string>sys</string>
-	<string>UIKit</string>
-	<string>ObjectiveC</string>
-	<string>Photos</string>
+	<string>FacebookLogin</string>
+	<string>Social</string>
+	<string>CoreTelephony</string>
+	<string>StoreKit</string>
+	<string>CoreServices</string>
 	<string>AdSupport</string>
 	<string>FBSDKShareKit</string>
-	<string>MobileCoreServices</string>
-	<string>StoreKit</string>
-	<string>AssetsLibrary</string>
-	<string>FBSDKLoginKit</string>
-	<string>Bolts</string>
-	<string>AudioToolbox</string>
-	<string>FacebookLogin</string>
 	<string>Accounts</string>
-	<string>CoreTelephony</string>
-	<string>CommonCrypto</string>
+	<string>Result</string>
+	<string>libkern</string>
+	<string>CoreText</string>
+	<string>WebKit</string>
+	<string>MapKit</string>
+	<string>Dispatch</string>
+	<string>Foundation</string>
+	<string>QuartzCore</string>
+	<string>Security</string>
+	<string>AppKit</string>
+	<string>Alamofire</string>
+	<string>Photos</string>
+	<string>FBSDKLoginKit</string>
+	<string>ObjectiveC</string>
+	<string>AssetsLibrary</string>
+	<string>FBSDKCoreKit</string>
+	<string>SystemConfiguration</string>
+	<string>CoreGraphics</string>
+	<string>UIKit</string>
 </array>
 </plist>

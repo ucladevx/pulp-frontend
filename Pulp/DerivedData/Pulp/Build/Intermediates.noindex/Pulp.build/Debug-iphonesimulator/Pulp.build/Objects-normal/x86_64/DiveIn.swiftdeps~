@@ -525,6 +525,7 @@ depends-member:
 - ["4Pulp6DiveInC", "currentLocationButton"]
 - ["4Pulp6DiveInC", "currentLocationIcon"]
 - ["4Pulp6DiveInC", "currentLocationView"]
+- ["4Pulp6DiveInC", "deinit"]
 - ["4Pulp6DiveInC", "descriptionView"]
 - !private ["4Pulp6DiveInC", "exploreButton"]
 - ["4Pulp6DiveInC", "faveButton"]
@@ -2684,8 +2685,6 @@ depends-member:
 - !private ["So37UIViewControllerAnimatedTransitioningP", "searchBar"]
 - !private ["So37UIViewControllerTransitioningDelegateP", "init"]
 - !private ["So37UIViewControllerTransitioningDelegateP", "searchBar"]
-- !private ["4Pulp14ViewControllerC", "deinit"]
-- !private ["4Pulp14ViewControllerC", "init"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "ContentMode"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "addConstraint"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "addConstraints"]
@@ -2968,7 +2967,6 @@ depends-nominal:
 - "So16UIViewControllerC"
 - !private "So37UIViewControllerAnimatedTransitioningP"
 - !private "So37UIViewControllerTransitioningDelegateP"
-- !private "4Pulp14ViewControllerC"
 - "s37_DefaultCustomPlaygroundQuickLookableP"
 - "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - "s34_ExpressibleByBuiltinStringLiteralP"

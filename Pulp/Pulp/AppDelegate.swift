@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
 
-        window?.rootViewController = DiveIn()
+        window?.rootViewController = MapScreen()
 
         
         return true

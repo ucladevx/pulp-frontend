@@ -18,7 +18,7 @@ depends-top-level:
 - "AssignmentPrecedence"
 - "Bool"
 - !private "BooleanLiteralType"
-- !private "DiveIn"
+- !private "MapScreen"
 - !private "SDKApplicationDelegate"
 - "UIApplication"
 - "UIApplicationDelegate"
@@ -28,7 +28,7 @@ depends-top-level:
 - "URL"
 depends-member:
 - ["4Pulp11AppDelegateC", "Bool"]
-- !private ["4Pulp11AppDelegateC", "DiveIn"]
+- !private ["4Pulp11AppDelegateC", "MapScreen"]
 - !private ["4Pulp11AppDelegateC", "SDKApplicationDelegate"]
 - ["4Pulp11AppDelegateC", "UIApplication"]
 - !private ["4Pulp11AppDelegateC", "UIScreen"]
@@ -52,8 +52,9 @@ depends-member:
 - !private ["So15CALayerDelegateP", "init"]
 - !private ["So15CALayerDelegateP", "makeKeyAndVisible"]
 - !private ["So15CALayerDelegateP", "rootViewController"]
-- !private ["s7CVarArgP", "DiveIn"]
+- !private ["So25CLLocationManagerDelegateP", "init"]
 - ["s7CVarArgP", "LaunchOptionsKey"]
+- !private ["s7CVarArgP", "MapScreen"]
 - ["s7CVarArgP", "OpenURLOptionsKey"]
 - !private ["s7CVarArgP", "SDKApplicationDelegate"]
 - !private ["s7CVarArgP", "UIScreen"]
@@ -81,8 +82,8 @@ depends-member:
 - !private ["7SnapKit25ConstraintRelatableTargetP", "init"]
 - !private ["7SnapKit25ConstraintRelatableTargetP", "makeKeyAndVisible"]
 - !private ["7SnapKit25ConstraintRelatableTargetP", "rootViewController"]
-- !private ["s28CustomDebugStringConvertibleP", "DiveIn"]
 - ["s28CustomDebugStringConvertibleP", "LaunchOptionsKey"]
+- !private ["s28CustomDebugStringConvertibleP", "MapScreen"]
 - ["s28CustomDebugStringConvertibleP", "OpenURLOptionsKey"]
 - !private ["s28CustomDebugStringConvertibleP", "SDKApplicationDelegate"]
 - !private ["s28CustomDebugStringConvertibleP", "UIScreen"]
@@ -107,8 +108,8 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "makeKeyAndVisible"]
 - !private ["s28CustomDebugStringConvertibleP", "rootViewController"]
 - ["s28CustomDebugStringConvertibleP", "window"]
-- !private ["s23CustomStringConvertibleP", "DiveIn"]
 - ["s23CustomStringConvertibleP", "LaunchOptionsKey"]
+- !private ["s23CustomStringConvertibleP", "MapScreen"]
 - ["s23CustomStringConvertibleP", "OpenURLOptionsKey"]
 - !private ["s23CustomStringConvertibleP", "SDKApplicationDelegate"]
 - !private ["s23CustomStringConvertibleP", "UIScreen"]
@@ -133,10 +134,8 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "makeKeyAndVisible"]
 - !private ["s23CustomStringConvertibleP", "rootViewController"]
 - ["s23CustomStringConvertibleP", "window"]
-- !private ["4Pulp6DiveInC", "deinit"]
-- !private ["4Pulp6DiveInC", "init"]
-- !private ["SQ", "DiveIn"]
 - ["SQ", "LaunchOptionsKey"]
+- !private ["SQ", "MapScreen"]
 - ["SQ", "OpenURLOptionsKey"]
 - !private ["SQ", "SDKApplicationDelegate"]
 - !private ["SQ", "UIScreen"]
@@ -161,8 +160,8 @@ depends-member:
 - !private ["SQ", "makeKeyAndVisible"]
 - !private ["SQ", "rootViewController"]
 - ["SQ", "window"]
-- !private ["SH", "DiveIn"]
 - ["SH", "LaunchOptionsKey"]
+- !private ["SH", "MapScreen"]
 - ["SH", "OpenURLOptionsKey"]
 - !private ["SH", "SDKApplicationDelegate"]
 - !private ["SH", "UIScreen"]
@@ -190,13 +189,16 @@ depends-member:
 - !private ["7SnapKit20LayoutConstraintItemP", "init"]
 - !private ["7SnapKit20LayoutConstraintItemP", "makeKeyAndVisible"]
 - !private ["7SnapKit20LayoutConstraintItemP", "rootViewController"]
+- !private ["So17MKMapViewDelegateP", "init"]
+- !private ["4Pulp9MapScreenC", "deinit"]
+- !private ["4Pulp9MapScreenC", "init"]
 - !private ["So8NSCodingP", "init"]
 - !private ["So8NSCodingP", "makeKeyAndVisible"]
 - !private ["So8NSCodingP", "rootViewController"]
 - !private ["So26NSExtensionRequestHandlingP", "init"]
 - ["So8NSObjectC", "Bool"]
-- !private ["So8NSObjectC", "DiveIn"]
 - ["So8NSObjectC", "LaunchOptionsKey"]
+- !private ["So8NSObjectC", "MapScreen"]
 - ["So8NSObjectC", "OpenURLOptionsKey"]
 - !private ["So8NSObjectC", "SDKApplicationDelegate"]
 - ["So8NSObjectC", "UIApplication"]
@@ -222,8 +224,8 @@ depends-member:
 - !private ["So8NSObjectC", "makeKeyAndVisible"]
 - !private ["So8NSObjectC", "rootViewController"]
 - ["So8NSObjectC", "window"]
-- !private ["So8NSObjectP", "DiveIn"]
 - ["So8NSObjectP", "LaunchOptionsKey"]
+- !private ["So8NSObjectP", "MapScreen"]
 - ["So8NSObjectP", "OpenURLOptionsKey"]
 - !private ["So8NSObjectP", "SDKApplicationDelegate"]
 - !private ["So8NSObjectP", "UIScreen"]
@@ -261,7 +263,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "rootViewController"]
 - ["So13UIApplicationC", "LaunchOptionsKey"]
 - ["So13UIApplicationC", "OpenURLOptionsKey"]
-- !private ["So21UIApplicationDelegateP", "DiveIn"]
+- !private ["So21UIApplicationDelegateP", "MapScreen"]
 - !private ["So21UIApplicationDelegateP", "SDKApplicationDelegate"]
 - !private ["So21UIApplicationDelegateP", "UIScreen"]
 - !private ["So21UIApplicationDelegateP", "UIWindow"]
@@ -295,8 +297,8 @@ depends-member:
 - !private ["So20UIFocusItemContainerP", "init"]
 - !private ["So20UIFocusItemContainerP", "makeKeyAndVisible"]
 - !private ["So20UIFocusItemContainerP", "rootViewController"]
-- !private ["So30UIPasteConfigurationSupportingP", "DiveIn"]
 - ["So30UIPasteConfigurationSupportingP", "LaunchOptionsKey"]
+- !private ["So30UIPasteConfigurationSupportingP", "MapScreen"]
 - ["So30UIPasteConfigurationSupportingP", "OpenURLOptionsKey"]
 - !private ["So30UIPasteConfigurationSupportingP", "SDKApplicationDelegate"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIScreen"]
@@ -320,8 +322,8 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "rootViewController"]
 - ["So30UIPasteConfigurationSupportingP", "window"]
 - ["So11UIResponderC", "Bool"]
-- !private ["So11UIResponderC", "DiveIn"]
 - ["So11UIResponderC", "LaunchOptionsKey"]
+- !private ["So11UIResponderC", "MapScreen"]
 - ["So11UIResponderC", "OpenURLOptionsKey"]
 - !private ["So11UIResponderC", "SDKApplicationDelegate"]
 - ["So11UIResponderC", "UIApplication"]
@@ -346,8 +348,8 @@ depends-member:
 - !private ["So11UIResponderC", "makeKeyAndVisible"]
 - !private ["So11UIResponderC", "rootViewController"]
 - ["So11UIResponderC", "window"]
-- !private ["So30UIResponderStandardEditActionsP", "DiveIn"]
 - ["So30UIResponderStandardEditActionsP", "LaunchOptionsKey"]
+- !private ["So30UIResponderStandardEditActionsP", "MapScreen"]
 - ["So30UIResponderStandardEditActionsP", "OpenURLOptionsKey"]
 - !private ["So30UIResponderStandardEditActionsP", "SDKApplicationDelegate"]
 - !private ["So30UIResponderStandardEditActionsP", "UIScreen"]
@@ -378,8 +380,8 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "main"]
 - !private ["So18UITraitEnvironmentP", "makeKeyAndVisible"]
 - !private ["So18UITraitEnvironmentP", "rootViewController"]
-- !private ["So23UIUserActivityRestoringP", "DiveIn"]
 - ["So23UIUserActivityRestoringP", "LaunchOptionsKey"]
+- !private ["So23UIUserActivityRestoringP", "MapScreen"]
 - ["So23UIUserActivityRestoringP", "OpenURLOptionsKey"]
 - !private ["So23UIUserActivityRestoringP", "SDKApplicationDelegate"]
 - !private ["So23UIUserActivityRestoringP", "UIScreen"]
@@ -412,8 +414,8 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "init"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "makeKeyAndVisible"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "rootViewController"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "DiveIn"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "LaunchOptionsKey"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "MapScreen"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "OpenURLOptionsKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "SDKApplicationDelegate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIScreen"]
@@ -441,14 +443,16 @@ depends-member:
 depends-nominal:
 - "4Pulp11AppDelegateC"
 - !private "So15CALayerDelegateP"
+- !private "So25CLLocationManagerDelegateP"
 - "s7CVarArgP"
 - !private "7SnapKit25ConstraintRelatableTargetP"
 - "s28CustomDebugStringConvertibleP"
 - "s23CustomStringConvertibleP"
-- !private "4Pulp6DiveInC"
 - "SQ"
 - "SH"
 - !private "7SnapKit20LayoutConstraintItemP"
+- !private "So17MKMapViewDelegateP"
+- !private "4Pulp9MapScreenC"
 - !private "So8NSCodingP"
 - !private "So26NSExtensionRequestHandlingP"
 - "So8NSObjectC"

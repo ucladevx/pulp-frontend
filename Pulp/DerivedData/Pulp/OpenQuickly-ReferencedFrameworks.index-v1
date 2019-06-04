@@ -4,21 +4,21 @@
 <array>
 	<string>CommonCrypto</string>
 	<string>CoreLocation</string>
-	<string>Moya</string>
 	<string>SafariServices</string>
-	<string>MapKitGoogleStyler</string>
+	<string>Moya</string>
 	<string>AudioToolbox</string>
+	<string>MapKitGoogleStyler</string>
 	<string>objc</string>
 	<string>FacebookCore</string>
 	<string>SnapKit</string>
 	<string>MobileCoreServices</string>
-	<string>Bolts</string>
-	<string>sys</string>
 	<string>FacebookLogin</string>
+	<string>sys</string>
+	<string>Bolts</string>
 	<string>Social</string>
 	<string>CoreTelephony</string>
-	<string>StoreKit</string>
 	<string>CoreServices</string>
+	<string>StoreKit</string>
 	<string>AdSupport</string>
 	<string>FBSDKShareKit</string>
 	<string>Accounts</string>

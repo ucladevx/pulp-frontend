@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>682Y7UP5X7.com.aryan.explore-page</string>
+	<string>682Y7UP5X7.com.andy.mapview</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>682Y7UP5X7.com.aryan.explore-page</string>
+		<string>682Y7UP5X7.com.andy.mapview</string>
 	</array>
 </dict>
 </plist>

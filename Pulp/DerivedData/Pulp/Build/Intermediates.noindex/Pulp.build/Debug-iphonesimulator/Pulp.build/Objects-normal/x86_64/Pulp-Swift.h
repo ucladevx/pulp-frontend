@@ -211,6 +211,12 @@ SWIFT_CLASS("_TtC4Pulp27CreateProfileViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_CLASS("_TtC4Pulp21CustomPointAnnotation")
+@interface CustomPointAnnotation : MKPointAnnotation
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIButton;
 
 SWIFT_CLASS("_TtC4Pulp6DiveIn")
@@ -274,10 +280,13 @@ SWIFT_CLASS("_TtC4Pulp15LogInController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class CLLocationManager;
+@class CLLocation;
 
 SWIFT_CLASS("_TtC4Pulp9MapScreen")
 @interface MapScreen : UIViewController <CLLocationManagerDelegate>
 - (void)viewDidLoad;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -285,9 +294,14 @@ SWIFT_CLASS("_TtC4Pulp9MapScreen")
 @class MKMapView;
 @protocol MKOverlay;
 @class MKOverlayRenderer;
+@protocol MKAnnotation;
+@class MKAnnotationView;
+@class MKUserLocation;
 
 @interface MapScreen (SWIFT_EXTENSION(Pulp)) <MKMapViewDelegate>
 - (MKOverlayRenderer * _Nonnull)mapView:(MKMapView * _Nonnull)mapView rendererForOverlay:(id <MKOverlay> _Nonnull)overlay SWIFT_WARN_UNUSED_RESULT;
+- (MKAnnotationView * _Nullable)mapView:(MKMapView * _Nonnull)mapView viewForAnnotation:(id <MKAnnotation> _Nonnull)annotation SWIFT_WARN_UNUSED_RESULT;
+- (void)mapView:(MKMapView * _Nonnull)mapView didUpdateUserLocation:(MKUserLocation * _Nonnull)userLocation;
 @end
 
 
@@ -303,6 +317,16 @@ SWIFT_CLASS("_TtC4Pulp11ProductCell")
 - (void)decreaseFunc;
 - (void)increaseFunc;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4Pulp13ProfileScreen")
+@interface ProfileScreen : UIViewController
+- (void)openExploreView;
+- (void)openDiveIn;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -348,16 +372,6 @@ SWIFT_CLASS("_TtC4Pulp17SwipingController")
 @end
 
 
-
-
-SWIFT_CLASS("_TtC4Pulp14ViewController")
-@interface ViewController : UIViewController
-- (void)openExploreView;
-- (void)openDiveIn;
-- (void)viewDidLoad;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_CLASS("_TtC4Pulp21WelcomePageController")

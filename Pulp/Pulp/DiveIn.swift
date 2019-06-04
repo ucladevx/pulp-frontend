@@ -266,25 +266,14 @@ class DiveIn: UIViewController {
         return view
     }()
     
-    /*
+    
     let exploreButton: UIButton = {
         let btn = UIButton()
         btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         btn.setImage(#imageLiteral(resourceName: "Footer_ExpClick"), for: .normal)
-        btn.backgroundColor = .green
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(openExploreView), for: .touchUpInside)
         return btn
-    }()
-    */
-    private let exploreButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.lightGray
-        button.setTitle("Explore!", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 5
-        return button
     }()
     
     
@@ -299,8 +288,14 @@ class DiveIn: UIViewController {
         btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         btn.setImage(#imageLiteral(resourceName: "Footer_Prof"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(openProfileView), for: .touchUpInside)
         return btn
     }()
+    
+    @objc func openProfileView(){
+        let ps = ProfileScreen()
+        present(ps, animated: true, completion: nil)
+    }
     
     let faveButton: UIButton = {
         let btn = UIButton()
@@ -317,19 +312,6 @@ class DiveIn: UIViewController {
         return view
     }()
     
-    /*
-    private let exploreButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.white
-        button.setTitle("Explore!", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.setTitleColor(.black, for: .normal)
-        //button.layer.cornerRadius = 5
-        button.addTarget(self, action: #selector(openExploreView), for: .touchUpInside)
-        return button
-    }()
-    */
 
     
     override func viewDidLoad() {
@@ -349,19 +331,7 @@ class DiveIn: UIViewController {
         
 
     }
-    
-    @objc func registerTapped(_ sender: UIButton) {
-        print("hi")
-        let exploreVC = ProfileScreen()
-        present(exploreVC, animated: true, completion: nil)
-    }
-    
-    @objc func printfunction(_ sender: UIButton) {
-        print("hi")
-        let exploreVC = ProfileScreen()
-        present(exploreVC, animated: true, completion: nil)
-    }
-    
+
     
     fileprivate func setupBottomControls() {
         let bottomControlsStackView = UIStackView(arrangedSubviews: [exploreButton, profileButton, faveButton])
@@ -370,8 +340,7 @@ class DiveIn: UIViewController {
         bottomControlsStackView.distribution = .fillEqually
         bottomControlsStackView.spacing = 20
         
-        exploreButton.addTarget(self, action: #selector(self.printfunction(_:)), for: .touchUpInside)
-
+        
         
         bottomControlView.addSubview(bottomControlsStackView)
         NSLayoutConstraint.activate([
@@ -399,9 +368,6 @@ class DiveIn: UIViewController {
         bottomControlView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         bottomControlView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         bottomControlView.heightAnchor.constraint(equalToConstant: view.frame.height/12).isActive = true
-        
-        //view.addSubview(exploreButton)
-        //exploreButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
 
         
         backgroundImageView.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
@@ -480,7 +446,7 @@ class DiveIn: UIViewController {
         currentLocationButton.leftAnchor.constraint(equalTo:currentLocationView.leftAnchor, constant:view.frame.width/13).isActive = true
         currentLocationButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
 
-        //currentLocationButton.addTarget(self,  action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+        //currentLocationButton.addTarget(self,  action: #selector(openExploreView2), for: .touchUpInside)
         
         currentLocationView.addSubview(currentLocationIcon)
         currentLocationIcon.leftAnchor.constraint(equalTo:currentLocationView.leftAnchor, constant:5).isActive = true
@@ -492,7 +458,7 @@ class DiveIn: UIViewController {
         bottomContainerView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor).isActive = true
         bottomContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         bottomContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        bottomContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+        bottomContainerView.heightAnchor.constraint(equalToConstant:view.frame.height/3).isActive = true
         
         
         // HIKE BUTTON

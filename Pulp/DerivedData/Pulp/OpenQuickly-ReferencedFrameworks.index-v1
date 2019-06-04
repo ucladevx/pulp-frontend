@@ -6,15 +6,15 @@
 	<string>CoreLocation</string>
 	<string>SafariServices</string>
 	<string>Moya</string>
-	<string>AudioToolbox</string>
 	<string>MapKitGoogleStyler</string>
+	<string>AudioToolbox</string>
 	<string>objc</string>
 	<string>FacebookCore</string>
 	<string>SnapKit</string>
 	<string>MobileCoreServices</string>
-	<string>FacebookLogin</string>
-	<string>sys</string>
 	<string>Bolts</string>
+	<string>sys</string>
+	<string>FacebookLogin</string>
 	<string>Social</string>
 	<string>CoreTelephony</string>
 	<string>CoreServices</string>

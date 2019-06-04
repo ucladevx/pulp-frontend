@@ -217,14 +217,12 @@ SWIFT_CLASS("_TtC4Pulp21CustomPointAnnotation")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIButton;
 
 SWIFT_CLASS("_TtC4Pulp6DiveIn")
 @interface DiveIn : UIViewController
 - (void)openExploreView;
+- (void)openProfileView;
 - (void)viewDidLoad;
-- (void)registerTapped:(UIButton * _Nonnull)sender;
-- (void)printfunction:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -373,6 +371,7 @@ SWIFT_CLASS("_TtC4Pulp17SwipingController")
 
 
 
+@class UIButton;
 
 SWIFT_CLASS("_TtC4Pulp21WelcomePageController")
 @interface WelcomePageController : UIViewController

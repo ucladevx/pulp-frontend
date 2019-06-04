@@ -19,12 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         //Facebook SDK code below
-        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+//        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         window = UIWindow(frame:UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = MapScreen()
+        window?.rootViewController = ListView_Controller()
         
         return true
     }

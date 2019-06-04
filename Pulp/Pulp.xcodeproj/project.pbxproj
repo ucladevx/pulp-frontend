@@ -29,6 +29,7 @@
 		92AE975E2293AE02006245B1 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE975D2293AE02006245B1 /* ExploreController.swift */; };
 		92D4D98A229CAA5100BBF080 /* Explore_Page_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */; };
 		92D4D98C229CE8D700BBF080 /* PlacesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */; };
+		92D4D98E22A0927800BBF080 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D98D22A0927800BBF080 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,13 +55,13 @@
 		83ABFFEC2281686D00DB0F7C /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestController.swift; sourceTree = "<group>"; };
 		83ABFFF0228AA88F00DB0F7C /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
+		83DE57172293BE4000294FC9 /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
+		83DE57192293BE8100294FC9 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		923DFF942295EF1200D92FAD /* welc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welc.swift; sourceTree = "<group>"; };
 		92AE975D2293AE02006245B1 /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explore_Page_Data.swift; sourceTree = "<group>"; };
 		92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPI.swift; sourceTree = "<group>"; };
-		83DE57172293BE4000294FC9 /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
-		83DE57192293BE8100294FC9 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-
+		92D4D98D22A0927800BBF080 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		F2D3A961FAB7F84721E06C26 /* Pods-Pulp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pulp/Pods-Pulp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,13 +103,11 @@
 				92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */,
 				83042234227801D000DDC8B2 /* UnusedLogInController.swift */,
 				83ABFFF0228AA88F00DB0F7C /* LogInController.swift */,
-
+				92D4D98D22A0927800BBF080 /* ListViewController.swift */,
 				92AE975D2293AE02006245B1 /* ExploreController.swift */,
 				92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */,
-
 				83DE57172293BE4000294FC9 /* MainAPI.swift */,
 				83DE57192293BE8100294FC9 /* UserManager.swift */,
-
 				83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */,
 				83ABFFEC2281686D00DB0F7C /* MapScreen.swift */,
 				8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */,
@@ -244,10 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Pulp/Pods-Pulp-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Pulp/Pods-Pulp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -261,8 +258,6 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
@@ -278,7 +273,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pulp/Pods-Pulp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pulp/Pods-Pulp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -296,6 +291,7 @@
 				8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */,
 				43AC38312227500600652A70 /* AppDelegate.swift in Sources */,
 				4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */,
+				92D4D98E22A0927800BBF080 /* ListViewController.swift in Sources */,
 				923DFF952295EF1200D92FAD /* welc.swift in Sources */,
 				83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */,
 				83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */,

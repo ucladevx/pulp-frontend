@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileScreen: UIViewController {
+class ViewController: UIViewController {
     
     //let backgroundYellow = UIColor(red:1.00, green:0.97, blue:0.84, alpha:1.0)
     let backgroundOrange = UIColor(red:250/255, green:154/255, blue:70/255, alpha:1.0)

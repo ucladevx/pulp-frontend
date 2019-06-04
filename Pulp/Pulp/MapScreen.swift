@@ -8,11 +8,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     var window: UIWindow?
     var mapView: MKMapView?
-    var pointAnnotation:CustomPointAnnotation!
-    var pinAnnotationView:MKPinAnnotationView!
     
     //The range (meter) of how much we want to see arround the user's location
-    let distanceSpan: Double = 200
+    let distanceSpan: Double = 500
     
     var locationManager: CLLocationManager = {
         var locationManager = CLLocationManager()
@@ -25,6 +23,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     let searchBarView: UIView = {
         let view = UIView()
+//        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -64,7 +63,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         self.mapView!.showsBuildings = true
         self.mapView!.showsUserLocation = true
         self.view.addSubview(self.mapView!)
-        self.searchBarView.addSubview(searchBar)
+        
+        
+        searchBarView.addSubview(searchBar)
         self.view.addSubview(searchBarView)
         
         let buttonItem = MKUserTrackingButton(mapView: mapView)
@@ -77,14 +78,13 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         if let mapView = self.mapView {
-            let region = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: self.distanceSpan, longitudinalMeters: self.distanceSpan)
-//            let viewRegion = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
-            mapView.setRegion(region, animated: true)
+//            let region = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: self.distanceSpan, longitudinalMeters: self.distanceSpan)
+            let viewRegion = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+            mapView.setRegion(viewRegion, animated: true)
+            mapView.showsUserLocation = true
             mapView.isZoomEnabled = true
         }
     }
-    
-    
     
     private func configureTileOverlay() {
         // We first need to have the path of the overlay configuration JSON
@@ -102,6 +102,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         mapView!.addOverlay(tileOverlay)
     }
     
+    
+    
     func setUpSearchBar() {
         searchBarView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(40)
@@ -118,32 +120,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        if let location = locations.last{
-            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            self.mapView!.setRegion(region, animated: true)
-        }
-        
-        let location = CLLocationCoordinate2D(latitude: 34.07, longitude: -118.452393)
-        
-        //Below code sets the new added pin the center of the screen
-        let center = location
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
-        mapView!.setRegion(region, animated: true)
-        
-        //Toggle the new pin's parameters, thinking of creating a function to create pins with these parameters
-        pointAnnotation = CustomPointAnnotation()
-        pointAnnotation.pinCustomImageName = "MapFaveIcon"
-        pointAnnotation.coordinate = location
-        pointAnnotation.title = "Random Attraction"
-        pointAnnotation.subtitle = "Some random attraction"
-
-        pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
-        mapView!.addAnnotation(pinAnnotationView.annotation!)
-    }
-    
 }
 
 extension MapScreen: MKMapViewDelegate {
@@ -156,35 +132,6 @@ extension MapScreen: MKMapViewDelegate {
         } else {
             return MKOverlayRenderer(overlay: overlay)
         }
-    }
-    
-    //MARK: - Custom Annotation
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        //Below code checks if the pin is the user location pin, if it is, skips the rest of the code
-        if (annotation.isKind(of: MKUserLocation.self)){
-            return nil
-        }
-        
-        //Otherwise, create a customized Pulp pin
-        let reuseIdentifier = "pin"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-        
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            annotationView?.canShowCallout = true
-        } else {
-            annotationView?.annotation = annotation
-        }
-        
-        if let customPointAnnotation = annotation as? CustomPointAnnotation {
-        annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
-        }
-        
-        return annotationView
-    }
-    
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        mapView.setCenter(userLocation.coordinate, animated: true)
     }
 }
 

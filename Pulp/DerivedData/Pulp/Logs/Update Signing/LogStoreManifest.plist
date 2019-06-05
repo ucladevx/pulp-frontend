@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>32B0F5B9-5C3A-4B1A-BD5B-CED5DFB28308</key>
+		<key>10F340AF-68A5-422F-B670-CCAA3C93E727</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,21 +15,21 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.ProvisioningLog</string>
 			<key>fileName</key>
-			<string>32B0F5B9-5C3A-4B1A-BD5B-CED5DFB28308.xcactivitylog</string>
+			<string>10F340AF-68A5-422F-B670-CCAA3C93E727.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>E</string>
 			<key>signature</key>
 			<string>Update Signing</string>
 			<key>timeStartedRecording</key>
-			<real>581311505.55418801</real>
+			<real>581328022.80538702</real>
 			<key>timeStoppedRecording</key>
-			<real>581311505.82942796</real>
+			<real>581328023.10317802</real>
 			<key>title</key>
 			<string>Update Signing</string>
 			<key>uniqueIdentifier</key>
-			<string>32B0F5B9-5C3A-4B1A-BD5B-CED5DFB28308</string>
+			<string>10F340AF-68A5-422F-B670-CCAA3C93E727</string>
 		</dict>
-		<key>8251EAB9-5D6D-4634-8272-D10E6D029F48</key>
+		<key>EC2DD19D-16DF-4741-8399-90AA3EE87653</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -38,19 +38,19 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.ProvisioningLog</string>
 			<key>fileName</key>
-			<string>8251EAB9-5D6D-4634-8272-D10E6D029F48.xcactivitylog</string>
+			<string>EC2DD19D-16DF-4741-8399-90AA3EE87653.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>E</string>
 			<key>signature</key>
 			<string>Update Signing</string>
 			<key>timeStartedRecording</key>
-			<real>581314321.65704894</real>
+			<real>581401501.11934495</real>
 			<key>timeStoppedRecording</key>
-			<real>581314321.98689401</real>
+			<real>581401501.35665202</real>
 			<key>title</key>
 			<string>Update Signing</string>
 			<key>uniqueIdentifier</key>
-			<string>8251EAB9-5D6D-4634-8272-D10E6D029F48</string>
+			<string>EC2DD19D-16DF-4741-8399-90AA3EE87653</string>
 		</dict>
 	</dict>
 </dict>

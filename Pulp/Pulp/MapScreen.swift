@@ -10,6 +10,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     var mapView: MKMapView?
     var pointAnnotationList:[CustomPointAnnotation] = []
     var pinAnnotationView:MKPinAnnotationView!
+    var selectedAnnotation:MKPointAnnotation!
     
     //The range (meter) of how much we want to see arround the user's location
     let distanceSpan: Double = 500
@@ -25,20 +26,23 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     let searchBarView: UIView = {
         let view = UIView()
-        //        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
-        view.backgroundColor = .clear
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowOffset = CGSize(width: 0, height: 5)
+        view.layer.shadowRadius = 5
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    let searchBar: UISearchBar = {
-        let searchbar = UISearchBar()
-        searchbar.layer.borderWidth = 0
-        searchbar.layer.borderColor = UIColor.black.cgColor
-        searchbar.searchBarStyle = UISearchBar.Style.minimal
-        searchbar.placeholder = "Parks, mueseums, bars, etc.";
-        var textField = searchbar.value(forKey: "searchField") as? UITextField
-        textField?.backgroundColor = .white
+    let searchBar: UITextField = {
+        let searchbar = UITextField()
+        searchbar.placeholder = "Parks, museums, bars, etc.";
+        //var textField = searchbar.value(forKey: "searchField") as? UITextField
+        //textField?.backgroundColor = .white
+        searchbar.textAlignment = .left
+        searchbar.font = UIFont(name: "Avenir-Light", size:15)
         searchbar.translatesAutoresizingMaskIntoConstraints = false
         return searchbar
     }()
@@ -56,6 +60,28 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 15
         imageView.clipsToBounds = true
+        return imageView
+    }()
+    
+    let filterButton: UIButton = {
+        let btn = UIButton()
+        btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        btn.setImage(#imageLiteral(resourceName: "SearchTripleBar"), for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let cancelButton: UIButton = {
+        let btn = UIButton()
+        btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        btn.setImage(#imageLiteral(resourceName: "SearchX"), for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let vertLineView: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "SearchVertBar"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -118,8 +144,10 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         self.mapView!.showsBuildings = true
         self.mapView!.showsUserLocation = true
         self.view.addSubview(self.mapView!)
-        
-        searchBarView.addSubview(searchBar)
+        self.searchBarView.addSubview(searchBar)
+        self.searchBarView.addSubview(filterButton)
+        self.searchBarView.addSubview(cancelButton)
+        self.searchBarView.addSubview(vertLineView)
         self.view.addSubview(searchBarView)
         
         let buttonItem = MKUserTrackingButton(mapView: mapView)
@@ -214,13 +242,14 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         if let mapView = self.mapView {
-            //            let region = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: self.distanceSpan, longitudinalMeters: self.distanceSpan)
-            let viewRegion = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
-            mapView.setRegion(viewRegion, animated: true)
-            mapView.showsUserLocation = true
+            let region = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: self.distanceSpan, longitudinalMeters: self.distanceSpan)
+            //            let viewRegion = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+            mapView.setRegion(region, animated: true)
             mapView.isZoomEnabled = true
         }
     }
+    
+    
     
     private func configureTileOverlay() {
         // We first need to have the path of the overlay configuration JSON
@@ -242,8 +271,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         searchBarView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(view).offset(40)
             make.right.equalTo(view).offset(-40)
-            make.height.equalTo(view.frame.height/8)
-            make.top.equalTo(view).offset(20)
+            make.height.equalTo(view.frame.height/20)
+            make.top.equalTo(view).offset(60)
         }
         
         searchBar.snp.makeConstraints { (make) -> Void in
@@ -251,6 +280,27 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
             make.right.equalTo(searchBarView)
             make.top.equalTo(searchBarView)
             make.bottom.equalTo(searchBarView)
+        }
+        
+        filterButton.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(searchBarView).offset(15)
+            //make.right.equalTo(searchBarView)
+            make.top.equalTo(searchBarView)
+            make.bottom.equalTo(searchBarView)
+        }
+        
+        cancelButton.snp.makeConstraints { (make) -> Void in
+            //make.left.equalTo(searchBarView)
+            make.right.equalTo(searchBarView).offset(-15)
+            make.top.equalTo(searchBarView)
+            make.bottom.equalTo(searchBarView)
+        }
+        
+        vertLineView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(searchBarView).offset(38)
+            //make.right.equalTo(searchBarView).offset(-15)
+            make.top.equalTo(searchBarView).offset(8)
+            make.bottom.equalTo(searchBarView).offset(-8)
         }
     }
     
@@ -268,7 +318,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         let center = location
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
         mapView!.setRegion(region, animated: true)
-        
         
         //Below code adds pins to the map
         addPin(imageName: "MapFaveIcon", location: location, title: "Cai's Residence", subtitle: "What's good")
@@ -301,6 +350,43 @@ extension MapScreen: MKMapViewDelegate {
         } else {
             return MKOverlayRenderer(overlay: overlay)
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.selectedAnnotation = view.annotation as? CustomPointAnnotation
+        let nextVC = Explore_Controller()
+        self.present(nextVC, animated: true) {
+            print("Segue to explore view successfully!")
+        }
+    }
+    
+    //MARK: - Custom Annotation
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //Below code checks if the pin is the user location pin, if it is, skips the rest of the code
+        if (annotation.isKind(of: MKUserLocation.self)){
+            return nil
+        }
+        
+        //Otherwise, create a customized Pulp pin
+        let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        if let customPointAnnotation = annotation as? CustomPointAnnotation {
+            annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
+        }
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        mapView.setCenter(userLocation.coordinate, animated: true)
     }
 }
 

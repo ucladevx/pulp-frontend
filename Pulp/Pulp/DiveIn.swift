@@ -283,8 +283,8 @@ class DiveIn: UIViewController {
     
     
     @objc func openExploreView(){
-        let exploreVC = ExploreViewController()
-        present(exploreVC, animated: true, completion: nil)
+        let mapVC = MapScreen()
+        present(mapVC, animated: true, completion: nil)
     }
     
     

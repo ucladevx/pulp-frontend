@@ -158,6 +158,20 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         setUpSearchBar()
         
         popupLayout()
+        
+        //Below code adds Pulp pins to the mapview
+        let pinLocation = CLLocationCoordinate2D(latitude: 34.07, longitude: -118.452393)
+        
+        //Below code sets the new added pin the center of the screen
+        let center = pinLocation
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
+        mapView!.setRegion(region, animated: true)
+        
+        //Below code adds pins to the map
+        addPin(imageName: "MapFaveIcon", location: pinLocation, title: "Cai's Residence", subtitle: "What's good")
+        addPin(imageName: "MapShopIcon", location: pinLocation, title: "Cai's shop", subtitle: "")
+        
+        
         popupView.addGestureRecognizer(tapRecognizer)
     }
     
@@ -319,17 +333,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             self.mapView!.setRegion(region, animated: true)
         }
-        
-        let location = CLLocationCoordinate2D(latitude: 34.07, longitude: -118.452393)
-        
-        //Below code sets the new added pin the center of the screen
-        let center = location
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
-        mapView!.setRegion(region, animated: true)
-        
-        //Below code adds pins to the map
-        addPin(imageName: "MapFaveIcon", location: location, title: "Cai's Residence", subtitle: "What's good")
-        addPin(imageName: "MapShopIcon", location: location, title: "Cai's shop", subtitle: "")
     }
     
     //addPin function adds new pins to the map

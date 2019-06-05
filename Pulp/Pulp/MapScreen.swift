@@ -173,7 +173,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         
         
         popupView.addGestureRecognizer(tapRecognizer)
-        view.addSubview(popupView)
     }
     
     private var bottomConstraint = NSLayoutConstraint()
@@ -365,13 +364,15 @@ extension MapScreen: MKMapViewDelegate {
         }
     }
     
-//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//        self.selectedAnnotation = view.annotation as? CustomPointAnnotation
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.selectedAnnotation = view.annotation as? CustomPointAnnotation
 //        let nextVC = Explore_Controller()
 //        self.present(nextVC, animated: true) {
 //            print("Segue to explore view successfully!")
 //        }
-//    }
+        
+        popupViewTapped(recognizer: tapRecognizer)
+    }
     
     //MARK: - Custom Annotation
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

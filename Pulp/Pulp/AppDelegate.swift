@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = WelcomePageController()
 
-        
         return true
     }
     

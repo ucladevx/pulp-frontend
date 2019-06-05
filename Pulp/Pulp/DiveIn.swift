@@ -632,7 +632,7 @@ class DiveIn: UIViewController {
     @objc func goBackMap(_ sender: UIButton) {
         let nextVC = MapScreen()
         self.present(nextVC, animated: true, completion: {
-            print("Changes to explore page successfully!")
+            print("Changes to map successfully!")
         })
     }
     

@@ -15,7 +15,12 @@ class DiveIn: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
+    let backButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("< Back to Map", for: .normal)
+        btn.setTitleColor(UIColor.gray, for: .normal)
+        return btn
+    }()
     let hikeImageView: UIImageView = {
         let imageView = UIImageView(image:#imageLiteral(resourceName: "RestaurantIcon"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -278,7 +283,7 @@ class DiveIn: UIViewController {
     
     
     @objc func openExploreView(){
-        let mapVC = MapScreen()
+        let mapVC = Explore_Controller()
         present(mapVC, animated: true, completion: nil)
     }
     
@@ -610,9 +615,26 @@ class DiveIn: UIViewController {
         aquaticButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
         aquaticButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
 
- 
+        
+        view.addSubview(backButton)
+        backButton.layer.cornerRadius = 10
+        backButton.titleEdgeInsets.left = 10
+        backButton.titleEdgeInsets.right = 10
+        //        backButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: 100, height: 30)
+        backButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+        backButton.backgroundColor = .white
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        backButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+        backButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        backButton.addTarget(self, action: #selector(self.goBackMap(_:)), for: .touchUpInside)
     }
-
+    @objc func goBackMap(_ sender: UIButton) {
+        let nextVC = MapScreen()
+        self.present(nextVC, animated: true, completion: {
+            print("Changes to explore page successfully!")
+        })
+    }
     
 }
 

@@ -30,9 +30,11 @@ UICollectionViewDelegateFlowLayout {
     }
     @objc func registerTapped(_ sender: UIButton) {
      let nextVC = Explore_Controller()
+        nextVC.selectedLocation = sender.tag
         self.present(nextVC, animated: true, completion: {
             print("Changes to explore page successfully!")
         })
+        
     }
     
     private func setupList() {
@@ -41,15 +43,17 @@ UICollectionViewDelegateFlowLayout {
             navigationBar.barStyle = UIBarStyle.black
         let placeType: UITextView = UITextView()
         view.addSubview(placeType)
-        placeType.font = UIFont(name: "Avenir Book", size: 25)
-        placeType.font = UIFont.boldSystemFont(ofSize: 25)
+        placeType.font = UIFont(name: "Avenir Book", size: 30)
+        placeType.font = UIFont.boldSystemFont(ofSize: 30)
         placeType.textColor = .white
-        placeType.text = "    Restaurants near you"
+        placeType.text = "  Restaurants near you"
+        placeType.textAlignment = NSTextAlignment(rawValue: 1)!
         placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
         placeType.translatesAutoresizingMaskIntoConstraints = false
         placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
         placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        placeType.heightAnchor.constraint(equalToConstant: 60 ).isActive = true
         placeType.isEditable = false
         placeType.isScrollEnabled = false
         
@@ -78,15 +82,16 @@ UICollectionViewDelegateFlowLayout {
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 15
+            return locations.count
         }
-        
+    
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! LocationCollectionCell
             cell.layer.borderWidth = 1.0;
             cell.layer.borderColor = UIColor.lightGray.cgColor
             cell.autolayoutCell()
-            cell.location = locations[0]
+            cell.location = locations[indexPath.row]
+       
             let registerButton: UIButton = {
                 let button = UIButton(type: .system)
                 button.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
@@ -97,6 +102,7 @@ UICollectionViewDelegateFlowLayout {
                 return button
             }()
             cell.addSubview(registerButton)
+            registerButton.tag = indexPath.row
             registerButton.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
             registerButton.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 35).isActive = true
             registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true

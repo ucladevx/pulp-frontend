@@ -20,6 +20,7 @@ UICollectionViewDelegateFlowLayout {
     let cellId = "Example Cell"
     let cellSpacing:CGFloat = 10
     var reviews: [Review] = reviewData
+    var selectedLocation: Int = 20
     
     
     let bgImageView: UIImageView = {
@@ -27,18 +28,22 @@ UICollectionViewDelegateFlowLayout {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
+    let backButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("< Back to Results", for: .normal)
+        btn.setTitleColor(UIColor.gray, for: .normal)
+        return btn
+    }()
     let locationImageView: UIImageView = {
         let imageView = UIImageView()
-        var image = locationData[0].placeImage
-        imageView.image = UIImage(named: image!)
+        var count = 5
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     let locationTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = UIColor(red: 20/255, green: 121/255, blue: 201/255, alpha: 1)
-        textView.text = locationData[0].placeCityState
+        
         textView.textColor = UIColor(red: 183/255, green: 217/255, blue: 249/255, alpha: 1)
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book Italic", size: 15)
@@ -61,7 +66,7 @@ UICollectionViewDelegateFlowLayout {
     }()
     let PlaceNameTextView: UITextView = {
         let textView = UITextView()
-        textView.text = locationData[0].placeName
+        
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book", size: 30)
         textView.font = UIFont.boldSystemFont(ofSize: 30)
@@ -71,7 +76,7 @@ UICollectionViewDelegateFlowLayout {
     }()
     let PlaceDescriptionTextView: UITextView = {
         let textView = UITextView()
-        textView.text = locationData[0].placeDescription
+        
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book", size: 15)
         textView.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
@@ -81,9 +86,7 @@ UICollectionViewDelegateFlowLayout {
     }()
     let DistanceOpenTextView: UITextView = {
         let textView = UITextView()
-        var distance = locationData[0].placeDistance
-        var hours = locationData[0].placeHours
-        textView.text = "\(distance ?? 0) miles away  Open \(hours ?? 0) hrs"
+        
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book", size: 14)
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,8 +95,7 @@ UICollectionViewDelegateFlowLayout {
     }()
     let RatingPulpsTextView:UITextView = {
         let textView = UITextView()
-        var avRating = locationData[0].placeRating
-        textView.text = "\(avRating ?? 0) Pulps"
+        
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book", size: 15)
         textView.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
@@ -145,6 +147,7 @@ UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
         view.addSubview(navigationBar)
         navigationBar.tintColor = .black
@@ -154,6 +157,7 @@ UICollectionViewDelegateFlowLayout {
         setupLayout()
         setupViews()
         setupReviews()
+        
  
     }
     
@@ -191,7 +195,31 @@ UICollectionViewDelegateFlowLayout {
         contentView.addSubview(Profile3ImageView)
         contentView.addSubview(Profile4ImageView)
         contentView.addSubview(AddReviewTextView)
+        contentView.addSubview(backButton)
         
+        let image = locationData[selectedLocation].placeImage
+        locationImageView.image = UIImage(named: image!)
+        locationTextView.text = locationData[selectedLocation].placeCityState
+        PlaceNameTextView.text = locationData[selectedLocation].placeName
+        PlaceDescriptionTextView.text = locationData[selectedLocation].placeDescription
+        let distance = locationData[selectedLocation].placeDistance
+        let hours = locationData[selectedLocation].placeHours
+        DistanceOpenTextView.text = "\(distance ?? 0) miles away  Open \(hours ?? 0) hrs"
+        let avRating = locationData[selectedLocation].placeRating
+        RatingPulpsTextView.text = "\(avRating ?? 0) Pulps"
+        
+        
+        backButton.layer.cornerRadius = 10
+        backButton.titleEdgeInsets.left = 10
+        backButton.titleEdgeInsets.right = 10
+//        backButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: 100, height: 30)
+        backButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+        backButton.backgroundColor = .white
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
+        backButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        backButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        backButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
         
         bgImageView.translatesAutoresizingMaskIntoConstraints = false
         bgImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -216,22 +244,22 @@ UICollectionViewDelegateFlowLayout {
         PlaceNameTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         PlaceNameTextView.topAnchor.constraint(equalTo: locationImageView.bottomAnchor).isActive = true
         PlaceNameTextView.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        PlaceNameTextView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        PlaceNameTextView.heightAnchor.constraint(equalToConstant: 90).isActive = false
         
         PlaceDescriptionTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         PlaceDescriptionTextView.topAnchor.constraint(equalTo: PlaceNameTextView.bottomAnchor).isActive = true
         PlaceDescriptionTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
-        PlaceDescriptionTextView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        PlaceDescriptionTextView.heightAnchor.constraint(equalToConstant: 60).isActive = false
         
         DistanceOpenTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         DistanceOpenTextView.topAnchor.constraint(equalTo: PlaceDescriptionTextView.bottomAnchor).isActive = true
         DistanceOpenTextView.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        DistanceOpenTextView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        DistanceOpenTextView.heightAnchor.constraint(equalToConstant: 40).isActive = false
         
         RatingPulpsTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 130).isActive = true
         RatingPulpsTextView.topAnchor.constraint(equalTo: DistanceOpenTextView.bottomAnchor, constant: 10).isActive = true
         RatingPulpsTextView.widthAnchor.constraint(equalToConstant: 75).isActive = true
-        RatingPulpsTextView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        RatingPulpsTextView.heightAnchor.constraint(equalToConstant: 40).isActive = false
         
         Profile1ImageView.leftAnchor.constraint(equalTo: RatingPulpsTextView.rightAnchor, constant: 10).isActive = true
         Profile1ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
@@ -356,7 +384,12 @@ UICollectionViewDelegateFlowLayout {
         }
     }
     
-    
+    @objc func registerTapped(_ sender: UIButton) {
+        let nextVC = ListView_Controller()
+        self.present(nextVC, animated: true, completion: {
+            print("Changes to explore page successfully!")
+        })
+    }
 
 }
 

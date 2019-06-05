@@ -115,7 +115,7 @@ class LogInController : UIViewController {
                 print("User cancelled login.")
             case .success( _, _, _):
                 print("Logged in!")
-                let vc = DiveIn() //your view controller, this is just for testing
+                let vc = MapScreen() //your view controller, this is just for testing
                 self.present(vc, animated: true, completion: {
                     print("You have logged in successfully!")
                 })

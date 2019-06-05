@@ -302,6 +302,14 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
             make.top.equalTo(searchBarView).offset(8)
             make.bottom.equalTo(searchBarView).offset(-8)
         }
+        searchBar.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
+        
+    }
+    @objc func myTargetFunction(textField: UITextField) {
+        let nextVC = DiveIn()
+        self.present(nextVC, animated: true, completion: {
+            print("Changes to divein successfully!")
+        })
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

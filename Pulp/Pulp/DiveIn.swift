@@ -630,9 +630,9 @@ class DiveIn: UIViewController {
         backButton.addTarget(self, action: #selector(self.goBackMap(_:)), for: .touchUpInside)
     }
     @objc func goBackMap(_ sender: UIButton) {
-        let nextVC = LogInController()
+        let nextVC = MapScreen()
         self.present(nextVC, animated: true, completion: {
-            print("Changes to explore page successfully!")
+            print("Changes to map successfully!")
         })
     }
     

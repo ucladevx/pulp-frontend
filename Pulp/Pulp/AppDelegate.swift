@@ -24,12 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame:UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-<<<<<<< HEAD
 
-=======
-        window?.rootViewController = LogInController()
-//        window?.rootViewController = MapScreen()
->>>>>>> 63ba87c206d643386b1f3061318193f9ed1ddd50
+//        window?.rootViewController = LogInController()
+        window?.rootViewController = MapScreen()
+
         
         return true
     }

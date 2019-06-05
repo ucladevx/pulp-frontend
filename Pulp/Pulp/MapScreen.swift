@@ -290,7 +290,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         }
         
         searchBar.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(searchBarView)
+            make.left.equalTo(vertLineView).offset(10)
             make.right.equalTo(searchBarView)
             make.top.equalTo(searchBarView)
             make.bottom.equalTo(searchBarView)

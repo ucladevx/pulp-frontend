@@ -19,7 +19,14 @@ UICollectionViewDelegateFlowLayout {
     var locations: [Location] = locationData
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+        
     }
+    let backButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("<", for: .normal)
+        btn.setTitleColor(UIColor.gray, for: .normal)
+        return btn
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +43,12 @@ UICollectionViewDelegateFlowLayout {
         })
         
     }
+    @objc func goBacktoDive(_ sender: UIButton) {
+        let nextVC = DiveIn()
+        self.present(nextVC, animated: true, completion: {
+            print("Changes to diveIn successfully!")
+        })
+    }
     
     private func setupList() {
             let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
@@ -46,17 +59,31 @@ UICollectionViewDelegateFlowLayout {
         placeType.font = UIFont(name: "Avenir Book", size: 30)
         placeType.font = UIFont.boldSystemFont(ofSize: 30)
         placeType.textColor = .white
-        placeType.text = "  Restaurants near you"
-        placeType.textAlignment = NSTextAlignment(rawValue: 1)!
+        placeType.text = "      Restaurants near you"
+        placeType.textAlignment = NSTextAlignment(rawValue: 0)!
         placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
         placeType.translatesAutoresizingMaskIntoConstraints = false
         placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
         placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        placeType.heightAnchor.constraint(equalToConstant: 60 ).isActive = true
+        placeType.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
         placeType.isEditable = false
         placeType.isScrollEnabled = false
         
+        view.addSubview(backButton)
+        backButton.layer.cornerRadius = 10
+        backButton.titleEdgeInsets.left = 10
+        backButton.titleEdgeInsets.right = 10
+        //        backButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: 100, height: 30)
+        backButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+        backButton.backgroundColor = .white
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.centerYAnchor.constraint(equalTo: placeType.centerYAnchor).isActive = true
+        backButton.leftAnchor.constraint(equalTo: placeType.leftAnchor).isActive = true
+        backButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
+        backButton.addTarget(self, action: #selector(self.goBacktoDive(_:)), for: .touchUpInside)
+    
+    
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
             collectionView?.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(collectionView!)

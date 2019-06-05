@@ -220,7 +220,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     private lazy var tapRecognizer: UITapGestureRecognizer = {
         let recognizer = UITapGestureRecognizer()
-        recognizer.addTarget(self, action: #selector(popupViewTapped(recognizer:)))
+        recognizer.addTarget(selectedAnnotation, action: #selector(popupViewTapped(recognizer:)))
         return recognizer
     }()
     
@@ -319,6 +319,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         searchBar.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
         
     }
+    
     @objc func myTargetFunction(textField: UITextField) {
         let nextVC = DiveIn()
         self.present(nextVC, animated: true, completion: {
@@ -365,10 +366,12 @@ extension MapScreen: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         self.selectedAnnotation = view.annotation as? CustomPointAnnotation
-        let nextVC = Explore_Controller()
-        self.present(nextVC, animated: true) {
-            print("Segue to explore view successfully!")
-        }
+//        let nextVC = Explore_Controller()
+//        self.present(nextVC, animated: true) {
+//            print("Segue to explore view successfully!")
+//        }
+        
+        popupViewTapped(recognizer: tapRecognizer)
     }
     
     //MARK: - Custom Annotation

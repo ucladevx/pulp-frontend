@@ -11,6 +11,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     var pointAnnotationList:[CustomPointAnnotation] = []
     var pinAnnotationView:MKPinAnnotationView!
     var selectedAnnotation:MKPointAnnotation!
+    var currentLocation:CLLocation!
     
     //The range (meter) of how much we want to see arround the user's location
     let distanceSpan: Double = 500
@@ -159,18 +160,21 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         
         popupLayout()
         
-        //Below code adds Pulp pins to the mapview
-        let pinLocation = CLLocationCoordinate2D(latitude: 34.07, longitude: -118.452393)
+        if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
+            currentLocation = locationManager.location
+        }
         
+        //Below code adds Pulp pins to the mapview
+        let userLoc = currentLocation
+        
+        let pinLocation = CLLocationCoordinate2D(latitude: userLoc!.coordinate.latitude, longitude: userLoc!.coordinate.longitude)
         //Below code sets the new added pin the center of the screen
-        let center = pinLocation
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
+        let region = MKCoordinateRegion(center: userLoc!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
         mapView!.setRegion(region, animated: true)
         
         //Below code adds pins to the map
         addPin(imageName: "MapFaveIcon", location: pinLocation, title: "Cai's Residence", subtitle: "What's good")
-        addPin(imageName: "MapShopIcon", location: pinLocation, title: "Cai's shop", subtitle: "")
-        
+//        addPin(imageName: "MapShopIcon", location: pinLocation, title: "Cai's shop", subtitle: "")
         
         popupView.addGestureRecognizer(tapRecognizer)
     }
@@ -345,9 +349,11 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         pointAnnotation.title = title
         pointAnnotation.subtitle = subtitle
         pointAnnotationList.append(pointAnnotation)
+        pointAnnotation.indexNum = pointAnnotationList.count - 1
         
         pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
         mapView!.addAnnotation(pinAnnotationView.annotation!)
+
     }
     
 }

@@ -21,6 +21,7 @@ UICollectionViewDelegateFlowLayout {
     let cellSpacing:CGFloat = 10
     var reviews: [Review] = reviewData
     var selectedLocation: Int = 20
+    var calledbyMap: Bool = true
     
     
     let bgImageView: UIImageView = {
@@ -385,7 +386,13 @@ UICollectionViewDelegateFlowLayout {
     }
     
     @objc func registerTapped(_ sender: UIButton) {
-        let nextVC = ListView_Controller()
+        let nextVC : UIViewController
+        if calledbyMap {
+            nextVC = MapScreen()
+        } else {
+            nextVC = ListView_Controller()
+        }
+    
         self.present(nextVC, animated: true, completion: {
             print("Changes to explore page successfully!")
         })

@@ -12,6 +12,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     var pinAnnotationView:MKPinAnnotationView!
     var selectedAnnotation:MKPointAnnotation!
     var currentLocation:CLLocation!
+    var selectedPlace: Int = 0
     
     //The range (meter) of how much we want to see arround the user's location
     let distanceSpan: Double = 500
@@ -121,6 +122,21 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     } ()
+    let placeRating: UITextView = UITextView()
+    let profile1ImageView: UIImageView = UIImageView()
+    let profile2ImageView: UIImageView = UIImageView()
+    let profile3ImageView: UIImageView = UIImageView()
+    let profile4ImageView: UIImageView = UIImageView()
+    let checkThisOutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+        button.setTitle("Check this out.", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12)
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     
     override func viewDidLoad() {
@@ -161,21 +177,33 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         popupLayout()
         
         if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
+            
             currentLocation = locationManager.location
+           let userLoc = currentLocation
+            let pin1Location = CLLocationCoordinate2D(latitude: 34.0522342, longitude: -118.2436849)
+            let pin2Location = CLLocationCoordinate2D(latitude:34.06318630, longitude:  -118.4415976)
+            let pin3Location = CLLocationCoordinate2D(latitude:34.063259, longitude:-118.441103 )
+            let pin4Location = CLLocationCoordinate2D(latitude:34.0606338, longitude:-118.4429579 )
+            let pin5Location = CLLocationCoordinate2D(latitude: 34.0676867, longitude:-118.4260653 )
+            let pin6Location = CLLocationCoordinate2D(latitude:34.0737527, longitude: -118.4682129 )
+            let pin7Location = CLLocationCoordinate2D(latitude: 34.0508994, longitude: -118.4329414)
+            let pin8Location = CLLocationCoordinate2D(latitude:34.0465058 , longitude:-118.4470995 )
+            let pin9Location = CLLocationCoordinate2D(latitude:34.0523725 , longitude:-118.4171034 )
+
+            let region = MKCoordinateRegion(center: userLoc!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+            mapView!.setRegion(region, animated: true)
+            
+            //Below code adds pins to the map
+            addPin(imageName: "MapFaveIcon", location: pin1Location, title: "1", subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin2Location, title: "2", subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin3Location, title: "3", subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin4Location, title: "4", subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin5Location, title: "5", subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin6Location, title: "6", subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin7Location, title: "7", subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin8Location, title: "8", subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin9Location, title: "9", subtitle: "")
         }
-        
-        //Below code adds Pulp pins to the mapview
-        let userLoc = currentLocation
-        
-        let pinLocation = CLLocationCoordinate2D(latitude: userLoc!.coordinate.latitude, longitude: userLoc!.coordinate.longitude)
-        //Below code sets the new added pin the center of the screen
-        let region = MKCoordinateRegion(center: userLoc!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
-        mapView!.setRegion(region, animated: true)
-        
-        //Below code adds pins to the map
-        addPin(imageName: "MapFaveIcon", location: pinLocation, title: "Cai's Residence", subtitle: "What's good")
-//        addPin(imageName: "MapShopIcon", location: pinLocation, title: "Cai's shop", subtitle: "")
-        
         popupView.addGestureRecognizer(tapRecognizer)
     }
     
@@ -183,6 +211,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     private func popupLayout() {
         popupView.layer.cornerRadius = 15
+ 
         popupView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(popupView)
         popupView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
@@ -198,6 +227,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         contentImageView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor, constant: -315).isActive = true
         contentImageView.heightAnchor.constraint(equalToConstant: 115).isActive = true
         
+     
         titleTextView.translatesAutoresizingMaskIntoConstraints = false
         popupView.addSubview(titleTextView)
         titleTextView.leadingAnchor.constraint(equalTo: contentImageView.trailingAnchor, constant: 10).isActive = true
@@ -216,26 +246,104 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         popupView.addSubview(categoryTextView)
         categoryTextView.leadingAnchor.constraint(equalTo: titleTextView.leadingAnchor).isActive = true
         categoryTextView.trailingAnchor.constraint(equalTo: titleTextView.trailingAnchor).isActive = true
-        categoryTextView.topAnchor.constraint(equalTo: titleTextView.topAnchor, constant: 40).isActive = true
+        categoryTextView.topAnchor.constraint(equalTo: titleTextView.topAnchor, constant: 48).isActive = true
         categoryTextView.heightAnchor.constraint(equalToConstant: 130).isActive = true
+        
+        popupView.addSubview(placeRating)
+        placeRating.font = UIFont(name: "Avenir Book", size: 12)
+        placeRating.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+        placeRating.translatesAutoresizingMaskIntoConstraints = false
+        placeRating.topAnchor.constraint(equalTo: popupView.topAnchor, constant: 85).isActive = true
+        placeRating.leftAnchor.constraint(equalTo: contentImageView.rightAnchor, constant: 10).isActive = true
+        placeRating.isEditable = false
+        placeRating.isScrollEnabled = false
+        
+        popupView.addSubview(profile1ImageView)
+        profile1ImageView.translatesAutoresizingMaskIntoConstraints = false
+        profile1ImageView.leftAnchor.constraint(equalTo: contentImageView.rightAnchor, constant: 0).isActive = true
+        profile1ImageView.widthAnchor.constraint(equalToConstant:25).isActive = true
+        profile1ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+        profile1ImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        profile1ImageView.clipsToBounds = true
+        profile1ImageView.layer.cornerRadius = profile1ImageView.frame.size.width / 2
+        
+        popupView.addSubview(profile2ImageView)
+        profile2ImageView.translatesAutoresizingMaskIntoConstraints = false
+        profile2ImageView.leftAnchor.constraint(equalTo: profile1ImageView.rightAnchor).isActive = true
+        profile2ImageView.widthAnchor.constraint(equalToConstant:25).isActive = true
+        profile2ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+        profile2ImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        profile2ImageView.clipsToBounds = true
+        profile2ImageView.layer.cornerRadius = profile2ImageView.frame.size.width / 2
+        
+        popupView.addSubview(profile3ImageView)
+        profile3ImageView.translatesAutoresizingMaskIntoConstraints = false
+        profile3ImageView.leftAnchor.constraint(equalTo: profile2ImageView.rightAnchor).isActive = true
+        profile3ImageView.widthAnchor.constraint(equalToConstant:25).isActive = true
+        profile3ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+        profile3ImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        profile3ImageView.clipsToBounds = true
+        profile3ImageView.layer.cornerRadius = profile3ImageView.frame.size.width / 2
+        
+        
+        popupView.addSubview(profile4ImageView)
+        profile4ImageView.translatesAutoresizingMaskIntoConstraints = false
+        profile4ImageView.leftAnchor.constraint(equalTo: profile3ImageView.rightAnchor).isActive = true
+        profile4ImageView.widthAnchor.constraint(equalToConstant:25).isActive = true
+        profile4ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+        profile4ImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        profile4ImageView.clipsToBounds = true
+        profile4ImageView.layer.cornerRadius = profile4ImageView.frame.size.width / 2
+        
+        
+        profile1ImageView.image = UIImage(named: locationData[0].fbfriends![0].imageName!)
+        profile2ImageView.image = UIImage(named: locationData[0].fbfriends![1].imageName!)
+        profile3ImageView.image = UIImage(named: locationData[0].fbfriends![2].imageName!)
+        profile4ImageView.image = UIImage(named: locationData[0].fbfriends![3].imageName!)
+        
+        popupView.addSubview(checkThisOutButton)
+        checkThisOutButton.topAnchor.constraint(equalTo: popupView.topAnchor, constant: 85).isActive = true
+        checkThisOutButton.rightAnchor.constraint(equalTo: popupView.rightAnchor).isActive = true
+        checkThisOutButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        checkThisOutButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        checkThisOutButton.addTarget(self, action: #selector(self.checkthisoutTapped(_:)), for: .touchUpInside)
+        
+        
     }
     
+    @objc func checkthisoutTapped(_ sender: UIButton) {
+        let nextVC = Explore_Controller()
+        nextVC.selectedLocation = sender.tag
+        self.present(nextVC, animated: true, completion: {
+            print("Changes to explore page successfully!")
+        })
+    }
     private var currentState: State = .closed
     
     private lazy var tapRecognizer: UITapGestureRecognizer = {
         let recognizer = UITapGestureRecognizer()
-        recognizer.addTarget(selectedAnnotation, action: #selector(popupViewTapped(recognizer:)))
+//        recognizer.addTarget(selectedAnnotation, action: #selector(popupViewTapped(recognizer:UITapGestureRecognizer, index: Int)))
         return recognizer
     }()
     
-    @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
+    @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
+        let image = locationData[index].placeImage
+        contentImageView.image = UIImage(named: image!)
+        titleTextView.text = locationData[index].placeName
+        locationTextView.text = locationData[index].placeLocation
+        categoryTextView.text = locationData[index].placeType
+        let rating = locationData[index].placeRating
+        placeRating.text = "\(rating ?? 0) Pulps!"
+        checkThisOutButton.tag = index
+        
+        print("fuck")
         let state = currentState.opposite
         let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
             switch state {
             case .open:
-                self.bottomConstraint.constant = 290
+                self.bottomConstraint.constant = 280
             case .closed:
-                self.bottomConstraint.constant = 440
+                self.bottomConstraint.constant = 280
             }
             self.view.layoutIfNeeded()
         })
@@ -250,9 +358,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
             }
             switch self.currentState {
             case .open:
-                self.bottomConstraint.constant = 290
+                self.bottomConstraint.constant = 280
             case .closed:
-                self.bottomConstraint.constant = 440
+                self.bottomConstraint.constant = 280
             }
         }
         transitionAnimator.startAnimation()
@@ -372,12 +480,9 @@ extension MapScreen: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         self.selectedAnnotation = view.annotation as? CustomPointAnnotation
-//        let nextVC = Explore_Controller()
-//        self.present(nextVC, animated: true) {
-//            print("Segue to explore view successfully!")
-//        }
         
-        popupViewTapped(recognizer: tapRecognizer)
+        
+        popupViewTapped(recognizer: tapRecognizer, index: Int(((view.annotation?.title)!)!)!)
     }
     
     //MARK: - Custom Annotation

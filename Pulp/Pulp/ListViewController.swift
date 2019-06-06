@@ -38,14 +38,14 @@ UICollectionViewDelegateFlowLayout {
     @objc func registerTapped(_ sender: UIButton) {
      let nextVC = Explore_Controller()
         nextVC.selectedLocation = sender.tag
+        nextVC.calledbyMap = false
         self.present(nextVC, animated: true, completion: {
             print("Changes to explore page successfully!")
         })
         
     }
     @objc func goBacktoDive(_ sender: UIButton) {
-        let nextVC = DiveIn()
-        self.present(nextVC, animated: true, completion: {
+        self.dismiss(animated: true, completion: {
             print("Changes to diveIn successfully!")
         })
     }

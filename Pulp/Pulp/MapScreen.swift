@@ -190,19 +190,19 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
             let pin8Location = CLLocationCoordinate2D(latitude:34.0465058 , longitude:-118.4470995 )
             let pin9Location = CLLocationCoordinate2D(latitude:34.0523725 , longitude:-118.4171034 )
 
-            let region = MKCoordinateRegion(center: userLoc!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+            let region = MKCoordinateRegion(center: userLoc!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.15, longitudeDelta: 0.15))
             mapView!.setRegion(region, animated: true)
             
             //Below code adds pins to the map
-            addPin(imageName: "MapFaveIcon", location: pin1Location, title: "1", subtitle: "")
-            addPin(imageName: "MapShopIcon", location: pin2Location, title: "2", subtitle: "")
-            addPin(imageName: "MapShopIcon", location: pin3Location, title: "3", subtitle: "")
-            addPin(imageName: "MapShopIcon", location: pin4Location, title: "4", subtitle: "")
-            addPin(imageName: "MapShopIcon", location: pin5Location, title: "5", subtitle: "")
-            addPin(imageName: "MapShopIcon", location: pin6Location, title: "6", subtitle: "")
-            addPin(imageName: "MapShopIcon", location: pin7Location, title: "7", subtitle: "")
-            addPin(imageName: "MapShopIcon", location: pin8Location, title: "8", subtitle: "")
-            addPin(imageName: "MapShopIcon", location: pin9Location, title: "9", subtitle: "")
+            addPin(imageName: "MapFaveIcon", location: pin1Location, title: locationData[0].placeName!, subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin2Location, title: locationData[1].placeName!, subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin3Location, title: locationData[2].placeName!, subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin4Location, title: locationData[3].placeName!, subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin5Location, title: locationData[4].placeName!, subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin6Location, title: locationData[5].placeName!, subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin7Location, title: locationData[6].placeName!, subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin8Location, title: locationData[7].placeName!, subtitle: "")
+            addPin(imageName: "MapShopIcon", location: pin9Location, title: locationData[8].placeName!, subtitle: "")
         }
         popupView.addGestureRecognizer(tapRecognizer)
     }
@@ -480,9 +480,33 @@ extension MapScreen: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         self.selectedAnnotation = view.annotation as? CustomPointAnnotation
+        var index: Int
+        switch view.annotation?.title {
+            case locationData[0].placeName:
+            index = 0
+            case locationData[1].placeName:
+            index = 1
+        case locationData[2].placeName:
+            index = 2
+        case locationData[3].placeName:
+            index = 3
+        case locationData[4].placeName:
+            index = 4
+        case locationData[5].placeName:
+            index = 5
+            print("yayay")
+        case locationData[6].placeName:
+            index = 6
+        case locationData[7].placeName:
+            index = 7
+        case locationData[8].placeName:
+            index = 8
         
+            default:
+            index = 10
+        }
         
-        popupViewTapped(recognizer: tapRecognizer, index: Int(((view.annotation?.title)!)!)!)
+        popupViewTapped(recognizer: tapRecognizer, index: index)
     }
     
     //MARK: - Custom Annotation

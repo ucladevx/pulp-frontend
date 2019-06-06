@@ -386,15 +386,8 @@ UICollectionViewDelegateFlowLayout {
     }
     
     @objc func registerTapped(_ sender: UIButton) {
-        let nextVC : UIViewController
-        if calledbyMap {
-            nextVC = MapScreen()
-        } else {
-            nextVC = ListView_Controller()
-        }
-    
-        self.present(nextVC, animated: true, completion: {
-            print("Changes to explore page successfully!")
+        self.dismiss(animated: true, completion: {
+            print("Changes to previous page successfully!")
         })
     }
 

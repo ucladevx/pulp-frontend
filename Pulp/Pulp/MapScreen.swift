@@ -15,7 +15,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     var selectedPlace: Int = 0
     
     //The range (meter) of how much we want to see arround the user's location
-    let distanceSpan: Double = 500
+    let distanceSpan: Double = 1000
     
     var locationManager: CLLocationManager = {
         var locationManager = CLLocationManager()
@@ -150,7 +150,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         self.locationManager.delegate = self
         
         if let userLocation = locationManager.location?.coordinate {
-            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: self.distanceSpan, longitudinalMeters: self.distanceSpan)
             mapView?.setRegion(viewRegion, animated: true)
         }
         
@@ -190,16 +190,16 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
             let pin8Location = CLLocationCoordinate2D(latitude:34.0465058 , longitude:-118.4470995 )
             let pin9Location = CLLocationCoordinate2D(latitude:34.0523725 , longitude:-118.4171034 )
 
-            let region = MKCoordinateRegion(center: userLoc!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.15, longitudeDelta: 0.15))
+            let region = MKCoordinateRegion(center: userLoc!.coordinate, latitudinalMeters: self.distanceSpan, longitudinalMeters: self.distanceSpan)
             mapView!.setRegion(region, animated: true)
             
             //Below code adds pins to the map
             addPin(imageName: "MapFaveIcon", location: pin1Location, title: locationData[0].placeName!, subtitle: "")
-            addPin(imageName: "MapShopIcon", location: pin2Location, title: locationData[1].placeName!, subtitle: "")
+            addPin(imageName: "MapFoodIcon", location: pin2Location, title: locationData[1].placeName!, subtitle: "")
             addPin(imageName: "MapShopIcon", location: pin3Location, title: locationData[2].placeName!, subtitle: "")
             addPin(imageName: "MapShopIcon", location: pin4Location, title: locationData[3].placeName!, subtitle: "")
             addPin(imageName: "MapShopIcon", location: pin5Location, title: locationData[4].placeName!, subtitle: "")
-            addPin(imageName: "MapShopIcon", location: pin6Location, title: locationData[5].placeName!, subtitle: "")
+            addPin(imageName: "MapFoodIcon", location: pin6Location, title: locationData[5].placeName!, subtitle: "")
             addPin(imageName: "MapShopIcon", location: pin7Location, title: locationData[6].placeName!, subtitle: "")
             addPin(imageName: "MapShopIcon", location: pin8Location, title: locationData[7].placeName!, subtitle: "")
             addPin(imageName: "MapShopIcon", location: pin9Location, title: locationData[8].placeName!, subtitle: "")
@@ -326,7 +326,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         return recognizer
     }()
     
-    @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
+    private func loadImageToPopUpView(index: Int)
+    {
         let image = locationData[index].placeImage
         contentImageView.image = UIImage(named: image!)
         titleTextView.text = locationData[index].placeName
@@ -335,15 +336,19 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         let rating = locationData[index].placeRating
         placeRating.text = "\(rating ?? 0) Pulps!"
         checkThisOutButton.tag = index
+    }
+    
+    @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
         
-        print("fuck")
+        loadImageToPopUpView(index: index)
+        
         let state = currentState.opposite
         let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
             switch state {
             case .open:
                 self.bottomConstraint.constant = 280
             case .closed:
-                self.bottomConstraint.constant = 280
+                self.bottomConstraint.constant = 440
             }
             self.view.layoutIfNeeded()
         })
@@ -360,7 +365,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
             case .open:
                 self.bottomConstraint.constant = 280
             case .closed:
-                self.bottomConstraint.constant = 280
+//                self.bottomConstraint = window?.snp_bottomMargin
+//                self.bottomConstraint.constant = 0
+                self.bottomConstraint.constant = 440
             }
         }
         transitionAnimator.startAnimation()
@@ -443,7 +450,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         
         if let location = locations.last{
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            let region = MKCoordinateRegion(center: center, latitudinalMeters: self.distanceSpan, longitudinalMeters: self.distanceSpan)
             self.mapView!.setRegion(region, animated: true)
         }
     }

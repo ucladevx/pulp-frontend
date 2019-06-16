@@ -174,7 +174,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
         
         setUpSearchBar()
         
-        popupLayout()
+        setPopUpLayout()
         
         if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
             
@@ -209,7 +209,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     
     private var bottomConstraint = NSLayoutConstraint()
     
-    private func popupLayout() {
+    private func setPopUpLayout() {
         popupView.layer.cornerRadius = 15
  
         popupView.translatesAutoresizingMaskIntoConstraints = false
@@ -339,7 +339,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
-        
         loadImageToPopUpView(index: index)
         
         let state = currentState.opposite
@@ -487,11 +486,15 @@ extension MapScreen: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         self.selectedAnnotation = view.annotation as? CustomPointAnnotation
+        if (selectedAnnotation == nil)
+        {
+            return
+        }
         var index: Int
         switch view.annotation?.title {
-            case locationData[0].placeName:
+        case locationData[0].placeName:
             index = 0
-            case locationData[1].placeName:
+        case locationData[1].placeName:
             index = 1
         case locationData[2].placeName:
             index = 2
@@ -501,7 +504,6 @@ extension MapScreen: MKMapViewDelegate {
             index = 4
         case locationData[5].placeName:
             index = 5
-            print("yayay")
         case locationData[6].placeName:
             index = 6
         case locationData[7].placeName:

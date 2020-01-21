@@ -18,11 +18,21 @@
 
 #import <Foundation/Foundation.h>
 
-#import <FBSDKCoreKit/FBSDKCopying.h>
+#if defined BUCK || defined FBSDKCOCOAPODS || defined __cplusplus
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#else
+@import FBSDKCoreKit;
+#endif
+
+#import "FBSDKShareConstants.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  A base interface for Messenger share action buttons.
  */
+DEPRECATED_FOR_MESSENGER
+NS_SWIFT_NAME(ShareMessengerActionButton)
 @protocol FBSDKShareMessengerActionButton <FBSDKCopying, NSSecureCoding>
 
 /**
@@ -32,3 +42,5 @@
 @property (nonatomic, copy) NSString *title;
 
 @end
+
+NS_ASSUME_NONNULL_END

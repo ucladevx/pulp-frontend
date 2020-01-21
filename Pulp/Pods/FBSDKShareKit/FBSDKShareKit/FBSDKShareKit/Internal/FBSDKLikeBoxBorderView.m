@@ -16,9 +16,17 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import "FBSDKLikeBoxBorderView.h"
 
+#ifdef FBSDKCOCOAPODS
+#import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
+#else
 #import "FBSDKCoreKit+Internal.h"
+#endif
 
 #define FBSDK_LIKE_BOX_BORDER_CARET_WIDTH 6.0
 #define FBSDK_LIKE_BOX_BORDER_CARET_HEIGHT 3.0
@@ -50,7 +58,7 @@
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
   if (![self.backgroundColor isEqual:backgroundColor]) {
-    [super setBackgroundColor:backgroundColor];
+    super.backgroundColor = backgroundColor;
     [self setNeedsDisplay];
   }
 }
@@ -321,3 +329,5 @@
 }
 
 @end
+
+#endif

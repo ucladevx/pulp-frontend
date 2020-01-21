@@ -16,9 +16,17 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import "FBSDKCameraEffectTextures.h"
 
+#ifdef FBSDKCOCOAPODS
+#import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
+#else
 #import "FBSDKCoreKit+Internal.h"
+#endif
 #import "FBSDKShareUtility.h"
 
 static NSString *const FBSDKCameraEffectTexturesTexturesKey = @"textures";
@@ -57,7 +65,7 @@ static NSString *const FBSDKCameraEffectTexturesTexturesKey = @"textures";
 
 - (NSUInteger)hash
 {
-  return [_textures hash];
+  return _textures.hash;
 }
 
 - (BOOL)isEqual:(id)object
@@ -83,7 +91,7 @@ static NSString *const FBSDKCameraEffectTexturesTexturesKey = @"textures";
   return YES;
 }
 
-- (id)initWithCoder:(NSCoder *)decoder
+- (instancetype)initWithCoder:(NSCoder *)decoder
 {
   if ((self = [self init])) {
     _textures = [decoder decodeObjectOfClass:[NSMutableDictionary class]
@@ -130,3 +138,5 @@ static NSString *const FBSDKCameraEffectTexturesTexturesKey = @"textures";
 }
 
 @end
+
+#endif

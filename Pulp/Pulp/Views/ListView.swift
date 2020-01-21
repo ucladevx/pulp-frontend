@@ -3,7 +3,7 @@
 //  Pulp
 //
 //  Created by Aryan Arora on 5/30/19.
-//  Copyright © 2019 Andy Cai. All rights reserved.
+//  Copyright © 2019 Aryan Arora. All rights reserved.
 //
 
 import UIKit

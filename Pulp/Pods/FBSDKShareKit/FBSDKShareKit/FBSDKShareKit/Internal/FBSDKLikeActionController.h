@@ -16,18 +16,31 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import <UIKit/UIKit.h>
 
-#import <FBSDKCoreKit/FBSDKMacros.h>
+#import "FBSDKLikeObjectType.h"
 
-#import <FBSDKShareKit/FBSDKLikeObjectType.h>
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 
-FBSDK_EXTERN NSString *const FBSDKLikeActionControllerDidDisableNotification;
-FBSDK_EXTERN NSString *const FBSDKLikeActionControllerDidResetNotification;
-FBSDK_EXTERN NSString *const FBSDKLikeActionControllerDidUpdateNotification;
-FBSDK_EXTERN NSString *const FBSDKLikeActionControllerAnimatedKey;
+FOUNDATION_EXPORT NSNotificationName const FBSDKLikeActionControllerDidDisableNotification;
+FOUNDATION_EXPORT NSNotificationName const FBSDKLikeActionControllerDidResetNotification;
+FOUNDATION_EXPORT NSNotificationName const FBSDKLikeActionControllerDidUpdateNotification;
 
+#else
+
+FOUNDATION_EXPORT NSString *const FBSDKLikeActionControllerDidDisableNotification;
+FOUNDATION_EXPORT NSString *const FBSDKLikeActionControllerDidResetNotification;
+FOUNDATION_EXPORT NSString *const FBSDKLikeActionControllerDidUpdateNotification;
+
+#endif
+
+FOUNDATION_EXPORT NSString *const FBSDKLikeActionControllerAnimatedKey;
+
+NS_SWIFT_NAME(LikeActionController)
 @interface FBSDKLikeActionController : NSObject <NSDiscardableContent, NSSecureCoding>
 
 + (BOOL)isDisabled;
@@ -43,6 +56,7 @@ FBSDK_EXTERN NSString *const FBSDKLikeActionControllerAnimatedKey;
 @property (nonatomic, copy, readonly) NSString *socialSentence;
 
 - (void)refresh;
-- (void)toggleLikeWithSoundEnabled:(BOOL)soundEnabled analyticsParameters:(NSDictionary *)analyticsParameters fromViewController:(UIViewController *)fromViewController;
 
 @end
+
+#endif

@@ -16,6 +16,10 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import "FBSDKLikeActionControllerCache.h"
 
 #import <UIKit/UIKit.h>
@@ -43,12 +47,6 @@
     _items = [[NSMutableDictionary alloc] init];
   }
   return self;
-}
-
-- (instancetype)init
-{
-  FBSDK_NOT_DESIGNATED_INITIALIZER(initWithAccessTokenString:);
-  return [self initWithAccessTokenString:nil];
 }
 
 #pragma mark - NSCoding
@@ -114,3 +112,5 @@
 }
 
 @end
+
+#endif

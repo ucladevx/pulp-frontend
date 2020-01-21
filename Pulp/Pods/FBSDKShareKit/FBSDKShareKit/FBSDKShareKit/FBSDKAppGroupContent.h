@@ -18,8 +18,22 @@
 
 #import <Foundation/Foundation.h>
 
-#import <FBSDKCoreKit/FBSDKCopying.h>
-#import <FBSDKCoreKit/FBSDKMacros.h>
+#if TARGET_OS_TV
+
+typedef NS_ENUM(NSUInteger, AppGroupPrivacy) { AppGroupPrivacyOpen };
+
+FOUNDATION_EXPORT NSString *NSStringFromFBSDKAppGroupPrivacy(AppGroupPrivacy privacy)
+NS_REFINED_FOR_SWIFT;
+
+#else
+
+#if defined BUCK || defined FBSDKCOCOAPODS || defined __cplusplus
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#else
+@import FBSDKCoreKit;
+#endif
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  NS_ENUM(NSUInteger, FBSDKAppGroupPrivacy)
@@ -31,16 +45,18 @@ typedef NS_ENUM(NSUInteger, FBSDKAppGroupPrivacy)
   FBSDKAppGroupPrivacyOpen = 0,
   /** Anyone can see the group and who's in it, but only members can see posts. */
   FBSDKAppGroupPrivacyClosed,
-};
+} NS_SWIFT_NAME(AppGroupPrivacy);
 
 /**
   Converts an FBSDKAppGroupPrivacy to an NSString.
  */
-FBSDK_EXTERN NSString *NSStringFromFBSDKAppGroupPrivacy(FBSDKAppGroupPrivacy privacy);
+FOUNDATION_EXPORT NSString *NSStringFromFBSDKAppGroupPrivacy(FBSDKAppGroupPrivacy privacy)
+NS_REFINED_FOR_SWIFT;
 
 /**
   A model for creating an app group.
  */
+NS_SWIFT_NAME(AppGroupContent)
 @interface FBSDKAppGroupContent : NSObject <FBSDKCopying, NSSecureCoding>
 
 /**
@@ -66,3 +82,7 @@ FBSDK_EXTERN NSString *NSStringFromFBSDKAppGroupPrivacy(FBSDKAppGroupPrivacy pri
 - (BOOL)isEqualToAppGroupContent:(FBSDKAppGroupContent *)content;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#endif

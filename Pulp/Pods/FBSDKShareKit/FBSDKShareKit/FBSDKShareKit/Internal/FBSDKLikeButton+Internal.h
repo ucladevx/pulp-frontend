@@ -16,14 +16,21 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import <Foundation/Foundation.h>
 
-#import "FBSDKCoreKit+Internal.h"
+#import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
+
 #import "FBSDKLikeActionController.h"
 #import "FBSDKLikeButton.h"
 
 @interface FBSDKLikeButton () <FBSDKButtonImpressionTracking>
 
-@property (nonatomic, strong, readwrite) FBSDKLikeActionController *likeActionController;
+@property (nonatomic, strong) FBSDKLikeActionController *likeActionController;
 
 @end
+
+#endif

@@ -7,69 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4363F34C223ADA8F008C2969 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F34B223ADA8F008C2969 /* SwipingController.swift */; };
-		4363F34E223ADABE008C2969 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F34D223ADABE008C2969 /* PageCell.swift */; };
-		4363F350223B05FB008C2969 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F34F223B05FB008C2969 /* ExploreViewController.swift */; };
-		4363F352223B1071008C2969 /* ExploreResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F351223B1071008C2969 /* ExploreResults.swift */; };
-		4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F353223B1134008C2969 /* ResultsViewController.swift */; };
-		4363F356223B17C9008C2969 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363F355223B17C9008C2969 /* ResultCell.swift */; };
 		437F2854226E96D600E32525 /* DiveIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437F2853226E96D600E32525 /* DiveIn.swift */; };
 		43AC38312227500600652A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AC38302227500600652A70 /* AppDelegate.swift */; };
-		43AC38332227500600652A70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AC38322227500600652A70 /* ViewController.swift */; };
 		43AC38362227500600652A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43AC38342227500600652A70 /* Main.storyboard */; };
 		43AC38382227500600652A70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43AC38372227500600652A70 /* Assets.xcassets */; };
 		43AC383B2227500600652A70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43AC38392227500600652A70 /* LaunchScreen.storyboard */; };
 		45479B1C527F2552AF0AD66D /* Pods_Pulp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B2A3E5E03FABCDE89D353E /* Pods_Pulp.framework */; };
-		8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */; };
-		8304223D22813A1B00DDC8B2 /* DiscoverFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */; };
 		83ABFFED2281686D00DB0F7C /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEC2281686D00DB0F7C /* MapScreen.swift */; };
-		83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */; };
-		83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFF0228AA88F00DB0F7C /* LogInController.swift */; };
+		83ABFFF1228AA88F00DB0F7C /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ABFFF0228AA88F00DB0F7C /* LogIn.swift */; };
 		92580CE823D6C2F400A20824 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92580CE723D6C2F400A20824 /* SceneDelegate.swift */; };
 		92580CEB23D6C55600A20824 /* ReviewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92580CEA23D6C55600A20824 /* ReviewPage.swift */; };
+		92580CEE23D6C6D100A20824 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92580CED23D6C6D100A20824 /* AppData.swift */; };
+		92580CF023D6C71100A20824 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92580CEF23D6C71100A20824 /* Models.swift */; };
+		92580CF123D6C72F00A20824 /* MainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE57172293BE4000294FC9 /* MainAPI.swift */; };
+		92580CF323D6C75C00A20824 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92580CF223D6C75C00A20824 /* Places.swift */; };
+		92580CF523D6C77100A20824 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92580CF423D6C77100A20824 /* Users.swift */; };
+		92580CF723D6C79200A20824 /* Yelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92580CF623D6C79200A20824 /* Yelp.swift */; };
 		92AE975E2293AE02006245B1 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE975D2293AE02006245B1 /* ExploreView.swift */; };
-		92D4D98A229CAA5100BBF080 /* Explore_Page_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */; };
-		92D4D98C229CE8D700BBF080 /* PlacesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */; };
 		92D4D98E22A0927800BBF080 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D98D22A0927800BBF080 /* ListView.swift */; };
 		92D4D99222A648E000BBF080 /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D99122A648E000BBF080 /* WelcomePage.swift */; };
-		92D4D99622A65A8D00BBF080 /* overlay.json in Resources */ = {isa = PBXBuildFile; fileRef = 92D4D99522A65A8D00BBF080 /* overlay.json */; };
-		92D4D99822A65B3000BBF080 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D99722A65B3000BBF080 /* CustomPointAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3E70D046F479E62C24E589B8 /* Pods-Pulp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pulp/Pods-Pulp.release.xcconfig"; sourceTree = "<group>"; };
-		4363F34B223ADA8F008C2969 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
-		4363F34D223ADABE008C2969 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
-		4363F34F223B05FB008C2969 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
-		4363F351223B1071008C2969 /* ExploreResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreResults.swift; sourceTree = "<group>"; };
-		4363F353223B1134008C2969 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
-		4363F355223B17C9008C2969 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		437F2853226E96D600E32525 /* DiveIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveIn.swift; sourceTree = "<group>"; };
 		43AC382D2227500600652A70 /* Pulp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AC38302227500600652A70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		43AC38322227500600652A70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43AC38352227500600652A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43AC38372227500600652A70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43AC383A2227500600652A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43AC383C2227500600652A70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66B2A3E5E03FABCDE89D353E /* Pods_Pulp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pulp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		83042234227801D000DDC8B2 /* UnusedLogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnusedLogInController.swift; sourceTree = "<group>"; };
-		8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
-		8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverFeedController.swift; sourceTree = "<group>"; };
 		83ABFFEC2281686D00DB0F7C /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
-		83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestController.swift; sourceTree = "<group>"; };
-		83ABFFF0228AA88F00DB0F7C /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
+		83ABFFF0228AA88F00DB0F7C /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		83DE57172293BE4000294FC9 /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
-		83DE57192293BE8100294FC9 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		92580CE723D6C2F400A20824 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		92580CEA23D6C55600A20824 /* ReviewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPage.swift; sourceTree = "<group>"; };
+		92580CED23D6C6D100A20824 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		92580CEF23D6C71100A20824 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		92580CF223D6C75C00A20824 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		92580CF423D6C77100A20824 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		92580CF623D6C79200A20824 /* Yelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yelp.swift; sourceTree = "<group>"; };
 		92AE975D2293AE02006245B1 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
-		92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explore_Page_Data.swift; sourceTree = "<group>"; };
-		92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPI.swift; sourceTree = "<group>"; };
 		92D4D98D22A0927800BBF080 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		92D4D99122A648E000BBF080 /* WelcomePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
-		92D4D99522A65A8D00BBF080 /* overlay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = overlay.json; sourceTree = "<group>"; };
-		92D4D99722A65B3000BBF080 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		F2D3A961FAB7F84721E06C26 /* Pods-Pulp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pulp/Pods-Pulp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,23 +90,7 @@
 				43AC38302227500600652A70 /* AppDelegate.swift */,
 				92580CE723D6C2F400A20824 /* SceneDelegate.swift */,
 				92580CE923D6C30D00A20824 /* Views */,
-				92D4D99522A65A8D00BBF080 /* overlay.json */,
-				92D4D98B229CE8D700BBF080 /* PlacesAPI.swift */,
-				83042234227801D000DDC8B2 /* UnusedLogInController.swift */,
-				92D4D989229CAA5000BBF080 /* Explore_Page_Data.swift */,
-				92D4D99722A65B3000BBF080 /* CustomPointAnnotation.swift */,
-				83DE57172293BE4000294FC9 /* MainAPI.swift */,
-				83DE57192293BE8100294FC9 /* UserManager.swift */,
-				83ABFFEE228531C000DB0F7C /* SelectInterestController.swift */,
-				8304223C22813A1B00DDC8B2 /* DiscoverFeedController.swift */,
-				8304223A22813A0700DDC8B2 /* CreateProfileViewController.swift */,
-				4363F34B223ADA8F008C2969 /* SwipingController.swift */,
-				4363F34D223ADABE008C2969 /* PageCell.swift */,
-				43AC38322227500600652A70 /* ViewController.swift */,
-				4363F351223B1071008C2969 /* ExploreResults.swift */,
-				4363F34F223B05FB008C2969 /* ExploreViewController.swift */,
-				4363F353223B1134008C2969 /* ResultsViewController.swift */,
-				4363F355223B17C9008C2969 /* ResultCell.swift */,
+				92580CEC23D6C67500A20824 /* API and Network */,
 				43AC38342227500600652A70 /* Main.storyboard */,
 				43AC38372227500600652A70 /* Assets.xcassets */,
 				43AC38392227500600652A70 /* LaunchScreen.storyboard */,
@@ -146,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				92D4D99122A648E000BBF080 /* WelcomePage.swift */,
-				83ABFFF0228AA88F00DB0F7C /* LogInController.swift */,
+				83ABFFF0228AA88F00DB0F7C /* LogIn.swift */,
 				83ABFFEC2281686D00DB0F7C /* MapScreen.swift */,
 				92AE975D2293AE02006245B1 /* ExploreView.swift */,
 				92580CEA23D6C55600A20824 /* ReviewPage.swift */,
@@ -154,6 +119,19 @@
 				92D4D98D22A0927800BBF080 /* ListView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		92580CEC23D6C67500A20824 /* API and Network */ = {
+			isa = PBXGroup;
+			children = (
+				92580CED23D6C6D100A20824 /* AppData.swift */,
+				92580CEF23D6C71100A20824 /* Models.swift */,
+				83DE57172293BE4000294FC9 /* MainAPI.swift */,
+				92580CF223D6C75C00A20824 /* Places.swift */,
+				92580CF423D6C77100A20824 /* Users.swift */,
+				92580CF623D6C79200A20824 /* Yelp.swift */,
+			);
+			path = "API and Network";
 			sourceTree = "<group>";
 		};
 		CA309C48B4795A6226203DDB /* Pods */ = {
@@ -229,7 +207,6 @@
 			files = (
 				43AC383B2227500600652A70 /* LaunchScreen.storyboard in Resources */,
 				43AC38382227500600652A70 /* Assets.xcassets in Resources */,
-				92D4D99622A65A8D00BBF080 /* overlay.json in Resources */,
 				43AC38362227500600652A70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,35 +241,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Pulp/Pods-Pulp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
-				"${BUILT_PRODUCTS_DIR}/MapKitGoogleStyler/MapKitGoogleStyler.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pulp/Pods-Pulp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapKitGoogleStyler.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pulp/Pods-Pulp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -306,28 +260,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4363F352223B1071008C2969 /* ExploreResults.swift in Sources */,
-				43AC38332227500600652A70 /* ViewController.swift in Sources */,
-				4363F356223B17C9008C2969 /* ResultCell.swift in Sources */,
+				92580CEE23D6C6D100A20824 /* AppData.swift in Sources */,
+				92580CF123D6C72F00A20824 /* MainAPI.swift in Sources */,
+				92580CF023D6C71100A20824 /* Models.swift in Sources */,
 				437F2854226E96D600E32525 /* DiveIn.swift in Sources */,
 				92580CEB23D6C55600A20824 /* ReviewPage.swift in Sources */,
-				92D4D98C229CE8D700BBF080 /* PlacesAPI.swift in Sources */,
-				8304223B22813A0700DDC8B2 /* CreateProfileViewController.swift in Sources */,
-				92D4D99822A65B3000BBF080 /* CustomPointAnnotation.swift in Sources */,
 				43AC38312227500600652A70 /* AppDelegate.swift in Sources */,
 				92580CE823D6C2F400A20824 /* SceneDelegate.swift in Sources */,
-				4363F354223B1134008C2969 /* ResultsViewController.swift in Sources */,
 				92D4D98E22A0927800BBF080 /* ListView.swift in Sources */,
-				83ABFFF1228AA88F00DB0F7C /* LogInController.swift in Sources */,
-				83ABFFEF228531C000DB0F7C /* SelectInterestController.swift in Sources */,
+				83ABFFF1228AA88F00DB0F7C /* LogIn.swift in Sources */,
+				92580CF323D6C75C00A20824 /* Places.swift in Sources */,
 				83ABFFED2281686D00DB0F7C /* MapScreen.swift in Sources */,
-				4363F350223B05FB008C2969 /* ExploreViewController.swift in Sources */,
+				92580CF523D6C77100A20824 /* Users.swift in Sources */,
 				92AE975E2293AE02006245B1 /* ExploreView.swift in Sources */,
-				8304223D22813A1B00DDC8B2 /* DiscoverFeedController.swift in Sources */,
-				4363F34E223ADABE008C2969 /* PageCell.swift in Sources */,
-				92D4D98A229CAA5100BBF080 /* Explore_Page_Data.swift in Sources */,
-				4363F34C223ADA8F008C2969 /* SwipingController.swift in Sources */,
 				92D4D99222A648E000BBF080 /* WelcomePage.swift in Sources */,
+				92580CF723D6C79200A20824 /* Yelp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +425,56 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"FacebookCore\"",
+					"-framework",
+					"\"FacebookLogin\"",
+					"-framework",
+					"\"FacebookShare\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MapKit\"",
+					"-framework",
+					"\"MapKitGoogleStyler\"",
+					"-framework",
+					"\"Moya\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aryanarora.Pulp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -497,6 +494,56 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"FacebookCore\"",
+					"-framework",
+					"\"FacebookLogin\"",
+					"-framework",
+					"\"FacebookShare\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MapKit\"",
+					"-framework",
+					"\"MapKitGoogleStyler\"",
+					"-framework",
+					"\"Moya\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aryanarora.Pulp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

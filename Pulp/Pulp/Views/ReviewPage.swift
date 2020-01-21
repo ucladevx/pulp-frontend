@@ -97,6 +97,7 @@ import UIKit
         // MARK: - Selectors
         
         @objc func handleDismissal() {
+            impact.impactOccurred()
             delegate?.handleDismissal()
         }
         

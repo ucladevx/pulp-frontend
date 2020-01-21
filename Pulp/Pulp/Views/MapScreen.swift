@@ -10,7 +10,11 @@ class CustomPointAnnotation: MKPointAnnotation {
     var indexNum:Int!
 }
 let mapDispatch = DispatchGroup()
-
+let popupView: UIView = {
+    let view = UIView()
+    view.backgroundColor = .white
+    return view
+}()
 class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegate,
     UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
@@ -50,7 +54,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     
     let searchBar: UITextField = {
         let searchbar = UITextField()
-        searchbar.placeholder = "Parks, museums, bars, etc.";
+        searchbar.placeholder = "        Parks, museums, bars, etc.";
         searchbar.textAlignment = .left
         searchbar.font = UIFont(name: "Avenir-Light", size:15)
         searchbar.translatesAutoresizingMaskIntoConstraints = false
@@ -58,15 +62,11 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     }()
     
     // Background of the popup
-    let popupView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
+    
     
     // Picture of the experience
-    let contentImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Default Pic"))
+    let contentImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 15
         imageView.clipsToBounds = true
@@ -138,12 +138,10 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     let profile2ImageView: UIImageView = UIImageView()
     let profile3ImageView: UIImageView = UIImageView()
     let profile4ImageView: UIImageView = UIImageView()
+    
     let checkThisOutButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
-        button.setTitle("Check this out.", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 12)
+        button.backgroundColor = UIColor.clear
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -153,7 +151,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         print(USERID)
 
         mapDispatch.enter()
@@ -165,7 +163,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             }
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.view.backgroundColor = UIColor.clear
-        
         self.mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: (self.window?.frame.width)!, height: (self.window?.frame.height)!))
         
         self.locationManager.delegate = self
@@ -185,9 +182,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         self.mapView!.showsUserLocation = true
         self.view.addSubview(self.mapView!)
             self.searchBarView.addSubview(self.searchBar)
-            self.searchBarView.addSubview(self.filterButton)
-            self.searchBarView.addSubview(self.cancelButton)
-            self.searchBarView.addSubview(self.vertLineView)
+//            self.searchBarView.addSubview(self.filterButton)
+//            self.searchBarView.addSubview(self.cancelButton)
+//            self.searchBarView.addSubview(self.vertLineView)
             self.view.addSubview(self.searchBarView)
         
             let buttonItem = MKUserTrackingButton(mapView: self.mapView)
@@ -207,12 +204,30 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
                 self.addPin(imageName: "MapFaveIcon", location: pinLocation, title: place.name, subtitle: "")
             }
         }
-            self.popupView.addGestureRecognizer(self.tapRecognizer)
+            popupView.addGestureRecognizer(self.tapRecognizer)
         }
     
     }
-   
-    
+   var viewTranslation = CGPoint(x: 0, y: 0)
+    @objc func handleDismiss(sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .changed:
+            viewTranslation = sender.translation(in: view)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.view.transform = CGAffineTransform(translationX: 0, y: self.viewTranslation.y)
+            })
+        case .ended:
+            if viewTranslation.y < 200 {
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                    self.view.transform = .identity
+                })
+            } else {
+                dismiss(animated: true, completion: nil)
+            }
+        default:
+            break
+        }
+    }
     private var bottomConstraint = NSLayoutConstraint()
     
     private func popupLayout() {
@@ -266,15 +281,17 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         placeRating.isScrollEnabled = false
     
         popupView.addSubview(checkThisOutButton)
-        checkThisOutButton.topAnchor.constraint(equalTo: popupView.topAnchor, constant: 90).isActive = true
+        checkThisOutButton.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
         checkThisOutButton.rightAnchor.constraint(equalTo: popupView.rightAnchor).isActive = true
-        checkThisOutButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        checkThisOutButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        checkThisOutButton.leftAnchor.constraint(equalTo: popupView.leftAnchor).isActive = true
+        checkThisOutButton.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
+        
         checkThisOutButton.addTarget(self, action: #selector(self.checkthisoutTapped(_:)), for: .touchUpInside)
         
     }
     
     @objc func checkthisoutTapped(_ sender: UIButton) {
+        impact.impactOccurred()
         let nextVC = Explore_Controller()
         nextVC.selectedLocation = sender.tag
         nextVC.isDatabasePlace = true
@@ -290,11 +307,10 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     }()
     
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
+        impact.impactOccurred()
         isDisplaying = true
         place = FriendPlaces[index]
-        let url = URL(string: place?.image ?? defaultURL)
-        let data = try? Data(contentsOf: url!)
-        contentImageView.image = UIImage(data: data!)
+        contentImageView.loadImage(urlString: place?.image ?? defaultURL)
         titleTextView.text = place?.name
         var address = place?.address1 ?? ""
         if (place?.address2 != ""){
@@ -350,37 +366,38 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         }
         
         searchBar.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(vertLineView).offset(10)
+            make.left.equalTo(searchBarView)
             make.right.equalTo(searchBarView)
             make.top.equalTo(searchBarView)
             make.bottom.equalTo(searchBarView)
         }
         
-        filterButton.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(searchBarView).offset(15)
-            //make.right.equalTo(searchBarView)
-            make.top.equalTo(searchBarView)
-            make.bottom.equalTo(searchBarView)
-        }
+//        filterButton.snp.makeConstraints { (make) -> Void in
+//            make.left.equalTo(searchBarView).offset(15)
+//            //make.right.equalTo(searchBarView)
+//            make.top.equalTo(searchBarView)
+//            make.bottom.equalTo(searchBarView)
+//        }
         
-        cancelButton.snp.makeConstraints { (make) -> Void in
-            //make.left.equalTo(searchBarView)
-            make.right.equalTo(searchBarView).offset(-15)
-            make.top.equalTo(searchBarView)
-            make.bottom.equalTo(searchBarView)
-        }
+//        cancelButton.snp.makeConstraints { (make) -> Void in
+//            //make.left.equalTo(searchBarView)
+//            make.right.equalTo(searchBarView).offset(-15)
+//            make.top.equalTo(searchBarView)
+//            make.bottom.equalTo(searchBarView)
+//        }
         
-        vertLineView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(searchBarView).offset(38)
-            //make.right.equalTo(searchBarView).offset(-15)
-            make.top.equalTo(searchBarView).offset(8)
-            make.bottom.equalTo(searchBarView).offset(-8)
-        }
+//        vertLineView.snp.makeConstraints { (make) -> Void in
+//            make.left.equalTo(searchBarView).offset(38)
+//            //make.right.equalTo(searchBarView).offset(-15)
+//            make.top.equalTo(searchBarView).offset(8)
+//            make.bottom.equalTo(searchBarView).offset(-8)
+//        }
         searchBar.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
         
     }
     
     @objc func myTargetFunction(textField: UITextField) {
+        impact.impactOccurred()
         let nextVC = DiveIn()
         self.present(nextVC, animated: true, completion: {
             print("Changes to divein successfully!")
@@ -442,10 +459,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 300 , height: 200)
     }
-    
-   
-
-
     
 }
 
@@ -517,7 +530,7 @@ extension State {
 
 class PhotoCollectionCell: UICollectionViewCell {
 
-       var imageView: UIImageView = UIImageView()
+       var imageView: CustomImageView = CustomImageView()
        
        func autolayoutCell() {
            self.backgroundColor = .white
@@ -525,9 +538,7 @@ class PhotoCollectionCell: UICollectionViewCell {
        
        var photo: String! {
            didSet{
-               let url = URL(string: photo )
-               let data = try? Data(contentsOf: url!)
-               imageView.image = UIImage(data: data!)
+               imageView.loadImage(urlString: photo)
              }
        }
    }

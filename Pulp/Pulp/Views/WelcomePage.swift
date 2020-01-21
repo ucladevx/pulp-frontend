@@ -76,6 +76,7 @@ class WelcomePageController: UIViewController{
     }
     
     @objc func buttonClicked(sender: UIButton){
+        impact.impactOccurred()
         let nextVC = LogInController()
         self.present(nextVC, animated: true, completion: {
             print("Changes to login_page successfully!")

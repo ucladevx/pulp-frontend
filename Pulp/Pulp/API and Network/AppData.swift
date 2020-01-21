@@ -62,42 +62,42 @@ var FBFriends: [String] = ["5ddb6aacfed1c8041dcb1939"]
 
 
 
-var FriendPlaces = [Place] () //=
-//    [
-//        Place(
-//        name: "Fellow",
-//        city: "Los Angeles",
-//        state: "CA",
-//        latitude: 34.06116,
-//        longitude: -118.44464,
-//        tags: ["Venues & Event Spaces", "American (New)", "Cocktail Bars" ],
-//        address1: "1071 Glendon Ave",
-//        address2: "",
-//        zip_code: "90024",
-//        image:"https://s3-media1.fl.yelpcdn.com/bphoto/43cR4WiWIzUYb22NCbmF2A/o.jpg" ,
-//        id: "1",
-//        fbvisitors: [defaultURL,defaultURL],
-//        reviews:[Review(postedBy: "2", userImage:defaultURL, body: "Fellow is a Great place", rating: 4), Review(postedBy: "3", userImage:defaultURL, body: "Going to Fellow is worth it", rating: 5)],
-//        rating: 4.5,
-//        isDatabase: true),
-//
-//        Place(
-//        name: "Toranj",
-//        city: "Los Angeles",
-//        state: "CA",
-//        latitude: 34.06026,
-//        longitude: -118.442964,
-//        tags: ["Persian/Iranian"],
-//        address1: "10861 Lindbrook Dr",
-//        address2: "",
-//        zip_code: "90024",
-//        image: "https://s3-media2.fl.yelpcdn.com/bphoto/Co8TInZe18L8ZIBiqDf7vg/o.jpg",
-//        id: "2",
-//        fbvisitors: [defaultURL,defaultURL],
-//        reviews: [Review(postedBy: "3", userImage:defaultURL, body: "Toranj is a Great place", rating: 3), Review(postedBy: "4", userImage:defaultURL, body: "Going to Toranj is worth it", rating: 5)],
-//        rating: 4,
-//        isDatabase: true)
-//]
+var FriendPlaces =
+    [
+        Place(
+        name: "Fellow",
+        city: "Los Angeles",
+        state: "CA",
+        latitude: 34.06116,
+        longitude: -118.44464,
+        tags: ["Venues & Event Spaces", "American (New)", "Cocktail Bars" ],
+        address1: "1071 Glendon Ave",
+        address2: "",
+        zip_code: "90024",
+        image:"https://s3-media1.fl.yelpcdn.com/bphoto/43cR4WiWIzUYb22NCbmF2A/o.jpg" ,
+        id: "1",
+        fbvisitors: [defaultURL,defaultURL],
+        reviews:[Review(postedBy: "2", userImage:defaultURL, body: "Fellow is a Great place", rating: 4), Review(postedBy: "3", userImage:defaultURL, body: "Going to Fellow is worth it", rating: 5)],
+        rating: 4.5,
+        isDatabase: true),
+
+        Place(
+        name: "Toranj",
+        city: "Los Angeles",
+        state: "CA",
+        latitude: 34.06026,
+        longitude: -118.442964,
+        tags: ["Persian/Iranian"],
+        address1: "10861 Lindbrook Dr",
+        address2: "",
+        zip_code: "90024",
+        image: "https://s3-media2.fl.yelpcdn.com/bphoto/Co8TInZe18L8ZIBiqDf7vg/o.jpg",
+        id: "2",
+        fbvisitors: [defaultURL,defaultURL],
+        reviews: [Review(postedBy: "3", userImage:defaultURL, body: "Toranj is a Great place", rating: 3), Review(postedBy: "4", userImage:defaultURL, body: "Going to Toranj is worth it", rating: 5)],
+        rating: 4,
+        isDatabase: true)
+]
 var YelpSearch: [Place] =
 [
     Place(

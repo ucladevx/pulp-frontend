@@ -39,8 +39,8 @@ UICollectionViewDelegateFlowLayout {
         btn.setTitleColor(UIColor.gray, for: .normal)
         return btn
     }()
-    let locationImageView: UIImageView = {
-        let imageView = UIImageView()
+    let locationImageView: CustomImageView = {
+        let imageView = CustomImageView()
         var count = 5
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -241,9 +241,7 @@ UICollectionViewDelegateFlowLayout {
         else{
             place = YelpSearch[selectedLocation]
         }
-        let url = URL(string: place.image ?? defaultURL)
-        let data = try? Data(contentsOf: url!)
-        locationImageView.image = UIImage(data: data!)
+        locationImageView.loadImage(urlString: place.image ?? defaultURL)
         let CityState = place.city + ", " + place.state
         locationTextView.text = CityState
         PlaceNameTextView.text = place.name
@@ -459,12 +457,14 @@ UICollectionViewDelegateFlowLayout {
     }
     
     @objc func registerTapped(_ sender: UIButton) {
+        impact.impactOccurred()
         self.dismiss(animated: true, completion: {
             print("Changes to previous page successfully!")
         })
     }
     
     @objc func checkInTapped(_ sender: UIButton) {
+        impact.impactOccurred()
         if(!isDatabasePlace){
         CreatePlace(place: place)
         }
@@ -520,7 +520,7 @@ extension Explore_Controller: PopUpDelegate {
 
 class ReviewCollectionCell: UICollectionViewCell {
     var stackView: UIStackView = UIStackView()
-    var imageView: UIImageView = UIImageView()
+    var imageView: CustomImageView = CustomImageView()
     var reviewText: UITextView = UITextView()
     
     func autolayoutCell() {
@@ -564,9 +564,7 @@ class ReviewCollectionCell: UICollectionViewCell {
     
     var review: Review! {
         didSet{
-            let url = URL(string: review.userImage ?? defaultURL)
-            let data = try? Data(contentsOf: url!)
-            imageView.image = UIImage(data: data!)
+            imageView.loadImage(urlString: review.userImage ?? defaultURL)
             reviewText.text = review.body ?? ""
         }
     }

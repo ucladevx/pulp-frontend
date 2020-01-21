@@ -24,6 +24,7 @@
 		92580CF523D6C77100A20824 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92580CF423D6C77100A20824 /* Users.swift */; };
 		92580CF723D6C79200A20824 /* Yelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92580CF623D6C79200A20824 /* Yelp.swift */; };
 		92AE975E2293AE02006245B1 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE975D2293AE02006245B1 /* ExploreView.swift */; };
+		92C3355D23D6EEDD00D899DD /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C3355C23D6EEDD00D899DD /* AsyncImage.swift */; };
 		92D4D98E22A0927800BBF080 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D98D22A0927800BBF080 /* ListView.swift */; };
 		92D4D99222A648E000BBF080 /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D99122A648E000BBF080 /* WelcomePage.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		92580CF423D6C77100A20824 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		92580CF623D6C79200A20824 /* Yelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yelp.swift; sourceTree = "<group>"; };
 		92AE975D2293AE02006245B1 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		92C3355C23D6EEDD00D899DD /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		92D4D98D22A0927800BBF080 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		92D4D99122A648E000BBF080 /* WelcomePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
 		F2D3A961FAB7F84721E06C26 /* Pods-Pulp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pulp/Pods-Pulp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				92580CED23D6C6D100A20824 /* AppData.swift */,
 				92580CEF23D6C71100A20824 /* Models.swift */,
 				83DE57172293BE4000294FC9 /* MainAPI.swift */,
+				92C3355C23D6EEDD00D899DD /* AsyncImage.swift */,
 				92580CF223D6C75C00A20824 /* Places.swift */,
 				92580CF423D6C77100A20824 /* Users.swift */,
 				92580CF623D6C79200A20824 /* Yelp.swift */,
@@ -272,6 +275,7 @@
 				92580CF323D6C75C00A20824 /* Places.swift in Sources */,
 				83ABFFED2281686D00DB0F7C /* MapScreen.swift in Sources */,
 				92580CF523D6C77100A20824 /* Users.swift in Sources */,
+				92C3355D23D6EEDD00D899DD /* AsyncImage.swift in Sources */,
 				92AE975E2293AE02006245B1 /* ExploreView.swift in Sources */,
 				92D4D99222A648E000BBF080 /* WelcomePage.swift in Sources */,
 				92580CF723D6C79200A20824 /* Yelp.swift in Sources */,

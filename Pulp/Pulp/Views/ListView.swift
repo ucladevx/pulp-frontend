@@ -20,8 +20,10 @@ UICollectionViewDelegateFlowLayout {
     var locations: [Place] = YelpSearch
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-        
     }
+    
+    
+    
     let backButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle("<", for: .normal)
@@ -36,18 +38,21 @@ UICollectionViewDelegateFlowLayout {
         
         
     }
-    @objc func registerTapped(_ sender: UIButton) {
+    @objc public func checkoutTapped(_ sender: UIButton) {
+        impact.impactOccurred()
      let nextVC = Explore_Controller()
         nextVC.isDatabasePlace = YelpSearch[sender.tag].isDatabase
         nextVC.selectedLocation = sender.tag
         nextVC.calledbyMap = false
         
-        self.present(nextVC, animated: true, completion: {
+        present(nextVC, animated: true, completion: {
             print("Changes to explore page successfully!")
         })
         
     }
+   
     @objc func goBacktoDive(_ sender: UIButton) {
+        impact.impactOccurred()
         self.dismiss(animated: true, completion: {
             print("Changes to diveIn successfully!")
         })
@@ -121,36 +126,13 @@ UICollectionViewDelegateFlowLayout {
             cell.layer.borderColor = UIColor.lightGray.cgColor
             cell.autolayoutCell()
             cell.location = locations[indexPath.row]
-       
-//            let registerButton: UIButton = {
-//                let button = UIButton(type: .system)
-//                // button.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
-//                button.setBackgroundImage(UIImage(named: "button"), for: .normal)
-//                // button.setTitleColor(.white, for: .normal)
-//                // button.layer.cornerRadius = 20
-//                button.translatesAutoresizingMaskIntoConstraints = false
-//                return button
-//            }()
-//            cell.addSubview(registerButton)
-//            registerButton.tag = indexPath.row
-//            registerButton.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
-//            registerButton.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 25).isActive = true
-//            registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//            registerButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-//
-//            registerButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+            cell.checkOutButton.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)
+            cell.checkOutButton.tag = indexPath.row
             return cell
         }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let nextVC = Explore_Controller()
-        nextVC.isDatabasePlace = YelpSearch[indexPath.row].isDatabase
-        nextVC.selectedLocation = indexPath.row
-               nextVC.calledbyMap = false
-               
-               self.present(nextVC, animated: true, completion: {
-                   print("Changes to explore page successfully!")
-               })
+
     }
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -159,9 +141,9 @@ UICollectionViewDelegateFlowLayout {
 }
 
 
-class LocationCollectionCell: UICollectionViewCell {
+class LocationCollectionCell: UICollectionViewCell{
     var stackView: UIStackView = UIStackView()
-    var placeImage: UIImageView = UIImageView()
+    var placeImage: CustomImageView = CustomImageView()
     var placeName: UITextView = UITextView()
     var placeLocation: UITextView = UITextView()
     var placeType: UITextView = UITextView()
@@ -170,6 +152,12 @@ class LocationCollectionCell: UICollectionViewCell {
     var profile2ImageView: UIImageView = UIImageView()
     var profile3ImageView: UIImageView = UIImageView()
     var profile4ImageView: UIImageView = UIImageView()
+    let checkOutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     func autolayoutCell() {
         self.backgroundColor = .white
@@ -185,9 +173,9 @@ class LocationCollectionCell: UICollectionViewCell {
         stackView.backgroundColor = .white
         stackView.addSubview(placeImage)
         placeImage.translatesAutoresizingMaskIntoConstraints = false
-        placeImage.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        placeImage.heightAnchor.constraint(equalToConstant: 180).isActive = true
         placeImage.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
-        placeImage.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
+        placeImage.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10).isActive = true
         placeImage.widthAnchor.constraint(equalToConstant: 180).isActive = true
         
         stackView.addSubview(placeName)
@@ -273,6 +261,11 @@ class LocationCollectionCell: UICollectionViewCell {
         profile4ImageView.clipsToBounds = true
         profile4ImageView.layer.cornerRadius = profile4ImageView.frame.size.width / 2
         
+        stackView.addSubview(checkOutButton)
+        checkOutButton.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
+        checkOutButton.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+        checkOutButton.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
+        checkOutButton.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
         
         stackView.axis = .horizontal
         stackView.alignment = .leading
@@ -282,13 +275,11 @@ class LocationCollectionCell: UICollectionViewCell {
         
     }
     
+    
     var location: Place! {
     didSet{
-            if let url = URL(string: location.image ?? "") {
             
-                let data = try? Data(contentsOf: url)
-                placeImage.image = UIImage(data: data!)
-            }
+            placeImage.loadImage(urlString: location.image ?? defaultURL)
             placeName.text = location.name
             var address = ""
             if ((location.address1) != "" && (location.address1) != nil){

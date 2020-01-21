@@ -6,7 +6,10 @@
 //  Copyright © 2019 Aryan Arora. All rights reserved.
 //
 
+
+
 import UIKit
+let impact = UIImpactFeedbackGenerator(style: .medium)
 let dispatchGroup = DispatchGroup()
 let yelpDispatchGroup = DispatchGroup()
 let searchDispatchGroup = DispatchGroup()
@@ -320,6 +323,7 @@ class DiveIn: UIViewController {
     }()
     
     @objc func registerTapped(_ sender: UIButton) {
+        impact.impactOccurred()
         var searchTerm: String
         switch sender.tag {
             case 0:
@@ -397,6 +401,7 @@ class DiveIn: UIViewController {
     }
     
     @objc func searchTapped(_ sender: UIButton) {
+        impact.impactOccurred()
         let searchTerm: String = searchBar.text ?? ""
         if( searchTerm == ""){ return}
         yelpDispatchGroup.enter()
@@ -719,6 +724,7 @@ class DiveIn: UIViewController {
 
     }
     @objc func goBackMap(_ sender: UIButton) {
+        impact.impactOccurred()
         self.dismiss(animated: true, completion: {
             print("Changes back to MapScreen successfully!")
         })

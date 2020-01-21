@@ -1,26 +1,27 @@
 //
-//  LogInController.swift
+//  LogIn.swift
 //  Pulp
 //
-//  Created by Andy Cai on 5/14/19.
-//  Copyright © 2019 Andy Cai. All rights reserved.
+//  Created by Aryan Arora on 5/14/19.
+//  Copyright © 2019 Aryan Arora. All rights reserved.
 //
-
 import Foundation
-import FacebookLogin
 import SnapKit
+import FacebookCore
+import FacebookLogin
 import FBSDKLoginKit
 
+let loginDispatch = DispatchGroup()
 class LogInController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(FBSDKAccessToken.current() == nil)
+        if(AccessToken.current == nil)
         {
             print("not logged in")
         }
         else{
             //Below code sends token to local host 3000
-            accessTokenGETRequest(accessToken: (FBSDKAccessToken.current()?.tokenString)!)
+            accessTokenGETRequest(accessToken: (AccessToken.current?.tokenString)!)
             print("logged in already")
             let vc = MapScreen()
             //Below code performs a segue to another page
@@ -28,12 +29,9 @@ class LogInController : UIViewController {
                 print("You have logged in already!")
             })
         }
-        
-        
         view.backgroundColor = UIColor(rgb: 0xF7F7F7)
         setUpLoginButton()
         setUpAutoLayout()
-        
     }
     
     private let loginContentView:UIView = {
@@ -44,7 +42,6 @@ class LogInController : UIViewController {
     
     private let graphicView:UIImageView = {
         let imageView = UIImageView(image:#imageLiteral(resourceName: "Fruits"))
-    
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -85,12 +82,6 @@ class LogInController : UIViewController {
     
     let FBLoginButton : UIButton = {
         let myLoginButton = UIButton(type: .custom)
-//        myLoginButton.setTitle("Log in", for: .normal)
-//        myLoginButton.titleLabel?.font = UIFont(name: "Avenir-Medium", size:30)
-//        myLoginButton.titleLabel?.textColor = UIColor.white
-//        myLoginButton.titleLabel?.textAlignment = .right
-//        myLoginButton.backgroundColor = UIColor(rgb: 0x1170ED)
-//        myLoginButton.layer.cornerRadius = 12
         myLoginButton.setImage(UIImage(named: "Log In Button"), for: .normal)
         return myLoginButton
     }()
@@ -107,7 +98,9 @@ class LogInController : UIViewController {
     
     @objc func loginButtonClicked() {
         let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
+        loginManager.logOut()
+        
+        loginManager.logIn(permissions: [ .publicProfile, .email, .userFriends ], viewController: self, completion: { loginResult in
             switch loginResult {
             case .failed(let error):
                 print(error)
@@ -115,13 +108,26 @@ class LogInController : UIViewController {
                 print("User cancelled login.")
             case .success( _, _, _):
                 print("Logged in!")
-                let vc = MapScreen() //your view controller, this is just for testing
+                loginDispatch.enter()
+                CreateUser()
+                loginDispatch.notify(queue: .main) {
+                print("Created User")
+                LoggedIn = true
+                let defaults = UserDefaults.standard
+                defaults.set(LoggedIn, forKey: "login_key")
+                defaults.synchronize()
+                let vc = MapScreen()
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: {
                     print("You have logged in successfully!")
                 })
             }
+            }
         }
+        )
     }
+    
+        
     
     func setUpAutoLayout()
     {
@@ -143,17 +149,12 @@ class LogInController : UIViewController {
         welcomeTxt.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(loginContentView).offset(80)
             make.left.equalTo(loginContentView).offset(20)
-//            make.top.equalTo(loginContentView).offset(20)
         }
         
         describeLabel.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(welcomeTxt)
             make.top.equalTo(welcomeTxt.snp_bottomMargin).offset(20)
         }
-        
-//        describeLabel.leftAnchor.constraint(equalTo: loginContentView.leftAnchor, constant: 20).isActive = true
-//        describeLabel.topAnchor.constraint(equalTo: welcomeTxt.topAnchor, constant: 45).isActive = true
-        
         FBLoginButton.snp.makeConstraints({ (make) -> Void in
             make.width.equalTo(150)
             make.height.equalTo(60)
@@ -186,5 +187,3 @@ extension UIColor {
         )
     }
 }
-
-

@@ -2,8 +2,8 @@
 //  WelcomePageController.swift
 //  Pulp
 //
-//  Created by Michelle  Lam on 5/28/19.
-//  Copyright © 2019 Michelle Lam. All rights reserved.
+//  Created by Aryan Arora on 5/28/19.
+//  Copyright © 2019 Aryan Arora. All rights reserved.
 //
 
 import UIKit
@@ -27,7 +27,6 @@ class WelcomePageController: UIViewController{
         return textView
     } ()
     
-    //BOLD AND ITALIC FONT
     let taglineTextView: UITextView = {
         let textView = UITextView()
         textView.text = "Curated experiences\nnearby."
@@ -45,22 +44,35 @@ class WelcomePageController: UIViewController{
         button.setTitle("NEXT", for: .normal)
         button.setTitleColor(UIColor(red:0.08, green:0.47, blue:0.79, alpha:1.0), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        //CONNECT CONTROLLERS THROUGH THE BUTTON
         button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = .white
         self.view.addSubview(bgImageView)
         self.view.sendSubviewToBack(bgImageView)
         self.view.addSubview(titleTextView)
         self.view.addSubview(taglineTextView)
-        self.view.addSubview(nextButton)
-        
+        let defaults = UserDefaults.standard
+        let token = defaults.bool(forKey: "login_key")
+        if(token){
+            perform(#selector(presentMap), with: nil, afterDelay: 0)
+        }
+        else{
+            self.view.addSubview(nextButton)
+            nextButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -40).isActive = true
+            nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30).isActive = true
+        }
         setupLayout()
+    }
+    @objc func presentMap(){
+        let vc = MapScreen()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: {
+            print("Welcome Back!")
+        })
     }
     
     @objc func buttonClicked(sender: UIButton){
@@ -87,7 +99,6 @@ class WelcomePageController: UIViewController{
         taglineTextView.widthAnchor.constraint(equalToConstant: 220).isActive = true
         taglineTextView.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
-        nextButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -40).isActive = true
-        nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30).isActive = true
+       
     }
 }

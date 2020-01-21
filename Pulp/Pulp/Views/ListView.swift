@@ -14,9 +14,10 @@ class ListView_Controller: UIViewController,
 UICollectionViewDelegateFlowLayout {
     
     var collectionView: UICollectionView?
+    var searchTerm: String?
     let cellId = "Example Cell"
     let cellSpacing:CGFloat = 10
-    var locations: [Location] = locationData
+    var locations: [Place] = YelpSearch
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
         
@@ -37,8 +38,10 @@ UICollectionViewDelegateFlowLayout {
     }
     @objc func registerTapped(_ sender: UIButton) {
      let nextVC = Explore_Controller()
+        nextVC.isDatabasePlace = YelpSearch[sender.tag].isDatabase
         nextVC.selectedLocation = sender.tag
         nextVC.calledbyMap = false
+        
         self.present(nextVC, animated: true, completion: {
             print("Changes to explore page successfully!")
         })
@@ -51,15 +54,15 @@ UICollectionViewDelegateFlowLayout {
     }
     
     private func setupList() {
-            let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
+            let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 0))
             view.addSubview(navigationBar)
             navigationBar.barStyle = UIBarStyle.black
         let placeType: UITextView = UITextView()
         view.addSubview(placeType)
-        placeType.font = UIFont(name: "Avenir Book", size: 30)
+        placeType.font = UIFont(name: "Avenir Next", size: 20)
         placeType.font = UIFont.boldSystemFont(ofSize: 30)
         placeType.textColor = .white
-        placeType.text = "      Restaurants near you"
+        placeType.text = "         Search Results"
         placeType.textAlignment = NSTextAlignment(rawValue: 0)!
         placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
         placeType.translatesAutoresizingMaskIntoConstraints = false
@@ -119,23 +122,36 @@ UICollectionViewDelegateFlowLayout {
             cell.autolayoutCell()
             cell.location = locations[indexPath.row]
        
-            let registerButton: UIButton = {
-                let button = UIButton(type: .system)
-                button.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
-                button.setTitle("Check this out.", for: .normal)
-                button.setTitleColor(.white, for: .normal)
-                button.layer.cornerRadius = 20
-                button.translatesAutoresizingMaskIntoConstraints = false
-                return button
-            }()
-            cell.addSubview(registerButton)
-            registerButton.tag = indexPath.row
-            registerButton.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
-            registerButton.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 35).isActive = true
-            registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            registerButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+//            let registerButton: UIButton = {
+//                let button = UIButton(type: .system)
+//                // button.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+//                button.setBackgroundImage(UIImage(named: "button"), for: .normal)
+//                // button.setTitleColor(.white, for: .normal)
+//                // button.layer.cornerRadius = 20
+//                button.translatesAutoresizingMaskIntoConstraints = false
+//                return button
+//            }()
+//            cell.addSubview(registerButton)
+//            registerButton.tag = indexPath.row
+//            registerButton.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
+//            registerButton.leftAnchor.constraint(equalTo: cell.leftAnchor, constant: 25).isActive = true
+//            registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//            registerButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+//
+//            registerButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
             return cell
         }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let nextVC = Explore_Controller()
+        nextVC.isDatabasePlace = YelpSearch[indexPath.row].isDatabase
+        nextVC.selectedLocation = indexPath.row
+               nextVC.calledbyMap = false
+               
+               self.present(nextVC, animated: true, completion: {
+                   print("Changes to explore page successfully!")
+               })
+    }
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width: view.bounds.width , height: 200)
@@ -166,17 +182,18 @@ class LocationCollectionCell: UICollectionViewCell {
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        
+        stackView.backgroundColor = .white
         stackView.addSubview(placeImage)
         placeImage.translatesAutoresizingMaskIntoConstraints = false
         placeImage.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        placeImage.leftAnchor.constraint(equalTo: stackView.leftAnchor)
+        placeImage.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
         placeImage.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
         placeImage.widthAnchor.constraint(equalToConstant: 180).isActive = true
         
         stackView.addSubview(placeName)
         placeName.font = UIFont(name: "Avenir Book", size: 20)
         placeName.textColor = .black
+        placeName.backgroundColor = .white
         placeName.font = UIFont.boldSystemFont(ofSize: 20)
         placeName.translatesAutoresizingMaskIntoConstraints = false
         placeName.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 15).isActive = true
@@ -187,6 +204,7 @@ class LocationCollectionCell: UICollectionViewCell {
         
         stackView.addSubview(placeLocation)
         placeLocation.font = UIFont(name: "Avenir Book", size: 15)
+        placeLocation.backgroundColor = .white
         placeLocation.font = UIFont.italicSystemFont(ofSize: 15)
         placeLocation.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
         placeLocation.translatesAutoresizingMaskIntoConstraints = false
@@ -199,6 +217,7 @@ class LocationCollectionCell: UICollectionViewCell {
         stackView.addSubview(placeType)
         placeType.font = UIFont(name: "Avenir Book", size: 15)
         placeType.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+        placeType.backgroundColor = .white
         placeType.translatesAutoresizingMaskIntoConstraints = false
         placeType.topAnchor.constraint(equalTo: placeLocation.bottomAnchor, constant: -10).isActive = true
         placeType.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
@@ -209,6 +228,7 @@ class LocationCollectionCell: UICollectionViewCell {
         stackView.addSubview(placeRating)
         placeRating.font = UIFont(name: "Avenir Book", size: 15)
         placeRating.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+        placeRating.backgroundColor = .white
         placeRating.translatesAutoresizingMaskIntoConstraints = false
         placeRating.topAnchor.constraint(equalTo: placeType.bottomAnchor, constant: -10).isActive = true
         placeRating.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
@@ -262,18 +282,44 @@ class LocationCollectionCell: UICollectionViewCell {
         
     }
     
-    var location: Location! {
-        didSet{
-            placeImage.image = UIImage(named: location.placeImage!)
-            placeName.text = location.placeName ?? ""
-            placeLocation.text = location.placeLocation ?? ""
-            placeType.text = location.placeType ?? ""
-            let rating = location.placeRating ?? 0
+    var location: Place! {
+    didSet{
+            if let url = URL(string: location.image ?? "") {
+            
+                let data = try? Data(contentsOf: url)
+                placeImage.image = UIImage(data: data!)
+            }
+            placeName.text = location.name
+            var address = ""
+            if ((location.address1) != "" && (location.address1) != nil){
+                address += location.address1 ?? ""
+                address += ", "
+            }
+            if ((location.address2) != "" && (location.address2) != nil ){
+                address += location.address2 ?? ""
+                address += ", "
+            }
+            address += location.city
+            placeLocation.text = address
+            var tag = ""
+            let tags = location.tags
+            for (i, t) in tags.enumerated(){
+                if (i == 2){
+                    break
+                }
+                tag += t
+                if (i == 0){
+                    tag += ", "
+                }
+                
+            }
+            placeType.text = tag
+            let rating = location.rating
             placeRating.text = "\(rating) Rating !"
-            profile1ImageView.image = UIImage(named: location.fbfriends![0].imageName!)
-            profile2ImageView.image = UIImage(named: location.fbfriends![1].imageName!)
-            profile3ImageView.image = UIImage(named: location.fbfriends![2].imageName!)
-            profile4ImageView.image = UIImage(named: location.fbfriends![3].imageName!)
+//            profile1ImageView.image = UIImage(named: location.fbfriends![0].imageName!)
+//            profile2ImageView.image = UIImage(named: location.fbfriends![1].imageName!)
+//            profile3ImageView.image = UIImage(named: location.fbfriends![2].imageName!)
+//            profile4ImageView.image = UIImage(named: location.fbfriends![3].imageName!)
         }
     }
 }

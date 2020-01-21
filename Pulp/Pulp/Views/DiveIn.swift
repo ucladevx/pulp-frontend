@@ -2,11 +2,14 @@
 //  DiveIn.swift
 //  Pulp
 //
-//  Created by Katherine Miao on 4/22/19.
-//  Copyright © 2019 Katherine Miao. All rights reserved.
+//  Created by Aryan Arora on 4/22/19.
+//  Copyright © 2019 Aryan Arora. All rights reserved.
 //
 
 import UIKit
+let dispatchGroup = DispatchGroup()
+let yelpDispatchGroup = DispatchGroup()
+let searchDispatchGroup = DispatchGroup()
 
 class DiveIn: UIViewController {
     
@@ -21,20 +24,20 @@ class DiveIn: UIViewController {
         btn.setTitleColor(UIColor.gray, for: .normal)
         return btn
     }()
-    let hikeImageView: UIImageView = {
+    let restaurantsImageView: UIImageView = {
         let imageView = UIImageView(image:#imageLiteral(resourceName: "RestaurantIcon"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let hikeButton: UIButton = {
+    let restaurantsButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
     
-    let hikeLabel:UILabel = {
+    let restaurantsLabel:UILabel = {
         let label = UILabel()
         label.text = "Restaurants"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -246,7 +249,7 @@ class DiveIn: UIViewController {
     
     let currentLocationButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Use my current location", for: .normal)
+        btn.setTitle("Using current location", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -283,8 +286,8 @@ class DiveIn: UIViewController {
     
     
     @objc func openExploreView(){
-//        let mapVC = Explore_Controller()
-//        present(mapVC, animated: true, completion: nil)
+        let mapVC = Explore_Controller()
+        present(mapVC, animated: true, completion: nil)
     }
     
     
@@ -298,8 +301,7 @@ class DiveIn: UIViewController {
     }()
     
     @objc func openProfileView(){
-        let ps = ViewController()
-        present(ps, animated: true, completion: nil)
+       
     }
     
     let faveButton: UIButton = {
@@ -318,13 +320,64 @@ class DiveIn: UIViewController {
     }()
     
     @objc func registerTapped(_ sender: UIButton) {
-        let nextVC = ListView_Controller()
-        self.present(nextVC, animated: true, completion: {
+        var searchTerm: String
+        switch sender.tag {
+            case 0:
+            searchTerm = "Restaurant"
+            case 1:
+            searchTerm = "Museum"
+            case 2:
+            searchTerm = "Festival"
+            case 3:
+            searchTerm = "Thrill"
+            case 4:
+            searchTerm = "Photo"
+            case 5:
+            searchTerm = "Zoo"
+            case 6:
+            searchTerm = "Landscape"
+            case 7:
+            searchTerm = "Aquatic"
+            
+        default:
+            searchTerm = ""
+        }
+        yelpDispatchGroup.enter()
+        YelpSearchFunc(latt: 34.073121, longi:  -118.454704, sterm: searchTerm, limitN: 10)
+        yelpDispatchGroup.notify(queue: .main) {
+            print("Moving to list_view")
+            let nextVC = ListView_Controller()
+            nextVC.searchTerm = searchTerm
+            self.present(nextVC, animated: true, completion: {
             print("Changes to list_view successfully!")
         })
+        }
     }
 
+    func YelpSearchFunc(latt:Double, longi: Double, sterm: String, limitN: Int) {
+
+        service.request(.YelpTest(lat: latt, long: longi, term: sterm, limit:limitN)) {(result) in
+        switch result {
+        case .success(let response):
+            let save = try? JSONDecoder().decode(Return.self, from: response.data)
+            if (save != nil){
+            TempPlaces = save!.businesses // if safe null then search again.....
+            ListToPlace(list:TempPlaces)
+            yelpDispatchGroup.leave()
+            return
+            }
+        case .failure(let error):
+            print("Error: \(error)")
+            return
+        }
+    }
+        
+    }
     
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.97, alpha:1.0)
@@ -339,26 +392,41 @@ class DiveIn: UIViewController {
         view.addSubview(bottomControlView)
         setupBottomControls()
         setupLayout()
-        hikeButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
-
+        setupButtonDestination()
+        searchButton.addTarget(self, action: #selector(self.searchTapped(_:)), for: .touchUpInside)
+    }
+    
+    @objc func searchTapped(_ sender: UIButton) {
+        let searchTerm: String = searchBar.text ?? ""
+        if( searchTerm == ""){ return}
+        yelpDispatchGroup.enter()
+        YelpSearchFunc(latt: 34.073121, longi:  -118.454704, sterm: searchTerm, limitN: 10)
+        yelpDispatchGroup.notify(queue: .main) {
+            print("Moving to list_view")
+            let nextVC = ListView_Controller()
+            nextVC.searchTerm = searchTerm
+            self.present(nextVC, animated: true, completion: {
+            print("Changes to list_view successfully!")
+        })
+        }
     }
 
     
     fileprivate func setupBottomControls() {
-        let bottomControlsStackView = UIStackView(arrangedSubviews: [exploreButton, profileButton, faveButton])
-        bottomControlsStackView.backgroundColor = .white
-        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
-        bottomControlsStackView.distribution = .fillEqually
-        bottomControlsStackView.spacing = 20
-        
-        
-        
-        bottomControlView.addSubview(bottomControlsStackView)
-        NSLayoutConstraint.activate([
-            bottomControlsStackView.centerXAnchor.constraint(equalTo:bottomControlView.centerXAnchor),
-            bottomControlsStackView.centerYAnchor.constraint(equalTo:bottomControlView.centerYAnchor),
-            bottomControlsStackView.heightAnchor.constraint(equalToConstant: view.frame.height/14)
-            ])
+//        let bottomControlsStackView = UIStackView(arrangedSubviews: [exploreButton, profileButton, faveButton])
+//        bottomControlsStackView.backgroundColor = .white
+//        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
+//        bottomControlsStackView.distribution = .fillEqually
+//        bottomControlsStackView.spacing = 20
+//
+//
+//
+//        bottomControlView.addSubview(bottomControlsStackView)
+//        NSLayoutConstraint.activate([
+//            bottomControlsStackView.centerXAnchor.constraint(equalTo:bottomControlView.centerXAnchor),
+//            bottomControlsStackView.centerYAnchor.constraint(equalTo:bottomControlView.centerYAnchor),
+//            bottomControlsStackView.heightAnchor.constraint(equalToConstant: view.frame.height/14)
+//            ])
     }
     
     private func setupSearchBar(){
@@ -391,7 +459,7 @@ class DiveIn: UIViewController {
         topView.rightAnchor.constraint(equalTo:view.rightAnchor, constant:-view.frame.width/8).isActive = true
         topView.heightAnchor.constraint(equalToConstant:view.frame.height/2.5).isActive = true
         
-        descriptionView.topAnchor.constraint(equalTo:topView.topAnchor).isActive = true
+        descriptionView.topAnchor.constraint(equalTo:topView.topAnchor, constant:40).isActive = true
         descriptionView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
         descriptionView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
         descriptionView.font = UIFont(name: "Avenir-Black", size: view.frame.height/23)
@@ -419,34 +487,34 @@ class DiveIn: UIViewController {
         searchBarIcon.leftAnchor.constraint(equalTo:searchBarView.leftAnchor, constant:5).isActive = true
         searchBarIcon.centerYAnchor.constraint(equalTo:searchBarView.centerYAnchor).isActive = true
 
-        zipView.topAnchor.constraint(equalTo:searchBarView.bottomAnchor, constant:view.frame.height/40).isActive = true
-        zipView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
-        zipView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
-        zipView.heightAnchor.constraint(equalToConstant: view.frame.height/20).isActive = true
-        zipView.layer.cornerRadius = view.frame.width/40
-        
-        zipView.addSubview(zipBar)
-        zipBar.centerXAnchor.constraint(equalTo:zipView.centerXAnchor).isActive = true
-        zipBar.centerYAnchor.constraint(equalTo:zipView.centerYAnchor).isActive = true
-        zipBar.leftAnchor.constraint(equalTo:zipView.leftAnchor, constant:view.frame.width/13).isActive = true
-        zipBar.rightAnchor.constraint(equalTo:zipView.rightAnchor, constant:-5).isActive = true
-        zipBar.heightAnchor.constraint(equalToConstant: view.frame.height/25).isActive = true
-        zipBar.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
-        
-        zipView.addSubview(zipBarIcon)
-        zipBarIcon.leftAnchor.constraint(equalTo:zipView.leftAnchor, constant:5).isActive = true
-        zipBarIcon.centerYAnchor.constraint(equalTo:zipView.centerYAnchor).isActive = true
+//        zipView.topAnchor.constraint(equalTo:searchBarView.bottomAnchor, constant:view.frame.height/40).isActive = true
+//        zipView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
+//        zipView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
+//        zipView.heightAnchor.constraint(equalToConstant: view.frame.height/20).isActive = true
+//        zipView.layer.cornerRadius = view.frame.width/40
+//
+//        zipView.addSubview(zipBar)
+//        zipBar.centerXAnchor.constraint(equalTo:zipView.centerXAnchor).isActive = true
+//        zipBar.centerYAnchor.constraint(equalTo:zipView.centerYAnchor).isActive = true
+//        zipBar.leftAnchor.constraint(equalTo:zipView.leftAnchor, constant:view.frame.width/13).isActive = true
+//        zipBar.rightAnchor.constraint(equalTo:zipView.rightAnchor, constant:-5).isActive = true
+//        zipBar.heightAnchor.constraint(equalToConstant: view.frame.height/25).isActive = true
+//        zipBar.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+//
+//        zipView.addSubview(zipBarIcon)
+//        zipBarIcon.leftAnchor.constraint(equalTo:zipView.leftAnchor, constant:5).isActive = true
+//        zipBarIcon.centerYAnchor.constraint(equalTo:zipView.centerYAnchor).isActive = true
         
         topView.addSubview(searchButton)
         searchButton.layer.cornerRadius = 10
         searchButton.titleEdgeInsets.left = 10
         searchButton.titleEdgeInsets.right = 10
-        searchButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: view.frame.width/5, height: 30)
+        searchButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: view.frame.width/5, height: 40)
         searchButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
         searchButton.backgroundColor = .white
         
         topView.addSubview(currentLocationView)
-        currentLocationView.topAnchor.constraint(equalTo:zipView.bottomAnchor, constant:5).isActive = true
+        currentLocationView.topAnchor.constraint(equalTo:searchBarView.bottomAnchor, constant:15).isActive = true
         currentLocationView.leftAnchor.constraint(equalTo:topView.leftAnchor).isActive = true
         currentLocationView.rightAnchor.constraint(equalTo:topView.rightAnchor).isActive = true
         currentLocationView.heightAnchor.constraint(equalToConstant: view.frame.height/25).isActive = true
@@ -455,7 +523,7 @@ class DiveIn: UIViewController {
         currentLocationButton.centerYAnchor.constraint(equalTo:currentLocationView.centerYAnchor).isActive = true
         currentLocationButton.heightAnchor.constraint(equalToConstant:view.frame.height/30).isActive = true
         currentLocationButton.leftAnchor.constraint(equalTo:currentLocationView.leftAnchor, constant:view.frame.width/13).isActive = true
-        currentLocationButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+        currentLocationButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/45)
 
         //currentLocationButton.addTarget(self,  action: #selector(openExploreView2), for: .touchUpInside)
         
@@ -473,21 +541,21 @@ class DiveIn: UIViewController {
         
         
         // HIKE BUTTON
-        bottomContainerView.addSubview(hikeImageView)
-        hikeImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
-        hikeImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
-        hikeImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        bottomContainerView.addSubview(restaurantsImageView)
+        restaurantsImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
+        restaurantsImageView.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        restaurantsImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
         
-        bottomContainerView.addSubview(hikeLabel)
-        hikeLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
-        hikeLabel.topAnchor.constraint(equalTo:hikeImageView.bottomAnchor).isActive = true
-        hikeLabel.font = UIFont(name: "Avenir-Medium", size: view.frame.height/50)
+        bottomContainerView.addSubview(restaurantsLabel)
+        restaurantsLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
+        restaurantsLabel.topAnchor.constraint(equalTo:restaurantsImageView.bottomAnchor).isActive = true
+        restaurantsLabel.font = UIFont(name: "Avenir-Medium", size: view.frame.height/50)
         
-        bottomContainerView.addSubview(hikeButton)
-        hikeButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
-        hikeButton.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
-        hikeButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
-        hikeButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        bottomContainerView.addSubview(restaurantsButton)
+        restaurantsButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
+        restaurantsButton.centerYAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: view.frame.height/12).isActive = true
+        restaurantsButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
+        restaurantsButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
         
         
         // MUSEUM BUTTON
@@ -548,7 +616,7 @@ class DiveIn: UIViewController {
         bottomContainerView.addSubview(photoImageView)
         photoImageView.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
         photoImageView.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
-        photoImageView.topAnchor.constraint(equalTo:hikeLabel.bottomAnchor).isActive = true
+        photoImageView.topAnchor.constraint(equalTo:restaurantsLabel.bottomAnchor).isActive = true
 
         bottomContainerView.addSubview(photoLabel)
         photoLabel.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
@@ -557,7 +625,7 @@ class DiveIn: UIViewController {
         
         bottomContainerView.addSubview(photoButton)
         photoButton.centerXAnchor.constraint(equalTo: bottomContainerView.centerXAnchor, constant: -view.frame.width/3).isActive = true
-        photoButton.topAnchor.constraint(equalTo:hikeLabel.bottomAnchor).isActive = true
+        photoButton.topAnchor.constraint(equalTo:restaurantsLabel.bottomAnchor).isActive = true
         photoButton.heightAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
         photoButton.widthAnchor.constraint(equalToConstant:view.frame.width/4.5).isActive = true
 
@@ -629,10 +697,30 @@ class DiveIn: UIViewController {
         backButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
         backButton.addTarget(self, action: #selector(self.goBackMap(_:)), for: .touchUpInside)
     }
+    
+    func setupButtonDestination(){
+        restaurantsButton.tag=0
+        restaurantsButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+        museumButton.tag=1
+        museumButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+        festivalButton.tag=2
+        festivalButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+        thrillButton.tag=3
+        thrillButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+        
+        photoButton.tag=4
+        photoButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+        animalButton.tag=5
+        animalButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+        landscapeButton.tag=6
+        landscapeButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+        aquaticButton.tag=7
+        aquaticButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
+
+    }
     @objc func goBackMap(_ sender: UIButton) {
-        let nextVC = MapScreen()
-        self.present(nextVC, animated: true, completion: {
-            print("Changes to map successfully!")
+        self.dismiss(animated: true, completion: {
+            print("Changes back to MapScreen successfully!")
         })
     }
     

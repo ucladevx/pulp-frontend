@@ -27,7 +27,7 @@
 #define FBSDK_MAX_CRASH_LOGS 5
 #define FBSDK_CRASH_PATH_NAME @"instrument"
 #ifndef FBSDK_VERSION_STRING
-#define FBSDK_VERSION_STRING @"5.14.0"
+#define FBSDK_VERSION_STRING @"5.15.0"
 #endif
 
 static NSUncaughtExceptionHandler *previousExceptionHandler = NULL;
@@ -216,12 +216,14 @@ static void FBSDKExceptionHandler(NSException *exception)
 
   for (NSUInteger i = 0; i < MIN(fileNames.count, FBSDK_MAX_CRASH_LOGS); i++) {
     NSDictionary<NSString *, id> *crashLog = [self loadCrashLog:fileNames[i]];
-    [crashLogArray addObject:crashLog];
+    if (crashLog) {
+      [crashLogArray addObject:crashLog];
+    }
   }
   return [crashLogArray copy];
 }
 
-+ (NSDictionary<NSString *,id> *)loadCrashLog:(NSString *)fileName
++ (nullable NSDictionary<NSString *,id> *)loadCrashLog:(NSString *)fileName
 {
   return [NSDictionary dictionaryWithContentsOfFile:[directoryPath stringByAppendingPathComponent:fileName]];
 }

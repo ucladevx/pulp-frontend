@@ -323,7 +323,16 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         let tags = place?.tags
         categoryTextView.text = tags?[0]
         let rating = place?.rating
-        placeRating.text = "\(rating ) Pulps!"
+        
+       
+        if var varRating:Double = rating{
+            varRating = floor(varRating * 2 + 0.5) / 2  //rounding to the nearest .5
+            placeRating.text = "\(varRating) Pulps!"
+        }
+        else{
+            placeRating.text = ""
+        }
+        
         setupFriendPhotos()
         checkThisOutButton.tag = index
 

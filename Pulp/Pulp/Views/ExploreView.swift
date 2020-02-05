@@ -80,16 +80,28 @@ UICollectionViewDelegateFlowLayout {
         textView.isScrollEnabled = false
         return textView
     }()
-    let PlaceDescriptionTextView: UITextView = {
-        let textView = UITextView()
+
+    var PlaceDescriptionButtonList = [UIButton]()
+    
+    let PlaceDescriptionRow1: UIStackView = {
+        let stackView = UIStackView()
         
-        textView.isEditable = false
-        textView.backgroundColor = .white
-        textView.font = UIFont(name: "Avenir Book", size: 15)
-        textView.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.isScrollEnabled = false
-        return textView
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .leading
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 5
+        return stackView
+    }()
+    let PlaceDescriptionRow2: UIStackView = {
+        let stackView = UIStackView()
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .leading
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 5
+        return stackView
     }()
     let DistanceTextView: UITextView = {
         let textView = UITextView()
@@ -147,7 +159,7 @@ UICollectionViewDelegateFlowLayout {
         textView.isEditable = false
         textView.backgroundColor = .white
         textView.textColor = .black
-         textView.text = "Spilling the juice..."
+        textView.text = "Spilling the juice..."
         textView.font = UIFont(name: "Avenir Book", size: 20)
         textView.font = UIFont.boldSystemFont(ofSize: 20)
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -223,7 +235,8 @@ UICollectionViewDelegateFlowLayout {
         contentView.addSubview(locationTextView)
         contentView.addSubview(ExploreTextView)
         contentView.addSubview(PlaceNameTextView)
-        contentView.addSubview(PlaceDescriptionTextView)
+        contentView.addSubview(PlaceDescriptionRow1)
+        contentView.addSubview(PlaceDescriptionRow2)
         contentView.addSubview(DistanceTextView)
         contentView.addSubview(RatingPulpsTextView)
         contentView.addSubview(Profile1ImageView)
@@ -247,16 +260,22 @@ UICollectionViewDelegateFlowLayout {
         PlaceNameTextView.text = place.name
         place_id = place.id
         print(place.reviews)
-        var tag = ""
         let tags = place.tags
-        for (i, t) in tags.enumerated(){
-            tag += t
-            if (i != tags.count - 1){
-                tag += ", "
-            }
-        
+        for t in tags {
+            print(t)
+            let btn = UIButton(type: .custom)
+            btn.setTitle(t, for: UIControl.State.normal)
+            btn.setTitleColor(UIColor.white, for: .normal)
+            btn.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+            btn.backgroundColor = UIColor(red: 20/255, green: 121/255, blue: 201/255, alpha: 1)
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            btn.layer.cornerRadius = 15
+            btn.contentEdgeInsets = UIEdgeInsets.init(top:5, left:10, bottom:5, right:10)
+            btn.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+            btn.titleLabel?.numberOfLines = 1
+            PlaceDescriptionButtonList.append(btn)
         }
-        PlaceDescriptionTextView.text = tag
+        
         let placeLocation = CLLocation(latitude: place.latitude, longitude: place.longitude)
         let dist = (locationManager.location?.distance(from: placeLocation) ?? 0) / 1609.34
         let distance = String(format: "%.1f", dist)
@@ -303,13 +322,37 @@ UICollectionViewDelegateFlowLayout {
         PlaceNameTextView.widthAnchor.constraint(equalToConstant: 220).isActive = true
         PlaceNameTextView.heightAnchor.constraint(equalToConstant: 90).isActive = false
         
-        PlaceDescriptionTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        PlaceDescriptionTextView.topAnchor.constraint(equalTo: PlaceNameTextView.bottomAnchor).isActive = true
-        PlaceDescriptionTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
-        PlaceDescriptionTextView.heightAnchor.constraint(equalToConstant: 60).isActive = false
+        
+        
+        PlaceDescriptionRow1.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+//        PlaceDescriptionRow1.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        PlaceDescriptionRow1.topAnchor.constraint(equalTo: PlaceNameTextView.bottomAnchor).isActive = true
+        
+        PlaceDescriptionRow2.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+        PlaceDescriptionRow2.topAnchor.constraint(equalTo: PlaceDescriptionRow1.bottomAnchor, constant: 5).isActive = true
+
+        var accumulatedButtonWidth = CGFloat(0.0)
+        let screenWidth: CGFloat = UIScreen.main.bounds.width
+        print("The screen width is \(screenWidth)")
+        print("If accumulated button width exceeds \(screenWidth - 60), buttons will wrap to 2nd row")
+        
+        for PlaceDescriptionButton in PlaceDescriptionButtonList {
+            let width = CGFloat(PlaceDescriptionButton.currentTitle!.count)*6.3 + 25
+            print("Button width of \(PlaceDescriptionButton.currentTitle!): \(width)")
+            if(accumulatedButtonWidth + width > screenWidth - 60) {
+                PlaceDescriptionRow2.addArrangedSubview(PlaceDescriptionButton)
+                print("Exceeded limit, placing \(PlaceDescriptionButton.currentTitle!) button on 2nd row")
+                print(Int(screenWidth) - 60)
+            }
+            else {
+                PlaceDescriptionRow1.addArrangedSubview(PlaceDescriptionButton)
+            }
+            accumulatedButtonWidth += width
+            print("Accumulated button width is: \(accumulatedButtonWidth)")
+        }
         
         DistanceTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        DistanceTextView.topAnchor.constraint(equalTo: PlaceDescriptionTextView.bottomAnchor).isActive = true
+        DistanceTextView.topAnchor.constraint(equalTo: PlaceDescriptionRow2.bottomAnchor, constant: 5).isActive = true
         DistanceTextView.widthAnchor.constraint(equalToConstant: 220).isActive = true
         DistanceTextView.heightAnchor.constraint(equalToConstant: 40).isActive = false
         
@@ -569,5 +612,3 @@ class ReviewCollectionCell: UICollectionViewCell {
         }
     }
 }
-
-

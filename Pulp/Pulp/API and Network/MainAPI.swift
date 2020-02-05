@@ -45,9 +45,10 @@ public enum APICall: TargetType {
     case CreatePlace(name:String, city: String, state:String ,latitude:Double ,longitude:Double ,tags: [String],address1:String ,address2: String , zip_code: String, image: String )
     case GetPlace(placeID:String)
     case AddReview(userID:String, placeID:String, rating:Double, body:String)
-    case PlaceNameSearch(placeName: String)
+    case PlaceNameSearch(placeName: String, placeLat: Double, placeLong: Double)
     
     case YelpTest(lat: Double, long: Double, term: String, limit: Int)
+    
     public var sampleData: Data {
         return Data()
     }
@@ -138,10 +139,10 @@ public enum APICall: TargetType {
             return .requestParameters(parameters: ["name" : name, "city" : city, "state" : state ,"latitude" :latitude ,"longitude" : longitude ,"tags": tags, "address1" : address1 , "address2": address2 , "zip_code" : zip_code,  "image": image], encoding: JSONEncoding.default)
        
         case let .AddReview(userID, placeID, rating, body):  //imp
-            return .requestParameters(parameters: ["user_id" : userID, "place_id" : placeID, "rating" : rating, "body" : body], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: ["user_id" : userID, "place_id" : placeID, "rating" : rating, "body" : body, "user_photo" : USER_Photo], encoding: JSONEncoding.default)
             
-        case let .PlaceNameSearch(placeName):  //imp
-            return .requestParameters(parameters: ["place_name" : placeName, "user_id" : USERID], encoding: URLEncoding.queryString)
+        case let .PlaceNameSearch(placeName, placeLat, placeLong):  //imp
+            return .requestParameters(parameters: ["place_name" : placeName, "user_id" : USERID, "latitude" : placeLat, "longitude" : placeLong], encoding: URLEncoding.queryString)
             
         
          // Current implementation routes end here

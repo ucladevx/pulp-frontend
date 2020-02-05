@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 var USERID = ""
-var defaultURL = "https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/37932216_1645703915538656_3775230331393671168_o.jpg?_nc_cat=110&_nc_ohc=ciQNyepJLVgAQllmY3fmSir2f0qkYLrelz61ZzdYyXaKer6gG_0hPqecQ&_nc_ht=scontent-lax3-1.xx&oh=675496ad80156ad0966fdcf4fdbccd60&oe=5E70309C"
+var USER_Photo = ""
+var defaultURL = USER_Photo 
 var place_id = ""
 var LoggedIn = false
 

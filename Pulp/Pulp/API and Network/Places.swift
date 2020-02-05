@@ -8,6 +8,7 @@
 import Foundation
 import Moya
 
+let convertDispatch = DispatchGroup()
 
 struct MapReturn: Codable{
     let places: [Place]
@@ -45,7 +46,7 @@ func MapResponseToPlace(list:[GetMapResponse]){
         var treviews = [Review]()
         for rev in a {
             if (rev.body != ""){
-                treviews.insert(Review(postedBy: "", userImage: defaultURL, body: rev.body, rating: rev.rating), at: 0)
+                treviews.insert(Review(postedBy: "", userImage: defaultURL/*rev.user_photo */, body: rev.body, rating: rev.rating), at: 0)
             }
         }
         
@@ -61,25 +62,53 @@ func GetReviews(){
 
 func ListToPlace(list:[PlacesList]){
         YelpSearch.removeAll()
-        for place in list {
-            var found = false
-            var tags: [String] = [""]
-            tags.removeAll()
-            for t in place.categories{
-                tags.append(t.title)
-            }
-            for (i,t) in FriendPlaces.enumerated(){
-                if(t.name == place.name ){
-                    YelpSearch.insert(FriendPlaces[i], at: 0)
-                    found = true
-                    break
-                }
-            }
-                if(!found){   // Not in Database
-                    YelpSearch.append(Place(name: place.name ?? "", city: place.location?.city ?? "", state: place.location?.state ?? "", latitude: place.coordinates.latitude, longitude: place.coordinates.longitude, tags: tags, address1: place.location?.address1, address2: place.location?.address2, zip_code: place.location?.zip_code, image: place.image_url, id: "", fbvisitors: [], reviews: [], rating: place.rating ?? 0, isDatabase: false))
-                }
+    for (i,place) in list.enumerated() {
+            // Search place if exists
             
+        service.request(.PlaceNameSearch(placeName: place.name ?? "", placeLat: place.coordinates.latitude, placeLong:place.coordinates.longitude)) {(result) in
+                switch result {
+                case .success(let response):
+                    convertDispatch.enter()
+                    let save = try? JSONDecoder().decode(GetMapResponse.self, from: response.data)
+                    convertDispatch.leave()
+                    convertDispatch.notify(queue: .main) {
+                        print(save)
+                        if save != nil{
+                            
+                            let t = save!.place
+                            let a = save!.reviews
+                            var treviews = [Review]()
+                            for rev in a {
+                                if (rev.body != ""){
+                                    treviews.insert(Review(postedBy: "", userImage: defaultURL/*rev.user_photo */, body: rev.body, rating: rev.rating), at: 0)
+                                }
+                            }
+                            
+                            let temp = Place(name: t.name, city: t.city, state: t.state, latitude: t.latitude, longitude: t.longitude, tags: t.tags, address1: t.address1, address2: t.address2, zip_code: t.zip_code, image: t.image, id: t._id, fbvisitors: save!.friend_images, reviews: treviews, rating: save!.averageRating, isDatabase: true)
+                            YelpSearch.insert(temp, at: 0)
+                        }
+                        else{
+                            var tags: [String] = [""]
+                            tags.removeAll()
+                            for t in place.categories{
+                                tags.append(t.title)
+                            }
+                            YelpSearch.append(Place(name: place.name ?? "", city: place.location?.city ?? "", state: place.location?.state ?? "", latitude: place.coordinates.latitude, longitude: place.coordinates.longitude, tags: tags, address1: place.location?.address1, address2: place.location?.address2, zip_code: place.location?.zip_code, image: place.image_url, id: "", fbvisitors: [], reviews: [], rating: place.rating ?? 0, isDatabase: false))
+                            
+                            
+                        }
+                        if (i == list.endIndex-1){
+                            yelpSearchDispatchGroup.leave()
+                            print("fuck")
+                        }
+                    }
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
             }
+            }
+    
         }
     
 

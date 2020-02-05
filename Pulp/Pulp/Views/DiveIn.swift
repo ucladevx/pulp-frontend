@@ -13,6 +13,7 @@ let impact = UIImpactFeedbackGenerator(style: .medium)
 let dispatchGroup = DispatchGroup()
 let yelpDispatchGroup = DispatchGroup()
 let searchDispatchGroup = DispatchGroup()
+let yelpSearchDispatchGroup = DispatchGroup()
 
 class DiveIn: UIViewController {
     
@@ -366,8 +367,12 @@ class DiveIn: UIViewController {
             let save = try? JSONDecoder().decode(Return.self, from: response.data)
             if (save != nil){
             TempPlaces = save!.businesses // if safe null then search again.....
+            yelpSearchDispatchGroup.enter()
             ListToPlace(list:TempPlaces)
-            yelpDispatchGroup.leave()
+            yelpSearchDispatchGroup.notify(queue: .main) {
+                yelpDispatchGroup.leave()
+            }
+            
             return
             }
         case .failure(let error):

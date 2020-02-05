@@ -34,6 +34,10 @@ func CreateUser(){
             let pic1 = temp.object(forKey: "picture") as? NSDictionary
             let pic2 = pic1?.object(forKey: "data") as? NSDictionary
             photo_url = pic2?.object(forKey: "url") as? String
+            USER_Photo = photo_url ?? ""
+            let defaults = UserDefaults.standard
+            defaults.set(USER_Photo, forKey: "user_photo")
+            defaults.synchronize()
             let friend1 = temp.object(forKey: "friends") as? NSDictionary
             let friend2 = friend1?.object(forKey: "data") as? [NSDictionary]
             

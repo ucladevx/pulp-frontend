@@ -20,9 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         let defaults = UserDefaults.standard
-        let defaultValue = ["login_key" : "", "user_id" : "" ]
+        let defaultValue = ["login_key" : "", "user_id" : "" , "user_photo" :""]
         defaults.register(defaults: defaultValue)
         USERID = defaults.string(forKey: "user_id")!
+        USER_Photo = defaults.string(forKey: "user_photo")!
         
         return true
     }

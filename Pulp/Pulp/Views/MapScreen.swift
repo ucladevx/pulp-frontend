@@ -322,7 +322,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         locationTextView.text = address
         let tags = place?.tags
         categoryTextView.text = tags?[0]
-        let rating = place?.rating
+        let rating: Double = place?.rating ?? 0
         placeRating.text = "\(rating ) Pulps!"
         setupFriendPhotos()
         checkThisOutButton.tag = index

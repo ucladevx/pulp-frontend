@@ -14,7 +14,7 @@ let dispatchGroup = DispatchGroup()
 let yelpDispatchGroup = DispatchGroup()
 let searchDispatchGroup = DispatchGroup()
 
-class DiveIn: UIViewController {
+class DiveIn: UIViewController, UITextFieldDelegate{
     
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView(image:#imageLiteral(resourceName: "Wave_DiveIn"))
@@ -221,7 +221,11 @@ class DiveIn: UIViewController {
         txtField.placeholder = "Parks, museums, bars, etc."
         txtField.translatesAutoresizingMaskIntoConstraints = false
         txtField.textColor = UIColor.gray
+        
+        
+        
         return txtField
+        
     }()
     
     let zipView: UIView = {
@@ -398,9 +402,21 @@ class DiveIn: UIViewController {
         setupLayout()
         setupButtonDestination()
         searchButton.addTarget(self, action: #selector(self.searchTapped(_:)), for: .touchUpInside)
+        self.searchBar.delegate = self
+        
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //textField code
+//        textField.resignFirstResponder()  //if desired
+        searchAction();
+        return true
     }
     
     @objc func searchTapped(_ sender: UIButton) {
+        searchAction();
+    }
+    
+    func searchAction(){
         impact.impactOccurred()
         let searchTerm: String = searchBar.text ?? ""
         if( searchTerm == ""){ return}

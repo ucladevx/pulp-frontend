@@ -10,6 +10,7 @@ import UIKit
 
     protocol PopUpDelegate {
         func handleDismissal()
+        func goBacktoExplore()
     }
 
     class PopUpWindow: UIView {
@@ -22,9 +23,23 @@ import UIKit
         
         var delegate: PopUpDelegate?
         
+        let backButton: UIButton = {
+            let btn = UIButton(type: .custom)
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            btn.setTitle("< Back", for: .normal)
+            btn.backgroundColor = UIColor(red: 20/255, green: 121/255, blue: 201/255, alpha: 1)
+            btn.setTitleColor(UIColor.white, for: .normal)
+            btn.layer.cornerRadius = 10
+            btn.contentEdgeInsets = UIEdgeInsets.init(top:5, left:10, bottom:5, right:10)
+            btn.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+            btn.titleLabel?.numberOfLines = 1
+            // not sure if this is the right thing to do
+            btn.addTarget(self, action: #selector(goBacktoExplore), for: .touchUpInside)
+            return btn
+        }()
         let reviewText: UITextView = {
             let textView = UITextView()
-           textView.placeholder = "Share your experience?"
+            textView.placeholder = "Share your experience?"
             
             textView.translatesAutoresizingMaskIntoConstraints = false
             textView.textColor = .darkGray
@@ -34,7 +49,7 @@ import UIKit
             return textView
             
         }()
-       var floatRatingView =  FloatRatingView(frame: CGRect(x:13, y: 100, width: 280, height: 150))
+        var floatRatingView =  FloatRatingView(frame: CGRect(x:13, y: 100, width: 280, height: 150))
         
         
         let reviewTextView: UIView = {
@@ -44,9 +59,9 @@ import UIKit
             return view
         }()
         
-        let button: UIButton = {
+        let submitButton: UIButton = {
             let button = UIButton(type: .system)
-            button.backgroundColor = .blue
+            button.backgroundColor = UIColor(red: 20/255, green: 121/255, blue: 201/255, alpha: 1)
             button.setTitle("Submit", for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.addTarget(self, action: #selector(handleDismissal), for: .touchUpInside)
@@ -61,17 +76,22 @@ import UIKit
             super.init(frame: frame)
             backgroundColor = .white
             
-            addSubview(button)
-            button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            button.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
-            button.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true
+            addSubview(backButton)
+            backButton.titleLabel?.font = UIFont(name: "Avenir-Light", size: 15)
+            backButton.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+            backButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
+            
+            addSubview(submitButton)
+            submitButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            submitButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
+            submitButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
+            submitButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true
             
             addSubview(reviewTextView)
             reviewTextView.centerXAnchor.constraint(equalTo:centerXAnchor).isActive = true
             reviewTextView.topAnchor.constraint(equalTo: topAnchor, constant: 200).isActive = true
             reviewTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.90).isActive = true
-            reviewTextView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -20).isActive = true
+            reviewTextView.bottomAnchor.constraint(equalTo: submitButton.topAnchor, constant: -20).isActive = true
             
             reviewTextView.addSubview(reviewText)
             reviewText.centerXAnchor.constraint(equalTo:reviewTextView.centerXAnchor).isActive = true
@@ -99,6 +119,11 @@ import UIKit
         @objc func handleDismissal() {
             impact.impactOccurred()
             delegate?.handleDismissal()
+        }
+        
+        @objc func goBacktoExplore() {
+            impact.impactOccurred()
+            delegate?.goBacktoExplore();
         }
         
     }

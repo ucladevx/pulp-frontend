@@ -221,8 +221,8 @@ class DiveIn: UIViewController, UITextFieldDelegate{
         txtField.placeholder = "Parks, museums, bars, etc."
         txtField.translatesAutoresizingMaskIntoConstraints = false
         txtField.textColor = UIColor.gray
-        
-        
+        txtField.returnKeyType = UIReturnKeyType.go;
+        txtField.enablesReturnKeyAutomatically = true;
         
         return txtField
         
@@ -381,8 +381,6 @@ class DiveIn: UIViewController, UITextFieldDelegate{
     }
         
     }
-    
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -406,8 +404,6 @@ class DiveIn: UIViewController, UITextFieldDelegate{
         
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //textField code
-//        textField.resignFirstResponder()  //if desired
         searchAction();
         return true
     }

@@ -261,7 +261,8 @@ UICollectionViewDelegateFlowLayout {
         let dist = (locationManager.location?.distance(from: placeLocation) ?? 0) / 1609.34
         let distance = String(format: "%.1f", dist)
         DistanceTextView.text = distance +  " miles away"
-        let avRating = place.rating
+        var avRating: Double = place.rating
+        avRating = floor(avRating * 2 + 0.5) / 2 //rounding to nearest .5
         RatingPulpsTextView.text = "\(avRating ) Pulps"
         
         

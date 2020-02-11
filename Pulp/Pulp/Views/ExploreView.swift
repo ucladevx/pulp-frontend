@@ -80,16 +80,28 @@ UICollectionViewDelegateFlowLayout {
         textView.isScrollEnabled = false
         return textView
     }()
-    let PlaceDescriptionTextView: UITextView = {
-        let textView = UITextView()
+
+    var PlaceDescriptionButtonList = [UIButton]()
+    
+    let PlaceDescriptionRow1: UIStackView = {
+        let stackView = UIStackView()
         
-        textView.isEditable = false
-        textView.backgroundColor = .white
-        textView.font = UIFont(name: "Avenir Book", size: 15)
-        textView.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.isScrollEnabled = false
-        return textView
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .leading
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 5
+        return stackView
+    }()
+    let PlaceDescriptionRow2: UIStackView = {
+        let stackView = UIStackView()
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .leading
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 5
+        return stackView
     }()
     let DistanceTextView: UITextView = {
         let textView = UITextView()
@@ -102,16 +114,18 @@ UICollectionViewDelegateFlowLayout {
         textView.isScrollEnabled = false
         return textView
     }()
-    let RatingPulpsTextView:UITextView = {
-        let textView = UITextView()
-        
-        textView.isEditable = false
-        textView.backgroundColor = .white
-        textView.font = UIFont(name: "Avenir Book", size: 15)
-        textView.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.isScrollEnabled = false
-        return textView
+    let ratingPulpsIconView: RatingPulpsIconView = {
+        let ratingView = RatingPulpsIconView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
+        ratingView.translatesAutoresizingMaskIntoConstraints = false
+        ratingView.fullImage = UIImage(named: "Pulp_Logo")
+        ratingView.emptyImage = imageWithSize(size: ratingView.fullImage!.size)
+        ratingView.backgroundColor =  UIColor.clear
+        return ratingView
+    }()
+    let ratingView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     let Profile1ImageView: UIImageView = {
         let imageView = UIImageView()
@@ -147,7 +161,7 @@ UICollectionViewDelegateFlowLayout {
         textView.isEditable = false
         textView.backgroundColor = .white
         textView.textColor = .black
-         textView.text = "Spilling the juice..."
+        textView.text = "Spilling the juice..."
         textView.font = UIFont(name: "Avenir Book", size: 20)
         textView.font = UIFont.boldSystemFont(ofSize: 20)
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -223,14 +237,16 @@ UICollectionViewDelegateFlowLayout {
         contentView.addSubview(locationTextView)
         contentView.addSubview(ExploreTextView)
         contentView.addSubview(PlaceNameTextView)
-        contentView.addSubview(PlaceDescriptionTextView)
+        contentView.addSubview(PlaceDescriptionRow1)
+        contentView.addSubview(PlaceDescriptionRow2)
         contentView.addSubview(DistanceTextView)
-        contentView.addSubview(RatingPulpsTextView)
+        contentView.addSubview(ratingView)
+        ratingView.addSubview(ratingPulpsIconView)
+        contentView.addSubview(AddReviewTextView)
         contentView.addSubview(Profile1ImageView)
         contentView.addSubview(Profile2ImageView)
         contentView.addSubview(Profile3ImageView)
         contentView.addSubview(Profile4ImageView)
-        contentView.addSubview(AddReviewTextView)
         contentView.addSubview(backButton)
         contentView.addSubview(AddReviewButton)
         contentView.addSubview(visualEffectView)
@@ -241,31 +257,36 @@ UICollectionViewDelegateFlowLayout {
         else{
             place = YelpSearch[selectedLocation]
         }
+        let screenWidth: CGFloat = UIScreen.main.bounds.width
         locationImageView.loadImage(urlString: place.image ?? defaultURL)
         let CityState = place.city + ", " + place.state
         locationTextView.text = CityState
         PlaceNameTextView.text = place.name
         place_id = place.id
         print(place.reviews)
-        var tag = ""
         let tags = place.tags
-        for (i, t) in tags.enumerated(){
-            tag += t
-            if (i != tags.count - 1){
-                tag += ", "
-            }
-        
+        for t in tags {
+            let btn = UIButton(type: .custom)
+            btn.setTitle(t, for: UIControl.State.normal)
+            btn.setTitleColor(UIColor.white, for: .normal)
+            btn.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+            btn.backgroundColor = UIColor(red: 20/255, green: 121/255, blue: 201/255, alpha: 1)
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            btn.layer.cornerRadius = 15
+            btn.contentEdgeInsets = UIEdgeInsets.init(top:5, left:10, bottom:5, right:10)
+            btn.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+            btn.titleLabel?.numberOfLines = 1
+            PlaceDescriptionButtonList.append(btn)
         }
-        PlaceDescriptionTextView.text = tag
+        
         let placeLocation = CLLocation(latitude: place.latitude, longitude: place.longitude)
         let dist = (locationManager.location?.distance(from: placeLocation) ?? 0) / 1609.34
         let distance = String(format: "%.1f", dist)
         DistanceTextView.text = distance +  " miles away"
+
         var avRating: Double = place.rating
         avRating = floor(avRating * 2 + 0.5) / 2 //rounding to nearest .5
         RatingPulpsTextView.text = "\(avRating ) Pulps"
-        
-        
         
         backButton.layer.cornerRadius = 10
         backButton.titleEdgeInsets.left = 10
@@ -304,62 +325,72 @@ UICollectionViewDelegateFlowLayout {
         PlaceNameTextView.widthAnchor.constraint(equalToConstant: 220).isActive = true
         PlaceNameTextView.heightAnchor.constraint(equalToConstant: 90).isActive = false
         
-        PlaceDescriptionTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        PlaceDescriptionTextView.topAnchor.constraint(equalTo: PlaceNameTextView.bottomAnchor).isActive = true
-        PlaceDescriptionTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
-        PlaceDescriptionTextView.heightAnchor.constraint(equalToConstant: 60).isActive = false
+        PlaceDescriptionRow1.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+        PlaceDescriptionRow1.topAnchor.constraint(equalTo: PlaceNameTextView.bottomAnchor).isActive = true
+        
+        PlaceDescriptionRow2.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+        PlaceDescriptionRow2.topAnchor.constraint(equalTo: PlaceDescriptionRow1.bottomAnchor, constant: 5).isActive = true
+
+        var accumulatedButtonWidth = CGFloat(0.0)
+        
+        for PlaceDescriptionButton in PlaceDescriptionButtonList {
+            let width = CGFloat(PlaceDescriptionButton.currentTitle!.count)*6.3 + 25
+            if(accumulatedButtonWidth + width > screenWidth - 60) {
+                PlaceDescriptionRow2.addArrangedSubview(PlaceDescriptionButton)
+                print(Int(screenWidth) - 60)
+            }
+            else {
+                PlaceDescriptionRow1.addArrangedSubview(PlaceDescriptionButton)
+            }
+            accumulatedButtonWidth += width
+        }
         
         DistanceTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        DistanceTextView.topAnchor.constraint(equalTo: PlaceDescriptionTextView.bottomAnchor).isActive = true
+        DistanceTextView.topAnchor.constraint(equalTo: PlaceDescriptionRow2.bottomAnchor).isActive = true
         DistanceTextView.widthAnchor.constraint(equalToConstant: 220).isActive = true
         DistanceTextView.heightAnchor.constraint(equalToConstant: 40).isActive = false
         
-        RatingPulpsTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 130).isActive = true
-        RatingPulpsTextView.topAnchor.constraint(equalTo: DistanceTextView.bottomAnchor, constant: 10).isActive = true
-        RatingPulpsTextView.widthAnchor.constraint(equalToConstant: 75).isActive = true
-        RatingPulpsTextView.heightAnchor.constraint(equalToConstant: 40).isActive = false
+        ratingView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: (screenWidth - ratingPulpsIconView.frame.size.width)/2).isActive = true
+        ratingView.topAnchor.constraint(equalTo: DistanceTextView.bottomAnchor).isActive = true
         
-        Profile1ImageView.leftAnchor.constraint(equalTo: RatingPulpsTextView.rightAnchor, constant: 10).isActive = true
-        Profile1ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        Profile1ImageView.topAnchor.constraint(equalTo: DistanceTextView.bottomAnchor, constant: 10).isActive = true
-        Profile1ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        Profile1ImageView.clipsToBounds = true
-        Profile1ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
-        
-        Profile2ImageView.leftAnchor.constraint(equalTo: Profile1ImageView.rightAnchor).isActive = true
-        Profile2ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        Profile2ImageView.topAnchor.constraint(equalTo: DistanceTextView.bottomAnchor, constant: 10).isActive = true
-        Profile2ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        Profile2ImageView.clipsToBounds = true
-        Profile2ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
-        
-        Profile3ImageView.leftAnchor.constraint(equalTo: Profile2ImageView.rightAnchor).isActive = true
-        Profile3ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        Profile3ImageView.topAnchor.constraint(equalTo: DistanceTextView.bottomAnchor, constant: 10).isActive = true
-        Profile3ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        Profile3ImageView.clipsToBounds = true
-        Profile3ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
-        
-        Profile4ImageView.leftAnchor.constraint(equalTo: Profile3ImageView.rightAnchor).isActive = true
-        Profile4ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        Profile4ImageView.topAnchor.constraint(equalTo: DistanceTextView.bottomAnchor, constant: 10).isActive = true
-        Profile4ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        Profile4ImageView.clipsToBounds = true
-        Profile4ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
-        
-        
-        
-        AddReviewTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        AddReviewTextView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 10).isActive = true
-        AddReviewTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
-        AddReviewTextView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        
-
-        AddReviewButton.topAnchor.constraint(equalTo: RatingPulpsTextView.bottomAnchor, constant: 20).isActive = true
+        AddReviewButton.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 70).isActive = true
         AddReviewButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         AddReviewButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         AddReviewButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         AddReviewButton.addTarget(self, action: #selector(self.checkInTapped(_:)), for: .touchUpInside)
+        
+        Profile1ImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        Profile1ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+        Profile1ImageView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 20).isActive = true
+        Profile1ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        Profile1ImageView.clipsToBounds = true
+        Profile1ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
+        
+        Profile2ImageView.rightAnchor.constraint(equalTo: Profile1ImageView.leftAnchor).isActive = true
+        Profile2ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+        Profile2ImageView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 20).isActive = true
+        Profile2ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        Profile2ImageView.clipsToBounds = true
+        Profile2ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
+        
+        Profile3ImageView.rightAnchor.constraint(equalTo: Profile2ImageView.leftAnchor).isActive = true
+        Profile3ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+        Profile3ImageView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 20).isActive = true
+        Profile3ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        Profile3ImageView.clipsToBounds = true
+        Profile3ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
+        
+        Profile4ImageView.rightAnchor.constraint(equalTo: Profile3ImageView.leftAnchor).isActive = true
+        Profile4ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+        Profile4ImageView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 20).isActive = true
+        Profile4ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        Profile4ImageView.clipsToBounds = true
+        Profile4ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
+        
+        AddReviewTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+        AddReviewTextView.topAnchor.constraint(equalTo: Profile4ImageView.bottomAnchor, constant: 10).isActive = true
+        AddReviewTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
+        AddReviewTextView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         view.addSubview(visualEffectView)
         visualEffectView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -515,6 +546,16 @@ extension Explore_Controller: PopUpDelegate {
         }
     }
     
+    func goBacktoExplore() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.visualEffectView.alpha = 0
+            self.popUpWindow.alpha = 0
+            self.popUpWindow.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        }) { (_) in
+            self.popUpWindow.removeFromSuperview()
+            print("Did remove pop up window..")
+        }
+    }
     
 }
 
@@ -571,4 +612,228 @@ class ReviewCollectionCell: UICollectionViewCell {
     }
 }
 
+open class RatingPulpsIconView: UIView {
+    
+    // MARK: Properties
 
+    /// Array of empty image views
+    private var emptyImageViews: [UIImageView] = []
+
+    /// Array of full image views
+    private var fullImageViews: [UIImageView] = []
+
+    /// Sets the empty image (e.g. a star outline)
+    @IBInspectable open var emptyImage: UIImage? {
+        didSet {
+            // Update empty image views
+            for imageView in emptyImageViews {
+                imageView.image = emptyImage
+            }
+            refresh()
+        }
+    }
+
+    /// Sets the full image that is overlayed on top of the empty image.
+    /// Should be same size and shape as the empty image.
+    @IBInspectable open var fullImage: UIImage? {
+        didSet {
+            // Update full image views
+            for imageView in fullImageViews {
+                imageView.image = fullImage
+            }
+            refresh()
+        }
+    }
+
+    /// Sets the empty and full image view content mode.
+    open var imageContentMode: UIView.ContentMode = .scaleAspectFit
+
+    /// Minimum rating.
+    @IBInspectable open var minRating: Int = 0 {
+        didSet {
+            // Update current rating if needed
+            if rating < Double(minRating) {
+                rating = Double(minRating)
+                refresh()
+            }
+        }
+    }
+
+    /// Max rating value.
+    @IBInspectable open var maxRating: Int = 5 {
+        didSet {
+            if maxRating != oldValue {
+                removeImageViews()
+                initImageViews()
+                
+                // Relayout and refresh
+                setNeedsLayout()
+                refresh()
+            }
+        }
+    }
+
+    /// Minimum image size.
+    @IBInspectable open var minImageSize = CGSize(width: 5.0, height: 5.0)
+
+    /// Set the current rating.
+    @IBInspectable open var rating: Double = 0 {
+        didSet {
+            if rating != oldValue {
+                refresh()
+            }
+        }
+    }
+
+    /// Sets whether or not the rating view can be changed by panning.
+    @IBInspectable open var editable = true
+
+    // MARK: Type
+    @objc public enum FloatRatingViewType: Int {
+        /// Integer rating
+        case wholeRatings
+        /// Double rating in increments of 0.5
+        case halfRatings
+        /// Double rating
+        case floatRatings
+
+        /// Returns true if rating can contain decimal places
+        func supportsFractions() -> Bool {
+            return self == .halfRatings || self == .floatRatings
+        }
+    }
+
+    /// Float rating view type
+    @IBInspectable open var type: FloatRatingViewType = .wholeRatings
+    
+    // MARK: Initializations
+    
+    required override public init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        initImageViews()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        initImageViews()
+    }
+    
+    // MARK: Helper methods
+    private func initImageViews() {
+        guard emptyImageViews.isEmpty && fullImageViews.isEmpty else {
+            return
+        }
+
+        // Add new image views
+        for _ in 0..<maxRating {
+            let emptyImageView = UIImageView()
+            emptyImageView.contentMode = imageContentMode
+            emptyImageView.image = emptyImage
+            emptyImageViews.append(emptyImageView)
+            addSubview(emptyImageView)
+
+            let fullImageView = UIImageView()
+            fullImageView.contentMode = imageContentMode
+            fullImageView.image = fullImage
+            fullImageViews.append(fullImageView)
+            addSubview(fullImageView)
+        }
+    }
+
+    private func removeImageViews() {
+        // Remove old image views
+        for i in 0..<emptyImageViews.count {
+            var imageView = emptyImageViews[i]
+            imageView.removeFromSuperview()
+            imageView = fullImageViews[i]
+            imageView.removeFromSuperview()
+        }
+        emptyImageViews.removeAll(keepingCapacity: false)
+        fullImageViews.removeAll(keepingCapacity: false)
+    }
+
+    // Refresh hides or shows full images
+    private func refresh() {
+        for i in 0..<fullImageViews.count {
+            let imageView = fullImageViews[i]
+
+            if rating >= Double(i+1) {
+                imageView.layer.mask = nil
+                imageView.isHidden = false
+            } else if rating > Double(i) && rating < Double(i+1) {
+                // Set mask layer for full image
+                let maskLayer = CALayer()
+                maskLayer.frame = CGRect(x: 0, y: 0, width: CGFloat(rating-Double(i))*imageView.frame.size.width, height: imageView.frame.size.height)
+                maskLayer.backgroundColor = UIColor.black.cgColor
+                imageView.layer.mask = maskLayer
+                imageView.isHidden = false
+            } else {
+                imageView.layer.mask = nil;
+                imageView.isHidden = true
+            }
+        }
+    }
+    
+    // Calculates the ideal ImageView size in a given CGSize
+    private func sizeForImage(_ image: UIImage, inSize size: CGSize) -> CGSize {
+        let imageRatio = image.size.width / image.size.height
+        let viewRatio = size.width / size.height
+        
+        if imageRatio < viewRatio {
+            let scale = size.height / image.size.height
+            let width = scale * image.size.width
+            
+            return CGSize(width: width, height: size.height)
+        } else {
+            let scale = size.width / image.size.width
+            let height = scale * image.size.height
+            
+            return CGSize(width: size.width, height: height)
+        }
+    }
+
+    // MARK: UIView
+    
+    // Override to calculate ImageView frames
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+
+        guard let emptyImage = emptyImage else {
+            return
+        }
+
+        let desiredImageWidth = frame.size.width / CGFloat(emptyImageViews.count)
+        let maxImageWidth = max(minImageSize.width, desiredImageWidth)
+        let maxImageHeight = max(minImageSize.height, frame.size.height)
+        let imageViewSize = sizeForImage(emptyImage, inSize: CGSize(width: maxImageWidth, height: maxImageHeight))
+        let imageXOffset = (frame.size.width - (imageViewSize.width * CGFloat(emptyImageViews.count))) /
+                            CGFloat((emptyImageViews.count - 1))
+        
+        for i in 0..<maxRating {
+            let imageFrame = CGRect(x: i == 0 ? 0 : CGFloat(i)*(imageXOffset+imageViewSize.width), y: 0, width: imageViewSize.width, height: imageViewSize.height)
+            
+            var imageView = emptyImageViews[i]
+            imageView.frame = imageFrame
+            
+            imageView = fullImageViews[i]
+            imageView.frame = imageFrame
+        }
+        
+        refresh()
+    }
+}
+
+// Used to generate a blank image for rating. May be removed later.
+func imageWithSize(size: CGSize, filledWithColor color: UIColor = UIColor.clear, scale: CGFloat = 0.0, opaque: Bool = false) -> UIImage {
+    let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+    
+    UIGraphicsBeginImageContextWithOptions(size, opaque, scale)
+    color.set()
+    UIRectFill(rect)
+    let image = UIGraphicsGetImageFromCurrentImageContext()!
+    UIGraphicsEndImageContext()
+    
+    return image
+}

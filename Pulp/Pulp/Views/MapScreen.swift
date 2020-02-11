@@ -323,6 +323,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         let tags = place?.tags
         categoryTextView.text = tags?[0]
 <<<<<<< HEAD
+<<<<<<< HEAD
         
         var rating: Double = place?.rating ?? 0
         rating = floor(rating * 2 + 0.5) / 2 //rounding to nearest .5
@@ -334,6 +335,19 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         rating = floor(rating * 2 + 0.5) / 2 //rounding to nearest .5
 
 >>>>>>> test
+=======
+
+
+        
+        var rating: Double = place?.rating ?? 0
+        rating = floor(rating * 2 + 0.5) / 2 //rounding to nearest .5
+
+=======
+        
+        var rating: Double = place?.rating ?? 0
+        rating = floor(rating * 2 + 0.5) / 2 //rounding to nearest .5
+>>>>>>> master
+>>>>>>> 826681641491973600590d3406f75ca42d524344
         placeRating.text = "\(rating ) Pulps!"
        
         setupFriendPhotos()

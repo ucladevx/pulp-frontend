@@ -286,7 +286,7 @@ UICollectionViewDelegateFlowLayout {
 
         var avRating: Double = place.rating
         avRating = floor(avRating * 2 + 0.5) / 2 //rounding to nearest .5
-        RatingPulpsTextView.text = "\(avRating ) Pulps"
+        ratingPulpsIconView.rating = avRating
         
         backButton.layer.cornerRadius = 10
         backButton.titleEdgeInsets.left = 10

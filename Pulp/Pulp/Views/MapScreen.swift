@@ -322,12 +322,18 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         locationTextView.text = address
         let tags = place?.tags
         categoryTextView.text = tags?[0]
+<<<<<<< HEAD
 
 
         
         var rating: Double = place?.rating ?? 0
         rating = floor(rating * 2 + 0.5) / 2 //rounding to nearest .5
 
+=======
+        
+        var rating: Double = place?.rating ?? 0
+        rating = floor(rating * 2 + 0.5) / 2 //rounding to nearest .5
+>>>>>>> master
         placeRating.text = "\(rating ) Pulps!"
        
         setupFriendPhotos()

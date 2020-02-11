@@ -99,7 +99,7 @@ func ListToPlace(list:[PlacesList]){
                         }
                         if (i == list.endIndex-1){
                             yelpSearchDispatchGroup.leave()
-                            print("fuck")
+                            
                         }
                     }
                     

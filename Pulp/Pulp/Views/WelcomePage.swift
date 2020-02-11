@@ -58,7 +58,7 @@ class WelcomePageController: UIViewController{
         let defaults = UserDefaults.standard
         let token = defaults.bool(forKey: "login_key")
         if(token){
-            perform(#selector(presentMap), with: nil, afterDelay: 0)
+            perform(#selector(presentMap), with: nil, afterDelay: 1)
         }
         else{
             self.view.addSubview(nextButton)

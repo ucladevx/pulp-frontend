@@ -9,13 +9,15 @@
 
 
 import UIKit
+import CoreLocation
+
 let impact = UIImpactFeedbackGenerator(style: .medium)
 let dispatchGroup = DispatchGroup()
 let yelpDispatchGroup = DispatchGroup()
 let searchDispatchGroup = DispatchGroup()
 let yelpSearchDispatchGroup = DispatchGroup()
 
-class DiveIn: UIViewController, UITextFieldDelegate{
+class DiveIn: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate{
     
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView(image:#imageLiteral(resourceName: "Wave_DiveIn"))
@@ -352,7 +354,17 @@ class DiveIn: UIViewController, UITextFieldDelegate{
             searchTerm = ""
         }
         yelpDispatchGroup.enter()
-        YelpSearchFunc(latt: 34.073121, longi:  -118.454704, sterm: searchTerm, limitN: 10)
+        //get current location
+        locationManager.startUpdatingLocation()
+        var Latt = 34.073121 //default location if current not found
+        var Long = -118.454704
+        if let userLocation = self.locationManager.location?.coordinate {
+            Latt = userLocation.latitude
+            Long = userLocation.longitude
+        }
+        locationManager.stopUpdatingLocation()
+        
+        YelpSearchFunc(latt: Latt, longi:  Long, sterm: searchTerm, limitN: 10)
         yelpDispatchGroup.notify(queue: .main) {
             print("Moving to list_view")
             let nextVC = ListView_Controller()
@@ -362,7 +374,14 @@ class DiveIn: UIViewController, UITextFieldDelegate{
         })
         }
     }
-
+    var locationManager: CLLocationManager = {
+        var locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        return locationManager
+    }()
+    
     func YelpSearchFunc(latt:Double, longi: Double, sterm: String, limitN: Int) {
 
         service.request(.YelpTest(lat: latt, long: longi, term: sterm, limit:limitN)) {(result) in
@@ -406,6 +425,8 @@ class DiveIn: UIViewController, UITextFieldDelegate{
         setupButtonDestination()
         searchButton.addTarget(self, action: #selector(self.searchTapped(_:)), for: .touchUpInside)
         self.searchBar.delegate = self
+        self.locationManager.delegate = self
+        
         
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -422,7 +443,15 @@ class DiveIn: UIViewController, UITextFieldDelegate{
         let searchTerm: String = searchBar.text ?? ""
         if( searchTerm == ""){ return}
         yelpDispatchGroup.enter()
-        YelpSearchFunc(latt: 34.073121, longi:  -118.454704, sterm: searchTerm, limitN: 10)
+        locationManager.startUpdatingLocation()
+        var Latt = 34.073121 //default location if current not found
+        var Long = -118.454704
+        if let userLocation = self.locationManager.location?.coordinate {
+            Latt = userLocation.latitude
+            Long = userLocation.longitude
+        }
+        locationManager.stopUpdatingLocation()
+        YelpSearchFunc(latt: Latt, longi:  Long, sterm: searchTerm, limitN: 10)
         yelpDispatchGroup.notify(queue: .main) {
             print("Moving to list_view")
             let nextVC = ListView_Controller()

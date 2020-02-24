@@ -303,7 +303,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
         impact.impactOccurred()
-        isDisplaying = false // does this do anything
+        isDisplaying = true // does this do anything
         place = FriendPlaces[index]
         contentImageView.loadImage(urlString: place?.image ?? defaultURL)
         titleTextView.text = place?.name
@@ -473,7 +473,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     
 }
 
-extension MapScreen: MKMapViewDelegate, UITextViewDelegate {
+extension MapScreen: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let tileOverlay = overlay as? MKTileOverlay {
             return MKTileOverlayRenderer(tileOverlay: tileOverlay)

@@ -146,65 +146,102 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    let OpenerUp: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Home-1"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    let OpenerDown: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Home-1"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    let Title: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "PulpTitle"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        view.addSubview(Title)
+        view.addSubview(OpenerDown)
+        view.addSubview(OpenerUp)
+        OpenerUp.center = CGPoint(x: 270, y: view.bounds.height + 110)
+        OpenerDown.center = CGPoint(x: 240, y: view.bounds.height + 10)
+        
+        Title.center = CGPoint(x: (view.bounds.width * 0.5), y: (view.bounds.height * 0.45))
+        Title.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        OpenerUp.alpha = 1.0
+        OpenerDown.alpha = 1.0
         
         print(USERID)
 
         mapDispatch.enter()
         GetMapPlaces()
         mapDispatch.notify(queue: .main) {
-            print("Updated Friend Places")
-            if !FriendPlaces.isEmpty{
-                self.place = FriendPlaces[0]
-            }
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.view.backgroundColor = UIColor.clear
-        self.mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: (self.window?.frame.width)!, height: (self.window?.frame.height)!))
-        
-        self.locationManager.delegate = self
-        
-            if let userLocation = self.locationManager.location?.coordinate {
-            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters:1700, longitudinalMeters: 1700)
-                self.mapView?.setRegion(viewRegion, animated: true)
-            print("Correct Area")
-        }
-            self.locationManager.stopUpdatingLocation()
-        
-            self.mapView?.delegate = self
-            self.configureTileOverlay()
-        
-        self.mapView!.showsCompass = true
-        self.mapView!.showsBuildings = true
-        self.mapView!.showsUserLocation = true
-        self.view.addSubview(self.mapView!)
-            self.searchBarView.addSubview(self.searchBar)
-//            self.searchBarView.addSubview(self.filterButton)
-//            self.searchBarView.addSubview(self.cancelButton)
-//            self.searchBarView.addSubview(self.vertLineView)
-            self.view.addSubview(self.searchBarView)
-        
-            let buttonItem = MKUserTrackingButton(mapView: self.mapView)
-            buttonItem.frame = CGRect(origin: CGPoint(x:self.view.frame.width - 70, y: self.view.frame.height - 70), size: CGSize(width: 35, height: 35))
-        
-            self.view.addSubview(buttonItem)
-        
-            self.setUpSearchBar()
-        
-            self.popupLayout()
-        
-        if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
+            UIView.animate(withDuration: 1.0, delay: 1, options: [.curveEaseInOut , .allowUserInteraction],
+                animations: {
+                    self.OpenerUp.center = CGPoint(x: 130, y: -50)
+                    self.OpenerUp.transform = CGAffineTransform(rotationAngle: (.pi-0.5 ))
+                    self.OpenerDown.center = CGPoint(x: 300, y: self.view.bounds.height + 70)
+                    self.OpenerDown.transform = CGAffineTransform(rotationAngle: (-0.5))
+                   },
+                completion: { finished in
+                print("Animation Done")
+                print("Updated Friend Places")
+                if !FriendPlaces.isEmpty{
+                    self.place = FriendPlaces[0]
+                    }
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                self.view.backgroundColor = UIColor.clear
+                self.mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: (self.window?.frame.width)!, height: (self.window?.frame.height)!))
+                        
+                self.locationManager.delegate = self
+                        
+                if let userLocation = self.locationManager.location?.coordinate {
+                    let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters:1700, longitudinalMeters: 1700)
+                    self.mapView?.setRegion(viewRegion, animated: true)
+                    print("Correct Area")
+                    }
+                self.locationManager.stopUpdatingLocation()
+                        
+                self.mapView?.delegate = self
+                self.configureTileOverlay()
+                        
+                self.mapView!.showsCompass = true
+                self.mapView!.showsBuildings = true
+                self.mapView!.showsUserLocation = true
+                self.view.addSubview(self.mapView!)
+                self.searchBarView.addSubview(self.searchBar)
+                //            self.searchBarView.addSubview(self.filterButton)
+                //            self.searchBarView.addSubview(self.cancelButton)
+                //            self.searchBarView.addSubview(self.vertLineView)
+                self.view.addSubview(self.searchBarView)
+                        
+                let buttonItem = MKUserTrackingButton(mapView: self.mapView)
+                buttonItem.frame = CGRect(origin: CGPoint(x:self.view.frame.width - 70, y: self.view.frame.height - 70), size: CGSize(width: 35, height: 35))
+                        
+                self.view.addSubview(buttonItem)
+                        
+                self.setUpSearchBar()
+                        
+                self.popupLayout()
+                        
+                if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
+                            
+                    self.currentLocation = self.locationManager.location
+                        for place in FriendPlaces {
+                            let pinLocation = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+                            self.addPin(imageName: "MapFaveIcon", location: pinLocation, title: place.name, subtitle: "")
+                            }
+                        }
+                            popupView.addGestureRecognizer(self.tapRecognizer)
+            })
             
-            self.currentLocation = self.locationManager.location
-            for place in FriendPlaces {
-                let pinLocation = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
-                self.addPin(imageName: "MapFaveIcon", location: pinLocation, title: place.name, subtitle: "")
-            }
-        }
-            popupView.addGestureRecognizer(self.tapRecognizer)
         }
     
     }

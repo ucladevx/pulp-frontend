@@ -43,6 +43,10 @@ UICollectionViewDelegateFlowLayout {
         let imageView = CustomImageView()
         var count = 5
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowOpacity = 0.2
+        imageView.layer.shadowOffset = CGSize(width:5, height:5)
+        imageView.layer.shadowRadius = 2
         return imageView
     }()
     let locationTextView: UITextView = {
@@ -296,7 +300,7 @@ UICollectionViewDelegateFlowLayout {
         backButton.backgroundColor = .white
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
-        backButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        backButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         backButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
         
@@ -306,18 +310,18 @@ UICollectionViewDelegateFlowLayout {
         bgImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         
         locationTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        locationTextView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 80).isActive = true
+        locationTextView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 5).isActive = true
         locationTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         locationTextView.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
         ExploreTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        ExploreTextView.topAnchor.constraint(equalTo: locationTextView.bottomAnchor).isActive = true
+        ExploreTextView.topAnchor.constraint(equalTo: locationTextView.bottomAnchor, constant: -10).isActive = true
         ExploreTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         ExploreTextView.heightAnchor.constraint(equalToConstant: 55).isActive = true
         
         locationImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         locationImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
-        locationImageView.topAnchor.constraint(equalTo: ExploreTextView.bottomAnchor).isActive = true
+        locationImageView.topAnchor.constraint(equalTo: ExploreTextView.bottomAnchor, constant: 10).isActive = true
         locationImageView.heightAnchor.constraint(equalToConstant: 230).isActive = true
         
         PlaceNameTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true

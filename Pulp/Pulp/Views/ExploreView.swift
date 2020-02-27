@@ -44,9 +44,10 @@ UICollectionViewDelegateFlowLayout {
         var count = 5
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.shadowColor = UIColor.black.cgColor
-        imageView.layer.shadowOpacity = 0.2
-        imageView.layer.shadowOffset = CGSize(width:5, height:5)
-        imageView.layer.shadowRadius = 2
+        imageView.layer.shadowOpacity = 0.5
+        //imageView.layer.shadowOffset = CGSize(width:5, height:5)
+        imageView.layer.shadowOffset = .zero
+        imageView.layer.shadowRadius = 5
         return imageView
     }()
     let locationTextView: UITextView = {
@@ -66,6 +67,7 @@ UICollectionViewDelegateFlowLayout {
         textView.text = "Explore"
         textView.backgroundColor = UIColor(red: 20/255, green: 121/255, blue: 201/255, alpha: 1)
         textView.textColor = .white
+        textView.backgroundColor = .clear
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir Book", size: 30)
         textView.font = UIFont.boldSystemFont(ofSize: 35)
@@ -77,9 +79,20 @@ UICollectionViewDelegateFlowLayout {
         let textView = UITextView()
         textView.isEditable = false
         textView.textColor = .black
-        textView.backgroundColor = .white
+        textView.backgroundColor = .clear
         textView.font = UIFont(name: "Avenir Book", size: 30)
         textView.font = UIFont.boldSystemFont(ofSize: 30)
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isScrollEnabled = false
+        return textView
+    }()
+    let DistanceTextView: UITextView = {
+        let textView = UITextView()
+        
+        textView.isEditable = false
+        textView.backgroundColor = .clear
+        textView.textColor = .black
+        textView.font = UIFont(name: "Avenir Book", size: 14)
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isScrollEnabled = false
         return textView
@@ -107,30 +120,32 @@ UICollectionViewDelegateFlowLayout {
         stackView.spacing = 5
         return stackView
     }()
-    let DistanceTextView: UITextView = {
-        let textView = UITextView()
-        
-        textView.isEditable = false
-        textView.backgroundColor = .white
-        textView.textColor = .black
-        textView.font = UIFont(name: "Avenir Book", size: 14)
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.isScrollEnabled = false
-        return textView
-    }()
     let ratingPulpsIconView: RatingPulpsIconView = {
-        let ratingView = RatingPulpsIconView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
+//        let ratingView = RatingPulpsIconView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
+        let ratingView = RatingPulpsIconView(frame: CGRect(x: 0, y: 0, width: 150, height: 80))
         ratingView.translatesAutoresizingMaskIntoConstraints = false
         ratingView.fullImage = UIImage(named: "Pulp_Logo")
         ratingView.emptyImage = imageWithSize(size: ratingView.fullImage!.size)
         ratingView.backgroundColor =  UIColor.clear
         return ratingView
     }()
-    let ratingView: UIView = {
+    let ratingView: UIView = { // Wrapper for rating icons to work
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    let ratingTextView: UITextView = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.backgroundColor = .clear
+        textView.textColor = .black
+        textView.font = UIFont(name: "Avenir Book", size: 14)
+        
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isScrollEnabled = false
+        return textView
+    }()
+    
     let Profile1ImageView: UIImageView = {
         let imageView = UIImageView()
         var image = FBFriendsData[0].imageName
@@ -163,7 +178,7 @@ UICollectionViewDelegateFlowLayout {
     let AddReviewTextView:UITextView = {
         let textView = UITextView()
         textView.isEditable = false
-        textView.backgroundColor = .white
+        textView.backgroundColor = .clear
         textView.textColor = .black
         textView.text = "Spilling the juice..."
         textView.font = UIFont(name: "Avenir Book", size: 20)
@@ -246,6 +261,7 @@ UICollectionViewDelegateFlowLayout {
         contentView.addSubview(DistanceTextView)
         contentView.addSubview(ratingView)
         ratingView.addSubview(ratingPulpsIconView)
+        contentView.addSubview(ratingTextView)
         contentView.addSubview(AddReviewTextView)
         contentView.addSubview(Profile1ImageView)
         contentView.addSubview(Profile2ImageView)
@@ -291,8 +307,14 @@ UICollectionViewDelegateFlowLayout {
         var avRating: Double = place.rating
         avRating = floor(avRating * 2 + 0.5) / 2 //rounding to nearest .5
         ratingPulpsIconView.rating = avRating
+        if (avRating.remainder(dividingBy: 1.0) == 0) { // truncate '.0' if present
+            ratingTextView.text = String(Int(avRating)) + " pulps"
+        }
+        else {
+            ratingTextView.text = String(avRating) + " pulps"
+        }
         
-        backButton.layer.cornerRadius = 10
+        backButton.layer.cornerRadius = 15
         backButton.titleEdgeInsets.left = 10
         backButton.titleEdgeInsets.right = 10
 //        backButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: 100, height: 30)
@@ -321,16 +343,21 @@ UICollectionViewDelegateFlowLayout {
         
         locationImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         locationImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
-        locationImageView.topAnchor.constraint(equalTo: ExploreTextView.bottomAnchor, constant: 10).isActive = true
+        locationImageView.topAnchor.constraint(equalTo: ExploreTextView.bottomAnchor, constant: 15).isActive = true
         locationImageView.heightAnchor.constraint(equalToConstant: 230).isActive = true
         
         PlaceNameTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        PlaceNameTextView.topAnchor.constraint(equalTo: locationImageView.bottomAnchor).isActive = true
+        PlaceNameTextView.topAnchor.constraint(equalTo: locationImageView.bottomAnchor, constant: 10).isActive = true
         PlaceNameTextView.widthAnchor.constraint(equalToConstant: 220).isActive = true
         PlaceNameTextView.heightAnchor.constraint(equalToConstant: 90).isActive = false
         
+        DistanceTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+        DistanceTextView.topAnchor.constraint(equalTo: PlaceNameTextView.bottomAnchor, constant: -15).isActive = true
+        DistanceTextView.widthAnchor.constraint(equalToConstant: 220).isActive = true
+        DistanceTextView.heightAnchor.constraint(equalToConstant: 40).isActive = false
+        
         PlaceDescriptionRow1.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        PlaceDescriptionRow1.topAnchor.constraint(equalTo: PlaceNameTextView.bottomAnchor).isActive = true
+        PlaceDescriptionRow1.topAnchor.constraint(equalTo: DistanceTextView.bottomAnchor, constant: 5).isActive = true
         
         PlaceDescriptionRow2.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         PlaceDescriptionRow2.topAnchor.constraint(equalTo: PlaceDescriptionRow1.bottomAnchor, constant: 5).isActive = true
@@ -349,13 +376,12 @@ UICollectionViewDelegateFlowLayout {
             accumulatedButtonWidth += width
         }
         
-        DistanceTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        DistanceTextView.topAnchor.constraint(equalTo: PlaceDescriptionRow2.bottomAnchor).isActive = true
-        DistanceTextView.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        DistanceTextView.heightAnchor.constraint(equalToConstant: 40).isActive = false
+//        ratingView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: (screenWidth - ratingPulpsIconView.frame.size.width)/2).isActive = true
+        ratingView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 35).isActive = true
+        ratingView.topAnchor.constraint(equalTo: PlaceDescriptionRow2.bottomAnchor, constant: 15).isActive = true
         
-        ratingView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: (screenWidth - ratingPulpsIconView.frame.size.width)/2).isActive = true
-        ratingView.topAnchor.constraint(equalTo: DistanceTextView.bottomAnchor).isActive = true
+        ratingTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
+        ratingTextView.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 25).isActive = true
         
         AddReviewButton.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 70).isActive = true
         AddReviewButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true

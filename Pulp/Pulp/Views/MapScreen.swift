@@ -13,6 +13,12 @@ let mapDispatch = DispatchGroup()
 let popupView: UIView = {
     let view = UIView()
     view.backgroundColor = .white
+    view.layer.cornerRadius = 30
+    view.layer.shadowColor = UIColor.black.cgColor
+    view.layer.shadowOpacity = 0.2
+    view.layer.shadowOffset = .zero
+    view.layer.shadowRadius = 5
+    view.translatesAutoresizingMaskIntoConstraints = false
     return view
 }()
 class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegate,
@@ -68,7 +74,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     let contentImageView: CustomImageView = {
         let imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 20
+        imageView.layer.cornerRadius = 28
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -112,10 +118,11 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     // Experience location
     let locationTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "Venice Canals, Venice, CA"
+        textView.text = "Venice, CA"
         textView.textColor = UIColor(red: 126/255, green: 126/255, blue: 126/255, alpha: 1)
         textView.isEditable = false
-        textView.font = UIFont(name: "Avenir-Oblique", size: 12)
+        textView.font = UIFont(name: "Avenir-Book Italic", size: 15)
+        textView.font = UIFont.italicSystemFont(ofSize: 15)
         textView.backgroundColor = .clear
         textView.isScrollEnabled = false
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -272,9 +279,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     private var bottomConstraint = NSLayoutConstraint()
     
     private func popupLayout() {
-        popupView.layer.cornerRadius = 20
- 
-        popupView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(popupView)
         popupView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         popupView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
@@ -284,10 +288,11 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         
         contentImageView.translatesAutoresizingMaskIntoConstraints = false
         popupView.addSubview(contentImageView)
-        contentImageView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor, constant: 20).isActive = true
+        contentImageView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor, constant: 15).isActive = true
         contentImageView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor, constant: -190).isActive = true
-        contentImageView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor, constant: -280).isActive = true
-        contentImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        contentImageView.topAnchor.constraint(equalTo: popupView.topAnchor, constant: 15).isActive = true
+        contentImageView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor, constant: -295).isActive = true
+        //contentImageView.heightAnchor.constraint(equalToConstant: 135).isActive = true
         
      
         titleTextView.translatesAutoresizingMaskIntoConstraints = false

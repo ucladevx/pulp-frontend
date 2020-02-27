@@ -52,13 +52,8 @@ UICollectionViewDelegateFlowLayout {
         let imageView = CustomImageView()
         var count = 5
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.layer.masksToBounds = false
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-//        imageView.layer.shadowColor = UIColor.black.cgColor
-//        imageView.layer.shadowOpacity = 0.4
-//        imageView.layer.shadowOffset = .zero
-//        imageView.layer.shadowRadius = 5
         return imageView
     }()
     let locationImageShadowView: UIView = {// Works around shadow truncated by clipsToBounds

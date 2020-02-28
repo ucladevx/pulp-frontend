@@ -99,7 +99,12 @@ struct PlaceReturn: Codable{
 }
 
 struct TempReview: Codable{
-    // let user_photo: String?
+    //let user_photo: String?
+    let postedBy:String
     let rating: Double
     let body: String?
+}
+
+struct UserReturn: Codable{
+    let photo: String
 }

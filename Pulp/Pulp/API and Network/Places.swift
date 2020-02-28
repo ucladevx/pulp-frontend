@@ -45,11 +45,10 @@ func MapResponseToPlace(list:[GetMapResponse]){
         let a = place.reviews
         var treviews = [Review]()
         for rev in a {
-            if (rev.body != ""){
-                treviews.insert(Review(postedBy: "", userImage: defaultURL/*rev.user_photo */, body: rev.body, rating: rev.rating), at: 0)
+           
+                    treviews.insert(Review(postedBy: "", userImage: "", body: rev.body, rating: rev.rating), at: 0)
             }
-        }
-        
+
         let temp = Place(name: t.name, city: t.city, state: t.state, latitude: t.latitude, longitude: t.longitude, tags: t.tags, address1: t.address1, address2: t.address2, zip_code: t.zip_code, image: t.image, id: t._id, fbvisitors: place.friend_images, reviews: treviews, rating: place.averageRating, isDatabase: true)
         FriendPlaces.insert(temp, at: 0)
     }

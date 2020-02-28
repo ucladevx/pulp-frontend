@@ -29,7 +29,7 @@ UICollectionViewDelegateFlowLayout {
 
     
     let bgImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Wave_Explore"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "Home-invert"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -162,10 +162,8 @@ UICollectionViewDelegateFlowLayout {
         return textView
     }()
     
-    let Profile1ImageView: UIImageView = {
-        let imageView = UIImageView()
-        var image = FBFriendsData[0].imageName
-        imageView.image = UIImage(named: image!)
+    let Profile1ImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -205,7 +203,7 @@ UICollectionViewDelegateFlowLayout {
     }()
     let AddReviewButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+        button.backgroundColor = UIColor(red: 249/255, green: 160/255, blue: 119/255, alpha: 1)
         button.setTitle("Check In!", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 12)
@@ -310,7 +308,7 @@ UICollectionViewDelegateFlowLayout {
             btn.setTitle(t, for: UIControl.State.normal)
             btn.setTitleColor(UIColor.white, for: .normal)
             btn.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
-            btn.backgroundColor = UIColor(red: 20/255, green: 121/255, blue: 201/255, alpha: 1)
+            btn.backgroundColor = UIColor(red: 249/255, green: 160/255, blue: 119/255, alpha: 1)
             btn.translatesAutoresizingMaskIntoConstraints = false
             btn.layer.cornerRadius = 15
             btn.contentEdgeInsets = UIEdgeInsets.init(top:5, left:10, bottom:5, right:10)
@@ -333,14 +331,16 @@ UICollectionViewDelegateFlowLayout {
         else {
             ratingTextView.text = String(avRating) + " pulps"
         }
-        
+        Profile1ImageView.loadImage(urlString: place.fbvisitors[0])
         backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
         backButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
         backButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
         
         bgImageView.translatesAutoresizingMaskIntoConstraints = false
-        bgImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        bgImageView.transform = CGAffineTransform(rotationAngle: (.pi ))
+        bgImageView.transform = CGAffineTransform(scaleX: 2, y: 2)
+        bgImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -30).isActive = true
         bgImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
         bgImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         
@@ -654,7 +654,13 @@ class ReviewCollectionCell: UICollectionViewCell {
     
     var review: Review! {
         didSet{
-            imageView.loadImage(urlString: review.userImage ?? defaultURL)
+            if(review.userImage != nil && review.userImage != "" ){
+                imageView.loadImage(urlString: review.userImage!)
+                print("review image is: ")
+            }
+            else{
+                imageView.image = #imageLiteral(resourceName: "Empty-Profile_Photo")
+            }
             reviewText.text = review.body ?? ""
         }
     }

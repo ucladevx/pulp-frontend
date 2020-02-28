@@ -33,7 +33,6 @@ import UIKit
             btn.contentEdgeInsets = UIEdgeInsets.init(top:5, left:10, bottom:5, right:10)
             btn.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
             btn.titleLabel?.numberOfLines = 1
-            // not sure if this is the right thing to do
             btn.addTarget(self, action: #selector(goBacktoExplore), for: .touchUpInside)
             return btn
         }()

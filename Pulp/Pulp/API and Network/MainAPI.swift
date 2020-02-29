@@ -26,7 +26,7 @@ let manager = Manager(
 
 let service = MoyaProvider<APICall>(manager: manager, plugins: [NetworkLoggerPlugin(verbose: true)])
 
-
+var YelpPlaceID = "VQz6yZBj3l_T2XX-4mLV-Q"
 
 
 
@@ -48,6 +48,7 @@ public enum APICall: TargetType {
     case PlaceNameSearch(placeName: String, placeLat: Double, placeLong: Double)
     
     case YelpTest(lat: Double, long: Double, term: String, limit: Int)
+    case YelpReview()
     
     public var sampleData: Data {
         return Data()
@@ -56,6 +57,8 @@ public enum APICall: TargetType {
     public var headers: [String : String]? {
         switch self {
         case .YelpTest:
+            return ["Authorization": "Bearer \(apiKey)"]
+        case .YelpReview:
             return ["Authorization": "Bearer \(apiKey)"]
             
         default:
@@ -67,6 +70,8 @@ public enum APICall: TargetType {
         switch self {
         
         case .YelpTest:
+            return URL(string: "https://api.yelp.com/v3/businesses")!
+        case .YelpReview:
             return URL(string: "https://api.yelp.com/v3/businesses")!
         default:
             return URL(string: "https://ec2-3-135-205-131.us-east-2.compute.amazonaws.com:80/api")!
@@ -95,6 +100,8 @@ public enum APICall: TargetType {
         
         case .YelpTest:
             return "/search"
+        case .YelpReview:
+            return "/" + YelpPlaceID + "/reviews"
         }
     }
     public var method: Moya.Method {
@@ -116,6 +123,8 @@ public enum APICall: TargetType {
             return .get
             
         case .YelpTest:
+            return .get
+        case .YelpReview:
             return .get
         }
     }
@@ -159,6 +168,8 @@ public enum APICall: TargetType {
             
         case let .YelpTest(lat,long,term,limit):
             return .requestParameters(parameters: ["latitude" : lat,"longitude" : long, "limit" : limit, "term" : term], encoding: URLEncoding.queryString)
+        case .YelpReview():
+            return .requestPlain
         }
     }
 }

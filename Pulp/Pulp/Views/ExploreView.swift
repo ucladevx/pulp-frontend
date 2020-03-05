@@ -150,6 +150,7 @@ UICollectionViewDelegateFlowLayout {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+
     let ratingTextView: UITextView = {
         let textView = UITextView()
         textView.isEditable = false
@@ -167,26 +168,26 @@ UICollectionViewDelegateFlowLayout {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    let Profile2ImageView: UIImageView = {
-        let imageView = UIImageView()
-        var image = FBFriendsData[1].imageName
-        imageView.image = UIImage(named: image!)
+    let Profile2ImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    let Profile3ImageView: UIImageView = {
-        let imageView = UIImageView()
-        var image = FBFriendsData[2].imageName
-        imageView.image = UIImage(named: image!)
+    let Profile3ImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    let Profile4ImageView: UIImageView = {
-        let imageView = UIImageView()
-        var image = FBFriendsData[3].imageName
-        imageView.image = UIImage(named: image!)
+    let Profile4ImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
+    }()
+    let FriendImagesView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = NSLayoutConstraint.Axis.horizontal
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }()
     
     let AddReviewTextView:UITextView = {
@@ -279,12 +280,10 @@ UICollectionViewDelegateFlowLayout {
         ratingView.addSubview(ratingPulpsIconView)
         contentView.addSubview(ratingTextView)
         contentView.addSubview(AddReviewTextView)
-        contentView.addSubview(Profile1ImageView)
-        contentView.addSubview(Profile2ImageView)
-        contentView.addSubview(Profile3ImageView)
-        contentView.addSubview(Profile4ImageView)
+        contentView.addSubview(backButton)
         contentView.addSubview(AddReviewButton)
         contentView.addSubview(visualEffectView)
+        contentView.addSubview(FriendImagesView)
         
         backButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
         if(calledbyMap){
@@ -401,42 +400,52 @@ UICollectionViewDelegateFlowLayout {
         ratingTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         ratingTextView.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 25).isActive = true
         
-        AddReviewButton.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 70).isActive = true
+        AddReviewButton.topAnchor.constraint(equalTo: FriendImagesView.bottomAnchor, constant: 20).isActive = true
         AddReviewButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         AddReviewButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         AddReviewButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         AddReviewButton.addTarget(self, action: #selector(self.checkInTapped(_:)), for: .touchUpInside)
         
-        Profile1ImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        Profile1ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        Profile1ImageView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 20).isActive = true
-        Profile1ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        Profile1ImageView.clipsToBounds = true
-        Profile1ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
+
+        func addImagetoFriendImagesView(url:String, view:CustomImageView){
+            view.loadImage(urlString: url)
+            view.widthAnchor.constraint(equalToConstant:40).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            view.clipsToBounds = true
+            view.layoutIfNeeded()
+            view.layer.cornerRadius = view.frame.size.width / 2
+        }
+
+//        replace array of strings here
+        var imageStringArray: [String] = [];
+    imageStringArray.append("https://image.shutterstock.com/mosaic_250/2936380/613759379/stock-photo-happy-cheerful-young-woman-wearing-her-red-hair-in-bun-rejoicing-at-positive-news-or-birthday-gift-613759379.jpg")
+    imageStringArray.append("https://image.shutterstock.com/mosaic_250/2936380/640011838/stock-photo-handsome-unshaven-young-dark-skinned-male-laughing-out-loud-at-funny-meme-he-found-on-internet-640011838.jpg")
         
-        Profile2ImageView.rightAnchor.constraint(equalTo: Profile1ImageView.leftAnchor).isActive = true
-        Profile2ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        Profile2ImageView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 20).isActive = true
-        Profile2ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        Profile2ImageView.clipsToBounds = true
-        Profile2ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
+        imageStringArray.append("https://www.freegreatpicture.com/files/94/28287-business-people-stock.jpg")
+        imageStringArray.append("https://media.glassdoor.com/people/sqll/40772/facebook-ceo1538973361869.png")
         
-        Profile3ImageView.rightAnchor.constraint(equalTo: Profile2ImageView.leftAnchor).isActive = true
-        Profile3ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        Profile3ImageView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 20).isActive = true
-        Profile3ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        Profile3ImageView.clipsToBounds = true
-        Profile3ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
-        
-        Profile4ImageView.rightAnchor.constraint(equalTo: Profile3ImageView.leftAnchor).isActive = true
-        Profile4ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        Profile4ImageView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 20).isActive = true
-        Profile4ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        Profile4ImageView.clipsToBounds = true
-        Profile4ImageView.layer.cornerRadius = Profile1ImageView.frame.size.width / 2
+        if(imageStringArray.count >= 1){
+            addImagetoFriendImagesView(url: imageStringArray[0], view: Profile1ImageView)
+            FriendImagesView.addArrangedSubview(Profile1ImageView)
+        }
+        if(imageStringArray.count >= 2){
+            addImagetoFriendImagesView(url: imageStringArray[1], view: Profile2ImageView)
+            FriendImagesView.addArrangedSubview(Profile2ImageView)
+        }
+        if(imageStringArray.count >= 3){
+            addImagetoFriendImagesView(url: imageStringArray[2], view: Profile3ImageView)
+            FriendImagesView.addArrangedSubview(Profile3ImageView)
+        }
+        if(imageStringArray.count >= 4){
+            addImagetoFriendImagesView(url: imageStringArray[3], view: Profile4ImageView)
+            FriendImagesView.addArrangedSubview(Profile4ImageView)
+        }
+
+        FriendImagesView.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 70).isActive = true
+        FriendImagesView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         
         AddReviewTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        AddReviewTextView.topAnchor.constraint(equalTo: Profile4ImageView.bottomAnchor, constant: 10).isActive = true
+        AddReviewTextView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 10).isActive = true //FriendImagesView
         AddReviewTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         AddReviewTextView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
@@ -490,11 +499,6 @@ UICollectionViewDelegateFlowLayout {
         return CGSize(width: 300 , height: 130)
     }
 
-    
-    
-    
-    
-    
     
     
     func setupViews(){

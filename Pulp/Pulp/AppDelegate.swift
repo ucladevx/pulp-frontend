@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         service.request(.YelpReview()) {(result) in
             switch result {
             case .success(let response):
-                print(response)
+                print(response.data)
             case .failure(let error):
                 print("Error: \(error)")
             }

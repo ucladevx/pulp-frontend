@@ -20,7 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
          guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = WelcomePageController()
+        let defaults = UserDefaults.standard
+        let token = defaults.bool(forKey: "login_key")
+        if(token){
+            window?.rootViewController = MapScreen()
+        }
+        else{
+             window?.rootViewController = WelcomePageController()
+        }
         window?.makeKeyAndVisible()
     }
 

@@ -13,6 +13,12 @@ let mapDispatch = DispatchGroup()
 let popupView: UIView = {
     let view = UIView()
     view.backgroundColor = .white
+    view.layer.cornerRadius = 30
+    view.layer.shadowColor = UIColor.black.cgColor
+    view.layer.shadowOpacity = 0.2
+    view.layer.shadowOffset = .zero
+    view.layer.shadowRadius = 5
+    view.translatesAutoresizingMaskIntoConstraints = false
     return view
 }()
 class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegate,
@@ -68,8 +74,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     let contentImageView: CustomImageView = {
         let imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 15
+        imageView.layer.cornerRadius = 28
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -101,7 +108,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         textView.text = "Venice Canals"
         textView.textColor = .black
         textView.isEditable = false
-        textView.font = UIFont(name: "Avenir-Book", size: 18)
+        textView.font = UIFont(name: "Avenir-Book", size: 24)
         textView.backgroundColor = .clear
         textView.isScrollEnabled = false
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -111,29 +118,33 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     // Experience location
     let locationTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "Venice Canals, Venice, CA"
+        textView.text = "Venice, CA"
         textView.textColor = UIColor(red: 126/255, green: 126/255, blue: 126/255, alpha: 1)
         textView.isEditable = false
-        textView.font = UIFont(name: "Avenir-Oblique", size: 12)
+        textView.font = UIFont(name: "Avenir-Book Italic", size: 15)
+        textView.font = UIFont.italicSystemFont(ofSize: 15)
         textView.backgroundColor = .clear
         textView.isScrollEnabled = false
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     } ()
     
+    let ratingPulpsIconView: RatingPulpsIconView = {
+        let ratingView = RatingPulpsIconView(frame: CGRect(x: 0, y: 0, width: 150, height: 80))
+        ratingView.translatesAutoresizingMaskIntoConstraints = false
+        ratingView.fullImage = UIImage(named: "Pulp_Logo")
+        ratingView.emptyImage = imageWithSize(size: ratingView.fullImage!.size)
+        ratingView.backgroundColor =  UIColor.clear
+        return ratingView
+    }()
+    
+    let ratingView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     // Experience category
-    let categoryTextView: UITextView = {
-        let textView = UITextView()
-        textView.text = "Nature, Photo Ops"
-        textView.textColor = UIColor(red: 126/255, green: 126/255, blue: 126/255, alpha: 1)
-        textView.isEditable = false
-        textView.font = UIFont(name: "Avenir-Oblique", size: 12)
-        textView.backgroundColor = .clear
-        textView.isScrollEnabled = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        return textView
-    } ()
-    let placeRating: UITextView = UITextView()
     let profile1ImageView: UIImageView = UIImageView()
     let profile2ImageView: UIImageView = UIImageView()
     let profile3ImageView: UIImageView = UIImageView()
@@ -146,65 +157,102 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    let OpenerUp: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Home-1"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    let OpenerDown: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Home-1"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    let Title: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "PulpTitle"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        view.addSubview(Title)
+        view.addSubview(OpenerDown)
+        view.addSubview(OpenerUp)
+        OpenerUp.center = CGPoint(x: 270, y: view.bounds.height + 110)
+        OpenerDown.center = CGPoint(x: 240, y: view.bounds.height + 10)
+        
+        Title.center = CGPoint(x: (view.bounds.width * 0.5), y: (view.bounds.height * 0.45))
+        Title.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        OpenerUp.alpha = 1.0
+        OpenerDown.alpha = 1.0
         
         print(USERID)
 
         mapDispatch.enter()
         GetMapPlaces()
         mapDispatch.notify(queue: .main) {
-            print("Updated Friend Places")
-            if !FriendPlaces.isEmpty{
-                self.place = FriendPlaces[0]
-            }
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.view.backgroundColor = UIColor.clear
-        self.mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: (self.window?.frame.width)!, height: (self.window?.frame.height)!))
-        
-        self.locationManager.delegate = self
-        
-            if let userLocation = self.locationManager.location?.coordinate {
-            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters:1700, longitudinalMeters: 1700)
-                self.mapView?.setRegion(viewRegion, animated: true)
-            print("Correct Area")
-        }
-            self.locationManager.stopUpdatingLocation()
-        
-            self.mapView?.delegate = self
-            self.configureTileOverlay()
-        
-        self.mapView!.showsCompass = true
-        self.mapView!.showsBuildings = true
-        self.mapView!.showsUserLocation = true
-        self.view.addSubview(self.mapView!)
-            self.searchBarView.addSubview(self.searchBar)
-//            self.searchBarView.addSubview(self.filterButton)
-//            self.searchBarView.addSubview(self.cancelButton)
-//            self.searchBarView.addSubview(self.vertLineView)
-            self.view.addSubview(self.searchBarView)
-        
-            let buttonItem = MKUserTrackingButton(mapView: self.mapView)
-            buttonItem.frame = CGRect(origin: CGPoint(x:self.view.frame.width - 70, y: self.view.frame.height - 70), size: CGSize(width: 35, height: 35))
-        
-            self.view.addSubview(buttonItem)
-        
-            self.setUpSearchBar()
-        
-            self.popupLayout()
-        
-        if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
+            UIView.animate(withDuration: 1.0, delay: 1, options: [.curveEaseInOut , .allowUserInteraction],
+                animations: {
+                    self.OpenerUp.center = CGPoint(x: 130, y: -50)
+                    self.OpenerUp.transform = CGAffineTransform(rotationAngle: (.pi-0.5 ))
+                    self.OpenerDown.center = CGPoint(x: 300, y: self.view.bounds.height + 70)
+                    self.OpenerDown.transform = CGAffineTransform(rotationAngle: (-0.5))
+                   },
+                completion: { finished in
+                print("Animation Done")
+                print("Updated Friend Places")
+                if !FriendPlaces.isEmpty{
+                    self.place = FriendPlaces[0]
+                    }
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                self.view.backgroundColor = UIColor.clear
+                self.mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: (self.window?.frame.width)!, height: (self.window?.frame.height)!))
+                        
+                self.locationManager.delegate = self
+                        
+                if let userLocation = self.locationManager.location?.coordinate {
+                    let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters:1700, longitudinalMeters: 1700)
+                    self.mapView?.setRegion(viewRegion, animated: true)
+                    print("Correct Area")
+                    }
+                self.locationManager.stopUpdatingLocation()
+                        
+                self.mapView?.delegate = self
+                self.configureTileOverlay()
+                        
+                self.mapView!.showsCompass = true
+                self.mapView!.showsBuildings = true
+                self.mapView!.showsUserLocation = true
+                self.view.addSubview(self.mapView!)
+                self.searchBarView.addSubview(self.searchBar)
+                //            self.searchBarView.addSubview(self.filterButton)
+                //            self.searchBarView.addSubview(self.cancelButton)
+                //            self.searchBarView.addSubview(self.vertLineView)
+                self.view.addSubview(self.searchBarView)
+                        
+                let buttonItem = MKUserTrackingButton(mapView: self.mapView)
+                buttonItem.frame = CGRect(origin: CGPoint(x:self.view.frame.width - 70, y: self.view.frame.height - 70), size: CGSize(width: 35, height: 35))
+                        
+                self.view.addSubview(buttonItem)
+                        
+                self.setUpSearchBar()
+                        
+                self.popupLayout()
+                        
+                if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
+                            
+                    self.currentLocation = self.locationManager.location
+                        for place in FriendPlaces {
+                            let pinLocation = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+                            self.addPin(imageName: "MapFaveIcon", location: pinLocation, title: place.name, subtitle: "")
+                            }
+                        }
+                            popupView.addGestureRecognizer(self.tapRecognizer)
+            })
             
-            self.currentLocation = self.locationManager.location
-            for place in FriendPlaces {
-                let pinLocation = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
-                self.addPin(imageName: "MapFaveIcon", location: pinLocation, title: place.name, subtitle: "")
-            }
-        }
-            popupView.addGestureRecognizer(self.tapRecognizer)
         }
     
     }
@@ -231,9 +279,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     private var bottomConstraint = NSLayoutConstraint()
     
     private func popupLayout() {
-        popupView.layer.cornerRadius = 15
- 
-        popupView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(popupView)
         popupView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         popupView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
@@ -243,42 +288,34 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         
         contentImageView.translatesAutoresizingMaskIntoConstraints = false
         popupView.addSubview(contentImageView)
-        contentImageView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor, constant: 20).isActive = true
+        contentImageView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor, constant: 15).isActive = true
         contentImageView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor, constant: -190).isActive = true
-        contentImageView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor, constant: -315).isActive = true
-        contentImageView.heightAnchor.constraint(equalToConstant: 115).isActive = true
+        contentImageView.topAnchor.constraint(equalTo: popupView.topAnchor, constant: 15).isActive = true
+        contentImageView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor, constant: -295).isActive = true
+        //contentImageView.heightAnchor.constraint(equalToConstant: 135).isActive = true
         
      
         titleTextView.translatesAutoresizingMaskIntoConstraints = false
         popupView.addSubview(titleTextView)
         titleTextView.leadingAnchor.constraint(equalTo: contentImageView.trailingAnchor, constant: 10).isActive = true
-        titleTextView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
-        titleTextView.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
+        titleTextView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor, constant: -10).isActive = true
+        titleTextView.topAnchor.constraint(equalTo: popupView.topAnchor, constant: 8).isActive = true
         titleTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        titleTextView.sizeToFit()
+        titleTextView.isScrollEnabled = false
         
         locationTextView.translatesAutoresizingMaskIntoConstraints = false
         popupView.addSubview(locationTextView)
         locationTextView.leadingAnchor.constraint(equalTo: titleTextView.leadingAnchor).isActive = true
         locationTextView.trailingAnchor.constraint(equalTo: titleTextView.trailingAnchor).isActive = true
-        locationTextView.topAnchor.constraint(equalTo: titleTextView.topAnchor, constant: 30).isActive = true
+        locationTextView.topAnchor.constraint(equalTo: titleTextView.bottomAnchor, constant: -20).isActive = true
         locationTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        categoryTextView.translatesAutoresizingMaskIntoConstraints = false
-        popupView.addSubview(categoryTextView)
-        categoryTextView.leadingAnchor.constraint(equalTo: titleTextView.leadingAnchor).isActive = true
-        categoryTextView.trailingAnchor.constraint(equalTo: titleTextView.trailingAnchor).isActive = true
-        categoryTextView.topAnchor.constraint(equalTo: locationTextView.bottomAnchor, constant: -15).isActive = true
-        categoryTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        popupView.addSubview(placeRating)
-        placeRating.backgroundColor = .white
-        placeRating.font = UIFont(name: "Avenir Book", size: 12)
-        placeRating.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        placeRating.translatesAutoresizingMaskIntoConstraints = false
-        placeRating.topAnchor.constraint(equalTo: popupView.topAnchor, constant: 85).isActive = true
-        placeRating.leftAnchor.constraint(equalTo: contentImageView.rightAnchor, constant: 10).isActive = true
-        placeRating.isEditable = false
-        placeRating.isScrollEnabled = false
+        popupView.addSubview(ratingView)
+        ratingView.addSubview(ratingPulpsIconView)
+        ratingView.leadingAnchor.constraint(equalTo: titleTextView.leadingAnchor, constant: 10).isActive = true
+        ratingView.trailingAnchor.constraint(equalTo: titleTextView.trailingAnchor).isActive = true
+        ratingView.topAnchor.constraint(equalTo: locationTextView.bottomAnchor, constant: -20).isActive = true
     
         popupView.addSubview(checkThisOutButton)
         checkThisOutButton.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
@@ -308,28 +345,41 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
         impact.impactOccurred()
-        isDisplaying = true
+        isDisplaying = true // does this do anything
         place = FriendPlaces[index]
         contentImageView.loadImage(urlString: place?.image ?? defaultURL)
         titleTextView.text = place?.name
-        var address = place?.address1 ?? ""
-        if (place?.address2 != ""){
-            address += ", "
-            address += place?.address2 ?? ""
+        
+        let textViewSize = titleTextView.frame.size;
+        let fixedWidth = textViewSize.width;
+        let expectSize = titleTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT)));
+
+        var expectFont = titleTextView.font;
+        if (expectSize.height > textViewSize.height) {
+            while (titleTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT))).height > textViewSize.height) {
+                expectFont = titleTextView.font!.withSize(titleTextView.font!.pointSize - 1)
+                titleTextView.font = expectFont
+            }
         }
-        address += ", "
-        address +=  place?.city ?? ""
-        locationTextView.text = address
+        else {
+            while (titleTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT))).height < textViewSize.height) {
+                expectFont = titleTextView.font;
+                titleTextView.font = titleTextView.font!.withSize(titleTextView.font!.pointSize + 1)
+            }
+            titleTextView.font = expectFont
+        }
+
+        let cityState = (place?.city ?? "") + ", " + (place?.state ?? "")
+        locationTextView.text = cityState
         let tags = place?.tags
-        categoryTextView.text = tags?[0]
         
         var rating: Double = place?.rating ?? 0
         rating = floor(rating * 2 + 0.5) / 2 //rounding to nearest .5
-        placeRating.text = "\(rating ) Pulps!"
+        ratingPulpsIconView.rating = rating
        
         setupFriendPhotos()
         checkThisOutButton.tag = index
-
+        
         let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
             self.bottomConstraint.constant = 280
             self.view.layoutIfNeeded()

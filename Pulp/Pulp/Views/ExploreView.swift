@@ -27,8 +27,9 @@ UICollectionViewDelegateFlowLayout {
     let locationManager = CLLocationManager()
     var place: Place = YelpSearch[0]
     var mapSnapshotView: UIView?
+    var ratingViewStart: CGPoint?
+    var locationImageStart: CGPoint?
 
-    
     let bgImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Home-invert"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +53,6 @@ UICollectionViewDelegateFlowLayout {
     let locationImageView: CustomImageView = {
         let imageView = CustomImageView()
         var count = 5
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -238,18 +238,45 @@ UICollectionViewDelegateFlowLayout {
         setupReviews()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        mapSnapshotView?.alpha = 1
+    // Set the final constraint positions for animated elements
+    func setFinalAnimationConstraints() {
+        self.ratingView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 35).isActive = true
+        self.ratingView.topAnchor.constraint(equalTo: self.PlaceDescriptionRow2.bottomAnchor, constant: 15).isActive = true
+        
+        self.locationImageView.layer.cornerRadius = 0
+        self.locationImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.locationImageView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 30).isActive = true
+        self.locationImageView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -30).isActive = true
+        self.locationImageView.bottomAnchor.constraint(equalTo: self.PlaceNameTextView.topAnchor, constant: -15).isActive = true
+        self.locationImageView.heightAnchor.constraint(equalToConstant: 230).isActive = true
+    }
+    
+    func animateFromMap() {
         view.bringSubviewToFront(ratingView)
-        ratingView.center = CGPoint(x: 195.0, y: 565.0)
+        view.bringSubviewToFront(locationImageView)
+        ratingView.center = ratingViewStart ?? CGPoint(x: 195.0, y: 565.0)
+        locationImageView.frame = CGRect(x: locationImageStart?.x ?? 25, y: locationImageStart?.y ?? 512, width: 150.0, height: 140.0)
+        locationImageView.layer.cornerRadius = 28
         view.layoutIfNeeded()
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut, .allowUserInteraction], animations: {
             self.mapSnapshotView?.alpha = 0
-            self.ratingView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 35).isActive = true
-            self.ratingView.topAnchor.constraint(equalTo: self.PlaceDescriptionRow2.bottomAnchor, constant: 15).isActive = true
+            self.setFinalAnimationConstraints()
+            self.view.layoutIfNeeded()
+        }, completion: { finished in
+            print("Animation Done")
+            self.mapSnapshotView?.removeFromSuperview()
             self.view.layoutIfNeeded()
         })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if(calledbyMap) {
+            animateFromMap()
+        }
+        else {
+            self.setFinalAnimationConstraints()
+        }
     }
     
     func setupScrollView(){
@@ -276,15 +303,12 @@ UICollectionViewDelegateFlowLayout {
         contentView.addSubview(bgImageView)
         self.contentView.sendSubviewToBack(bgImageView)
         contentView.addSubview(backButton)
-        contentView.addSubview(locationImageShadowView)
-        contentView.addSubview(locationImageView)
         contentView.addSubview(locationTextView)
         contentView.addSubview(ExploreTextView)
         contentView.addSubview(PlaceNameTextView)
         contentView.addSubview(PlaceDescriptionRow1)
         contentView.addSubview(PlaceDescriptionRow2)
         contentView.addSubview(DistanceTextView)
-        view.addSubview(ratingView)
         ratingView.addSubview(ratingPulpsIconView)
         contentView.addSubview(ratingTextView)
         contentView.addSubview(AddReviewTextView)
@@ -292,21 +316,18 @@ UICollectionViewDelegateFlowLayout {
         contentView.addSubview(AddReviewButton)
         contentView.addSubview(visualEffectView)
         contentView.addSubview(FriendImagesView)
-        view.addSubview(mapSnapshotView!)
-        
-        mapSnapshotView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        mapSnapshotView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-
-//        }, completion: { finished in
-//            print("Removed from superview")
-//            self.mapSnapshotView!.removeFromSuperview()
-//        })
-
+        view.addSubview(locationImageShadowView)
+        view.addSubview(locationImageView)
+        view.addSubview(ratingView)
         
         backButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
         if(calledbyMap){
             place = FriendPlaces[selectedLocation]
             backButton.setTitle("< Back to Map", for: .normal)
+            view.addSubview(mapSnapshotView!)
+            mapSnapshotView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            mapSnapshotView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            mapSnapshotView?.alpha = 1
         }
         else{
             place = YelpSearch[selectedLocation]
@@ -348,7 +369,13 @@ UICollectionViewDelegateFlowLayout {
         else {
             ratingTextView.text = String(avRating) + " pulps"
         }
-        Profile1ImageView.loadImage(urlString: place.fbvisitors[0])
+        //Profile1ImageView.loadImage(urlString: place.fbvisitors[0])
+        
+        locationImageShadowView.leftAnchor.constraint(equalTo: locationImageView.leftAnchor).isActive = true
+        locationImageShadowView.rightAnchor.constraint(equalTo: locationImageView.rightAnchor).isActive = true
+        locationImageShadowView.topAnchor.constraint(equalTo: locationImageView.topAnchor).isActive = true
+        locationImageShadowView.bottomAnchor.constraint(equalTo: locationImageView.bottomAnchor).isActive = true
+        
         backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
         backButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
@@ -371,18 +398,8 @@ UICollectionViewDelegateFlowLayout {
         ExploreTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         ExploreTextView.heightAnchor.constraint(equalToConstant: 55).isActive = true
         
-        locationImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        locationImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
-        locationImageView.topAnchor.constraint(equalTo: ExploreTextView.bottomAnchor, constant: 15).isActive = true
-        locationImageView.heightAnchor.constraint(equalToConstant: 230).isActive = true
-
-        locationImageShadowView.leftAnchor.constraint(equalTo: locationImageView.leftAnchor).isActive = true
-        locationImageShadowView.rightAnchor.constraint(equalTo: locationImageView.rightAnchor).isActive = true
-        locationImageShadowView.topAnchor.constraint(equalTo: locationImageView.topAnchor).isActive = true
-        locationImageShadowView.bottomAnchor.constraint(equalTo: locationImageView.bottomAnchor).isActive = true
-        
         PlaceNameTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        PlaceNameTextView.topAnchor.constraint(equalTo: locationImageView.bottomAnchor, constant: 10).isActive = true
+        PlaceNameTextView.topAnchor.constraint(equalTo: ExploreTextView.bottomAnchor, constant: 255).isActive = true
         PlaceNameTextView.widthAnchor.constraint(equalToConstant: 250).isActive = true
         PlaceNameTextView.heightAnchor.constraint(equalToConstant: 90).isActive = false
         

@@ -173,7 +173,32 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         return imageView
     }()
     
-    
+    let Profile1ImageView: CustomImageView = {
+        let imageView = CustomImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    let Profile2ImageView: CustomImageView = {
+        let imageView = CustomImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    let Profile3ImageView: CustomImageView = {
+        let imageView = CustomImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    let Profile4ImageView: CustomImageView = {
+        let imageView = CustomImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    let FriendImagesView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = NSLayoutConstraint.Axis.horizontal
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -325,6 +350,11 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         
         checkThisOutButton.addTarget(self, action: #selector(self.checkthisoutTapped(_:)), for: .touchUpInside)
         
+        popupView.addSubview(FriendImagesView)
+        
+        FriendImagesView.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 35).isActive = true
+        FriendImagesView.rightAnchor.constraint(equalTo: popupView.rightAnchor, constant: -60).isActive = true
+        
     }
     
     @objc func checkthisoutTapped(_ sender: UIButton) {
@@ -376,8 +406,37 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         var rating: Double = place?.rating ?? 0
         rating = floor(rating * 2 + 0.5) / 2 //rounding to nearest .5
         ratingPulpsIconView.rating = rating
+        let a = [String] ()
+        let imageStringArray: [String] = place?.fbvisitors ?? a;
+        
+        func addImagetoFriendImagesView(url:String, view:CustomImageView){
+            view.loadImage(urlString: url)
+            view.widthAnchor.constraint(equalToConstant:40).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            view.clipsToBounds = true
+            view.layoutIfNeeded()
+            view.layer.cornerRadius = view.frame.size.width / 2
+        }
+            
+        if(imageStringArray.count >= 1){
+                addImagetoFriendImagesView(url: imageStringArray[0], view: Profile1ImageView)
+                FriendImagesView.addArrangedSubview(Profile1ImageView)
+            }
+        if(imageStringArray.count >= 2){
+                addImagetoFriendImagesView(url: imageStringArray[1], view: Profile2ImageView)
+                FriendImagesView.addArrangedSubview(Profile2ImageView)
+            }
+        if(imageStringArray.count >= 3){
+                addImagetoFriendImagesView(url: imageStringArray[2], view: Profile3ImageView)
+                FriendImagesView.addArrangedSubview(Profile3ImageView)
+            }
+        if(imageStringArray.count >= 4){
+                addImagetoFriendImagesView(url: imageStringArray[3], view: Profile4ImageView)
+                FriendImagesView.addArrangedSubview(Profile4ImageView)
+            }
+        
        
-        setupFriendPhotos()
+//        setupFriendPhotos()
         checkThisOutButton.tag = index
         
         let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {

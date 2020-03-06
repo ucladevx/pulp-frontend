@@ -330,7 +330,6 @@ UICollectionViewDelegateFlowLayout {
         else {
             ratingTextView.text = String(avRating) + " pulps"
         }
-        Profile1ImageView.loadImage(urlString: place.fbvisitors[0])
         backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
         backButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
@@ -416,13 +415,8 @@ UICollectionViewDelegateFlowLayout {
             view.layer.cornerRadius = view.frame.size.width / 2
         }
 
-//        replace array of strings here
-        var imageStringArray: [String] = [];
-    imageStringArray.append("https://image.shutterstock.com/mosaic_250/2936380/613759379/stock-photo-happy-cheerful-young-woman-wearing-her-red-hair-in-bun-rejoicing-at-positive-news-or-birthday-gift-613759379.jpg")
-    imageStringArray.append("https://image.shutterstock.com/mosaic_250/2936380/640011838/stock-photo-handsome-unshaven-young-dark-skinned-male-laughing-out-loud-at-funny-meme-he-found-on-internet-640011838.jpg")
-        
-        imageStringArray.append("https://www.freegreatpicture.com/files/94/28287-business-people-stock.jpg")
-        imageStringArray.append("https://media.glassdoor.com/people/sqll/40772/facebook-ceo1538973361869.png")
+        let imageStringArray: [String] = place.fbvisitors;
+    
         
         if(imageStringArray.count >= 1){
             addImagetoFriendImagesView(url: imageStringArray[0], view: Profile1ImageView)
@@ -441,11 +435,11 @@ UICollectionViewDelegateFlowLayout {
             FriendImagesView.addArrangedSubview(Profile4ImageView)
         }
 
-        FriendImagesView.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 70).isActive = true
+        FriendImagesView.topAnchor.constraint(equalTo: PlaceDescriptionRow2.bottomAnchor, constant: 15).isActive = true
         FriendImagesView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         
         AddReviewTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        AddReviewTextView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 10).isActive = true //FriendImagesView
+        AddReviewTextView.topAnchor.constraint(equalTo: AddReviewButton.bottomAnchor, constant: 10).isActive = true 
         AddReviewTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         AddReviewTextView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         

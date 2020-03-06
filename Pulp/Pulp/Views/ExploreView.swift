@@ -26,6 +26,7 @@ UICollectionViewDelegateFlowLayout {
     var calledbyMap: Bool = true
     let locationManager = CLLocationManager()
     var place: Place = YelpSearch[0]
+    var mapSnapshotView: UIView?
 
     
     let bgImageView: UIImageView = {
@@ -230,18 +231,25 @@ UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50))
-        view.addSubview(navigationBar)
-        navigationBar.tintColor = .black
-        navigationBar.barStyle = UIBarStyle.black
         setupScrollView()
         contentView.backgroundColor = .white
         setupLayout()
         setupViews()
         setupReviews()
-        
- 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mapSnapshotView?.alpha = 1
+        view.bringSubviewToFront(ratingView)
+        ratingView.center = CGPoint(x: 195.0, y: 565.0)
+        view.layoutIfNeeded()
+        UIView.animate(withDuration: 1, animations: {
+            self.mapSnapshotView?.alpha = 0
+            self.ratingView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 35).isActive = true
+            self.ratingView.topAnchor.constraint(equalTo: self.PlaceDescriptionRow2.bottomAnchor, constant: 15).isActive = true
+            self.view.layoutIfNeeded()
+        })
     }
     
     func setupScrollView(){
@@ -276,7 +284,7 @@ UICollectionViewDelegateFlowLayout {
         contentView.addSubview(PlaceDescriptionRow1)
         contentView.addSubview(PlaceDescriptionRow2)
         contentView.addSubview(DistanceTextView)
-        contentView.addSubview(ratingView)
+        view.addSubview(ratingView)
         ratingView.addSubview(ratingPulpsIconView)
         contentView.addSubview(ratingTextView)
         contentView.addSubview(AddReviewTextView)
@@ -284,6 +292,16 @@ UICollectionViewDelegateFlowLayout {
         contentView.addSubview(AddReviewButton)
         contentView.addSubview(visualEffectView)
         contentView.addSubview(FriendImagesView)
+        view.addSubview(mapSnapshotView!)
+        
+        mapSnapshotView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        mapSnapshotView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+
+//        }, completion: { finished in
+//            print("Removed from superview")
+//            self.mapSnapshotView!.removeFromSuperview()
+//        })
+
         
         backButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
         if(calledbyMap){
@@ -394,11 +412,10 @@ UICollectionViewDelegateFlowLayout {
         }
         
 //        ratingView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: (screenWidth - ratingPulpsIconView.frame.size.width)/2).isActive = true
-        ratingView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 35).isActive = true
-        ratingView.topAnchor.constraint(equalTo: PlaceDescriptionRow2.bottomAnchor, constant: 15).isActive = true
+        
         
         ratingTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
-        ratingTextView.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 25).isActive = true
+        ratingTextView.topAnchor.constraint(equalTo: PlaceDescriptionRow2.bottomAnchor, constant: 40).isActive = true
         
         AddReviewButton.topAnchor.constraint(equalTo: FriendImagesView.bottomAnchor, constant: 20).isActive = true
         AddReviewButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
@@ -441,7 +458,7 @@ UICollectionViewDelegateFlowLayout {
             FriendImagesView.addArrangedSubview(Profile4ImageView)
         }
 
-        FriendImagesView.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 70).isActive = true
+        FriendImagesView.topAnchor.constraint(equalTo: ratingTextView.bottomAnchor, constant: 10).isActive = true
         FriendImagesView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -30).isActive = true
         
         AddReviewTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true

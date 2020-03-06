@@ -329,10 +329,15 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     
     @objc func checkthisoutTapped(_ sender: UIButton) {
         impact.impactOccurred()
+        let globalPoint = ratingView.superview?.convert(ratingView.frame.origin, to: nil)
         let nextVC = Explore_Controller()
         nextVC.selectedLocation = sender.tag
         nextVC.isDatabasePlace = true
-        self.present(nextVC, animated: true, completion: {
+        ratingPulpsIconView.isHidden = true
+        nextVC.mapSnapshotView = view.snapshotView(afterScreenUpdates: true)
+        ratingPulpsIconView.isHidden = false
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: false, completion: {
             print("Changes to explore page successfully!")
         })
     }

@@ -106,7 +106,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     let titleTextView: UITextView = {
         let textView = UITextView()
         textView.text = "Venice Canals"
-        textView.textColor = .black
+        textView.textColor = UIColor(red: 135/255, green: 132/255, blue: 132/255, alpha: 1)
         textView.isEditable = false
         textView.font = UIFont(name: "Avenir-Book", size: 24)
         textView.backgroundColor = .clear
@@ -132,8 +132,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     let ratingPulpsIconView: RatingPulpsIconView = {
         let ratingView = RatingPulpsIconView(frame: CGRect(x: 0, y: 0, width: 150, height: 80))
         ratingView.translatesAutoresizingMaskIntoConstraints = false
-        ratingView.fullImage = UIImage(named: "Pulp_Logo")
-        ratingView.emptyImage = imageWithSize(size: ratingView.fullImage!.size)
+        ratingView.fullImage = UIImage(named: "Rating_Full")
+        ratingView.emptyImage = UIImage(named: "Rating_Empty")
         ratingView.backgroundColor =  UIColor.clear
         return ratingView
     }()
@@ -338,9 +338,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         
         popupView.addSubview(ratingView)
         ratingView.addSubview(ratingPulpsIconView)
-        ratingView.leadingAnchor.constraint(equalTo: titleTextView.leadingAnchor, constant: 10).isActive = true
-        ratingView.trailingAnchor.constraint(equalTo: titleTextView.trailingAnchor).isActive = true
         ratingView.topAnchor.constraint(equalTo: locationTextView.bottomAnchor, constant: -20).isActive = true
+        ratingView.leftAnchor.constraint(equalTo: contentImageView.rightAnchor, constant: 10).isActive = true
     
         popupView.addSubview(checkThisOutButton)
         checkThisOutButton.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
@@ -360,9 +359,17 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     @objc func checkthisoutTapped(_ sender: UIButton) {
         impact.impactOccurred()
         let nextVC = Explore_Controller()
+        nextVC.ratingViewStart = ratingView.superview?.convert(ratingView.frame.origin, to: nil)
+        nextVC.locationImageStart = contentImageView.superview?.convert(contentImageView.frame.origin, to: nil)
         nextVC.selectedLocation = sender.tag
         nextVC.isDatabasePlace = true
-        self.present(nextVC, animated: true, completion: {
+        ratingPulpsIconView.isHidden = true
+        contentImageView.isHidden = true
+        nextVC.mapSnapshotView = view.snapshotView(afterScreenUpdates: true)
+        ratingPulpsIconView.isHidden = false
+        contentImageView.isHidden = false
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: false, completion: {
             print("Changes to explore page successfully!")
         })
     }

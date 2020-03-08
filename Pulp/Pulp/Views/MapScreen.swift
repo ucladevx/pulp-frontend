@@ -31,7 +31,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     var pinAnnotationView:MKPinAnnotationView!
     var selectedAnnotation:MKPointAnnotation!
     var currentLocation:CLLocation!
-    var selectedPlace: Int = 0
+    var selectedPlace: Place?
     var collectionView: UICollectionView?
     var place : Place?
     var zoomCheck = true
@@ -357,21 +357,23 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     }
     
     @objc func checkthisoutTapped(_ sender: UIButton) {
-        impact.impactOccurred()
-        let nextVC = Explore_Controller()
-        nextVC.ratingViewStart = ratingView.superview?.convert(ratingView.frame.origin, to: nil)
-        nextVC.locationImageStart = contentImageView.superview?.convert(contentImageView.frame.origin, to: nil)
-        nextVC.selectedLocation = sender.tag
-        nextVC.isDatabasePlace = true
-        ratingPulpsIconView.isHidden = true
-        contentImageView.isHidden = true
-        nextVC.mapSnapshotView = view.snapshotView(afterScreenUpdates: true)
-        ratingPulpsIconView.isHidden = false
-        contentImageView.isHidden = false
-        nextVC.modalPresentationStyle = .fullScreen
-        self.present(nextVC, animated: false, completion: {
-            print("Changes to explore page successfully!")
-        })
+        if(isDisplaying) {
+            impact.impactOccurred()
+            let nextVC = Explore_Controller()
+            nextVC.ratingViewStart = ratingView.superview?.convert(ratingView.frame.origin, to: nil)
+            nextVC.locationImageStart = contentImageView.superview?.convert(contentImageView.frame.origin, to: nil)
+            nextVC.selectedLocation = sender.tag
+            nextVC.isDatabasePlace = true
+            ratingPulpsIconView.isHidden = true
+            contentImageView.isHidden = true
+            nextVC.mapSnapshotView = view.snapshotView(afterScreenUpdates: true)
+            ratingPulpsIconView.isHidden = false
+            contentImageView.isHidden = false
+            nextVC.modalPresentationStyle = .fullScreen
+            self.present(nextVC, animated: false, completion: {
+                print("Changes to explore page successfully!")
+            })
+        }
     }
     private var currentState: State = .closed
     
@@ -382,7 +384,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
         impact.impactOccurred()
-        isDisplaying = true // does this do anything
         place = FriendPlaces[index]
         contentImageView.loadImage(urlString: place?.image ?? defaultURL)
         titleTextView.text = place?.name
@@ -446,14 +447,24 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
 //        setupFriendPhotos()
         checkThisOutButton.tag = index
         
+        // Popup slides up
         let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
-            self.bottomConstraint.constant = 280
-            self.view.layoutIfNeeded()
-        })
-        transitionAnimator.addCompletion { position in
-            
                 self.bottomConstraint.constant = 280
-        }
+                self.view.layoutIfNeeded()
+        })
+        isDisplaying = true
+        transitionAnimator.startAnimation()
+    }
+    
+    @objc private func popupViewClosed(recognizer: UITapGestureRecognizer) {
+        impact.impactOccurred()
+        // Popup slides down
+        let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
+                self.bottomConstraint.constant = 440
+                self.view.layoutIfNeeded()
+        })
+        place = nil
+        isDisplaying = false
         transitionAnimator.startAnimation()
     }
     
@@ -603,8 +614,9 @@ extension MapScreen: MKMapViewDelegate {
         popupViewTapped(recognizer: tapRecognizer, index: index)
     }
     
-    
-        
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        popupViewClosed(recognizer: tapRecognizer)
+    }
 
     //MARK: - Custom Annotation
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

@@ -204,7 +204,166 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         return stackView
     }()
     
+    // Dive In Popup Views
+    let restaurantsImageView: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "RestaurantIcon"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
+    let restaurantsButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let restaurantsLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Restaurants"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let museumImageView: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Museum"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let museumLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Museums"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let museumButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let festivalImageView: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Festival"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let festivalLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Festivals"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let festivalButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let thrillImageView: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Thrill"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let thrillLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Thrill"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let thrillButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let photoImageView: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Photo Op"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let photoLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Photo Ops"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let photoButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let animalImageView: UIImageView = {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "Animal"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let animalLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Animals"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let animalButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let landscapeImageView: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Landscape"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let landscapeLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Landscapes"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let landscapeButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let aquaticImageView: UIImageView = {
+        let imageView = UIImageView(image:#imageLiteral(resourceName: "Aquatic"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let aquaticLabel:UILabel = {
+        let label = UILabel()
+        label.text = "Aquatic"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let aquaticButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -318,6 +477,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         popupView.heightAnchor.constraint(equalToConstant: 450).isActive = true
         
         popupView.addSubview(popupLocationView)
+        popupLocationView.translatesAutoresizingMaskIntoConstraints = false
         popupLocationView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor).isActive = true
         popupLocationView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
         popupLocationView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
@@ -358,18 +518,95 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         FriendImagesView.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 35).isActive = true
         FriendImagesView.rightAnchor.constraint(equalTo: popupView.rightAnchor, constant: -60).isActive = true
     
-        popupView.addSubview(checkThisOutButton)
+        popupLocationView.addSubview(checkThisOutButton)
         checkThisOutButton.isUserInteractionEnabled = true
         checkThisOutButton.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
         checkThisOutButton.rightAnchor.constraint(equalTo: popupView.rightAnchor).isActive = true
         checkThisOutButton.leftAnchor.constraint(equalTo: popupView.leftAnchor).isActive = true
         checkThisOutButton.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
-        popupView.bringSubviewToFront(checkThisOutButton)
         
         checkThisOutButton.addTarget(self, action: #selector(self.checkthisoutTapped(_:)), for: .touchUpInside)
         
+        popupView.addSubview(popupDiveinView)
+        popupDiveinView.translatesAutoresizingMaskIntoConstraints = false
+        popupDiveinView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor).isActive = true
+        popupDiveinView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
+        popupDiveinView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
+        popupDiveinView.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
         
+        popupDiveinView.addSubview(restaurantsImageView)
+        popupDiveinView.backgroundColor = .black
         
+//        restaurantsImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/3).isActive = true
+        restaurantsImageView.topAnchor.constraint(equalTo: popupDiveinView.topAnchor).isActive = true
+        restaurantsImageView.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+        
+//        popupDiveinView.addSubview(restaurantsLabel)
+//        popupDiveinView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/3).isActive = true
+//    restaurantsLabel.topAnchor.constraint(equalTo:restaurantsImageView.bottomAnchor).isActive = true
+//        restaurantsLabel.font = UIFont(name: "Avenir-Medium", size: popupDiveinView.frame.height/50)
+//
+//        popupDiveinView.addSubview(restaurantsButton)
+//        restaurantsButton.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/3).isActive = true
+//        restaurantsButton.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
+//    restaurantsButton.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//        restaurantsButton.widthAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//
+//
+//        // MUSEUM BUTTON
+//        popupDiveinView.addSubview(museumImageView)
+//        museumImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/9).isActive = true
+//        museumImageView.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
+//        museumImageView.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//
+//        popupDiveinView.addSubview(museumLabel)
+//        museumLabel.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/9).isActive = true
+//        museumLabel.topAnchor.constraint(equalTo:museumImageView.bottomAnchor).isActive = true
+//        museumLabel.font = UIFont(name: "Avenir-Medium", size: popupDiveinView.frame.height/50)
+//
+//        popupDiveinView.addSubview(museumButton)
+//        museumButton.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/9).isActive = true
+//        museumButton.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
+//        museumButton.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//        museumButton.widthAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//
+//
+//        // FESTIVAL BUTTON
+//        popupDiveinView.addSubview(festivalImageView)
+//        festivalImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/9).isActive = true
+//        festivalImageView.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
+//        festivalImageView.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//
+//        popupDiveinView.addSubview(festivalLabel)
+//        festivalLabel.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/9).isActive = true
+//        festivalLabel.topAnchor.constraint(equalTo:festivalImageView.bottomAnchor).isActive = true
+//        festivalLabel.font = UIFont(name: "Avenir-Medium", size: popupDiveinView.frame.height/50)
+//
+//        popupDiveinView.addSubview(festivalButton)
+//        festivalButton.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/9).isActive = true
+//        festivalButton.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
+//        festivalButton.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//        festivalButton.widthAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//
+//
+//        // THRILL BUTTON
+//        popupDiveinView.addSubview(thrillImageView)
+//        thrillImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/3).isActive = true
+//        thrillImageView.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
+//        thrillImageView.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//
+//        popupDiveinView.addSubview(thrillLabel)
+//        thrillLabel.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/3).isActive = true
+//        thrillLabel.topAnchor.constraint(equalTo:thrillImageView.bottomAnchor).isActive = true
+//        thrillLabel.font = UIFont(name: "Avenir-Medium", size: popupDiveinView.frame.height/50)
+//
+//        popupDiveinView.addSubview(thrillButton)
+//        thrillButton.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/3).isActive = true
+//        thrillButton.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
+//        thrillButton.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//        thrillButton.widthAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+//
+//
     }
     
     @objc func checkthisoutTapped(_ sender: UIButton) {
@@ -400,7 +637,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
         impact.impactOccurred()
-        popupLocationView.isHidden = false
         place = FriendPlaces[index]
         contentImageView.loadImage(urlString: place?.image ?? defaultURL)
         titleTextView.text = place?.name
@@ -465,13 +701,23 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         checkThisOutButton.tag = index
         
         // slide divein popup down if it's open
+        var animationDelay: TimeInterval = 0
         if(isDisplayingDivein) {
             let closePopupAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
                 self.bottomConstraint.constant = 440
                 self.view.layoutIfNeeded()
             })
+            closePopupAnimator.addCompletion({_ in
+                popupDiveinView.isHidden = true
+                popupLocationView.isHidden = false
+            })
+            closePopupAnimator.startAnimation()
+            animationDelay = 0.5
             isDisplayingDivein = false
+        }
+        else {
             popupDiveinView.isHidden = true
+            popupLocationView.isHidden = false
         }
         
         // Popup slides up
@@ -479,14 +725,16 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
                 self.bottomConstraint.constant = 280
                 self.view.layoutIfNeeded()
         })
-        isDisplayingLocation = true
-        transitionAnimator.startAnimation()
+        if(isDisplayingLocation == false) {
+            transitionAnimator.startAnimation(afterDelay: animationDelay)
+            isDisplayingLocation = true
+        }
     }
     
     @objc private func popupViewClosed(recognizer: UITapGestureRecognizer) {
         impact.impactOccurred()
         // Popup slides down
-        let transitionAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
+        let transitionAnimator = UIViewPropertyAnimator(duration: 0.9, dampingRatio: 1, animations: {
                 self.bottomConstraint.constant = 440
                 self.view.layoutIfNeeded()
         })
@@ -556,27 +804,34 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     @objc func searchBarTapped(textField: UITextField) {
         impact.impactOccurred()
         // Slide popup down
+        var animationDelay: TimeInterval = 0
         let closePopupAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
                 self.bottomConstraint.constant = 440
                 self.view.layoutIfNeeded()
         })
-        place = nil
         if(isDisplayingLocation) {
+            closePopupAnimator.addCompletion({_ in
+                popupLocationView.isHidden = true
+                popupDiveinView.isHidden = false
+            })
             closePopupAnimator.startAnimation()
             isDisplayingLocation = false
+            animationDelay = 0.5
         }
         if(isDisplayingDivein) {
+            closePopupAnimator.addCompletion({_ in
+                popupDiveinView.isHidden = true
+            })
             closePopupAnimator.startAnimation()
             isDisplayingDivein = false
         }
         else {
-            popupLocationView.isHidden = true
             // slide divein popup up
             let openPopupAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
                     self.bottomConstraint.constant = 280
                     self.view.layoutIfNeeded()
             })
-            openPopupAnimator.startAnimation(afterDelay: 0.5)
+            openPopupAnimator.startAnimation(afterDelay: animationDelay)
             isDisplayingDivein = true
         }
         
@@ -585,6 +840,75 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
 //        self.present(nextVC, animated: true, completion: {
 //            print("Changes to divein successfully!")
 //        })
+    }
+    
+    @objc func registerTapped(_ sender: UIButton) {
+        impact.impactOccurred()
+        var searchTerm: String
+        switch sender.tag {
+            case 0:
+            searchTerm = "Restaurant"
+            case 1:
+            searchTerm = "Museum"
+            case 2:
+            searchTerm = "Festival"
+            case 3:
+            searchTerm = "Thrill"
+            case 4:
+            searchTerm = "Photo"
+            case 5:
+            searchTerm = "Zoo"
+            case 6:
+            searchTerm = "Landscape"
+            case 7:
+            searchTerm = "Aquatic"
+            
+        default:
+            searchTerm = ""
+        }
+        yelpDispatchGroup.enter()
+        //get current location
+        locationManager.startUpdatingLocation()
+        var Latt = 34.073121 //default location if current not found
+        var Long = -118.454704
+        if let userLocation = self.locationManager.location?.coordinate {
+            Latt = userLocation.latitude
+            Long = userLocation.longitude
+        }
+        locationManager.stopUpdatingLocation()
+        
+        YelpSearchFunc(latt: Latt, longi:  Long, sterm: searchTerm, limitN: 10)
+        yelpDispatchGroup.notify(queue: .main) {
+            print("Moving to list_view")
+            let nextVC = ListView_Controller()
+            nextVC.searchTerm = searchTerm
+            self.present(nextVC, animated: true, completion: {
+            print("Changes to list_view successfully!")
+        })
+        }
+    }
+    
+    func YelpSearchFunc(latt:Double, longi: Double, sterm: String, limitN: Int) {
+
+        service.request(.YelpTest(lat: latt, long: longi, term: sterm, limit:limitN)) {(result) in
+            switch result {
+            case .success(let response):
+                let save = try? JSONDecoder().decode(Return.self, from: response.data)
+                if (save != nil){
+                TempPlaces = save!.businesses // if safe null then search again.....
+                yelpSearchDispatchGroup.enter()
+                ListToPlace(list:TempPlaces)
+                yelpSearchDispatchGroup.notify(queue: .main) {
+                    yelpDispatchGroup.leave()
+                }
+                
+                return
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+                return
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

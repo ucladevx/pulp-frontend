@@ -61,12 +61,16 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         return view
     }()
     
+    // temporarily set to a uibutton
 //    let searchBar: UITextField = {
     let searchBar: UIButton = {
+//        let searchbar = UITextField()
         let searchbar = UIButton()
-        //searchbar.placeholder = "        Parks, museums, bars, etc.";
-        //searchbar.textAlignment = .left
-        //searchbar.font = UIFont(name: "Avenir-Light", size:15)
+//        searchbar.placeholder = "        Parks, museums, bars, etc.";
+//        searchbar.textAlignment = .left
+        searchbar.setTitle("Parks, museums, bars, etc.", for: .normal)
+        searchbar.titleLabel?.font = UIFont(name: "Avenir-Light", size:15)
+        searchbar.setTitleColor(UIColor(red: 135/255, green: 132/255, blue: 132/255, alpha: 1), for: .normal)
         searchbar.translatesAutoresizingMaskIntoConstraints = false
         return searchbar
     }()
@@ -380,6 +384,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         OpenerDown.alpha = 1.0
         
         print(USERID)
+        setupDiveinButtonDestination()
 
         mapDispatch.enter()
         GetMapPlaces()
@@ -534,79 +539,155 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         popupDiveinView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
         popupDiveinView.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
         
+        let popupDiveinViewWidth = view.frame.size.width - 20
+        
+        // RESTAURANTS BUTTON
         popupDiveinView.addSubview(restaurantsImageView)
-        popupDiveinView.backgroundColor = .black
+
+        restaurantsImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinViewWidth/3).isActive = true
         
-//        restaurantsImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/3).isActive = true
-        restaurantsImageView.topAnchor.constraint(equalTo: popupDiveinView.topAnchor).isActive = true
-        restaurantsImageView.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
+        restaurantsImageView.topAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: 10).isActive = true
+        restaurantsImageView.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
         
-//        popupDiveinView.addSubview(restaurantsLabel)
-//        popupDiveinView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/3).isActive = true
-//    restaurantsLabel.topAnchor.constraint(equalTo:restaurantsImageView.bottomAnchor).isActive = true
-//        restaurantsLabel.font = UIFont(name: "Avenir-Medium", size: popupDiveinView.frame.height/50)
-//
-//        popupDiveinView.addSubview(restaurantsButton)
-//        restaurantsButton.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/3).isActive = true
-//        restaurantsButton.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
-//    restaurantsButton.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//        restaurantsButton.widthAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//
-//
-//        // MUSEUM BUTTON
-//        popupDiveinView.addSubview(museumImageView)
-//        museumImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/9).isActive = true
-//        museumImageView.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
-//        museumImageView.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//
-//        popupDiveinView.addSubview(museumLabel)
-//        museumLabel.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/9).isActive = true
-//        museumLabel.topAnchor.constraint(equalTo:museumImageView.bottomAnchor).isActive = true
-//        museumLabel.font = UIFont(name: "Avenir-Medium", size: popupDiveinView.frame.height/50)
-//
-//        popupDiveinView.addSubview(museumButton)
-//        museumButton.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinView.frame.width/9).isActive = true
-//        museumButton.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
-//        museumButton.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//        museumButton.widthAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//
-//
-//        // FESTIVAL BUTTON
-//        popupDiveinView.addSubview(festivalImageView)
-//        festivalImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/9).isActive = true
-//        festivalImageView.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
-//        festivalImageView.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//
-//        popupDiveinView.addSubview(festivalLabel)
-//        festivalLabel.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/9).isActive = true
-//        festivalLabel.topAnchor.constraint(equalTo:festivalImageView.bottomAnchor).isActive = true
-//        festivalLabel.font = UIFont(name: "Avenir-Medium", size: popupDiveinView.frame.height/50)
-//
-//        popupDiveinView.addSubview(festivalButton)
-//        festivalButton.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/9).isActive = true
-//        festivalButton.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
-//        festivalButton.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//        festivalButton.widthAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//
-//
-//        // THRILL BUTTON
-//        popupDiveinView.addSubview(thrillImageView)
-//        thrillImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/3).isActive = true
-//        thrillImageView.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
-//        thrillImageView.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//
-//        popupDiveinView.addSubview(thrillLabel)
-//        thrillLabel.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/3).isActive = true
-//        thrillLabel.topAnchor.constraint(equalTo:thrillImageView.bottomAnchor).isActive = true
-//        thrillLabel.font = UIFont(name: "Avenir-Medium", size: popupDiveinView.frame.height/50)
-//
-//        popupDiveinView.addSubview(thrillButton)
-//        thrillButton.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinView.frame.width/3).isActive = true
-//        thrillButton.centerYAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: popupDiveinView.frame.height/12).isActive = true
-//        thrillButton.heightAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//        thrillButton.widthAnchor.constraint(equalToConstant:popupDiveinView.frame.width/4.5).isActive = true
-//
-//
+        
+        popupDiveinView.addSubview(restaurantsLabel)
+        restaurantsLabel.centerXAnchor.constraint(equalTo: restaurantsImageView.centerXAnchor).isActive = true
+    restaurantsLabel.topAnchor.constraint(equalTo:restaurantsImageView.bottomAnchor).isActive = true
+        restaurantsLabel.font = UIFont(name: "Avenir-Medium", size: 13.5)
+        
+        popupDiveinView.addSubview(restaurantsButton)
+        restaurantsButton.centerXAnchor.constraint(equalTo: restaurantsImageView.centerXAnchor).isActive = true
+        restaurantsButton.centerYAnchor.constraint(equalTo: restaurantsImageView.centerYAnchor).isActive = true
+    restaurantsButton.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+        restaurantsButton.widthAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+        // MUSEUM BUTTON
+        popupDiveinView.addSubview(museumImageView)
+        museumImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinViewWidth/9).isActive = true
+        museumImageView.topAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: 10).isActive = true
+         museumImageView.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+        popupDiveinView.addSubview(museumLabel)
+        museumLabel.centerXAnchor.constraint(equalTo: museumImageView.centerXAnchor).isActive = true
+        museumLabel.topAnchor.constraint(equalTo:museumImageView.bottomAnchor).isActive = true
+        museumLabel.font = UIFont(name: "Avenir-Medium", size: 13.5)
+
+        popupDiveinView.addSubview(museumButton)
+        museumButton.centerXAnchor.constraint(equalTo: museumImageView.centerXAnchor).isActive = true
+        museumButton.centerYAnchor.constraint(equalTo: museumImageView.centerYAnchor).isActive = true
+        museumButton.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+        museumButton.widthAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+
+        // FESTIVAL BUTTON
+        popupDiveinView.addSubview(festivalImageView)
+        festivalImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinViewWidth/9).isActive = true
+        festivalImageView.topAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: 10).isActive = true
+        festivalImageView.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+        popupDiveinView.addSubview(festivalLabel)
+        festivalLabel.centerXAnchor.constraint(equalTo: festivalImageView.centerXAnchor).isActive = true
+        festivalLabel.topAnchor.constraint(equalTo:festivalImageView.bottomAnchor).isActive = true
+        festivalLabel.font = UIFont(name: "Avenir-Medium", size: 13.5)
+
+        popupDiveinView.addSubview(festivalButton)
+        festivalButton.centerXAnchor.constraint(equalTo: festivalImageView.centerXAnchor).isActive = true
+        festivalButton.centerYAnchor.constraint(equalTo: festivalImageView.centerYAnchor).isActive = true
+        festivalButton.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+        festivalButton.widthAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+
+        // THRILL BUTTON
+        popupDiveinView.addSubview(thrillImageView)
+        thrillImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinViewWidth/3).isActive = true
+        thrillImageView.topAnchor.constraint(equalTo: popupDiveinView.topAnchor, constant: 10).isActive = true
+        thrillImageView.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+        popupDiveinView.addSubview(thrillLabel)
+        thrillLabel.centerXAnchor.constraint(equalTo: thrillImageView.centerXAnchor).isActive = true
+        thrillLabel.topAnchor.constraint(equalTo:thrillImageView.bottomAnchor).isActive = true
+        thrillLabel.font = UIFont(name: "Avenir-Medium", size: 13.5)
+
+        popupDiveinView.addSubview(thrillButton)
+        thrillButton.centerXAnchor.constraint(equalTo: thrillImageView.centerXAnchor).isActive = true
+        thrillButton.centerYAnchor.constraint(equalTo: thrillImageView.centerYAnchor).isActive = true
+        thrillButton.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+        thrillButton.widthAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+        // Photo Button
+        popupDiveinView.addSubview(photoImageView)
+
+        photoImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinViewWidth/3).isActive = true
+        
+        photoImageView.topAnchor.constraint(equalTo: restaurantsLabel.bottomAnchor, constant: 10).isActive = true
+    photoImageView.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+        
+        
+        popupDiveinView.addSubview(photoLabel)
+        photoLabel.centerXAnchor.constraint(equalTo: photoImageView.centerXAnchor).isActive = true
+    photoLabel.topAnchor.constraint(equalTo: photoImageView.bottomAnchor).isActive = true
+        photoLabel.font = UIFont(name: "Avenir-Medium", size: 13.5)
+        
+        popupDiveinView.addSubview(photoButton)
+        photoButton.centerXAnchor.constraint(equalTo: photoImageView.centerXAnchor).isActive = true
+        photoButton.centerYAnchor.constraint(equalTo: photoImageView.centerYAnchor).isActive = true
+    
+        photoButton.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+        photoButton.widthAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+        // ANIMAL BUTTON
+        popupDiveinView.addSubview(animalImageView)
+        animalImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: -popupDiveinViewWidth/9).isActive = true
+        animalImageView.topAnchor.constraint(equalTo: museumLabel.bottomAnchor, constant: 10).isActive = true
+         animalImageView.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+        popupDiveinView.addSubview(animalLabel)
+        animalLabel.centerXAnchor.constraint(equalTo: animalImageView.centerXAnchor).isActive = true
+        animalLabel.topAnchor.constraint(equalTo:animalImageView.bottomAnchor).isActive = true
+        animalLabel.font = UIFont(name: "Avenir-Medium", size: 13.5)
+
+        popupDiveinView.addSubview(animalButton)
+        animalButton.centerXAnchor.constraint(equalTo: animalImageView.centerXAnchor).isActive = true
+        animalButton.centerYAnchor.constraint(equalTo: animalImageView.centerYAnchor).isActive = true
+        animalButton.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+        animalButton.widthAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+
+        // LANDSCAPE BUTTON
+        popupDiveinView.addSubview(landscapeImageView)
+        landscapeImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinViewWidth/9).isActive = true
+        landscapeImageView.topAnchor.constraint(equalTo: festivalLabel.bottomAnchor, constant: 10).isActive = true
+        landscapeImageView.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+        popupDiveinView.addSubview(landscapeLabel)
+        landscapeLabel.centerXAnchor.constraint(equalTo: landscapeImageView.centerXAnchor).isActive = true
+        landscapeLabel.topAnchor.constraint(equalTo:landscapeImageView.bottomAnchor).isActive = true
+        landscapeLabel.font = UIFont(name: "Avenir-Medium", size: 13.5)
+
+        popupDiveinView.addSubview(landscapeButton)
+        landscapeButton.centerXAnchor.constraint(equalTo: landscapeImageView.centerXAnchor).isActive = true
+        landscapeButton.centerYAnchor.constraint(equalTo: landscapeImageView.centerYAnchor).isActive = true
+        landscapeButton.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+        landscapeButton.widthAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+
+        // AQUATIC BUTTON
+        popupDiveinView.addSubview(aquaticImageView)
+        aquaticImageView.centerXAnchor.constraint(equalTo: popupDiveinView.centerXAnchor, constant: popupDiveinViewWidth/3).isActive = true
+        aquaticImageView.topAnchor.constraint(equalTo: thrillLabel.bottomAnchor, constant: 10).isActive = true
+        aquaticImageView.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
+        popupDiveinView.addSubview(aquaticLabel)
+        aquaticLabel.centerXAnchor.constraint(equalTo: aquaticImageView.centerXAnchor).isActive = true
+        aquaticLabel.topAnchor.constraint(equalTo:aquaticImageView.bottomAnchor).isActive = true
+        aquaticLabel.font = UIFont(name: "Avenir-Medium", size: 13.5)
+
+        popupDiveinView.addSubview(aquaticButton)
+        aquaticButton.centerXAnchor.constraint(equalTo: aquaticImageView.centerXAnchor).isActive = true
+        aquaticButton.centerYAnchor.constraint(equalTo: aquaticImageView.centerYAnchor).isActive = true
+        aquaticButton.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+        aquaticButton.widthAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+
     }
     
     @objc func checkthisoutTapped(_ sender: UIButton) {
@@ -817,6 +898,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             closePopupAnimator.startAnimation()
             isDisplayingLocation = false
             animationDelay = 0.5
+        } else {
+            popupLocationView.isHidden = true
+            popupDiveinView.isHidden = false
         }
         if(isDisplayingDivein) {
             closePopupAnimator.addCompletion({_ in
@@ -828,21 +912,15 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         else {
             // slide divein popup up
             let openPopupAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
-                    self.bottomConstraint.constant = 280
+                    self.bottomConstraint.constant = 230
                     self.view.layoutIfNeeded()
             })
             openPopupAnimator.startAnimation(afterDelay: animationDelay)
             isDisplayingDivein = true
         }
-        
-        
-//        let nextVC = DiveIn()
-//        self.present(nextVC, animated: true, completion: {
-//            print("Changes to divein successfully!")
-//        })
     }
     
-    @objc func registerTapped(_ sender: UIButton) {
+    @objc func diveinTapped(_ sender: UIButton) {
         impact.impactOccurred()
         var searchTerm: String
         switch sender.tag {
@@ -967,6 +1045,27 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         return CGSize(width: 300 , height: 200)
     }
     
+    func setupDiveinButtonDestination(){
+        restaurantsButton.tag=0
+        restaurantsButton.addTarget(self, action: #selector(self.diveinTapped(_:)), for: .touchUpInside)
+        museumButton.tag=1
+        museumButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        festivalButton.tag=2
+        festivalButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        thrillButton.tag=3
+        thrillButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        
+        photoButton.tag=4
+        photoButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        animalButton.tag=5
+        animalButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        landscapeButton.tag=6
+        landscapeButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        aquaticButton.tag=7
+        aquaticButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+
+    }
+    
 }
 
 extension MapScreen: MKMapViewDelegate {
@@ -992,7 +1091,9 @@ extension MapScreen: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        popupViewClosed(recognizer: tapRecognizer)
+        if(isDisplayingLocation && !isDisplayingDivein) {
+            popupViewClosed(recognizer: tapRecognizer)
+        }
     }
 
     //MARK: - Custom Annotation

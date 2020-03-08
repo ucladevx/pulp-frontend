@@ -257,8 +257,8 @@ UICollectionViewDelegateFlowLayout {
     }
     
     func animateFromMap() {
-        view.bringSubviewToFront(ratingView)
-        view.bringSubviewToFront(locationImageView)
+        contentView.bringSubviewToFront(ratingView)
+        contentView.bringSubviewToFront(locationImageView)
         ratingView.center = ratingViewStart ?? CGPoint(x: 195.0, y: 565.0)
         locationImageView.frame = CGRect(x: locationImageStart?.x ?? 25, y: locationImageStart?.y ?? 512, width: 150.0, height: 140.0)
         locationImageView.layer.cornerRadius = 28
@@ -331,7 +331,7 @@ UICollectionViewDelegateFlowLayout {
         if(calledbyMap){
             place = FriendPlaces[selectedLocation]
             backButton.setTitle("< Back to Map", for: .normal)
-            view.addSubview(mapSnapshotView!)
+            contentView.addSubview(mapSnapshotView!)
             mapSnapshotView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             mapSnapshotView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             mapSnapshotView?.alpha = 1

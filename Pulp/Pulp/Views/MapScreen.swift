@@ -21,10 +21,13 @@ let popupView: UIView = {
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
 }()
+let popupLocationView = UIView()
+let popupDiveinView = UIView()
 class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegate,
     UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
-    var isDisplaying = false
+    var isDisplayingLocation = false
+    var isDisplayingDivein = false
     var window: UIWindow?
     var mapView: MKMapView?
     var pointAnnotationList:[CustomPointAnnotation] = []
@@ -58,11 +61,12 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         return view
     }()
     
-    let searchBar: UITextField = {
-        let searchbar = UITextField()
-        searchbar.placeholder = "        Parks, museums, bars, etc.";
-        searchbar.textAlignment = .left
-        searchbar.font = UIFont(name: "Avenir-Light", size:15)
+//    let searchBar: UITextField = {
+    let searchBar: UIButton = {
+        let searchbar = UIButton()
+        //searchbar.placeholder = "        Parks, museums, bars, etc.";
+        //searchbar.textAlignment = .left
+        //searchbar.font = UIFont(name: "Avenir-Light", size:15)
         searchbar.translatesAutoresizingMaskIntoConstraints = false
         return searchbar
     }()
@@ -200,6 +204,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         return stackView
     }()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -275,7 +281,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
                             self.addPin(imageName: "MapFaveIcon", location: pinLocation, title: place.name, subtitle: "")
                             }
                         }
-                            popupView.addGestureRecognizer(self.tapRecognizer)
+                            popupLocationView.addGestureRecognizer(self.tapRecognizer)
             })
             
         }
@@ -311,8 +317,14 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         bottomConstraint.isActive = true
         popupView.heightAnchor.constraint(equalToConstant: 450).isActive = true
         
+        popupView.addSubview(popupLocationView)
+        popupLocationView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor).isActive = true
+        popupLocationView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
+        popupLocationView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
+        popupLocationView.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
+        
         contentImageView.translatesAutoresizingMaskIntoConstraints = false
-        popupView.addSubview(contentImageView)
+        popupLocationView.addSubview(contentImageView)
         contentImageView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor, constant: 15).isActive = true
         contentImageView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor, constant: -190).isActive = true
         contentImageView.topAnchor.constraint(equalTo: popupView.topAnchor, constant: 15).isActive = true
@@ -321,7 +333,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         
      
         titleTextView.translatesAutoresizingMaskIntoConstraints = false
-        popupView.addSubview(titleTextView)
+        popupLocationView.addSubview(titleTextView)
         titleTextView.leadingAnchor.constraint(equalTo: contentImageView.trailingAnchor, constant: 10).isActive = true
         titleTextView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor, constant: -10).isActive = true
         titleTextView.topAnchor.constraint(equalTo: popupView.topAnchor, constant: 8).isActive = true
@@ -330,34 +342,38 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         titleTextView.isScrollEnabled = false
         
         locationTextView.translatesAutoresizingMaskIntoConstraints = false
-        popupView.addSubview(locationTextView)
+        popupLocationView.addSubview(locationTextView)
         locationTextView.leadingAnchor.constraint(equalTo: titleTextView.leadingAnchor).isActive = true
         locationTextView.trailingAnchor.constraint(equalTo: titleTextView.trailingAnchor).isActive = true
         locationTextView.topAnchor.constraint(equalTo: titleTextView.bottomAnchor, constant: -20).isActive = true
         locationTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        popupView.addSubview(ratingView)
+        popupLocationView.addSubview(ratingView)
         ratingView.addSubview(ratingPulpsIconView)
         ratingView.topAnchor.constraint(equalTo: locationTextView.bottomAnchor, constant: -20).isActive = true
         ratingView.leftAnchor.constraint(equalTo: contentImageView.rightAnchor, constant: 10).isActive = true
+        
+        popupLocationView.addSubview(FriendImagesView)
+
+        FriendImagesView.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 35).isActive = true
+        FriendImagesView.rightAnchor.constraint(equalTo: popupView.rightAnchor, constant: -60).isActive = true
     
         popupView.addSubview(checkThisOutButton)
+        checkThisOutButton.isUserInteractionEnabled = true
         checkThisOutButton.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
         checkThisOutButton.rightAnchor.constraint(equalTo: popupView.rightAnchor).isActive = true
         checkThisOutButton.leftAnchor.constraint(equalTo: popupView.leftAnchor).isActive = true
         checkThisOutButton.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
+        popupView.bringSubviewToFront(checkThisOutButton)
         
         checkThisOutButton.addTarget(self, action: #selector(self.checkthisoutTapped(_:)), for: .touchUpInside)
         
-        popupView.addSubview(FriendImagesView)
         
-        FriendImagesView.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 35).isActive = true
-        FriendImagesView.rightAnchor.constraint(equalTo: popupView.rightAnchor, constant: -60).isActive = true
         
     }
     
     @objc func checkthisoutTapped(_ sender: UIButton) {
-        if(isDisplaying) {
+        if(isDisplayingLocation) {
             impact.impactOccurred()
             let nextVC = Explore_Controller()
             nextVC.ratingViewStart = ratingView.superview?.convert(ratingView.frame.origin, to: nil)
@@ -384,6 +400,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
         impact.impactOccurred()
+        popupLocationView.isHidden = false
         place = FriendPlaces[index]
         contentImageView.loadImage(urlString: place?.image ?? defaultURL)
         titleTextView.text = place?.name
@@ -447,24 +464,34 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
 //        setupFriendPhotos()
         checkThisOutButton.tag = index
         
+        // slide divein popup down if it's open
+        if(isDisplayingDivein) {
+            let closePopupAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
+                self.bottomConstraint.constant = 440
+                self.view.layoutIfNeeded()
+            })
+            isDisplayingDivein = false
+            popupDiveinView.isHidden = true
+        }
+        
         // Popup slides up
         let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
                 self.bottomConstraint.constant = 280
                 self.view.layoutIfNeeded()
         })
-        isDisplaying = true
+        isDisplayingLocation = true
         transitionAnimator.startAnimation()
     }
     
     @objc private func popupViewClosed(recognizer: UITapGestureRecognizer) {
         impact.impactOccurred()
         // Popup slides down
-        let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
+        let transitionAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
                 self.bottomConstraint.constant = 440
                 self.view.layoutIfNeeded()
         })
         place = nil
-        isDisplaying = false
+        isDisplayingLocation = false
         transitionAnimator.startAnimation()
     }
     
@@ -522,16 +549,42 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
 //            make.top.equalTo(searchBarView).offset(8)
 //            make.bottom.equalTo(searchBarView).offset(-8)
 //        }
-        searchBar.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
+        searchBar.addTarget(self, action: #selector(searchBarTapped), for: .touchDown)
         
     }
     
-    @objc func myTargetFunction(textField: UITextField) {
+    @objc func searchBarTapped(textField: UITextField) {
         impact.impactOccurred()
-        let nextVC = DiveIn()
-        self.present(nextVC, animated: true, completion: {
-            print("Changes to divein successfully!")
+        // Slide popup down
+        let closePopupAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
+                self.bottomConstraint.constant = 440
+                self.view.layoutIfNeeded()
         })
+        place = nil
+        if(isDisplayingLocation) {
+            closePopupAnimator.startAnimation()
+            isDisplayingLocation = false
+        }
+        if(isDisplayingDivein) {
+            closePopupAnimator.startAnimation()
+            isDisplayingDivein = false
+        }
+        else {
+            popupLocationView.isHidden = true
+            // slide divein popup up
+            let openPopupAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
+                    self.bottomConstraint.constant = 280
+                    self.view.layoutIfNeeded()
+            })
+            openPopupAnimator.startAnimation(afterDelay: 0.5)
+            isDisplayingDivein = true
+        }
+        
+        
+//        let nextVC = DiveIn()
+//        self.present(nextVC, animated: true, completion: {
+//            print("Changes to divein successfully!")
+//        })
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

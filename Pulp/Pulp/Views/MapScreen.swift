@@ -421,7 +421,10 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
                 self.mapView!.showsCompass = true
                 self.mapView!.showsBuildings = true
                 self.mapView!.showsUserLocation = true
+                self.mapView!.addGestureRecognizer(self.mapTapRecognizer)
+                    self.mapTapRecognizer.delegate = self.mapView! as! UIGestureRecognizerDelegate
                 self.view.addSubview(self.mapView!)
+                
                 self.searchBarView.addSubview(self.searchBar)
                 //            self.searchBarView.addSubview(self.filterButton)
                 //            self.searchBarView.addSubview(self.cancelButton)
@@ -716,6 +719,25 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         return recognizer
     }()
     
+    private lazy var mapTapRecognizer: UITapGestureRecognizer = {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(mapTapped))
+        return recognizer
+    }()
+    
+    @objc private func mapTapped() {
+        if(isDisplayingDivein) {
+            impact.impactOccurred()
+            // Popup slides down
+            let transitionAnimator = UIViewPropertyAnimator(duration: 0.9, dampingRatio: 1, animations: {
+                    self.bottomConstraint.constant = 440
+                    self.view.layoutIfNeeded()
+            })
+            place = nil
+            isDisplayingDivein = false
+            transitionAnimator.startAnimation()
+        }
+    }
+    
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
         impact.impactOccurred()
         place = FriendPlaces[index]
@@ -921,6 +943,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             })
             openPopupAnimator.startAnimation(afterDelay: animationDelay)
             isDisplayingDivein = true
+            self.mapView?.selectedAnnotations.forEach({ self.mapView?.deselectAnnotation($0, animated: true) })
         }
     }
     
@@ -1090,7 +1113,6 @@ extension MapScreen: MKMapViewDelegate {
               break
             }
         }
-        
         popupViewTapped(recognizer: tapRecognizer, index: index)
     }
     

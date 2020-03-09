@@ -912,8 +912,12 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         else {
             // slide divein popup up
             let openPopupAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
-                    self.bottomConstraint.constant = 230
+                    self.bottomConstraint.constant = 210
                     self.view.layoutIfNeeded()
+            })
+            openPopupAnimator.addCompletion({_ in
+                popupLocationView.isHidden = true
+                popupDiveinView.isHidden = false
             })
             openPopupAnimator.startAnimation(afterDelay: animationDelay)
             isDisplayingDivein = true

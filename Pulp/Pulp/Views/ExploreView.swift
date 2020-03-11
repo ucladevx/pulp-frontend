@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 
+
 class Explore_Controller: UIViewController,
     UICollectionViewDelegate,
     UICollectionViewDataSource,
@@ -241,6 +242,7 @@ UICollectionViewDelegateFlowLayout {
         setupLayout()
         setupViews()
         setupReviews()
+
     }
     
     // Set the final constraint positions for animated elements
@@ -377,15 +379,13 @@ UICollectionViewDelegateFlowLayout {
             ratingTextView.text = String(avRating) + " pulps"
         }
 
-
-        
         locationImageShadowView.leftAnchor.constraint(equalTo: locationImageView.leftAnchor).isActive = true
         locationImageShadowView.rightAnchor.constraint(equalTo: locationImageView.rightAnchor).isActive = true
         locationImageShadowView.topAnchor.constraint(equalTo: locationImageView.topAnchor).isActive = true
         locationImageShadowView.bottomAnchor.constraint(equalTo: locationImageView.bottomAnchor).isActive = true
         
-
         backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40).isActive = true
+
         backButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
         backButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
@@ -526,6 +526,7 @@ UICollectionViewDelegateFlowLayout {
         collectionView?.register(ReviewCollectionCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.delegate = self
         collectionView?.dataSource = self
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

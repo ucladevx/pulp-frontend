@@ -29,14 +29,6 @@ let service = MoyaProvider<APICall>(manager: manager, plugins: [NetworkLoggerPlu
 var YelpPlaceID = "VQz6yZBj3l_T2XX-4mLV-Q"
 
 
-
-
-
-
-
-
-
-
 public enum APICall: TargetType {
     case NewUser(firstName: String, lastName: String, photo: String, fbID: String, friends:[String], accessToken: String) // returns user_id
     case GetUser(userID: String)

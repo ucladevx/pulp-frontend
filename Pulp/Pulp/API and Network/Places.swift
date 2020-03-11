@@ -30,8 +30,7 @@ func GetMapPlaces() {
     case .success(let response):
         let save = try? JSONDecoder().decode([GetMapResponse].self, from: response.data)
         MapResponseToPlace(list: save ?? MapConvert)
-        print("Should be first!")
-        mapDispatch.leave()
+        mapDispatch.leave() 
     case .failure(let error):
         print("Error: \(error)")
     }
@@ -92,7 +91,7 @@ func ListToPlace(list:[PlacesList]){
                             for t in place.categories{
                                 tags.append(t.title)
                             }
-                            YelpSearch.append(Place(name: place.name ?? "", city: place.location?.city ?? "", state: place.location?.state ?? "", latitude: place.coordinates.latitude, longitude: place.coordinates.longitude, tags: tags, address1: place.location?.address1, address2: place.location?.address2, zip_code: place.location?.zip_code, image: place.image_url, id: "", fbvisitors: [], reviews: [], rating: place.rating ?? 0, isDatabase: false))
+                            YelpSearch.append(Place(name: place.name ?? "", city: place.location?.city ?? "", state: place.location?.state ?? "", latitude: place.coordinates.latitude, longitude: place.coordinates.longitude, tags: tags, address1: place.location?.address1, address2: place.location?.address2, zip_code: place.location?.zip_code, image: place.image_url, id: place.id ?? "", fbvisitors: [], reviews: [], rating: place.rating ?? 0, isDatabase: false))
                             
                             
                         }

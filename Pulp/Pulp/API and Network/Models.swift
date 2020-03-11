@@ -30,7 +30,7 @@ struct Place: Codable{
     // Returned
     let id: String
     let fbvisitors: [String]
-    let reviews: [Review]
+    var reviews: [Review]
     let rating: Double
     
     let isDatabase: Bool
@@ -98,12 +98,24 @@ struct PlaceReturn: Codable{
 
 }
 
-struct TempReview: Codable{
-    //let user_photo: String?
-    let postedBy:String
+
+struct NewReview: Codable{
+    let text: String
     let rating: Double
-    let body: String?
 }
+
+struct Reviews: Codable{
+    let reviews: [NewReview]
+}
+
+
+struct TempReview: Codable{
+        //let user_photo: String?
+        let postedBy:String
+        let rating: Double
+        let body: String?
+}
+
 
 struct UserReturn: Codable{
     let photo: String

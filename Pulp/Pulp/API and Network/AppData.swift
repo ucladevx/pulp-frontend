@@ -123,3 +123,5 @@ var YelpSearch: [Place] =
 var MapConvert: [GetMapResponse] = [GetMapResponse(place: PlaceReturn(tags: [""], reviews: [""], _id: "", name: "", image: "", city: "", state: "", address1: "", address2: "", zip_code: "", latitude: 0, longitude: 0), averageRating: 0, friend_images: [""], reviews:[] )]
 
 var searchConvert = GetMapResponse(place: PlaceReturn(tags: [""], reviews: [""], _id: "", name: "", image: "", city: "", state: "", address1: "", address2: "", zip_code: "", latitude: 0, longitude: 0), averageRating: 0, friend_images: [""], reviews:[])
+
+

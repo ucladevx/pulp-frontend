@@ -43,10 +43,10 @@ UICollectionViewDelegateFlowLayout {
     @objc public func checkoutTapped(_ sender: UIButton) {
         impact.impactOccurred()
      let nextVC = Explore_Controller()
-        nextVC.isDatabasePlace = YelpSearch[sender.tag].isDatabase //YelpSearch[sender.tag].id is the id of the place
+        nextVC.isDatabasePlace = YelpSearch[sender.tag].isDatabase
         nextVC.selectedLocation = sender.tag
         nextVC.calledbyMap = false
-        // make api call
+
         YelpPlaceID = YelpSearch[sender.tag].id
         
         yelpReviewDispatchGroup.enter()

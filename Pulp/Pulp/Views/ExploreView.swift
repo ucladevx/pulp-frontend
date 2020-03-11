@@ -226,24 +226,6 @@ UICollectionViewDelegateFlowLayout {
         return view
     }()
     
-//    let ReviewView: UIStackView = {
-//        let stackView = UIStackView()
-//        stackView.axis = NSLayoutConstraint.Axis.vertical
-//        return stackView
-//    }()
-//
-//    let ReviewView1: UITextView = {
-//        let textview = UITextView()
-//        return textview
-//    }()
-//    let ReviewView2: UITextView = {
-//        let textview = UITextView()
-//        return textview
-//    }()
-//    let ReviewView3: UITextView = {
-//        let textview = UITextView()
-//        return textview
-//    }()
     
     
     override func viewDidLoad() {

@@ -28,12 +28,8 @@ func GetMapPlaces() {
     service.request(.GetMap(userId: USERID)) {(result) in
     switch result {
     case .success(let response):
-        print("response here!!")
         let save = try? JSONDecoder().decode([GetMapResponse].self, from: response.data)
-        print("save printed here!")
-//        print(save[0].review)
         MapResponseToPlace(list: save ?? MapConvert)
-        print("Should be first!")
         mapDispatch.leave() 
     case .failure(let error):
         print("Error: \(error)")

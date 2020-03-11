@@ -430,6 +430,7 @@ class DiveIn: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate{
         
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField
         searchAction();
         return true
     }

@@ -25,14 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         USERID = defaults.string(forKey: "user_id")!
         USER_Photo = defaults.string(forKey: "user_photo")!
         
-        service.request(.YelpReview()) {(result) in
-            switch result {
-            case .success(let response):
-                print(response)
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
         return true
     }
 

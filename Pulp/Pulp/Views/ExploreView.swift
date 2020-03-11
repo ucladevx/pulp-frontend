@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 
+
 class Explore_Controller: UIViewController,
     UICollectionViewDelegate,
     UICollectionViewDataSource,
@@ -225,6 +226,24 @@ UICollectionViewDelegateFlowLayout {
         return view
     }()
     
+//    let ReviewView: UIStackView = {
+//        let stackView = UIStackView()
+//        stackView.axis = NSLayoutConstraint.Axis.vertical
+//        return stackView
+//    }()
+//
+//    let ReviewView1: UITextView = {
+//        let textview = UITextView()
+//        return textview
+//    }()
+//    let ReviewView2: UITextView = {
+//        let textview = UITextView()
+//        return textview
+//    }()
+//    let ReviewView3: UITextView = {
+//        let textview = UITextView()
+//        return textview
+//    }()
     
     
     override func viewDidLoad() {
@@ -239,6 +258,7 @@ UICollectionViewDelegateFlowLayout {
         setupLayout()
         setupViews()
         setupReviews()
+        
         
  
     }
@@ -331,7 +351,7 @@ UICollectionViewDelegateFlowLayout {
         else {
             ratingTextView.text = String(avRating) + " pulps"
         }
-        Profile1ImageView.loadImage(urlString: place.fbvisitors[0])
+//        Profile1ImageView.loadImage(urlString: place.fbvisitors[0])
         backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
         backButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
@@ -473,6 +493,7 @@ UICollectionViewDelegateFlowLayout {
         collectionView?.register(ReviewCollectionCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.delegate = self
         collectionView?.dataSource = self
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

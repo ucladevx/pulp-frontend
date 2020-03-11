@@ -8,6 +8,8 @@
 
 import UIKit
 
+let yelpReviewDispatchGroup = DispatchGroup()
+
 class ListView_Controller: UIViewController,
     UICollectionViewDelegate,
     UICollectionViewDataSource,
@@ -41,13 +43,66 @@ UICollectionViewDelegateFlowLayout {
     @objc public func checkoutTapped(_ sender: UIButton) {
         impact.impactOccurred()
      let nextVC = Explore_Controller()
-        nextVC.isDatabasePlace = YelpSearch[sender.tag].isDatabase
+        nextVC.isDatabasePlace = YelpSearch[sender.tag].isDatabase //YelpSearch[sender.tag].id is the id of the place
         nextVC.selectedLocation = sender.tag
         nextVC.calledbyMap = false
+        // make api call
+        YelpPlaceID = YelpSearch[sender.tag].id
         
-        present(nextVC, animated: true, completion: {
-            print("Changes to explore page successfully!")
-        })
+        yelpReviewDispatchGroup.enter()
+        service.request(.YelpReview()) {(result) in
+            switch result {
+            case .success(let response):
+                let save = try? JSONDecoder().decode(Reviews.self, from: response.data)
+                
+                let defRev = [NewReview(text: "", rating: 0)]
+                
+                for review in save?.reviews ?? defRev{
+                    var rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
+                    YelpSearch[sender.tag].reviews.append(rev);
+                }
+                yelpReviewDispatchGroup.leave()
+                
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+        
+        yelpReviewDispatchGroup.notify(queue: .main){
+            self.present(nextVC, animated: true, completion: {
+                print("Changes to explore page successfully!")
+            })
+        }
+        
+        
+    }
+    
+    func YelpReviewFunction(id: Int){
+        
+        service.request(.YelpReview()) {(result) in
+            switch result {
+            case .success(let response):
+                let save = try? JSONDecoder().decode(Reviews.self, from: response.data)
+                
+                let defRev = [NewReview(text: "", rating: 0)]
+                
+                for review in save?.reviews ?? defRev{
+                    //YelpReviews.append(review)
+                    print("printing yelp review text")
+                    print(review.text)
+                    var rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
+                    YelpSearch[id].reviews.append(rev);
+                    yelpReviewDispatchGroup.notify(queue: .main){
+                        yelpReviewDispatchGroup
+                    }
+                    
+                }
+                
+                
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
         
     }
    

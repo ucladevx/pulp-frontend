@@ -299,7 +299,7 @@ UICollectionViewDelegateFlowLayout {
         scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
+        scrollView.bounces = false 
         contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
@@ -507,6 +507,8 @@ UICollectionViewDelegateFlowLayout {
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(collectionView!)
+        
+        
         
         collectionView?.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         collectionView?.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true

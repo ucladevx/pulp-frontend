@@ -214,7 +214,7 @@ UICollectionViewDelegateFlowLayout {
         button.setTitle("Check In!", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 12)
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 15
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -286,6 +286,7 @@ UICollectionViewDelegateFlowLayout {
     
     func setupScrollView(){
 
+        scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -294,7 +295,7 @@ UICollectionViewDelegateFlowLayout {
         
         scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
@@ -318,7 +319,6 @@ UICollectionViewDelegateFlowLayout {
         ratingView.addSubview(ratingPulpsIconView)
         contentView.addSubview(ratingTextView)
         contentView.addSubview(AddReviewTextView)
-        contentView.addSubview(backButton)
         contentView.addSubview(AddReviewButton)
         contentView.addSubview(visualEffectView)
         contentView.addSubview(FriendImagesView)
@@ -385,7 +385,7 @@ UICollectionViewDelegateFlowLayout {
         locationImageShadowView.bottomAnchor.constraint(equalTo: locationImageView.bottomAnchor).isActive = true
         
 
-        backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
+        backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40).isActive = true
         backButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
         backButton.addTarget(self, action: #selector(self.registerTapped(_:)), for: .touchUpInside)
@@ -448,7 +448,7 @@ UICollectionViewDelegateFlowLayout {
         ratingTextView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 30).isActive = true
         ratingTextView.topAnchor.constraint(equalTo: PlaceDescriptionRow2.bottomAnchor, constant: 40).isActive = true
         
-        AddReviewButton.topAnchor.constraint(equalTo: ratingTextView.bottomAnchor, constant: 20).isActive = true
+        AddReviewButton.topAnchor.constraint(equalTo: ratingTextView.bottomAnchor, constant: 10).isActive = true
         AddReviewButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         AddReviewButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         AddReviewButton.widthAnchor.constraint(equalToConstant: 150).isActive = true

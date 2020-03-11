@@ -102,8 +102,8 @@ import UIKit
             addSubview(floatRatingView)
             floatRatingView.delegate = self
 
-            floatRatingView.emptyImage = UIImage(named: "StarEmpty")
-            floatRatingView.fullImage = UIImage(named: "StarFull")
+            floatRatingView.emptyImage = UIImage(named: "Rating_Empty")
+            floatRatingView.fullImage = UIImage(named: "Rating_Full")
             floatRatingView.backgroundColor =  UIColor.clear
             floatRatingView.contentMode = UIView.ContentMode.scaleAspectFit
             floatRatingView.type = .halfRatings

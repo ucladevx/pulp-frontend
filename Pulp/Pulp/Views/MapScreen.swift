@@ -24,7 +24,7 @@ let popupView: UIView = {
 let popupLocationView = UIView()
 let popupDiveinView = UIView()
 class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegate,
-    UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+    UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     var isDisplayingLocation = false
     var isDisplayingDivein = false
@@ -60,19 +60,36 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    // temporarily set to a uibutton
-//    let searchBar: UITextField = {
     let searchBar: UIButton = {
-//        let searchbar = UITextField()
-        let searchbar = UIButton()
-//        searchbar.placeholder = "        Parks, museums, bars, etc.";
-//        searchbar.textAlignment = .left
-        searchbar.setTitle("Parks, museums, bars, etc.", for: .normal)
-        searchbar.titleLabel?.font = UIFont(name: "Avenir-Light", size:15)
-        searchbar.setTitleColor(UIColor(red: 135/255, green: 132/255, blue: 132/255, alpha: 1), for: .normal)
-        searchbar.translatesAutoresizingMaskIntoConstraints = false
-        return searchbar
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Dive in!", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Avenir-Light", size:15)
+        button.layer.cornerRadius = 10
+        button.setTitleColor( .gray, for: .normal)
+        return button
+    }()
+    let searchBarTextField: UITextField = {
+        let txtField = UITextField()
+        txtField.placeholder = "Parks, museums, bars, etc."
+        txtField.translatesAutoresizingMaskIntoConstraints = false
+        txtField.font = UIFont(name: "Avenir-Light", size:15)
+        txtField.textColor = UIColor.gray
+        txtField.returnKeyType = UIReturnKeyType.go;
+        txtField.enablesReturnKeyAutomatically = true;
+        txtField.spellCheckingType = .no
+        txtField.isHidden = true
+        return txtField
+    }()
+    let searchButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle(">", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = UIColor(red: 249/255, green: 160/255, blue: 119/255, alpha: 1)
+        btn.layer.cornerRadius = 10
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.isHidden = true
+        return btn
     }()
     
     // Background of the popup
@@ -85,28 +102,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         imageView.layer.cornerRadius = 28
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
-    
-    let filterButton: UIButton = {
-        let btn = UIButton()
-        btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
-        btn.setImage(#imageLiteral(resourceName: "SearchTripleBar"), for: .normal)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
-    
-    let cancelButton: UIButton = {
-        let btn = UIButton()
-        btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
-        btn.setImage(#imageLiteral(resourceName: "SearchX"), for: .normal)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
-    
-    let vertLineView: UIImageView = {
-        let imageView = UIImageView(image:#imageLiteral(resourceName: "SearchVertBar"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -369,6 +364,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         return btn
     }()
     
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -422,13 +419,14 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
                 self.mapView!.showsBuildings = true
                 self.mapView!.showsUserLocation = true
                 self.mapView!.addGestureRecognizer(self.mapTapRecognizer)
-                    self.mapTapRecognizer.delegate = self.mapView! as! UIGestureRecognizerDelegate
+                self.mapTapRecognizer.delegate = self.mapView! as! UIGestureRecognizerDelegate
                 self.view.addSubview(self.mapView!)
                 
                 self.searchBarView.addSubview(self.searchBar)
-                //            self.searchBarView.addSubview(self.filterButton)
-                //            self.searchBarView.addSubview(self.cancelButton)
-                //            self.searchBarView.addSubview(self.vertLineView)
+                self.searchBarView.addSubview(self.searchBarTextField)
+                self.searchBarTextField.delegate = self
+                self.searchBarView.addSubview(self.searchButton)
+                self.searchButton.addTarget(self, action: #selector(self.searchButtonTapped), for: .touchDown)
                 self.view.addSubview(self.searchBarView)
                         
                 let buttonItem = MKUserTrackingButton(mapView: self.mapView)
@@ -454,7 +452,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         }
     
     }
-   var viewTranslation = CGPoint(x: 0, y: 0)
+    
+    var viewTranslation = CGPoint(x: 0, y: 0)
     @objc func handleDismiss(sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .changed:
@@ -476,6 +475,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     }
     private var bottomConstraint = NSLayoutConstraint()
     
+    //MARK: - Set up popup window
     private func popupLayout() {
         view.addSubview(popupView)
         popupView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
@@ -690,9 +690,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         aquaticButton.centerYAnchor.constraint(equalTo: aquaticImageView.centerYAnchor).isActive = true
         aquaticButton.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
         aquaticButton.widthAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
-
     }
     
+    //MARK: - Location Popup Tapped
     @objc func checkthisoutTapped(_ sender: UIButton) {
         if(isDisplayingLocation) {
             impact.impactOccurred()
@@ -712,7 +712,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             })
         }
     }
-    private var currentState: State = .closed
     
     private lazy var tapRecognizer: UITapGestureRecognizer = {
         let recognizer = UITapGestureRecognizer()
@@ -729,8 +728,11 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             impact.impactOccurred()
             // Popup slides down
             let transitionAnimator = UIViewPropertyAnimator(duration: 0.9, dampingRatio: 1, animations: {
-                    self.bottomConstraint.constant = 440
-                    self.view.layoutIfNeeded()
+                self.bottomConstraint.constant = 440
+                self.searchButton.isHidden = true
+                self.searchBarTextField.isHidden = true
+                self.searchBar.isHidden = false
+                self.view.layoutIfNeeded()
             })
             place = nil
             isDisplayingDivein = false
@@ -738,6 +740,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         }
     }
     
+    //MARK: - Location Pin Tapped
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
         impact.impactOccurred()
         place = FriendPlaces[index]
@@ -808,6 +811,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         if(isDisplayingDivein) {
             let closePopupAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
                 self.bottomConstraint.constant = 440
+                self.searchButton.isHidden = true
+                self.searchBarTextField.isHidden = true
+                self.searchBar.isHidden = false
                 self.view.layoutIfNeeded()
             })
             closePopupAnimator.addCompletion({_ in
@@ -834,6 +840,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         }
     }
     
+    //MARK: - Location popup closed
     @objc private func popupViewClosed(recognizer: UITapGestureRecognizer) {
         impact.impactOccurred()
         // Popup slides down
@@ -845,9 +852,6 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         isDisplayingLocation = false
         transitionAnimator.startAnimation()
     }
-    
-    
-    
     
     private func configureTileOverlay() {
         // We first need to have the path of the overlay configuration JSON
@@ -865,88 +869,29 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         mapView!.addOverlay(tileOverlay)
     }
     
-    func setUpSearchBar() {
-        searchBarView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(40)
-            make.right.equalTo(view).offset(-40)
-            make.height.equalTo(view.frame.height/20)
-            make.top.equalTo(view).offset(60)
-        }
+    //MARK: - Set up Dive In Buttons
+    func setupDiveinButtonDestination(){
+        restaurantsButton.tag=0
+        restaurantsButton.addTarget(self, action: #selector(self.diveinTapped(_:)), for: .touchUpInside)
+        museumButton.tag=1
+        museumButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        festivalButton.tag=2
+        festivalButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        thrillButton.tag=3
+        thrillButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
         
-        searchBar.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(searchBarView)
-            make.right.equalTo(searchBarView)
-            make.top.equalTo(searchBarView)
-            make.bottom.equalTo(searchBarView)
-        }
-        
-//        filterButton.snp.makeConstraints { (make) -> Void in
-//            make.left.equalTo(searchBarView).offset(15)
-//            //make.right.equalTo(searchBarView)
-//            make.top.equalTo(searchBarView)
-//            make.bottom.equalTo(searchBarView)
-//        }
-        
-//        cancelButton.snp.makeConstraints { (make) -> Void in
-//            //make.left.equalTo(searchBarView)
-//            make.right.equalTo(searchBarView).offset(-15)
-//            make.top.equalTo(searchBarView)
-//            make.bottom.equalTo(searchBarView)
-//        }
-        
-//        vertLineView.snp.makeConstraints { (make) -> Void in
-//            make.left.equalTo(searchBarView).offset(38)
-//            //make.right.equalTo(searchBarView).offset(-15)
-//            make.top.equalTo(searchBarView).offset(8)
-//            make.bottom.equalTo(searchBarView).offset(-8)
-//        }
-        searchBar.addTarget(self, action: #selector(searchBarTapped), for: .touchDown)
-        
+        photoButton.tag=4
+        photoButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        animalButton.tag=5
+        animalButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        landscapeButton.tag=6
+        landscapeButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+        aquaticButton.tag=7
+        aquaticButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
+
     }
     
-    @objc func searchBarTapped(textField: UITextField) {
-        impact.impactOccurred()
-        // Slide popup down
-        var animationDelay: TimeInterval = 0
-        let closePopupAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
-                self.bottomConstraint.constant = 440
-                self.view.layoutIfNeeded()
-        })
-        if(isDisplayingLocation) {
-            closePopupAnimator.addCompletion({_ in
-                popupLocationView.isHidden = true
-                popupDiveinView.isHidden = false
-            })
-            closePopupAnimator.startAnimation()
-            isDisplayingLocation = false
-            animationDelay = 0.5
-        } else {
-            popupLocationView.isHidden = true
-            popupDiveinView.isHidden = false
-        }
-        if(isDisplayingDivein) {
-            closePopupAnimator.addCompletion({_ in
-                popupDiveinView.isHidden = true
-            })
-            closePopupAnimator.startAnimation()
-            isDisplayingDivein = false
-        }
-        else {
-            // slide divein popup up
-            let openPopupAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
-                    self.bottomConstraint.constant = 210
-                    self.view.layoutIfNeeded()
-            })
-            openPopupAnimator.addCompletion({_ in
-                popupLocationView.isHidden = true
-                popupDiveinView.isHidden = false
-            })
-            openPopupAnimator.startAnimation(afterDelay: animationDelay)
-            isDisplayingDivein = true
-            self.mapView?.selectedAnnotations.forEach({ self.mapView?.deselectAnnotation($0, animated: true) })
-        }
-    }
-    
+    //MARK: - Dive In Button Tapped
     @objc func diveinTapped(_ sender: UIButton) {
         impact.impactOccurred()
         var searchTerm: String
@@ -993,6 +938,111 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         }
     }
     
+    //MARK: - Search Bar Layout
+    func setUpSearchBar() {
+        searchBarView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(40)
+            make.right.equalTo(view).offset(-40)
+            make.height.equalTo(view.frame.height/20)
+            make.top.equalTo(view).offset(60)
+        }
+        
+        searchBar.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(searchBarView)
+            make.right.equalTo(searchBarView)
+            make.top.equalTo(searchBarView)
+            make.bottom.equalTo(searchBarView)
+        }
+        
+        searchButton.snp.makeConstraints { (make) -> Void in
+            make.width.equalTo(40)
+            make.right.equalTo(searchBar).offset(-2)
+            make.top.equalTo(searchBar).offset(2)
+            make.bottom.equalTo(searchBar).offset(-2)
+        }
+        
+        searchBarTextField.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(searchBar).offset(20)
+            make.right.equalTo(searchButton.snp_left).offset(-10)
+            make.centerY.equalTo(searchBar).offset(1)
+        }
+        searchBar.addTarget(self, action: #selector(searchBarTapped), for: .touchDown)
+        
+    }
+    
+    //MARK: - Search Bar Tapped
+    @objc func searchBarTapped(textField: UITextField) {
+        impact.impactOccurred()
+        // Slide popup down
+        var animationDelay: TimeInterval = 0
+        let closePopupAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
+                self.bottomConstraint.constant = 440
+                self.view.layoutIfNeeded()
+        })
+        if(isDisplayingLocation) {
+            closePopupAnimator.addCompletion({_ in
+                popupLocationView.isHidden = true
+                popupDiveinView.isHidden = false
+            })
+            closePopupAnimator.startAnimation()
+            isDisplayingLocation = false
+            animationDelay = 0.5
+        } else {
+            popupLocationView.isHidden = true
+            popupDiveinView.isHidden = false
+        }
+        // slide divein popup up
+        let openPopupAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
+            self.bottomConstraint.constant = 210
+            self.searchButton.isHidden = false
+            self.searchBarTextField.isHidden = false
+            self.searchBar.isHidden = true
+            self.view.layoutIfNeeded()
+        })
+        openPopupAnimator.addCompletion({_ in
+            popupLocationView.isHidden = true
+            popupDiveinView.isHidden = false
+        })
+        openPopupAnimator.startAnimation(afterDelay: animationDelay)
+        isDisplayingDivein = true
+        self.mapView?.selectedAnnotations.forEach({ self.mapView?.deselectAnnotation($0, animated: true) })
+        
+    }
+    
+    //MARK: - Search Bar Actions
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchAction();
+        return true
+    }
+    
+    @objc func searchButtonTapped(_ sender: UIButton) {
+           searchAction();
+    }
+       
+    func searchAction(){
+        impact.impactOccurred()
+        let searchTerm: String = searchBarTextField.text ?? ""
+        if( searchTerm == ""){ return}
+        yelpDispatchGroup.enter()
+        locationManager.startUpdatingLocation()
+        var Latt = 34.073121 //default location if current not found
+        var Long = -118.454704
+        if let userLocation = self.locationManager.location?.coordinate {
+            Latt = userLocation.latitude
+            Long = userLocation.longitude
+        }
+        locationManager.stopUpdatingLocation()
+        YelpSearchFunc(latt: Latt, longi:  Long, sterm: searchTerm, limitN: 10)
+        yelpDispatchGroup.notify(queue: .main) {
+            print("Moving to list_view")
+            let nextVC = ListView_Controller()
+            nextVC.searchTerm = searchTerm
+            self.present(nextVC, animated: true, completion: {
+                print("Changes to list_view successfully!")
+            })
+        }
+    }
+
     func YelpSearchFunc(latt:Double, longi: Double, sterm: String, limitN: Int) {
 
         service.request(.YelpTest(lat: latt, long: longi, term: sterm, limit:limitN)) {(result) in
@@ -1016,6 +1066,12 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         }
     }
     
+    // Close keyboard if other part of screen is touched
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    //MARK: - Map Setup
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     }
     
@@ -1034,8 +1090,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
 
     }
     
-    
-    
+    //MARK: - Friend Photos Setup
     private func setupFriendPhotos() {
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
@@ -1072,29 +1127,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         return CGSize(width: 300 , height: 200)
     }
     
-    func setupDiveinButtonDestination(){
-        restaurantsButton.tag=0
-        restaurantsButton.addTarget(self, action: #selector(self.diveinTapped(_:)), for: .touchUpInside)
-        museumButton.tag=1
-        museumButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
-        festivalButton.tag=2
-        festivalButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
-        thrillButton.tag=3
-        thrillButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
-        
-        photoButton.tag=4
-        photoButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
-        animalButton.tag=5
-        animalButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
-        landscapeButton.tag=6
-        landscapeButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
-        aquaticButton.tag=7
-        aquaticButton.addTarget(self, action: #selector(self.diveinTapped), for: .touchUpInside)
-
-    }
-    
 }
 
+//MARK: - Map Screen Actions
 extension MapScreen: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let tileOverlay = overlay as? MKTileOverlay {
@@ -1148,19 +1183,6 @@ extension MapScreen: MKMapViewDelegate {
     }
     
     
-}
-
-private enum State {
-    case closed
-    case open
-}
-extension State {
-    var opposite: State {
-        switch self {
-        case .open: return .closed
-        case .closed: return.open
-        }
-    }
 }
 
 class PhotoCollectionCell: UICollectionViewCell {

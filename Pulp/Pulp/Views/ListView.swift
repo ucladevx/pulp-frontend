@@ -213,6 +213,7 @@ class LocationCollectionCell: UICollectionViewCell{
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    var pulpCertified: UITextView = UITextView()
     
     func autolayoutCell() {
         self.backgroundColor = .white
@@ -322,10 +323,27 @@ class LocationCollectionCell: UICollectionViewCell{
         checkOutButton.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
         checkOutButton.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
         
+        stackView.addSubview(pulpCertified)
+        pulpCertified.translatesAutoresizingMaskIntoConstraints = false
+        
+       pulpCertified.font = UIFont(name: "Avenir Book", size: 15)
+//        pulpCertified.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+        pulpCertified.backgroundColor = .white
+        
+//        pulpCertified.backgroundColor = .lightGray
+        pulpCertified.textColor = .orange
+        pulpCertified.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -10).isActive = true
+        pulpCertified.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+        pulpCertified.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+        pulpCertified.isEditable = false
+        pulpCertified.isScrollEnabled = false
+        
+        
         stackView.axis = .horizontal
         stackView.alignment = .leading
         stackView.distribution = .equalSpacing
         stackView.spacing = 10
+        
         
         
     }
@@ -362,6 +380,10 @@ class LocationCollectionCell: UICollectionViewCell{
             placeType.text = tag
             let rating = location.rating
             placeRating.text = "\(rating) Rating !"
+            
+//            pulpCertified.text = "Pulp Certified"
+            print("pulp certified text added")
+            pulpCertified.text = (location.isDatabase ? "Pulp Certified" : "");
 //            profile1ImageView.image = UIImage(named: location.fbfriends![0].imageName!)
 //            profile2ImageView.image = UIImage(named: location.fbfriends![1].imageName!)
 //            profile3ImageView.image = UIImage(named: location.fbfriends![2].imageName!)

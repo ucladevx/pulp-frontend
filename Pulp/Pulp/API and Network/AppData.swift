@@ -76,9 +76,10 @@ var FriendPlaces =
         address2: "",
         zip_code: "90024",
         image:"https://s3-media1.fl.yelpcdn.com/bphoto/43cR4WiWIzUYb22NCbmF2A/o.jpg" ,
+        price: "$$",
         id: "1",
         fbvisitors: [defaultURL,defaultURL],
-        reviews:[Review(postedBy: "2", userImage:defaultURL, body: "Fellow is a Great place", rating: 4), Review(postedBy: "3", userImage:defaultURL, body: "Going to Fellow is worth it", rating: 5)],
+        reviews:[Review(postedBy: "2", dateCreated: "2020-05-07T05:22:41.132Z", userImage:defaultURL, body: "Fellow is a Great place", rating: 4), Review(postedBy: "3", dateCreated: "2020-02-06T05:22:41.132Z", userImage:defaultURL, body: "Going to Fellow is worth it", rating: 5)],
         rating: 4.5,
         isDatabase: true),
 
@@ -93,9 +94,10 @@ var FriendPlaces =
         address2: "",
         zip_code: "90024",
         image: "https://s3-media2.fl.yelpcdn.com/bphoto/Co8TInZe18L8ZIBiqDf7vg/o.jpg",
+        price: "$",
         id: "2",
         fbvisitors: [defaultURL,defaultURL],
-        reviews: [Review(postedBy: "3", userImage:defaultURL, body: "Toranj is a Great place", rating: 3), Review(postedBy: "4", userImage:defaultURL, body: "Going to Toranj is worth it", rating: 5)],
+        reviews: [Review(postedBy: "3", dateCreated: "2020-02-06T05:22:41.132Z", userImage:defaultURL, body: "Toranj is a Great place", rating: 3), Review(postedBy: "4", dateCreated: "2020-02-06T05:22:41.132Z", userImage:defaultURL, body: "Going to Toranj is worth it", rating: 5)],
         rating: 4,
         isDatabase: true)
 ]
@@ -112,16 +114,18 @@ var YelpSearch: [Place] =
     address2: "",
     zip_code: "90024",
     image:"https://s3-media1.fl.yelpcdn.com/bphoto/43cR4WiWIzUYb22NCbmF2A/o.jpg" ,
+    price: "$$",
     id: "1",
     fbvisitors: [defaultURL,defaultURL],
-    reviews:[Review(postedBy: "2", userImage:defaultURL, body: "Fellow is a Great place", rating: 4), Review(postedBy: "3", userImage:defaultURL, body: "Going to Fellow is worth it", rating: 5)],
+    reviews:[Review(postedBy: "2", dateCreated: "2020-02-06T05:22:41.132Z", userImage:defaultURL, body: "Fellow is a Great place", rating: 4), Review(postedBy: "3", dateCreated: "2020-02-06T05:22:41.132Z", userImage:defaultURL, body: "Going to Fellow is worth it", rating: 5)],
     rating: 4.5,
     isDatabase: false)
 ]
 
+var FeedPlaces = [Feed]()  
 
-var MapConvert: [GetMapResponse] = [GetMapResponse(place: PlaceReturn(tags: [""], reviews: [""], _id: "", name: "", image: "", city: "", state: "", address1: "", address2: "", zip_code: "", latitude: 0, longitude: 0), averageRating: 0, friend_images: [""], reviews:[] )]
+var MapConvert: [GetMapResponse] = [GetMapResponse(place: PlaceReturn(tags: [""], reviews: [""], _id: "", name: "", image: "", city: "", state: "", address1: "", address2: "", zip_code: "", latitude: 0, longitude: 0, price: ""), averageRating: 0, friend_images: [""], reviews:[] )]
 
-var searchConvert = GetMapResponse(place: PlaceReturn(tags: [""], reviews: [""], _id: "", name: "", image: "", city: "", state: "", address1: "", address2: "", zip_code: "", latitude: 0, longitude: 0), averageRating: 0, friend_images: [""], reviews:[])
+var searchConvert = GetMapResponse(place: PlaceReturn(tags: [""], reviews: [""], _id: "", name: "", image: "", city: "", state: "", address1: "", address2: "", zip_code: "", latitude: 0, longitude: 0, price: ""), averageRating: 0, friend_images: [""], reviews:[])
 
 

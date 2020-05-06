@@ -26,6 +26,7 @@ struct Place: Codable{
     let address2: String?
     let zip_code: String?
     let image: String?
+    let price: String?
     
     // Returned
     let id: String
@@ -45,6 +46,7 @@ struct PlacesList: Codable{
     let location: Address?
     let categories: [Tag]
     let coordinates: Coordinate
+    let price: String?
 }
  
 struct Tag: Codable{
@@ -67,6 +69,7 @@ let zip_code: String?
 
 struct Review: Codable{
     var postedBy: String?
+    var dateCreated: String?
     var userImage: String?
     var body: String?
     var rating: Double?
@@ -95,6 +98,7 @@ struct PlaceReturn: Codable{
     let zip_code: String?
     let latitude: Double
     let longitude: Double
+    let price: String?
 
 }
 
@@ -110,12 +114,22 @@ struct Reviews: Codable{
 
 
 struct TempReview: Codable{
-        //let user_photo: String?
-        let postedBy:String
-        let rating: Double
-        let body: String?
+    //let user_photo: String?
+    let postedBy:String
+    let dateCreated: String
+    let rating: Double
+    let body: String?
 }
 
+struct Feed: Codable {
+    let userPhoto: String?
+    let userName: String
+    let placeName: String
+    let placeTags: [String]
+    let placeImage: String
+    let reviewText: String
+    let reviewDate: String
+}
 
 struct UserReturn: Codable{
     let photo: String

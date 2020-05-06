@@ -384,7 +384,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         setupDiveinButtonDestination()
 
         mapDispatch.enter()
-        GetMapPlaces()
+        GetMapPlaces(fromMap: true)
         mapDispatch.notify(queue: .main) {
             UIView.animate(withDuration: 1.0, delay: 1, options: [.curveEaseInOut , .allowUserInteraction],
                 animations: {
@@ -1050,13 +1050,14 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             case .success(let response):
                 let save = try? JSONDecoder().decode(Return.self, from: response.data)
                 if (save != nil){
+                
                 TempPlaces = save!.businesses // if safe null then search again.....
+                
                 yelpSearchDispatchGroup.enter()
                 ListToPlace(list:TempPlaces)
                 yelpSearchDispatchGroup.notify(queue: .main) {
                     yelpDispatchGroup.leave()
                 }
-                
                 return
                 }
             case .failure(let error):

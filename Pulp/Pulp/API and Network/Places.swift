@@ -23,14 +23,20 @@ struct CreatePlaceResponse: Codable{
     let placeID: String
 }
 
-func GetMapPlaces() {
+func GetMapPlaces(fromMap: Bool) {
 
     service.request(.GetMap(userId: USERID)) {(result) in
     switch result {
     case .success(let response):
         let save = try? JSONDecoder().decode([GetMapResponse].self, from: response.data)
         MapResponseToPlace(list: save ?? MapConvert)
-        mapDispatch.leave() 
+        if (fromMap) {
+            mapDispatch.leave()
+        }
+        else {
+            feedDispatch.leave()
+        }
+            
     case .failure(let error):
         print("Error: \(error)")
     }
@@ -45,10 +51,10 @@ func MapResponseToPlace(list:[GetMapResponse]){
         var treviews = [Review]()
         for rev in a {
            
-                    treviews.insert(Review(postedBy: "", userImage: "", body: rev.body, rating: rev.rating), at: 0)
+            treviews.insert(Review(postedBy: "", dateCreated: rev.dateCreated, userImage: "", body: rev.body, rating: rev.rating), at: 0)
             }
 
-        let temp = Place(name: t.name, city: t.city, state: t.state, latitude: t.latitude, longitude: t.longitude, tags: t.tags, address1: t.address1, address2: t.address2, zip_code: t.zip_code, image: t.image, id: t._id, fbvisitors: place.friend_images, reviews: treviews, rating: place.averageRating, isDatabase: true)
+        let temp = Place(name: t.name, city: t.city, state: t.state, latitude: t.latitude, longitude: t.longitude, tags: t.tags, address1: t.address1, address2: t.address2, zip_code: t.zip_code, image: t.image, price: t.price, id: t._id, fbvisitors: place.friend_images, reviews: treviews, rating: place.averageRating, isDatabase: true)
         FriendPlaces.insert(temp, at: 0)
     }
     
@@ -82,7 +88,7 @@ func ListToPlace(list:[PlacesList]){
                                 }
                             }
                             
-                            let temp = Place(name: t.name, city: t.city, state: t.state, latitude: t.latitude, longitude: t.longitude, tags: t.tags, address1: t.address1, address2: t.address2, zip_code: t.zip_code, image: t.image, id: t._id, fbvisitors: save!.friend_images, reviews: treviews, rating: save!.averageRating, isDatabase: true)
+                            let temp = Place(name: t.name, city: t.city, state: t.state, latitude: t.latitude, longitude: t.longitude, tags: t.tags, address1: t.address1, address2: t.address2, zip_code: t.zip_code, image: t.image, price: t.price, id: t._id, fbvisitors: save!.friend_images, reviews: treviews, rating: save!.averageRating, isDatabase: true)
                             YelpSearch.insert(temp, at: 0)
                         }
                         else{
@@ -91,7 +97,8 @@ func ListToPlace(list:[PlacesList]){
                             for t in place.categories{
                                 tags.append(t.title)
                             }
-                            YelpSearch.append(Place(name: place.name ?? "", city: place.location?.city ?? "", state: place.location?.state ?? "", latitude: place.coordinates.latitude, longitude: place.coordinates.longitude, tags: tags, address1: place.location?.address1, address2: place.location?.address2, zip_code: place.location?.zip_code, image: place.image_url, id: place.id ?? "", fbvisitors: [], reviews: [], rating: place.rating ?? 0, isDatabase: false))
+                            YelpSearch.append(Place(name: place.name ?? "", city: place.location?.city ?? "", state: place.location?.state ?? "", latitude: place.coordinates.latitude, longitude: place.coordinates.longitude, tags: tags, address1: place.location?.address1, address2: place.location?.address2, zip_code: place.location?.zip_code, image: place.image_url, price: place.price, id: place.id ?? "", fbvisitors: [], reviews: [], rating: place.rating ?? 0, isDatabase: false))
+                            
                             
                             
                         }

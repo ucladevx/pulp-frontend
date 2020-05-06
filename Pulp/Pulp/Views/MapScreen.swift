@@ -9,6 +9,36 @@ class CustomPointAnnotation: MKPointAnnotation {
     var pinCustomImageName:String!
     var indexNum:Int!
 }
+
+public class LoadingOverlay{
+
+    var overlayView = UIView()
+    var activityIndicator = UIActivityIndicatorView()
+
+    class var shared: LoadingOverlay {
+        struct Static {
+            static let instance: LoadingOverlay = LoadingOverlay()
+        }
+        return Static.instance
+    }
+
+    public func showOverlay(view: UIView!) {
+        overlayView = UIView(frame: UIScreen.main.bounds)
+        overlayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        activityIndicator.center = overlayView.center
+        overlayView.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        view.addSubview(overlayView)
+    }
+
+    public func hideOverlayView() {
+        activityIndicator.stopAnimating()
+        overlayView.removeFromSuperview()
+    }
+}
+
+
 let mapDispatch = DispatchGroup()
 let popupView: UIView = {
     let view = UIView()
@@ -23,11 +53,13 @@ let popupView: UIView = {
 }()
 let popupLocationView = UIView()
 let popupDiveinView = UIView()
+let popupListView = UIView()
 class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegate,
     UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     var isDisplayingLocation = false
     var isDisplayingDivein = false
+    var isDisplayingListView = false
     var window: UIWindow?
     var mapView: MKMapView?
     var pointAnnotationList:[CustomPointAnnotation] = []
@@ -363,6 +395,22 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
+    //listViewPopup Views
+    var listViewCollectionView: UICollectionView?
+    var searchTerm: String?
+    let cellId = "Example Cell"
+    let cellSpacing:CGFloat = 10
+    var locations: [Place] = YelpSearch
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    let listViewBackButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("<", for: .normal)
+        btn.setTitleColor(UIColor.gray, for: .normal)
+        return btn
+    }()
     
     
     //MARK: - viewDidLoad
@@ -690,6 +738,16 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         aquaticButton.centerYAnchor.constraint(equalTo: aquaticImageView.centerYAnchor).isActive = true
         aquaticButton.heightAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
         aquaticButton.widthAnchor.constraint(equalToConstant:popupDiveinViewWidth/4.5).isActive = true
+    
+        popupView.addSubview(popupListView)
+        popupListView.translatesAutoresizingMaskIntoConstraints = false
+        popupListView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor).isActive = true
+        popupListView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
+        popupListView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
+        popupListView.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
+        setupList()
+        
+        
     }
     
     //MARK: - Location Popup Tapped
@@ -916,6 +974,35 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         default:
             searchTerm = ""
         }
+        //closing dive in popup
+//        print("Displaying DiveIn ", isDisplayingDivein);
+        var animationDelay: TimeInterval = 0
+        if(isDisplayingDivein) {
+            let closePopupAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
+                self.bottomConstraint.constant = 440
+                self.searchButton.isHidden = true
+                self.searchBarTextField.isHidden = true
+                self.searchBar.isHidden = false
+                self.view.layoutIfNeeded()
+            })
+            closePopupAnimator.addCompletion({_ in
+                popupDiveinView.isHidden = true
+                popupLocationView.isHidden = true
+                popupListView.isHidden = false
+                print("closing popup")
+                
+                
+            })
+            closePopupAnimator.startAnimation()
+            animationDelay = 0.5
+            isDisplayingDivein = false
+        }
+        else { //should not reach this case
+            popupDiveinView.isHidden = true
+            popupListView.isHidden = false
+        }
+        //yelp search
+        LoadingOverlay.shared.showOverlay(view: self.view)
         yelpDispatchGroup.enter()
         //get current location
         locationManager.startUpdatingLocation()
@@ -926,16 +1013,56 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             Long = userLocation.longitude
         }
         locationManager.stopUpdatingLocation()
-        
+
         YelpSearchFunc(latt: Latt, longi:  Long, sterm: searchTerm, limitN: 10)
-        yelpDispatchGroup.notify(queue: .main) {
-            print("Moving to list_view")
-            let nextVC = ListView_Controller()
-            nextVC.searchTerm = searchTerm
-            self.present(nextVC, animated: true, completion: {
-            print("Changes to list_view successfully!")
-        })
+        yelpDispatchGroup.notify(queue: .main) { //callback after request is made
+//                    print("Moving to list_view")
+//                    let nextVC = ListView_Controller()
+//                    nextVC.searchTerm = searchTerm
+            LoadingOverlay.shared.hideOverlayView()
+//                    self.present(nextVC, animated: true, completion: {
+//                    print("Changes to list_view successfully!")
+            print("Yelp Search First City:", YelpSearch[1].city)
+            
+            self.listViewCollectionView?.reloadData()
+            //sliding open listview popup
+            let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
+                           self.bottomConstraint.constant = 280
+                           self.view.layoutIfNeeded()
+                   })
+            if(self.isDisplayingListView == false) {
+                       transitionAnimator.startAnimation(afterDelay: animationDelay)
+                self.isDisplayingListView = true
+                   }
+            
+            
+//                })
         }
+        
+        
+        //switching to listview (original)
+//        LoadingOverlay.shared.showOverlay(view: self.view)
+//        yelpDispatchGroup.enter()
+//        //get current location
+//        locationManager.startUpdatingLocation()
+//        var Latt = 34.073121 //default location if current not found
+//        var Long = -118.454704
+//        if let userLocation = self.locationManager.location?.coordinate {
+//            Latt = userLocation.latitude
+//            Long = userLocation.longitude
+//        }
+//        locationManager.stopUpdatingLocation()
+//
+//        YelpSearchFunc(latt: Latt, longi:  Long, sterm: searchTerm, limitN: 10)
+//        yelpDispatchGroup.notify(queue: .main) {
+//            print("Moving to list_view")
+//            let nextVC = ListView_Controller()
+//            nextVC.searchTerm = searchTerm
+//            LoadingOverlay.shared.hideOverlayView()
+//            self.present(nextVC, animated: true, completion: {
+//            print("Changes to list_view successfully!")
+//        })
+//        }
     }
     
     //MARK: - Search Bar Layout
@@ -979,16 +1106,20 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
                 self.bottomConstraint.constant = 440
                 self.view.layoutIfNeeded()
         })
-        if(isDisplayingLocation) {
+        if(isDisplayingLocation || isDisplayingListView) {
             closePopupAnimator.addCompletion({_ in
                 popupLocationView.isHidden = true
+                popupListView.isHidden = true
                 popupDiveinView.isHidden = false
             })
             closePopupAnimator.startAnimation()
             isDisplayingLocation = false
+            isDisplayingListView = false
             animationDelay = 0.5
-        } else {
+        }
+        else{
             popupLocationView.isHidden = true
+            popupListView.isHidden = true
             popupDiveinView.isHidden = false
         }
         // slide divein popup up
@@ -1001,6 +1132,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         })
         openPopupAnimator.addCompletion({_ in
             popupLocationView.isHidden = true
+            popupListView.isHidden = true
             popupDiveinView.isHidden = false
         })
         openPopupAnimator.startAnimation(afterDelay: animationDelay)
@@ -1113,21 +1245,351 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return place?.fbvisitors.count ?? 0
+        print("in collectionview function 1", collectionView == self.listViewCollectionView)
+        if collectionView == self.listViewCollectionView{
+            return YelpSearch.count
+        }
+        else{
+            return place?.fbvisitors.count ?? 0
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Example Cell", for: indexPath) as! PhotoCollectionCell
-        cell.autolayoutCell()
-        cell.photo = place?.fbvisitors[indexPath.row]
-        return cell
+        print("in collectionview function 2", collectionView == self.listViewCollectionView)
+        if collectionView == self.listViewCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! LocationCollectionCell
+            cell.layer.borderWidth = 1.0;
+            cell.layer.borderColor = UIColor.lightGray.cgColor
+            cell.autolayoutCell()
+            cell.location = YelpSearch[indexPath.row]
+            cell.checkOutButton.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)
+            cell.checkOutButton.tag = indexPath.row
+            return cell
+        }
+        else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Example Cell", for: indexPath) as! PhotoCollectionCell
+            cell.autolayoutCell()
+            cell.photo = place?.fbvisitors[indexPath.row]
+            return cell
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300 , height: 200)
+        print("in collectionview function 3", collectionView == self.listViewCollectionView)
+        if collectionView == self.listViewCollectionView {
+            return CGSize(width: view.bounds.width , height: 200)
+        }
+        else{
+            return CGSize(width: 300 , height: 200)
+        }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print("in collectionview function 1", collectionView == self.listViewCollectionView)
+    }
+    
+    //ListView Functions
+    @objc public func checkoutTapped(_ sender: UIButton) {
+        impact.impactOccurred()
+     let nextVC = Explore_Controller()
+        nextVC.isDatabasePlace = YelpSearch[sender.tag].isDatabase
+        nextVC.selectedLocation = sender.tag
+        nextVC.calledbyMap = false
+
+        YelpPlaceID = YelpSearch[sender.tag].id
+        
+        yelpReviewDispatchGroup.enter()
+        service.request(.YelpReview()) {(result) in
+            switch result {
+            case .success(let response):
+                let save = try? JSONDecoder().decode(Reviews.self, from: response.data)
+                
+                let defRev = [NewReview(text: "", rating: 0)]
+                
+                for review in save?.reviews ?? defRev{
+                    var rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
+                    YelpSearch[sender.tag].reviews.append(rev);
+                }
+                yelpReviewDispatchGroup.leave()
+                
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+        
+        yelpReviewDispatchGroup.notify(queue: .main){
+            self.present(nextVC, animated: true, completion: {
+                print("Changes to explore page successfully!")
+            })
+        }
+        
+        
+    }
+    
+    func YelpReviewFunction(id: Int){
+        
+        service.request(.YelpReview()) {(result) in
+            switch result {
+            case .success(let response):
+                let save = try? JSONDecoder().decode(Reviews.self, from: response.data)
+                
+                let defRev = [NewReview(text: "", rating: 0)]
+                
+                for review in save?.reviews ?? defRev{
+                    //YelpReviews.append(review)
+                    print("printing yelp review text")
+                    print(review.text)
+                    var rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
+                    YelpSearch[id].reviews.append(rev);
+                    yelpReviewDispatchGroup.notify(queue: .main){
+                        yelpReviewDispatchGroup
+                    }
+                    
+                }
+                
+                
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+        
+    }
+     private func setupList() {
+         let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: popupListView.bounds.width, height: 0))
+         popupListView.addSubview(navigationBar)
+         navigationBar.barStyle = UIBarStyle.black
+         let placeType: UITextView = UITextView()
+         popupListView.addSubview(placeType)
+         placeType.font = UIFont(name: "Avenir Next", size: 20)
+         placeType.font = UIFont.boldSystemFont(ofSize: 30)
+         placeType.textColor = .white
+         placeType.text = "         Search Results"
+         placeType.textAlignment = NSTextAlignment(rawValue: 0)!
+         placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+         placeType.translatesAutoresizingMaskIntoConstraints = false
+         placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
+         placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+         placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+         placeType.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
+         placeType.isEditable = false
+         placeType.isScrollEnabled = false
+         
+         popupListView.addSubview(listViewBackButton)
+         listViewBackButton.layer.cornerRadius = 10
+         listViewBackButton.titleEdgeInsets.left = 10
+         listViewBackButton.titleEdgeInsets.right = 10
+         //        listViewBackButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: 100, height: 30)
+         listViewBackButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+         listViewBackButton.backgroundColor = .white
+         listViewBackButton.translatesAutoresizingMaskIntoConstraints = false
+         listViewBackButton.centerYAnchor.constraint(equalTo: placeType.centerYAnchor).isActive = true
+         listViewBackButton.leftAnchor.constraint(equalTo: placeType.leftAnchor).isActive = true
+         listViewBackButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
+            //GO BACK TO DIVE OPTION?
+            //     listViewBackButton.addTarget(self, action: #selector(self.goBacktoDive(_:)), for: .touchUpInside)
+
+
+         listViewCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
+         listViewCollectionView?.translatesAutoresizingMaskIntoConstraints = false
+         popupListView.addSubview(listViewCollectionView!)
+         
+         listViewCollectionView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+         listViewCollectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+         listViewCollectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+         listViewCollectionView?.topAnchor.constraint(equalTo: placeType.bottomAnchor).isActive = true
+         listViewCollectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+         listViewCollectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+         listViewCollectionView?.backgroundColor = .white
+         
+         let listViewCollectionViewFlowLayout = UICollectionViewFlowLayout()
+         listViewCollectionView?.setCollectionViewLayout(listViewCollectionViewFlowLayout, animated: true)
+         listViewCollectionViewFlowLayout.scrollDirection = .vertical
+         listViewCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+         listViewCollectionViewFlowLayout.minimumInteritemSpacing = 20
+         listViewCollectionViewFlowLayout.minimumLineSpacing = 0
+         
+         listViewCollectionView?.register(LocationCollectionCell.self, forCellWithReuseIdentifier: cellId)
+         listViewCollectionView?.delegate = self
+         listViewCollectionView?.dataSource = self
+        popupListView.isHidden = true
+     }
+    
 }
+ 
+class LocationCollectionCell: UICollectionViewCell{
+     var stackView: UIStackView = UIStackView()
+     var placeImage: CustomImageView = CustomImageView()
+     var placeName: UITextView = UITextView()
+     var placeLocation: UITextView = UITextView()
+     var placeType: UITextView = UITextView()
+     var placeRating: UITextView = UITextView()
+     var profile1ImageView: UIImageView = UIImageView()
+     var profile2ImageView: UIImageView = UIImageView()
+     var profile3ImageView: UIImageView = UIImageView()
+     var profile4ImageView: UIImageView = UIImageView()
+     let checkOutButton: UIButton = {
+         let button = UIButton(type: .system)
+         button.backgroundColor = UIColor.clear
+         button.translatesAutoresizingMaskIntoConstraints = false
+         return button
+     }()
+     
+     func autolayoutCell() {
+         self.backgroundColor = .white
+         self.addSubview(stackView)
+         stackView.translatesAutoresizingMaskIntoConstraints = false
+         
+         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+         stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+         stackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+         stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+         stackView.backgroundColor = .white
+         stackView.addSubview(placeImage)
+         placeImage.translatesAutoresizingMaskIntoConstraints = false
+         placeImage.heightAnchor.constraint(equalToConstant: 180).isActive = true
+         placeImage.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
+         placeImage.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10).isActive = true
+         placeImage.widthAnchor.constraint(equalToConstant: 180).isActive = true
+         
+         stackView.addSubview(placeName)
+         placeName.font = UIFont(name: "Avenir Book", size: 20)
+         placeName.textColor = .black
+         placeName.backgroundColor = .white
+         placeName.font = UIFont.boldSystemFont(ofSize: 20)
+         placeName.translatesAutoresizingMaskIntoConstraints = false
+         placeName.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 15).isActive = true
+         placeName.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+         placeName.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+         placeName.isEditable = false
+         placeName.isScrollEnabled = false
+         
+         stackView.addSubview(placeLocation)
+         placeLocation.font = UIFont(name: "Avenir Book", size: 15)
+         placeLocation.backgroundColor = .white
+         placeLocation.font = UIFont.italicSystemFont(ofSize: 15)
+         placeLocation.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+         placeLocation.translatesAutoresizingMaskIntoConstraints = false
+         placeLocation.topAnchor.constraint(equalTo: placeName.bottomAnchor, constant: -10).isActive = true
+         placeLocation.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+         placeLocation.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+         placeLocation.isEditable = false
+         placeLocation.isScrollEnabled = false
+         
+         stackView.addSubview(placeType)
+         placeType.font = UIFont(name: "Avenir Book", size: 15)
+         placeType.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+         placeType.backgroundColor = .white
+         placeType.translatesAutoresizingMaskIntoConstraints = false
+         placeType.topAnchor.constraint(equalTo: placeLocation.bottomAnchor, constant: -10).isActive = true
+         placeType.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+         placeType.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+         placeType.isEditable = false
+         placeType.isScrollEnabled = false
+         
+         stackView.addSubview(placeRating)
+         placeRating.font = UIFont(name: "Avenir Book", size: 15)
+         placeRating.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+         placeRating.backgroundColor = .white
+         placeRating.translatesAutoresizingMaskIntoConstraints = false
+         placeRating.topAnchor.constraint(equalTo: placeType.bottomAnchor, constant: -10).isActive = true
+         placeRating.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+         placeRating.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+         placeRating.isEditable = false
+         placeRating.isScrollEnabled = false
+         
+         stackView.addSubview(profile1ImageView)
+         profile1ImageView.translatesAutoresizingMaskIntoConstraints = false
+         profile1ImageView.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 20).isActive = true
+         profile1ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+         profile1ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+         profile1ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+         profile1ImageView.clipsToBounds = true
+         profile1ImageView.layer.cornerRadius = profile1ImageView.frame.size.width / 2
+
+         stackView.addSubview(profile2ImageView)
+         profile2ImageView.translatesAutoresizingMaskIntoConstraints = false
+         profile2ImageView.leftAnchor.constraint(equalTo: profile1ImageView.rightAnchor).isActive = true
+         profile2ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+         profile2ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+         profile2ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+         profile2ImageView.clipsToBounds = true
+         profile2ImageView.layer.cornerRadius = profile2ImageView.frame.size.width / 2
+
+         stackView.addSubview(profile3ImageView)
+         profile3ImageView.translatesAutoresizingMaskIntoConstraints = false
+         profile3ImageView.leftAnchor.constraint(equalTo: profile2ImageView.rightAnchor).isActive = true
+         profile3ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+         profile3ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+         profile3ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+         profile3ImageView.clipsToBounds = true
+         profile3ImageView.layer.cornerRadius = profile3ImageView.frame.size.width / 2
+
+
+         stackView.addSubview(profile4ImageView)
+         profile4ImageView.translatesAutoresizingMaskIntoConstraints = false
+         profile4ImageView.leftAnchor.constraint(equalTo: profile3ImageView.rightAnchor).isActive = true
+         profile4ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+         profile4ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+         profile4ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+         profile4ImageView.clipsToBounds = true
+         profile4ImageView.layer.cornerRadius = profile4ImageView.frame.size.width / 2
+         
+         stackView.addSubview(checkOutButton)
+         checkOutButton.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
+         checkOutButton.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+         checkOutButton.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
+         checkOutButton.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+         
+         stackView.axis = .horizontal
+         stackView.alignment = .leading
+         stackView.distribution = .equalSpacing
+         stackView.spacing = 10
+         
+         
+     }
+     
+     
+     var location: Place! {
+     didSet{
+             
+             placeImage.loadImage(urlString: location.image ?? defaultURL)
+             placeName.text = location.name
+             var address = ""
+             if ((location.address1) != "" && (location.address1) != nil){
+                 address += location.address1 ?? ""
+                 address += ", "
+             }
+             if ((location.address2) != "" && (location.address2) != nil ){
+                 address += location.address2 ?? ""
+                 address += ", "
+             }
+             address += location.city
+             placeLocation.text = address
+             var tag = ""
+             let tags = location.tags
+             for (i, t) in tags.enumerated(){
+                 if (i == 2){
+                     break
+                 }
+                 tag += t
+                 if (i == 0){
+                     tag += ", "
+                 }
+                 
+             }
+             placeType.text = tag
+             let rating = location.rating
+             placeRating.text = "\(rating) Rating !"
+ //            profile1ImageView.image = UIImage(named: location.fbfriends![0].imageName!)
+ //            profile2ImageView.image = UIImage(named: location.fbfriends![1].imageName!)
+ //            profile3ImageView.image = UIImage(named: location.fbfriends![2].imageName!)
+ //            profile4ImageView.image = UIImage(named: location.fbfriends![3].imageName!)
+         }
+     }
+ }
+
 
 //MARK: - Map Screen Actions
 extension MapScreen: MKMapViewDelegate {

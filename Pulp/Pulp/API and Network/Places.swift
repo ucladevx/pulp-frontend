@@ -97,10 +97,7 @@ func ListToPlace(list:[PlacesList]){
                             for t in place.categories{
                                 tags.append(t.title)
                             }
-                            print("PRINTING PRICE HERE")
-                            print(place.price)
                             YelpSearch.append(Place(name: place.name ?? "", city: place.location?.city ?? "", state: place.location?.state ?? "", latitude: place.coordinates.latitude, longitude: place.coordinates.longitude, tags: tags, address1: place.location?.address1, address2: place.location?.address2, zip_code: place.location?.zip_code, image: place.image_url, price: place.price, id: place.id ?? "", fbvisitors: [], reviews: [], rating: place.rating ?? 0, isDatabase: false))
-                            print(YelpSearch)
                             
                             
                             

@@ -14,7 +14,7 @@ let NUM_DAYS_RECENT = 3
 // Dummy default date, until API is fixed to make date a mandatory parameter
 let DEFAULT_DATE = "2020-02-06T05:22:41.132Z"
 
-let feedDispatch = DispatchGroup()
+let loadFeedDispatch = DispatchGroup()
 
 func GetFeed() {
     // Get comparison date
@@ -23,9 +23,10 @@ func GetFeed() {
     formatter.locale = Locale(identifier: "en_US_POSIX")
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
     
-    feedDispatch.enter()
+    loadFeedDispatch.enter()
     GetMapPlaces(fromMap: false)
-    feedDispatch.notify(queue: .main) {
+    loadFeedDispatch.notify(queue: .main) {
+        FeedPlaces.removeAll()
         for place in FriendPlaces {
             for review in place.reviews {
                 let dateString  = review.dateCreated ?? DEFAULT_DATE
@@ -45,5 +46,6 @@ func GetFeed() {
                 }
             }
         }
+        feedDispatchGroup.leave()
     }
 }

@@ -34,7 +34,7 @@ func GetMapPlaces(fromMap: Bool) {
             mapDispatch.leave()
         }
         else {
-            feedDispatch.leave()
+            loadFeedDispatch.leave()
         }
             
     case .failure(let error):

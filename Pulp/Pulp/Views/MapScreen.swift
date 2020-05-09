@@ -363,6 +363,21 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
+    let FeedButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.backgroundColor = .white
+        btn.layer.cornerRadius = 15
+        btn.titleEdgeInsets.left = 10
+        btn.titleEdgeInsets.right = 10
+        btn.setTitle("< Feed", for: .normal)
+        btn.setTitleColor(UIColor.gray, for: .normal)
+        btn.layer.shadowColor = UIColor.black.cgColor
+        btn.layer.shadowOpacity = 0.2
+        btn.layer.shadowOffset = .zero
+        btn.layer.shadowRadius = 5
+        return btn
+    }()
     
     
     //MARK: - viewDidLoad
@@ -428,6 +443,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
                 self.searchBarView.addSubview(self.searchButton)
                 self.searchButton.addTarget(self, action: #selector(self.searchButtonTapped), for: .touchDown)
                 self.view.addSubview(self.searchBarView)
+                self.view.addSubview(self.FeedButton)
+                self.FeedButton.addTarget(self, action: #selector(self.feedButtonTapped), for: .touchDown)
                         
                 let buttonItem = MKUserTrackingButton(mapView: self.mapView)
                 buttonItem.frame = CGRect(origin: CGPoint(x:self.view.frame.width - 70, y: self.view.frame.height - 70), size: CGSize(width: 35, height: 35))
@@ -435,7 +452,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
                 self.view.addSubview(buttonItem)
                         
                 self.setUpSearchBar()
-                        
+                
                 self.popupLayout()
                         
                 if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
@@ -968,6 +985,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         }
         searchBar.addTarget(self, action: #selector(searchBarTapped), for: .touchDown)
         
+        FeedButton.translatesAutoresizingMaskIntoConstraints = false
+        FeedButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+        FeedButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
     }
     
     //MARK: - Search Bar Tapped
@@ -1007,6 +1027,22 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         isDisplayingDivein = true
         self.mapView?.selectedAnnotations.forEach({ self.mapView?.deselectAnnotation($0, animated: true) })
         
+        
+        /// Temporary - REMOVE
+        
+    }
+    
+    @objc func feedButtonTapped(_ sender: UIButton) {
+        impact.impactOccurred()
+        feedDispatchGroup.enter()
+        GetFeed()
+        feedDispatchGroup.notify(queue: .main) {
+            let nextVC = FeedPage_Controller()
+            nextVC.modalPresentationStyle = .fullScreen
+            self.present(nextVC, animated: true, completion: {
+                 print("Changes to feed_page successfully!")
+             })
+           }
     }
     
     //MARK: - Search Bar Actions

@@ -54,6 +54,8 @@ let popupView: UIView = {
 let popupLocationView = UIView()
 let popupDiveinView = UIView()
 let popupListView = UIView()
+
+
 class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDelegate,
     UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
@@ -412,6 +414,34 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         return btn
     }()
     
+//    cardView variables
+    // Enum for card states
+    enum CardState {
+        case collapsed
+        case expanded
+    }
+    
+    // Variable determines the next state of the card expressing that the card starts and collapased
+    var nextState:CardState {
+        return cardVisible ? .collapsed : .expanded
+    }
+    
+    // Variable for card view controller
+    var cardViewController:CardViewController!
+    
+    // Variable for effects visual effect view
+    var visualEffectView:UIVisualEffectView!
+    
+    // Starting and end card heights will be determined later
+    var endCardHeight:CGFloat = 0
+    var startCardHeight:CGFloat = 0
+    
+    // Current visible state of the card
+    var cardVisible = false
+    
+    // Empty property animator array
+    var runningAnimations = [UIViewPropertyAnimator]()
+    var animationProgressWhenInterrupted:CGFloat = 0
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -522,6 +552,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         }
     }
     private var bottomConstraint = NSLayoutConstraint()
+    
     
     //MARK: - Set up popup window
     private func popupLayout() {
@@ -745,10 +776,13 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         popupListView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
         popupListView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
         popupListView.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
-        setupList()
         
+//        setupCard()
+//        setupList()
         
+    
     }
+    
     
     //MARK: - Location Popup Tapped
     @objc func checkthisoutTapped(_ sender: UIButton) {
@@ -988,7 +1022,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             closePopupAnimator.addCompletion({_ in
                 popupDiveinView.isHidden = true
                 popupLocationView.isHidden = true
-                popupListView.isHidden = false
+//                popupListView.isHidden = false
                 print("closing popup")
                 
                 
@@ -999,8 +1033,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         }
         else { //should not reach this case
             popupDiveinView.isHidden = true
-            popupListView.isHidden = false
+//            popupListView.isHidden = false
         }
+        
         //yelp search
         LoadingOverlay.shared.showOverlay(view: self.view)
         yelpDispatchGroup.enter()
@@ -1023,17 +1058,18 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
 //                    self.present(nextVC, animated: true, completion: {
 //                    print("Changes to list_view successfully!")
             print("Yelp Search First City:", YelpSearch[1].city)
+            self.setupCard()
             
-            self.listViewCollectionView?.reloadData()
+//            self.listViewCollectionView?.reloadData()
             //sliding open listview popup
-            let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
-                           self.bottomConstraint.constant = 280
-                           self.view.layoutIfNeeded()
-                   })
-            if(self.isDisplayingListView == false) {
-                       transitionAnimator.startAnimation(afterDelay: animationDelay)
-                self.isDisplayingListView = true
-                   }
+//            let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
+//                           self.bottomConstraint.constant = 10
+//                           self.view.layoutIfNeeded()
+//                   })
+//            if(self.isDisplayingListView == false) {
+//                       transitionAnimator.startAnimation(afterDelay: animationDelay)
+//                self.isDisplayingListView = true
+//                   }
             
             
 //                })
@@ -1262,7 +1298,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             cell.layer.borderColor = UIColor.lightGray.cgColor
             cell.autolayoutCell()
             cell.location = YelpSearch[indexPath.row]
-            cell.checkOutButton.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)
+//            cell.checkOutButton.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)
             cell.checkOutButton.tag = indexPath.row
             return cell
         }
@@ -1289,42 +1325,42 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     }
     
     //ListView Functions
-    @objc public func checkoutTapped(_ sender: UIButton) {
-        impact.impactOccurred()
-     let nextVC = Explore_Controller()
-        nextVC.isDatabasePlace = YelpSearch[sender.tag].isDatabase
-        nextVC.selectedLocation = sender.tag
-        nextVC.calledbyMap = false
-
-        YelpPlaceID = YelpSearch[sender.tag].id
-        
-        yelpReviewDispatchGroup.enter()
-        service.request(.YelpReview()) {(result) in
-            switch result {
-            case .success(let response):
-                let save = try? JSONDecoder().decode(Reviews.self, from: response.data)
-                
-                let defRev = [NewReview(text: "", rating: 0)]
-                
-                for review in save?.reviews ?? defRev{
-                    var rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
-                    YelpSearch[sender.tag].reviews.append(rev);
-                }
-                yelpReviewDispatchGroup.leave()
-                
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
-        
-        yelpReviewDispatchGroup.notify(queue: .main){
-            self.present(nextVC, animated: true, completion: {
-                print("Changes to explore page successfully!")
-            })
-        }
-        
-        
-    }
+//    @objc public func checkoutTapped(_ sender: UIButton) {
+//        impact.impactOccurred()
+//     let nextVC = Explore_Controller()
+//        nextVC.isDatabasePlace = YelpSearch[sender.tag].isDatabase
+//        nextVC.selectedLocation = sender.tag
+//        nextVC.calledbyMap = false
+//
+//        YelpPlaceID = YelpSearch[sender.tag].id
+//
+//        yelpReviewDispatchGroup.enter()
+//        service.request(.YelpReview()) {(result) in
+//            switch result {
+//            case .success(let response):
+//                let save = try? JSONDecoder().decode(Reviews.self, from: response.data)
+//
+//                let defRev = [NewReview(text: "", rating: 0)]
+//
+//                for review in save?.reviews ?? defRev{
+//                    var rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
+//                    YelpSearch[sender.tag].reviews.append(rev);
+//                }
+//                yelpReviewDispatchGroup.leave()
+//
+//            case .failure(let error):
+//                print("Error: \(error)")
+//            }
+//        }
+//
+//        yelpReviewDispatchGroup.notify(queue: .main){
+//            self.present(nextVC, animated: true, completion: {
+//                print("Changes to explore page successfully!")
+//            })
+//        }
+//
+//
+//    }
     
     func YelpReviewFunction(id: Int){
         
@@ -1354,65 +1390,211 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         }
         
     }
-     private func setupList() {
-         let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: popupListView.bounds.width, height: 0))
-         popupListView.addSubview(navigationBar)
-         navigationBar.barStyle = UIBarStyle.black
-         let placeType: UITextView = UITextView()
-         popupListView.addSubview(placeType)
-         placeType.font = UIFont(name: "Avenir Next", size: 20)
-         placeType.font = UIFont.boldSystemFont(ofSize: 30)
-         placeType.textColor = .white
-         placeType.text = "         Search Results"
-         placeType.textAlignment = NSTextAlignment(rawValue: 0)!
-         placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
-         placeType.translatesAutoresizingMaskIntoConstraints = false
-         placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
-         placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-         placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-         placeType.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
-         placeType.isEditable = false
-         placeType.isScrollEnabled = false
-         
-         popupListView.addSubview(listViewBackButton)
-         listViewBackButton.layer.cornerRadius = 10
-         listViewBackButton.titleEdgeInsets.left = 10
-         listViewBackButton.titleEdgeInsets.right = 10
-         //        listViewBackButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: 100, height: 30)
-         listViewBackButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
-         listViewBackButton.backgroundColor = .white
-         listViewBackButton.translatesAutoresizingMaskIntoConstraints = false
-         listViewBackButton.centerYAnchor.constraint(equalTo: placeType.centerYAnchor).isActive = true
-         listViewBackButton.leftAnchor.constraint(equalTo: placeType.leftAnchor).isActive = true
-         listViewBackButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
-            //GO BACK TO DIVE OPTION?
-            //     listViewBackButton.addTarget(self, action: #selector(self.goBacktoDive(_:)), for: .touchUpInside)
+//     private func setupList() {
+//         let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: popupListView.bounds.width, height: 0))
+//         popupListView.addSubview(navigationBar)
+//         navigationBar.barStyle = UIBarStyle.black
+//         let placeType: UITextView = UITextView()
+//         popupListView.addSubview(placeType)
+//         placeType.font = UIFont(name: "Avenir Next", size: 20)
+//         placeType.font = UIFont.boldSystemFont(ofSize: 30)
+//         placeType.textColor = .white
+//         placeType.text = "         Search Results"
+//         placeType.textAlignment = NSTextAlignment(rawValue: 0)!
+//         placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+//         placeType.translatesAutoresizingMaskIntoConstraints = false
+//         placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
+//         placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//         placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//         placeType.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
+//         placeType.isEditable = false
+//         placeType.isScrollEnabled = false
+//
+//         popupListView.addSubview(listViewBackButton)
+//         listViewBackButton.layer.cornerRadius = 10
+//         listViewBackButton.titleEdgeInsets.left = 10
+//         listViewBackButton.titleEdgeInsets.right = 10
+//         //        listViewBackButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: 100, height: 30)
+//         listViewBackButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+//         listViewBackButton.backgroundColor = .white
+//         listViewBackButton.translatesAutoresizingMaskIntoConstraints = false
+//         listViewBackButton.centerYAnchor.constraint(equalTo: placeType.centerYAnchor).isActive = true
+//         listViewBackButton.leftAnchor.constraint(equalTo: placeType.leftAnchor).isActive = true
+//         listViewBackButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
+//            //GO BACK TO DIVE OPTION?
+//            //     listViewBackButton.addTarget(self, action: #selector(self.goBacktoDive(_:)), for: .touchUpInside)
+//
+//
+//         listViewCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
+//         listViewCollectionView?.translatesAutoresizingMaskIntoConstraints = false
+//         popupListView.addSubview(listViewCollectionView!)
+//
+//         listViewCollectionView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//         listViewCollectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//         listViewCollectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//         listViewCollectionView?.topAnchor.constraint(equalTo: placeType.bottomAnchor).isActive = true
+//         listViewCollectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//         listViewCollectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//         listViewCollectionView?.backgroundColor = .white
+//
+//         let listViewCollectionViewFlowLayout = UICollectionViewFlowLayout()
+//         listViewCollectionView?.setCollectionViewLayout(listViewCollectionViewFlowLayout, animated: true)
+//         listViewCollectionViewFlowLayout.scrollDirection = .vertical
+//         listViewCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//         listViewCollectionViewFlowLayout.minimumInteritemSpacing = 20
+//         listViewCollectionViewFlowLayout.minimumLineSpacing = 0
+//
+//         listViewCollectionView?.register(LocationCollectionCell.self, forCellWithReuseIdentifier: cellId)
+//         listViewCollectionView?.delegate = self
+//         listViewCollectionView?.dataSource = self
+//        popupListView.isHidden = true
+//     }
+    
+    func setupCard() {
+        // Setup starting and ending card height
+        endCardHeight = self.view.frame.height * 0.8
+        startCardHeight = self.view.frame.height * 0.3
 
+        // Add Visual Effects View
+        visualEffectView = UIVisualEffectView()
+        visualEffectView.frame = self.view.frame
+        self.view.addSubview(visualEffectView)
+        
+//         Add CardViewController xib to the bottom of the screen, clipping bounds so that the corners can be rounded
+        cardViewController = CardViewController(nibName:"CardViewController", bundle:nil)
+        cardViewController = CardViewController()
+        self.view.addSubview(cardViewController.view)
+        cardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - startCardHeight, width: self.view.bounds.width, height: endCardHeight)
+        cardViewController.view.clipsToBounds = true
+        
+//         Add tap and pan recognizers
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapScreen.handleCardTap(recognzier:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(MapScreen.handleCardPan(recognizer:)))
 
-         listViewCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
-         listViewCollectionView?.translatesAutoresizingMaskIntoConstraints = false
-         popupListView.addSubview(listViewCollectionView!)
-         
-         listViewCollectionView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-         listViewCollectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-         listViewCollectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-         listViewCollectionView?.topAnchor.constraint(equalTo: placeType.bottomAnchor).isActive = true
-         listViewCollectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-         listViewCollectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-         listViewCollectionView?.backgroundColor = .white
-         
-         let listViewCollectionViewFlowLayout = UICollectionViewFlowLayout()
-         listViewCollectionView?.setCollectionViewLayout(listViewCollectionViewFlowLayout, animated: true)
-         listViewCollectionViewFlowLayout.scrollDirection = .vertical
-         listViewCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-         listViewCollectionViewFlowLayout.minimumInteritemSpacing = 20
-         listViewCollectionViewFlowLayout.minimumLineSpacing = 0
-         
-         listViewCollectionView?.register(LocationCollectionCell.self, forCellWithReuseIdentifier: cellId)
-         listViewCollectionView?.delegate = self
-         listViewCollectionView?.dataSource = self
-        popupListView.isHidden = true
-     }
+        cardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
+        cardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
+    }
+
+    // Handle tap gesture recognizer
+    @objc
+    func handleCardTap(recognzier:UITapGestureRecognizer) {
+        switch recognzier.state {
+        // Animate card when tap finishes
+        case .ended:
+            animateTransitionIfNeeded(state: nextState, duration: 0.9)
+        default:
+            break
+        }
+    }
+
+    // Handle pan gesture recognizer
+    @objc
+    func handleCardPan (recognizer:UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            // Start animation if pan begins
+            startInteractiveTransition(state: nextState, duration: 0.9)
+
+        case .changed:
+            // Update the translation according to the percentage completed
+            let translation = recognizer.translation(in: self.cardViewController.handleArea)
+            var fractionComplete = translation.y / endCardHeight
+            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
+            updateInteractiveTransition(fractionCompleted: fractionComplete)
+        case .ended:
+            // End animation when pan ends
+            continueInteractiveTransition()
+        default:
+            break
+        }
+    }
+
+    // Animate transistion function
+    func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
+        // Check if frame animator is empty
+        if runningAnimations.isEmpty {
+            // Create a UIViewPropertyAnimator depending on the state of the popover view
+            let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
+                switch state {
+                case .expanded:
+                    // If expanding set popover y to the ending height and blur background
+                    self.cardViewController.view.frame.origin.y = self.view.frame.height - self.endCardHeight
+                    self.visualEffectView.effect = UIBlurEffect(style: .dark)
+
+                case .collapsed:
+                    // If collapsed set popover y to the starting height and remove background blur
+                    self.cardViewController.view.frame.origin.y = self.view.frame.height - self.startCardHeight
+                    self.visualEffectView.effect = nil
+                }
+            }
+
+            // Complete animation frame
+            frameAnimator.addCompletion { _ in
+                self.cardVisible = !self.cardVisible
+                self.runningAnimations.removeAll()
+            }
+
+            // Start animation
+            frameAnimator.startAnimation()
+
+            // Append animation to running animations
+            runningAnimations.append(frameAnimator)
+
+//             Create UIViewPropertyAnimator to round the popover view corners depending on the state of the popover
+            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+                switch state {
+                case .expanded:
+                    // If the view is expanded set the corner radius to 30
+                    self.cardViewController.view.layer.cornerRadius = 30
+
+                case .collapsed:
+                    // If the view is collapsed set the corner radius to 0
+                    self.cardViewController.view.layer.cornerRadius = 0
+                }
+            }
+
+            // Start the corner radius animation
+            cornerRadiusAnimator.startAnimation()
+
+            // Append animation to running animations
+            runningAnimations.append(cornerRadiusAnimator)
+
+        }
+    }
+
+    // Function to start interactive animations when view is dragged
+    func startInteractiveTransition(state:CardState, duration:TimeInterval) {
+
+        // If animation is empty start new animation
+        if runningAnimations.isEmpty {
+            animateTransitionIfNeeded(state: state, duration: duration)
+        }
+
+        // For each animation in runningAnimations
+        for animator in runningAnimations {
+//             Pause animation and update the progress to the fraction complete percentage
+            animator.pauseAnimation()
+            animationProgressWhenInterrupted = animator.fractionComplete
+        }
+    }
+
+    // Funtion to update transition when view is dragged
+    func updateInteractiveTransition(fractionCompleted:CGFloat) {
+        // For each animation in runningAnimations
+        for animator in runningAnimations {
+            // Update the fraction complete value to the current progress
+            animator.fractionComplete = fractionCompleted + animationProgressWhenInterrupted
+        }
+    }
+
+    // Function to continue an interactive transisiton
+    func continueInteractiveTransition (){
+        // For each animation in runningAnimations
+        for animator in runningAnimations {
+            // Continue the animation forwards or backwards
+            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+        }
+    }
     
 }
  
@@ -1661,3 +1843,164 @@ class PhotoCollectionCell: UICollectionViewCell {
              }
        }
    }
+
+
+class CardViewController: UIViewController, UICollectionViewDelegate,
+    UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return YelpSearch.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Example Cell", for: indexPath) as! LocationCollectionCell
+        cell.layer.borderWidth = 1.0;
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.autolayoutCell()
+        cell.location = YelpSearch[indexPath.row]
+        cell.checkOutButton.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)
+        cell.checkOutButton.tag = indexPath.row
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+               return CGSize(width: view.bounds.width , height: 200)
+           }
+    
+    @objc public func checkoutTapped(_ sender: UIButton) {
+        impact.impactOccurred()
+     let nextVC = Explore_Controller()
+        nextVC.isDatabasePlace = YelpSearch[sender.tag].isDatabase
+        nextVC.selectedLocation = sender.tag
+        nextVC.calledbyMap = false
+
+        YelpPlaceID = YelpSearch[sender.tag].id
+        
+        yelpReviewDispatchGroup.enter()
+        service.request(.YelpReview()) {(result) in
+            switch result {
+            case .success(let response):
+                let save = try? JSONDecoder().decode(Reviews.self, from: response.data)
+                
+                let defRev = [NewReview(text: "", rating: 0)]
+                
+                for review in save?.reviews ?? defRev{
+                    var rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
+                    YelpSearch[sender.tag].reviews.append(rev);
+                }
+                yelpReviewDispatchGroup.leave()
+                
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+        
+        yelpReviewDispatchGroup.notify(queue: .main){
+            self.present(nextVC, animated: true, completion: {
+                print("Changes to explore page successfully!")
+            })
+        }
+        
+        
+    }
+
+    var listViewCollectionView: UICollectionView?
+    let listViewBackButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("<", for: .normal)
+        btn.setTitleColor(UIColor.gray, for: .normal)
+        return btn
+    }()
+    
+    @IBOutlet weak var handleArea: UIView!
+    var image :CustomImageView = CustomImageView()
+    let placeType: UITextView = UITextView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        view.addSubview(image)
+//        image.loadImage(urlString: "https://i.insider.com/5df126b679d7570ad2044f3e?width=2500&format=jpeg&auto=webp")
+//        image.translatesAutoresizingMaskIntoConstraints = false
+//        image.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true;
+//        image.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50).isActive = true;
+//        image.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true;
+//        image.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 50).isActive = true;
+        
+        setupList()
+
+        // Do any additional setup after loading the view.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+    
+    private func setupList() {
+//        let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 0))
+//        view.addSubview(navigationBar)
+//        navigationBar.barStyle = UIBarStyle.black
+        
+        view.addSubview(placeType)
+        placeType.font = UIFont(name: "Avenir Next", size: 20)
+        placeType.font = UIFont.boldSystemFont(ofSize: 30)
+        placeType.textColor = .white
+        placeType.text = "         Search Results"
+        placeType.textAlignment = NSTextAlignment(rawValue: 0)!
+        placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+        placeType.translatesAutoresizingMaskIntoConstraints = false
+        placeType.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        placeType.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
+        placeType.isEditable = false
+        placeType.isScrollEnabled = false
+        
+        view.addSubview(listViewBackButton)
+        listViewBackButton.layer.cornerRadius = 10
+        listViewBackButton.titleEdgeInsets.left = 10
+        listViewBackButton.titleEdgeInsets.right = 10
+        //        listViewBackButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: 100, height: 30)
+        listViewBackButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+        listViewBackButton.backgroundColor = .white
+        listViewBackButton.translatesAutoresizingMaskIntoConstraints = false
+        listViewBackButton.centerYAnchor.constraint(equalTo: placeType.centerYAnchor).isActive = true
+        listViewBackButton.leftAnchor.constraint(equalTo: placeType.leftAnchor).isActive = true
+        listViewBackButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
+           //GO BACK TO DIVE OPTION?
+           //     listViewBackButton.addTarget(self, action: #selector(self.goBacktoDive(_:)), for: .touchUpInside)
+
+
+        listViewCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
+        listViewCollectionView?.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(listViewCollectionView!)
+        
+        listViewCollectionView?.leftAnchor.constraint(equalTo: placeType.leftAnchor).isActive = true
+        listViewCollectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//        listViewCollectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        listViewCollectionView?.topAnchor.constraint(equalTo: placeType.bottomAnchor).isActive = true
+        listViewCollectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//        listViewCollectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        listViewCollectionView?.backgroundColor = .white
+        
+        let listViewCollectionViewFlowLayout = UICollectionViewFlowLayout()
+        listViewCollectionView?.setCollectionViewLayout(listViewCollectionViewFlowLayout, animated: true)
+        listViewCollectionViewFlowLayout.scrollDirection = .vertical
+        listViewCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        listViewCollectionViewFlowLayout.minimumInteritemSpacing = 20
+        listViewCollectionViewFlowLayout.minimumLineSpacing = 0
+        
+        listViewCollectionView?.register(LocationCollectionCell.self, forCellWithReuseIdentifier: "Example Cell")
+        listViewCollectionView?.delegate = self
+        listViewCollectionView?.dataSource = self
+//       popupListView.isHidden = true
+    }
+
+}
+

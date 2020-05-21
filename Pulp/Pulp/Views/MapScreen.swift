@@ -829,6 +829,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             place = nil
             isDisplayingDivein = false
             transitionAnimator.startAnimation()
+            print("in map tapped")
         }
     }
     
@@ -1449,6 +1450,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
 //         listViewCollectionView?.dataSource = self
 //        popupListView.isHidden = true
 //     }
+    func removeVisualEffectView(){
+        visualEffectView.isHidden = true
+    }
     
     func setupCard() {
         // Setup starting and ending card height
@@ -1462,19 +1466,31 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         
 //         Add CardViewController xib to the bottom of the screen, clipping bounds so that the corners can be rounded
         cardViewController = CardViewController(nibName:"CardViewController", bundle:nil)
-        cardViewController = CardViewController()
+        //cardViewController = CardViewController()
+//        self.present(cardViewController, animated: true, completion: {
+//            print("presented cardview")
+//        })
+        
         self.view.addSubview(cardViewController.view)
+        
+        
         cardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - startCardHeight, width: self.view.bounds.width, height: endCardHeight)
         cardViewController.view.clipsToBounds = true
         
 //         Add tap and pan recognizers
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapScreen.handleCardTap(recognzier:)))
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(MapScreen.handleCardPan(recognizer:)))
-
+        
+         let effectViewTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapScreen.effectViewTap(recognzier:)))
+       
         cardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         cardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
     }
-
+    @objc
+    func effectViewTap(recognzier:UITapGestureRecognizer) {
+        visualEffectView.removeFromSuperview()
+    }
+    
     // Handle tap gesture recognizer
     @objc
     func handleCardTap(recognzier:UITapGestureRecognizer) {
@@ -1918,14 +1934,6 @@ UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addSubview(image)
-//        image.loadImage(urlString: "https://i.insider.com/5df126b679d7570ad2044f3e?width=2500&format=jpeg&auto=webp")
-//        image.translatesAutoresizingMaskIntoConstraints = false
-//        image.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true;
-//        image.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50).isActive = true;
-//        image.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true;
-//        image.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 50).isActive = true;
-        
         setupList()
 
         // Do any additional setup after loading the view.
@@ -1941,6 +1949,8 @@ UICollectionViewDelegateFlowLayout {
         // Pass the selected object to the new view controller.
     }
     */
+    
+   
     
     private func setupList() {
 //        let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 0))
@@ -1973,6 +1983,7 @@ UICollectionViewDelegateFlowLayout {
         listViewBackButton.centerYAnchor.constraint(equalTo: placeType.centerYAnchor).isActive = true
         listViewBackButton.leftAnchor.constraint(equalTo: placeType.leftAnchor).isActive = true
         listViewBackButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
+        listViewBackButton.addTarget(self, action:  #selector(self.goBackToMap(_:)), for: .touchUpInside)
            //GO BACK TO DIVE OPTION?
            //     listViewBackButton.addTarget(self, action: #selector(self.goBacktoDive(_:)), for: .touchUpInside)
 
@@ -2001,6 +2012,16 @@ UICollectionViewDelegateFlowLayout {
         listViewCollectionView?.dataSource = self
 //       popupListView.isHidden = true
     }
+    
+    @objc func goBackToMap(_ sender: UIButton) {
+           impact.impactOccurred()
+//           self.dismiss(animated: true, completion: {
+//               print("Changes to Map successfully!")
+//           })
+        self.view.removeFromSuperview()
+//        self.visualEffectView.isHidden = true
+        
+       }
 
 }
 

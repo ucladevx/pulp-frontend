@@ -34,7 +34,9 @@ UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+//        view.backgroundColor = .black
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "FeedBackground")!)
+        
         print(FeedPlaces)
         setupList()
         
@@ -74,14 +76,15 @@ UICollectionViewDelegateFlowLayout {
         collectionView?.topAnchor.constraint(equalTo: feedHead.bottomAnchor).isActive = true
         collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        collectionView?.backgroundColor = .white
+//        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = UIColor.white.withAlphaComponent(0.0)
             
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionView?.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
         collectionViewFlowLayout.scrollDirection = .vertical
         collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionViewFlowLayout.minimumInteritemSpacing = 20
-        collectionViewFlowLayout.minimumLineSpacing = 0
+        collectionViewFlowLayout.minimumLineSpacing = 50
             
         collectionView?.register(FeedCollectionCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.delegate = self
@@ -97,28 +100,34 @@ UICollectionViewDelegateFlowLayout {
             cell.layer.borderWidth = 1.0;
             cell.layer.borderColor = UIColor.lightGray.cgColor
             cell.autolayoutCell()
-            cell.location = locations[indexPath.row]
+            cell.post = locations[indexPath.row]
             //cell.checkOutButton.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)
             //cell.checkOutButton.tag = indexPath.row
             return cell
         }
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: view.bounds.width , height: 200)
+            return CGSize(width: view.bounds.width-50 , height: 400)
         }
 }
 
 
 class FeedCollectionCell: UICollectionViewCell{
     var stackView: UIStackView = UIStackView()
-    var placeImage: CustomImageView = CustomImageView()
-    var placeName: UITextView = UITextView()
+    var userImage : CustomImageView = CustomImageView()
+    var userName: UITextView = UITextView()
+    var postTitle : UITextView = UITextView()
     var placeType: UITextView = UITextView()
-    var placeRating: UITextView = UITextView()
+    var postText: UITextView = UITextView()
+    var postImage: CustomImageView = CustomImageView()
+    var tagList = [UIButton]()
+    var tagListRow : UIStackView = UIStackView()
     
     
     func autolayoutCell() {
         self.backgroundColor = .white
+        self.layer.cornerRadius = 30
+
         self.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -129,74 +138,127 @@ class FeedCollectionCell: UICollectionViewCell{
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         stackView.backgroundColor = .white
-        stackView.addSubview(placeImage)
-        placeImage.translatesAutoresizingMaskIntoConstraints = false
-        placeImage.heightAnchor.constraint(equalToConstant: 180).isActive = true
-        placeImage.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
-        placeImage.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10).isActive = true
-        placeImage.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        stackView.addSubview(userImage)
+        userImage.translatesAutoresizingMaskIntoConstraints = false
+        userImage.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        userImage.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
+        userImage.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10).isActive = true
+        userImage.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        userImage.layer.cornerRadius = 20;
         
-        stackView.addSubview(placeName)
-        placeName.font = UIFont(name: "Avenir Book", size: 20)
-        placeName.textColor = .black
-        placeName.backgroundColor = .white
-        placeName.font = UIFont.boldSystemFont(ofSize: 20)
-        placeName.translatesAutoresizingMaskIntoConstraints = false
-        placeName.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 15).isActive = true
-        placeName.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-        placeName.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
-        placeName.isEditable = false
-        placeName.isScrollEnabled = false
+        stackView.addSubview(userName)
+        userName.font = UIFont(name: "Avenir Book", size: 20)
+        userName.textColor = .black
+        userName.backgroundColor = .white
+        userName.font = UIFont.boldSystemFont(ofSize: 20)
+        userName.translatesAutoresizingMaskIntoConstraints = false
+        userName.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 15).isActive = true
+        userName.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+        userName.leftAnchor.constraint(equalTo: userImage.rightAnchor, constant: 10).isActive = true
+        userName.isEditable = false
+        userName.isScrollEnabled = false
         
-        stackView.addSubview(placeType)
-        placeType.font = UIFont(name: "Avenir Book", size: 15)
-        placeType.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        placeType.backgroundColor = .white
-        placeType.translatesAutoresizingMaskIntoConstraints = false
-        placeType.topAnchor.constraint(equalTo: placeName.bottomAnchor, constant: -10).isActive = true
-        placeType.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-        placeType.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
-        placeType.isEditable = false
-        placeType.isScrollEnabled = false
         
-        stackView.addSubview(placeRating)
-        placeRating.font = UIFont(name: "Avenir Book", size: 15)
-        placeRating.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        placeRating.backgroundColor = .white
-        placeRating.translatesAutoresizingMaskIntoConstraints = false
-        placeRating.topAnchor.constraint(equalTo: placeType.bottomAnchor, constant: -10).isActive = true
-        placeRating.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-        placeRating.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
-        placeRating.isEditable = false
-        placeRating.isScrollEnabled = false
+        stackView.addSubview(postTitle)
+        userName.translatesAutoresizingMaskIntoConstraints = false
+        postTitle.font = UIFont(name: "Avenir Book", size: 20)
+        postTitle.textColor = .orange
+        postTitle.topAnchor.constraint(equalTo: userName.topAnchor, constant: 15).isActive = true
+        postTitle.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+        postTitle.leftAnchor.constraint(equalTo: userImage.rightAnchor, constant: 10).isActive = true
+        userName.isEditable = false
+        userName.isScrollEnabled = false
+        
+        
+//        stackView.addSubview(placeType)
+//        placeType.font = UIFont(name: "Avenir Book", size: 15)
+//        placeType.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+//        placeType.backgroundColor = .white
+//        placeType.translatesAutoresizingMaskIntoConstraints = false
+//        placeType.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: -10).isActive = true
+//        placeType.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+//        placeType.leftAnchor.constraint(equalTo: userImage.rightAnchor, constant: 10).isActive = true
+//        placeType.isEditable = false
+//        placeType.isScrollEnabled = false
+        
+        stackView.addSubview(postText)
+        postText.font = UIFont(name: "Avenir Book", size: 15)
+        postText.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+        postText.backgroundColor = .white
+        postText.translatesAutoresizingMaskIntoConstraints = false
+        postText.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 10).isActive = true
+        postText.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+        postText.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 10).isActive = true
+        postText.isEditable = false
+        postText.isScrollEnabled = false
+        postText.heightAnchor.constraint(equalToConstant: 100)
+        
+        stackView.addSubview(tagListRow)
+        tagListRow.axis = .horizontal
+        tagListRow.alignment = .leading
+        tagListRow.distribution = .equalSpacing
+        tagListRow.spacing = 5
+        
+        tagListRow.translatesAutoresizingMaskIntoConstraints = false
+        tagListRow.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
+        tagListRow.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+        tagListRow.topAnchor.constraint(equalTo: postText.bottomAnchor, constant: 10).isActive = true
+        tagListRow.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         stackView.axis = .horizontal
         stackView.alignment = .leading
         stackView.distribution = .equalSpacing
         stackView.spacing = 10
         
+        stackView.addSubview(postImage)
+        postImage.translatesAutoresizingMaskIntoConstraints = false
+        postImage.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
+        postImage.topAnchor.constraint(equalTo: tagListRow.bottomAnchor, constant: 10).isActive = true
+        postImage.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+        postImage.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+        
+        
         
     }
     
     
-    var location: Feed! {
+    var post: Feed! {
     didSet{
             
-        placeImage.loadImage(urlString: location.placeImage ?? defaultURL)
-        placeName.text = location.placeName
-        var tag = ""
-        let tags = location.placeTags
-        for (i, t) in tags.enumerated(){
-            if (i == 2){
-                break
-            }
-            tag += t
-            if (i == 0){
-                tag += ", "
-            }
+        userImage.loadImage(urlString: post.userPhoto ?? defaultURL)
+        userName.text = post.userName
+        postTitle.text = "Checked into In N Out"
+        postImage.loadImage(urlString: post.placeImage)
+        
+        for t in post.placeTags {
+            let btn = UIButton(type: .custom)
+            btn.setTitle(t, for: UIControl.State.normal)
+            btn.setTitleColor(UIColor.white, for: .normal)
+            btn.titleLabel?.font = UIFont(name: "Avenir-Light", size:30)
+            btn.backgroundColor = UIColor(red: 249/255, green: 160/255, blue: 119/255, alpha: 1)
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            btn.layer.cornerRadius = 15
+            btn.contentEdgeInsets = UIEdgeInsets.init(top:5, left:10, bottom:5, right:10)
+            tagList.append(btn)
         }
-        placeType.text = tag
-        placeRating.text = location.reviewText
+        
+        for btn in tagList {
+            tagListRow.addArrangedSubview(btn)
+        }
+//        var tag = ""
+//        let tags = post.placeTags
+//        for (i, t) in tags.enumerated(){
+//            if (i == 2){
+//                break
+//            }
+//            tag += t
+//            if (i == 0){
+//                tag += ", "
+//            }
+//        }
+//        placeType.text = tag
+        
+        postText.text = post.reviewText
         }
     }
 }

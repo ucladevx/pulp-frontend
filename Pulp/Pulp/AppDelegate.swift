@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = UserDefaults.standard
         let defaultValue = ["login_key" : "", "user_id" : "" , "user_photo" :""]
         defaults.register(defaults: defaultValue)
-        USERID = defaults.string(forKey: "user_id")!
+//        USERID = defaults.string(forKey: "user_id")!
+        USERID = "5e427230a29655c60b4a14be"
         USER_Photo = defaults.string(forKey: "user_photo")!
         return true
     }

@@ -883,20 +883,21 @@ open class RatingPulpsIconView: UIView {
     
     // Calculates the ideal ImageView size in a given CGSize
     private func sizeForImage(_ image: UIImage, inSize size: CGSize) -> CGSize {
-        let imageRatio = image.size.width / image.size.height
-        let viewRatio = size.width / size.height
-        
-        if imageRatio < viewRatio {
-            let scale = size.height / image.size.height
-            let width = scale * image.size.width
-            
-            return CGSize(width: width, height: size.height)
-        } else {
-            let scale = size.width / image.size.width
-            let height = scale * image.size.height
-            
-            return CGSize(width: size.width, height: height)
-        }
+//        let imageRatio = image.size.width / image.size.height
+//        let viewRatio = size.width / size.height
+//
+//        if imageRatio < viewRatio {
+//            let scale = size.height / image.size.height
+//            let width = scale * image.size.width
+//
+//            return CGSize(width: width, height: size.height)
+//        } else {
+//            let scale = size.width / image.size.width
+//            let height = scale * image.size.height
+//
+//            return CGSize(width: size.width, height: height)
+//        }
+        return CGSize(width: 30, height: 30)
     }
 
     // MARK: UIView

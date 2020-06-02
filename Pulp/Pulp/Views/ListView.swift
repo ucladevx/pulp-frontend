@@ -117,21 +117,30 @@ UICollectionViewDelegateFlowLayout {
             let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 0))
             view.addSubview(navigationBar)
             navigationBar.barStyle = UIBarStyle.black
-        let placeType: UITextView = UITextView()
-        view.addSubview(placeType)
-        placeType.font = UIFont(name: "Avenir Next", size: 20)
-        placeType.font = UIFont.boldSystemFont(ofSize: 30)
-        placeType.textColor = .white
-        placeType.text = "         Search Results"
-        placeType.textAlignment = NSTextAlignment(rawValue: 0)!
-        placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
-        placeType.translatesAutoresizingMaskIntoConstraints = false
-        placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
-        placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        placeType.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
-        placeType.isEditable = false
-        placeType.isScrollEnabled = false
+
+//        let placeType: UITextView = UITextView()
+//        view.addSubview(placeType)
+//        placeType.font = UIFont(name: "Avenir Next", size: 20)
+//        placeType.font = UIFont.boldSystemFont(ofSize: 30)
+//        placeType.textColor = .white
+//        placeType.text = "         Search Results"
+//        placeType.textAlignment = NSTextAlignment(rawValue: 0)!
+//        placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+//        placeType.translatesAutoresizingMaskIntoConstraints = false
+//        placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
+//        placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//        placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//        placeType.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
+//        placeType.isEditable = false
+//        placeType.isScrollEnabled = false
+        
+        let header: UIImageView = UIImageView(image: UIImage(named: "ListView_Header"))
+        view.addSubview(header)
+        header.translatesAutoresizingMaskIntoConstraints = false
+        header.topAnchor.constraint(equalTo: navigationBar.topAnchor).isActive = true
+        header.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        header.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        header.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         
         view.addSubview(listViewBackButton)
         listViewBackButton.layer.cornerRadius = 10
@@ -141,9 +150,9 @@ UICollectionViewDelegateFlowLayout {
         listViewBackButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
         listViewBackButton.backgroundColor = .white
         listViewBackButton.translatesAutoresizingMaskIntoConstraints = false
-        listViewBackButton.centerYAnchor.constraint(equalTo: placeType.centerYAnchor).isActive = true
-        listViewBackButton.leftAnchor.constraint(equalTo: placeType.leftAnchor).isActive = true
-        listViewBackButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
+        listViewBackButton.centerYAnchor.constraint(equalTo: header.centerYAnchor, constant: -55).isActive = true
+        listViewBackButton.leftAnchor.constraint(equalTo: header.leftAnchor, constant: 20).isActive = true
+//        listViewBackButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
         listViewBackButton.addTarget(self, action: #selector(self.goBacktoDive(_:)), for: .touchUpInside)
     
     
@@ -154,7 +163,7 @@ UICollectionViewDelegateFlowLayout {
             listViewCollectionView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             listViewCollectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             listViewCollectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            listViewCollectionView?.topAnchor.constraint(equalTo: placeType.bottomAnchor).isActive = true
+            listViewCollectionView?.topAnchor.constraint(equalTo: header.bottomAnchor).isActive = true
             listViewCollectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             listViewCollectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             listViewCollectionView?.backgroundColor = .white
@@ -177,8 +186,8 @@ UICollectionViewDelegateFlowLayout {
     
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! LocationCollectionCell
-            cell.layer.borderWidth = 1.0;
-            cell.layer.borderColor = UIColor.lightGray.cgColor
+//            cell.layer.borderWidth = 1.0;
+//            cell.layer.borderColor = UIColor.lightGray.cgColor
             cell.autolayoutCell()
             cell.location = locations[indexPath.row]
             cell.checkOutButton.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)

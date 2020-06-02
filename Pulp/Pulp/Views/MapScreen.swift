@@ -411,6 +411,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         btn.setTitleColor(UIColor.gray, for: .normal)
         return btn
     }()
+    let placeType: UITextView = UITextView()
+    let listViewPopupHeader: UIImageView = UIImageView(image: UIImage(named: "ListViewPopup_Header"))
+    
     
     
     //MARK: - viewDidLoad
@@ -795,6 +798,18 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             place = nil
             isDisplayingDivein = false
             transitionAnimator.startAnimation()
+            
+        }
+        else if(isDisplayingListView){
+            impact.impactOccurred()
+            let transitionAnimator = UIViewPropertyAnimator(duration: 0.9, dampingRatio: 1, animations: {
+                self.bottomConstraint.constant = 440
+//                self.searchBarTextField.isHidden = true
+//                self.searchBar.isHidden = false
+                self.view.layoutIfNeeded()
+            })
+            isDisplayingListView = false
+            transitionAnimator.startAnimation()
         }
     }
     
@@ -1027,7 +1042,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             self.listViewCollectionView?.reloadData()
             //sliding open listview popup
             let transitionAnimator = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
-                           self.bottomConstraint.constant = 280
+                           self.bottomConstraint.constant = 100
                            self.view.layoutIfNeeded()
                    })
             if(self.isDisplayingListView == false) {
@@ -1258,8 +1273,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         print("in collectionview function 2", collectionView == self.listViewCollectionView)
         if collectionView == self.listViewCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! LocationCollectionCell
-            cell.layer.borderWidth = 1.0;
-            cell.layer.borderColor = UIColor.lightGray.cgColor
+//            cell.layer.borderWidth = 1.0;
+//            cell.layer.borderColor = UIColor.lightGray.cgColor
             cell.autolayoutCell()
             cell.location = YelpSearch[indexPath.row]
             cell.checkOutButton.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)
@@ -1358,21 +1373,34 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
          let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: popupListView.bounds.width, height: 0))
          popupListView.addSubview(navigationBar)
          navigationBar.barStyle = UIBarStyle.black
-         let placeType: UITextView = UITextView()
+         
          popupListView.addSubview(placeType)
          placeType.font = UIFont(name: "Avenir Next", size: 20)
          placeType.font = UIFont.boldSystemFont(ofSize: 30)
          placeType.textColor = .white
          placeType.text = "         Search Results"
          placeType.textAlignment = NSTextAlignment(rawValue: 0)!
-         placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+         placeType.backgroundColor = UIColor(red: 250/255, green: 175/255, blue: 125/255, alpha: 1)
          placeType.translatesAutoresizingMaskIntoConstraints = false
          placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
-         placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-         placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+         placeType.rightAnchor.constraint(equalTo: popupListView.rightAnchor).isActive = true
+         placeType.leftAnchor.constraint(equalTo: popupListView.leftAnchor).isActive = true
          placeType.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
          placeType.isEditable = false
          placeType.isScrollEnabled = false
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(goToListView(_:)));
+        placeType.addGestureRecognizer(gesture)
+        
+//        popupListView.addSubview(listViewPopupHeader)
+//        listViewPopupHeader.translatesAutoresizingMaskIntoConstraints = false
+//        listViewPopupHeader.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
+//        listViewPopupHeader.rightAnchor.constraint(equalTo: popupListView.rightAnchor).isActive = true
+//        listViewPopupHeader.leftAnchor.constraint(equalTo: popupListView.leftAnchor).isActive = true
+//        listViewPopupHeader.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
+//
+//        let gesture2 = UITapGestureRecognizer(target: self, action: #selector(goToListView(_:)));
+//        listViewPopupHeader.addGestureRecognizer(gesture2)
+        
          
          popupListView.addSubview(listViewBackButton)
          listViewBackButton.layer.cornerRadius = 10
@@ -1385,6 +1413,8 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
          listViewBackButton.centerYAnchor.constraint(equalTo: placeType.centerYAnchor).isActive = true
          listViewBackButton.leftAnchor.constraint(equalTo: placeType.leftAnchor).isActive = true
          listViewBackButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
+        listViewBackButton.addTarget(self, action: #selector(searchBarTapped(textField:)), for: .touchUpInside)
+        
             //GO BACK TO DIVE OPTION?
             //     listViewBackButton.addTarget(self, action: #selector(self.goBacktoDive(_:)), for: .touchUpInside)
 
@@ -1393,12 +1423,12 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
          listViewCollectionView?.translatesAutoresizingMaskIntoConstraints = false
          popupListView.addSubview(listViewCollectionView!)
          
-         listViewCollectionView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-         listViewCollectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-         listViewCollectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+         listViewCollectionView?.leftAnchor.constraint(equalTo: popupListView.leftAnchor).isActive = true
+         listViewCollectionView?.rightAnchor.constraint(equalTo: popupListView.rightAnchor).isActive = true
+         listViewCollectionView?.leadingAnchor.constraint(equalTo: popupListView.leadingAnchor).isActive = true
          listViewCollectionView?.topAnchor.constraint(equalTo: placeType.bottomAnchor).isActive = true
-         listViewCollectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-         listViewCollectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+         listViewCollectionView?.bottomAnchor.constraint(equalTo: popupListView.bottomAnchor).isActive = true
+         listViewCollectionView?.trailingAnchor.constraint(equalTo: popupListView.trailingAnchor).isActive = true
          listViewCollectionView?.backgroundColor = .white
          
          let listViewCollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -1413,6 +1443,14 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
          listViewCollectionView?.dataSource = self
         popupListView.isHidden = true
      }
+    
+    @objc func goToListView(_ sender: UITapGestureRecognizer){
+        let nextVC = ListView_Controller()
+        present(nextVC, animated: false, completion: {
+            print("Changes to list view successfully!")
+        })
+        
+    }
     
 }
  
@@ -1433,6 +1471,20 @@ class LocationCollectionCell: UICollectionViewCell{
          button.translatesAutoresizingMaskIntoConstraints = false
          return button
      }()
+    let ratingPulpsIconView: RatingPulpsIconView = {
+    //        let ratingView = RatingPulpsIconView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
+            let ratingView = RatingPulpsIconView(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+            ratingView.translatesAutoresizingMaskIntoConstraints = false
+            ratingView.fullImage = UIImage(named: "Rating_Full")
+            ratingView.emptyImage = UIImage(named: "Rating_Empty")
+            ratingView.backgroundColor =  UIColor.clear
+            return ratingView
+        }()
+    let ratingPulpsText: UITextView = UITextView()
+        
+    let bottomBorder: UIImageView = UIImageView(image: UIImage(named: "ListView_Border"))
+        
+    
      
      func autolayoutCell() {
          self.backgroundColor = .white
@@ -1452,6 +1504,8 @@ class LocationCollectionCell: UICollectionViewCell{
          placeImage.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
          placeImage.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10).isActive = true
          placeImage.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        placeImage.layer.cornerRadius = 20
+        placeImage.layer.masksToBounds = true
          
          stackView.addSubview(placeName)
          placeName.font = UIFont(name: "Avenir Book", size: 20)
@@ -1487,6 +1541,7 @@ class LocationCollectionCell: UICollectionViewCell{
          placeType.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
          placeType.isEditable = false
          placeType.isScrollEnabled = false
+        
          
          stackView.addSubview(placeRating)
          placeRating.font = UIFont(name: "Avenir Book", size: 15)
@@ -1498,43 +1553,67 @@ class LocationCollectionCell: UICollectionViewCell{
          placeRating.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
          placeRating.isEditable = false
          placeRating.isScrollEnabled = false
+        
+        stackView.addSubview(ratingPulpsIconView)
+        ratingPulpsIconView.translatesAutoresizingMaskIntoConstraints = false
+        ratingPulpsIconView.topAnchor.constraint(equalTo: placeType.bottomAnchor).isActive = true
+        ratingPulpsIconView.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -60).isActive = true
+        ratingPulpsIconView.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+        
+        stackView.addSubview(bottomBorder)
+        bottomBorder.translatesAutoresizingMaskIntoConstraints = false
+        bottomBorder.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 0).isActive = true
+        bottomBorder.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: 0).isActive = true
+        bottomBorder.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
+        bottomBorder.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        
+//        stackView.addSubview(ratingPulpsText)
+//        ratingPulpsText.translatesAutoresizingMaskIntoConstraints = false
+//        ratingPulpsText.topAnchor.constraint(equalTo: ratingPulpsIconView.bottomAnchor, constant: 0).isActive = true
+//        ratingPulpsText.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+//        ratingPulpsText.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -60).isActive = true
+////        ratingPulpsText.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 0).isActive = true
+//        ratingPulpsText.heightAnchor.constraint(equalToConstant: 20).isActive = true
+//        ratingPulpsText.font = UIFont(name: "Avenir Book", size: 15)
+//        ratingPulpsText.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+        
          
-         stackView.addSubview(profile1ImageView)
-         profile1ImageView.translatesAutoresizingMaskIntoConstraints = false
-         profile1ImageView.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 20).isActive = true
-         profile1ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-         profile1ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
-         profile1ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-         profile1ImageView.clipsToBounds = true
-         profile1ImageView.layer.cornerRadius = profile1ImageView.frame.size.width / 2
-
-         stackView.addSubview(profile2ImageView)
-         profile2ImageView.translatesAutoresizingMaskIntoConstraints = false
-         profile2ImageView.leftAnchor.constraint(equalTo: profile1ImageView.rightAnchor).isActive = true
-         profile2ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-         profile2ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
-         profile2ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-         profile2ImageView.clipsToBounds = true
-         profile2ImageView.layer.cornerRadius = profile2ImageView.frame.size.width / 2
-
-         stackView.addSubview(profile3ImageView)
-         profile3ImageView.translatesAutoresizingMaskIntoConstraints = false
-         profile3ImageView.leftAnchor.constraint(equalTo: profile2ImageView.rightAnchor).isActive = true
-         profile3ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-         profile3ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
-         profile3ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-         profile3ImageView.clipsToBounds = true
-         profile3ImageView.layer.cornerRadius = profile3ImageView.frame.size.width / 2
-
-
-         stackView.addSubview(profile4ImageView)
-         profile4ImageView.translatesAutoresizingMaskIntoConstraints = false
-         profile4ImageView.leftAnchor.constraint(equalTo: profile3ImageView.rightAnchor).isActive = true
-         profile4ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-         profile4ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
-         profile4ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-         profile4ImageView.clipsToBounds = true
-         profile4ImageView.layer.cornerRadius = profile4ImageView.frame.size.width / 2
+//         stackView.addSubview(profile1ImageView)
+//         profile1ImageView.translatesAutoresizingMaskIntoConstraints = false
+//         profile1ImageView.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 20).isActive = true
+//         profile1ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+//         profile1ImageView.topAnchor.constraint(equalTo: ratingPulpsText.bottomAnchor, constant: -5).isActive = true
+//         profile1ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//         profile1ImageView.clipsToBounds = true
+//         profile1ImageView.layer.cornerRadius = profile1ImageView.frame.size.width / 2
+//
+//         stackView.addSubview(profile2ImageView)
+//         profile2ImageView.translatesAutoresizingMaskIntoConstraints = false
+//         profile2ImageView.leftAnchor.constraint(equalTo: profile1ImageView.rightAnchor).isActive = true
+//         profile2ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+//         profile2ImageView.topAnchor.constraint(equalTo: ratingPulpsText.bottomAnchor, constant: -5).isActive = true
+//         profile2ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//         profile2ImageView.clipsToBounds = true
+//         profile2ImageView.layer.cornerRadius = profile2ImageView.frame.size.width / 2
+//
+//         stackView.addSubview(profile3ImageView)
+//         profile3ImageView.translatesAutoresizingMaskIntoConstraints = false
+//         profile3ImageView.leftAnchor.constraint(equalTo: profile2ImageView.rightAnchor).isActive = true
+//         profile3ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+//         profile3ImageView.topAnchor.constraint(equalTo: ratingPulpsText.bottomAnchor, constant: -5).isActive = true
+//         profile3ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//         profile3ImageView.clipsToBounds = true
+//         profile3ImageView.layer.cornerRadius = profile3ImageView.frame.size.width / 2
+//
+//
+//         stackView.addSubview(profile4ImageView)
+//         profile4ImageView.translatesAutoresizingMaskIntoConstraints = false
+//         profile4ImageView.leftAnchor.constraint(equalTo: profile3ImageView.rightAnchor).isActive = true
+//         profile4ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+//         profile4ImageView.topAnchor.constraint(equalTo: ratingPulpsText.bottomAnchor, constant: -5).isActive = true
+//         profile4ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//         profile4ImageView.clipsToBounds = true
+//         profile4ImageView.layer.cornerRadius = profile4ImageView.frame.size.width / 2
          
          stackView.addSubview(checkOutButton)
          checkOutButton.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
@@ -1549,6 +1628,7 @@ class LocationCollectionCell: UICollectionViewCell{
          
          
      }
+
      
      
      var location: Place! {
@@ -1580,9 +1660,18 @@ class LocationCollectionCell: UICollectionViewCell{
                  
              }
              placeType.text = tag
-             let rating = location.rating
-             placeRating.text = "\(rating) Rating !"
- //            profile1ImageView.image = UIImage(named: location.fbfriends![0].imageName!)
+//             let rating = location.rating
+//             placeRating.text = "\(rating) Rating !"
+            var rating: Double = location.rating
+            ratingPulpsIconView.rating = floor(rating * 2 + 0.5) / 2;
+            if (rating.remainder(dividingBy: 1.0) == 0) { // truncate '.0' if present
+                ratingPulpsText.text = String(Int(rating)) + " pulps"
+            }
+            else {
+                ratingPulpsText.text = String(Int(rating)) + " pulps"
+            }
+        
+//            profile1ImageView.image = UIImage(named: location.fbfriends![0].imageName!)
  //            profile2ImageView.image = UIImage(named: location.fbfriends![1].imageName!)
  //            profile3ImageView.image = UIImage(named: location.fbfriends![2].imageName!)
  //            profile4ImageView.image = UIImage(named: location.fbfriends![3].imageName!)

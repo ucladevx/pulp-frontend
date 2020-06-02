@@ -46,6 +46,9 @@ func GetFeed() {
                 }
             }
         }
+        FeedPlaces.append(Feed(userPhoto: "https://lh3.googleusercontent.com/proxy/tWuuNAGA3enKjcqKD0Eyc0QVuXLrLY8ucXGhr7hfFNYbnmbJqIVe_RwXM9VpS1u4Y1QFDTbwnESBVA6EWX-89M72RHlrR37rxPbtW3PsUNJ9Da4-CWS-", userName: "David Smallberg", placeName: "Diddy Riese", placeTags: ["Desert", "Ice Cream"], placeImage: "https://www.diddyriese.com/wp-content/uploads/2017/01/Screen-Shot-2017-01-17-at-9.33.59-PM.png", reviewText: "I like ice cream. Maybe even more than I like pointers", reviewDate: "03-20-2020"))
+        FeedPlaces.append(Feed(userPhoto: "https://lh3.googleusercontent.com/proxy/tWuuNAGA3enKjcqKD0Eyc0QVuXLrLY8ucXGhr7hfFNYbnmbJqIVe_RwXM9VpS1u4Y1QFDTbwnESBVA6EWX-89M72RHlrR37rxPbtW3PsUNJ9Da4-CWS-", userName: "David Smallberg", placeName: "Diddy Riese", placeTags: ["Desert", "Ice Cream"], placeImage: "https://www.diddyriese.com/wp-content/uploads/2017/01/Screen-Shot-2017-01-17-at-9.33.59-PM.png", reviewText: "I like ice cream. Maybe even more than I like pointers", reviewDate: "03-20-2020"))
+        
         feedDispatchGroup.leave()
     }
 }

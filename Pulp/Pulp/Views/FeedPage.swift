@@ -22,15 +22,17 @@ UICollectionViewDelegateFlowLayout {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    
-    
+
     let backButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("< Map", for: .normal)
+        btn.setTitle("Map >", for: .normal)
         btn.setTitleColor(UIColor.gray, for: .normal)
         return btn
     }()
+    
+    let discoverText: UITextView = UITextView()
+    let header: UIStackView = UIStackView()
+    let discoverImage: UIImageView = UIImageView(image: UIImage(named: "Museum"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,21 +53,48 @@ UICollectionViewDelegateFlowLayout {
     
     private func setupList() {
         
-        let feedHead = UIImageView(image: #imageLiteral(resourceName: "FeedHead"))
-        view.addSubview(feedHead)
-        feedHead.translatesAutoresizingMaskIntoConstraints = false
-        feedHead.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        feedHead.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        feedHead.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        feedHead.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.15).isActive = true
+//        let feedHead = UIImageView(image: #imageLiteral(resourceName: "FeedHead"))
+//        view.addSubview(feedHead)
+//        feedHead.translatesAutoresizingMaskIntoConstraints = false
+//        feedHead.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//        feedHead.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//        feedHead.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        feedHead.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.15).isActive = true
+//
+//        view.addSubview(backButton)
+//        backButton.translatesAutoresizingMaskIntoConstraints = false
+//        backButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50 ).isActive = true
+//        backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50 ).isActive = true
+//        backButton.addTarget(self, action: #selector(self.goBacktoMap(_:)) , for: .touchUpInside)
+//
         
-        feedHead.addSubview(backButton)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.leftAnchor.constraint(equalTo: feedHead.leftAnchor, constant: 30 ).isActive = true
-        backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50 ).isActive = true
-        backButton.addTarget(self, action: #selector(self.goBacktoMap(_:)) , for: .touchUpInside)
-    
-    
+        
+        
+        view.addSubview(header)
+        header.translatesAutoresizingMaskIntoConstraints = false
+        header.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        header.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        header.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        header.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        
+        header.addSubview(discoverText)
+        discoverText.translatesAutoresizingMaskIntoConstraints = false
+        discoverText.topAnchor.constraint(equalTo: header.topAnchor, constant: 0).isActive = true
+        discoverText.text = "Discover"
+        discoverText.font = UIFont(name: "Avenir Next", size: 30)
+//        discoverText.font = UIFont.boldSystemFont(ofSize: 30)
+        discoverText.leftAnchor.constraint(equalTo: header.leftAnchor, constant: 0).isActive = true
+        discoverText.rightAnchor.constraint(equalTo: header.rightAnchor).isActive = true
+        
+        header.addSubview(discoverImage)
+        discoverImage.translatesAutoresizingMaskIntoConstraints = false
+        discoverImage.topAnchor.constraint(equalTo: header.topAnchor).isActive = true
+        discoverImage.rightAnchor.constraint(equalTo: header.rightAnchor).isActive = true
+        discoverImage.leftAnchor.constraint(equalTo: header.leftAnchor).isActive = true
+        
+        
+        
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView!)
@@ -73,7 +102,7 @@ UICollectionViewDelegateFlowLayout {
         collectionView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        collectionView?.topAnchor.constraint(equalTo: feedHead.bottomAnchor).isActive = true
+        collectionView?.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 0).isActive = true
         collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 //        collectionView?.backgroundColor = .white

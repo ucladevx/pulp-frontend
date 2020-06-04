@@ -15,7 +15,7 @@ class ListView_Controller: UIViewController,
     UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout {
     
-    var collectionView: UICollectionView?
+    var listViewCollectionView: UICollectionView?
     var searchTerm: String?
     let cellId = "Example Cell"
     let cellSpacing:CGFloat = 10
@@ -26,7 +26,7 @@ UICollectionViewDelegateFlowLayout {
     
     
     
-    let backButton: UIButton = {
+    let listViewBackButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle("<", for: .normal)
         btn.setTitleColor(UIColor.gray, for: .normal)
@@ -117,58 +117,67 @@ UICollectionViewDelegateFlowLayout {
             let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 0))
             view.addSubview(navigationBar)
             navigationBar.barStyle = UIBarStyle.black
-        let placeType: UITextView = UITextView()
-        view.addSubview(placeType)
-        placeType.font = UIFont(name: "Avenir Next", size: 20)
-        placeType.font = UIFont.boldSystemFont(ofSize: 30)
-        placeType.textColor = .white
-        placeType.text = "         Search Results"
-        placeType.textAlignment = NSTextAlignment(rawValue: 0)!
-        placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
-        placeType.translatesAutoresizingMaskIntoConstraints = false
-        placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
-        placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        placeType.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
-        placeType.isEditable = false
-        placeType.isScrollEnabled = false
+
+//        let placeType: UITextView = UITextView()
+//        view.addSubview(placeType)
+//        placeType.font = UIFont(name: "Avenir Next", size: 20)
+//        placeType.font = UIFont.boldSystemFont(ofSize: 30)
+//        placeType.textColor = .white
+//        placeType.text = "         Search Results"
+//        placeType.textAlignment = NSTextAlignment(rawValue: 0)!
+//        placeType.backgroundColor = UIColor(red: 54/255, green: 120/255, blue: 195/255, alpha: 1)
+//        placeType.translatesAutoresizingMaskIntoConstraints = false
+//        placeType.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
+//        placeType.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//        placeType.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//        placeType.heightAnchor.constraint(equalToConstant: 55 ).isActive = true
+//        placeType.isEditable = false
+//        placeType.isScrollEnabled = false
         
-        view.addSubview(backButton)
-        backButton.layer.cornerRadius = 10
-        backButton.titleEdgeInsets.left = 10
-        backButton.titleEdgeInsets.right = 10
-        //        backButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: 100, height: 30)
-        backButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
-        backButton.backgroundColor = .white
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.centerYAnchor.constraint(equalTo: placeType.centerYAnchor).isActive = true
-        backButton.leftAnchor.constraint(equalTo: placeType.leftAnchor).isActive = true
-        backButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
-        backButton.addTarget(self, action: #selector(self.goBacktoDive(_:)), for: .touchUpInside)
+        let header: UIImageView = UIImageView(image: UIImage(named: "ListView_Header"))
+        view.addSubview(header)
+        header.translatesAutoresizingMaskIntoConstraints = false
+        header.topAnchor.constraint(equalTo: navigationBar.topAnchor).isActive = true
+        header.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        header.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        header.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        
+        view.addSubview(listViewBackButton)
+        listViewBackButton.layer.cornerRadius = 10
+        listViewBackButton.titleEdgeInsets.left = 10
+        listViewBackButton.titleEdgeInsets.right = 10
+        //        listViewBackButton.frame = CGRect(x: 0, y: view.frame.height/3.3, width: 100, height: 30)
+        listViewBackButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
+        listViewBackButton.backgroundColor = .white
+        listViewBackButton.translatesAutoresizingMaskIntoConstraints = false
+        listViewBackButton.centerYAnchor.constraint(equalTo: header.centerYAnchor, constant: -55).isActive = true
+        listViewBackButton.leftAnchor.constraint(equalTo: header.leftAnchor, constant: 20).isActive = true
+//        listViewBackButton.widthAnchor.constraint(equalToConstant: 130).isActive = false
+        listViewBackButton.addTarget(self, action: #selector(self.goBacktoDive(_:)), for: .touchUpInside)
     
     
-        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
-            collectionView?.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(collectionView!)
+        listViewCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
+            listViewCollectionView?.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(listViewCollectionView!)
             
-            collectionView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            collectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            collectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            collectionView?.topAnchor.constraint(equalTo: placeType.bottomAnchor).isActive = true
-            collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-            collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            collectionView?.backgroundColor = .white
+            listViewCollectionView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            listViewCollectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            listViewCollectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            listViewCollectionView?.topAnchor.constraint(equalTo: header.bottomAnchor).isActive = true
+            listViewCollectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            listViewCollectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            listViewCollectionView?.backgroundColor = .white
             
-            let collectionViewFlowLayout = UICollectionViewFlowLayout()
-            collectionView?.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
-            collectionViewFlowLayout.scrollDirection = .vertical
-            collectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            collectionViewFlowLayout.minimumInteritemSpacing = 20
-            collectionViewFlowLayout.minimumLineSpacing = 0
+            let listViewCollectionViewFlowLayout = UICollectionViewFlowLayout()
+            listViewCollectionView?.setCollectionViewLayout(listViewCollectionViewFlowLayout, animated: true)
+            listViewCollectionViewFlowLayout.scrollDirection = .vertical
+            listViewCollectionViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            listViewCollectionViewFlowLayout.minimumInteritemSpacing = 20
+            listViewCollectionViewFlowLayout.minimumLineSpacing = 0
             
-            collectionView?.register(LocationCollectionCell.self, forCellWithReuseIdentifier: cellId)
-            collectionView?.delegate = self
-            collectionView?.dataSource = self
+            listViewCollectionView?.register(LocationCollectionCell.self, forCellWithReuseIdentifier: cellId)
+            listViewCollectionView?.delegate = self
+            listViewCollectionView?.dataSource = self
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -177,8 +186,8 @@ UICollectionViewDelegateFlowLayout {
     
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! LocationCollectionCell
-            cell.layer.borderWidth = 1.0;
-            cell.layer.borderColor = UIColor.lightGray.cgColor
+//            cell.layer.borderWidth = 1.0;
+//            cell.layer.borderColor = UIColor.lightGray.cgColor
             cell.autolayoutCell()
             cell.location = locations[indexPath.row]
             cell.checkOutButton.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)
@@ -196,198 +205,177 @@ UICollectionViewDelegateFlowLayout {
 }
 
 
-class LocationCollectionCell: UICollectionViewCell{
-    var stackView: UIStackView = UIStackView()
-    var placeImage: CustomImageView = CustomImageView()
-    var placeName: UITextView = UITextView()
-    var placeLocation: UITextView = UITextView()
-    var placeType: UITextView = UITextView()
-    var placeRating: UITextView = UITextView()
-    var profile1ImageView: UIImageView = UIImageView()
-    var profile2ImageView: UIImageView = UIImageView()
-    var profile3ImageView: UIImageView = UIImageView()
-    var profile4ImageView: UIImageView = UIImageView()
-    let checkOutButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.clear
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    var pulpCertified: UITextView = UITextView()
-    
-    func autolayoutCell() {
-        self.backgroundColor = .white
-        self.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        stackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        stackView.backgroundColor = .white
-        stackView.addSubview(placeImage)
-        placeImage.translatesAutoresizingMaskIntoConstraints = false
-        placeImage.heightAnchor.constraint(equalToConstant: 180).isActive = true
-        placeImage.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
-        placeImage.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10).isActive = true
-        placeImage.widthAnchor.constraint(equalToConstant: 180).isActive = true
-        
-        stackView.addSubview(placeName)
-        placeName.font = UIFont(name: "Avenir Book", size: 20)
-        placeName.textColor = .black
-        placeName.backgroundColor = .white
-        placeName.font = UIFont.boldSystemFont(ofSize: 20)
-        placeName.translatesAutoresizingMaskIntoConstraints = false
-        placeName.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 15).isActive = true
-        placeName.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-        placeName.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
-        placeName.isEditable = false
-        placeName.isScrollEnabled = false
-        
-        stackView.addSubview(placeLocation)
-        placeLocation.font = UIFont(name: "Avenir Book", size: 15)
-        placeLocation.backgroundColor = .white
-        placeLocation.font = UIFont.italicSystemFont(ofSize: 15)
-        placeLocation.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        placeLocation.translatesAutoresizingMaskIntoConstraints = false
-        placeLocation.topAnchor.constraint(equalTo: placeName.bottomAnchor, constant: -10).isActive = true
-        placeLocation.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-        placeLocation.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
-        placeLocation.isEditable = false
-        placeLocation.isScrollEnabled = false
-        
-        stackView.addSubview(placeType)
-        placeType.font = UIFont(name: "Avenir Book", size: 15)
-        placeType.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        placeType.backgroundColor = .white
-        placeType.translatesAutoresizingMaskIntoConstraints = false
-        placeType.topAnchor.constraint(equalTo: placeLocation.bottomAnchor, constant: -10).isActive = true
-        placeType.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-        placeType.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
-        placeType.isEditable = false
-        placeType.isScrollEnabled = false
-        
-        stackView.addSubview(placeRating)
-        placeRating.font = UIFont(name: "Avenir Book", size: 15)
-        placeRating.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        placeRating.backgroundColor = .white
-        placeRating.translatesAutoresizingMaskIntoConstraints = false
-        placeRating.topAnchor.constraint(equalTo: placeType.bottomAnchor, constant: -10).isActive = true
-        placeRating.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-        placeRating.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
-        placeRating.isEditable = false
-        placeRating.isScrollEnabled = false
-        
-        stackView.addSubview(profile1ImageView)
-        profile1ImageView.translatesAutoresizingMaskIntoConstraints = false
-        profile1ImageView.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 20).isActive = true
-        profile1ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        profile1ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
-        profile1ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        profile1ImageView.clipsToBounds = true
-        profile1ImageView.layer.cornerRadius = profile1ImageView.frame.size.width / 2
 
-        stackView.addSubview(profile2ImageView)
-        profile2ImageView.translatesAutoresizingMaskIntoConstraints = false
-        profile2ImageView.leftAnchor.constraint(equalTo: profile1ImageView.rightAnchor).isActive = true
-        profile2ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        profile2ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
-        profile2ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        profile2ImageView.clipsToBounds = true
-        profile2ImageView.layer.cornerRadius = profile2ImageView.frame.size.width / 2
-
-        stackView.addSubview(profile3ImageView)
-        profile3ImageView.translatesAutoresizingMaskIntoConstraints = false
-        profile3ImageView.leftAnchor.constraint(equalTo: profile2ImageView.rightAnchor).isActive = true
-        profile3ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        profile3ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
-        profile3ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        profile3ImageView.clipsToBounds = true
-        profile3ImageView.layer.cornerRadius = profile3ImageView.frame.size.width / 2
-
-
-        stackView.addSubview(profile4ImageView)
-        profile4ImageView.translatesAutoresizingMaskIntoConstraints = false
-        profile4ImageView.leftAnchor.constraint(equalTo: profile3ImageView.rightAnchor).isActive = true
-        profile4ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
-        profile4ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
-        profile4ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        profile4ImageView.clipsToBounds = true
-        profile4ImageView.layer.cornerRadius = profile4ImageView.frame.size.width / 2
-        
-        stackView.addSubview(checkOutButton)
-        checkOutButton.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
-        checkOutButton.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-        checkOutButton.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
-        checkOutButton.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
-        
-        stackView.addSubview(pulpCertified)
-        pulpCertified.translatesAutoresizingMaskIntoConstraints = false
-        
-       pulpCertified.font = UIFont(name: "Avenir Book", size: 15)
-//        pulpCertified.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        pulpCertified.backgroundColor = .white
-        
-//        pulpCertified.backgroundColor = .lightGray
-        pulpCertified.textColor = .orange
-        pulpCertified.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -10).isActive = true
-        pulpCertified.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-        pulpCertified.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
-        pulpCertified.isEditable = false
-        pulpCertified.isScrollEnabled = false
-        
-        
-        stackView.axis = .horizontal
-        stackView.alignment = .leading
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 10
-        
-        
-        
-    }
-    
-    
-    var location: Place! {
-    didSet{
-            
-            placeImage.loadImage(urlString: location.image ?? defaultURL)
-            placeName.text = location.name
-            var address = ""
-            if ((location.address1) != "" && (location.address1) != nil){
-                address += location.address1 ?? ""
-                address += ", "
-            }
-            if ((location.address2) != "" && (location.address2) != nil ){
-                address += location.address2 ?? ""
-                address += ", "
-            }
-            address += location.city
-            placeLocation.text = address
-            var tag = ""
-            let tags = location.tags
-            for (i, t) in tags.enumerated(){
-                if (i == 2){
-                    break
-                }
-                tag += t
-                if (i == 0){
-                    tag += ", "
-                }
-                
-            }
-            placeType.text = tag
-            let rating = location.rating
-            placeRating.text = "\(rating) Rating !"
-            
-//            pulpCertified.text = "Pulp Certified"
-            print("pulp certified text added")
-            pulpCertified.text = (location.isDatabase ? "Pulp Certified" : "");
-//            profile1ImageView.image = UIImage(named: location.fbfriends![0].imageName!)
-//            profile2ImageView.image = UIImage(named: location.fbfriends![1].imageName!)
-//            profile3ImageView.image = UIImage(named: location.fbfriends![2].imageName!)
-//            profile4ImageView.image = UIImage(named: location.fbfriends![3].imageName!)
-        }
-    }
-}
+//class LocationCollectionCell: UICollectionViewCell{
+//    var stackView: UIStackView = UIStackView()
+//    var placeImage: CustomImageView = CustomImageView()
+//    var placeName: UITextView = UITextView()
+//    var placeLocation: UITextView = UITextView()
+//    var placeType: UITextView = UITextView()
+//    var placeRating: UITextView = UITextView()
+//    var profile1ImageView: UIImageView = UIImageView()
+//    var profile2ImageView: UIImageView = UIImageView()
+//    var profile3ImageView: UIImageView = UIImageView()
+//    var profile4ImageView: UIImageView = UIImageView()
+//    let checkOutButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.backgroundColor = UIColor.clear
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
+//
+//    func autolayoutCell() {
+//        self.backgroundColor = .white
+//        self.addSubview(stackView)
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+//        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+//        stackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+//        stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+//        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+//        stackView.backgroundColor = .white
+//        stackView.addSubview(placeImage)
+//        placeImage.translatesAutoresizingMaskIntoConstraints = false
+//        placeImage.heightAnchor.constraint(equalToConstant: 180).isActive = true
+//        placeImage.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
+//        placeImage.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10).isActive = true
+//        placeImage.widthAnchor.constraint(equalToConstant: 180).isActive = true
+//
+//        stackView.addSubview(placeName)
+//        placeName.font = UIFont(name: "Avenir Book", size: 20)
+//        placeName.textColor = .black
+//        placeName.backgroundColor = .white
+//        placeName.font = UIFont.boldSystemFont(ofSize: 20)
+//        placeName.translatesAutoresizingMaskIntoConstraints = false
+//        placeName.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 15).isActive = true
+//        placeName.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+//        placeName.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+//        placeName.isEditable = false
+//        placeName.isScrollEnabled = false
+//
+//        stackView.addSubview(placeLocation)
+//        placeLocation.font = UIFont(name: "Avenir Book", size: 15)
+//        placeLocation.backgroundColor = .white
+//        placeLocation.font = UIFont.italicSystemFont(ofSize: 15)
+//        placeLocation.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+//        placeLocation.translatesAutoresizingMaskIntoConstraints = false
+//        placeLocation.topAnchor.constraint(equalTo: placeName.bottomAnchor, constant: -10).isActive = true
+//        placeLocation.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+//        placeLocation.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+//        placeLocation.isEditable = false
+//        placeLocation.isScrollEnabled = false
+//
+//        stackView.addSubview(placeType)
+//        placeType.font = UIFont(name: "Avenir Book", size: 15)
+//        placeType.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+//        placeType.backgroundColor = .white
+//        placeType.translatesAutoresizingMaskIntoConstraints = false
+//        placeType.topAnchor.constraint(equalTo: placeLocation.bottomAnchor, constant: -10).isActive = true
+//        placeType.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+//        placeType.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+//        placeType.isEditable = false
+//        placeType.isScrollEnabled = false
+//
+//        stackView.addSubview(placeRating)
+//        placeRating.font = UIFont(name: "Avenir Book", size: 15)
+//        placeRating.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
+//        placeRating.backgroundColor = .white
+//        placeRating.translatesAutoresizingMaskIntoConstraints = false
+//        placeRating.topAnchor.constraint(equalTo: placeType.bottomAnchor, constant: -10).isActive = true
+//        placeRating.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+//        placeRating.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 10).isActive = true
+//        placeRating.isEditable = false
+//        placeRating.isScrollEnabled = false
+//
+//        stackView.addSubview(profile1ImageView)
+//        profile1ImageView.translatesAutoresizingMaskIntoConstraints = false
+//        profile1ImageView.leftAnchor.constraint(equalTo: placeImage.rightAnchor, constant: 20).isActive = true
+//        profile1ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+//        profile1ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+//        profile1ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        profile1ImageView.clipsToBounds = true
+//        profile1ImageView.layer.cornerRadius = profile1ImageView.frame.size.width / 2
+//
+//        stackView.addSubview(profile2ImageView)
+//        profile2ImageView.translatesAutoresizingMaskIntoConstraints = false
+//        profile2ImageView.leftAnchor.constraint(equalTo: profile1ImageView.rightAnchor).isActive = true
+//        profile2ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+//        profile2ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+//        profile2ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        profile2ImageView.clipsToBounds = true
+//        profile2ImageView.layer.cornerRadius = profile2ImageView.frame.size.width / 2
+//
+//        stackView.addSubview(profile3ImageView)
+//        profile3ImageView.translatesAutoresizingMaskIntoConstraints = false
+//        profile3ImageView.leftAnchor.constraint(equalTo: profile2ImageView.rightAnchor).isActive = true
+//        profile3ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+//        profile3ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+//        profile3ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        profile3ImageView.clipsToBounds = true
+//        profile3ImageView.layer.cornerRadius = profile3ImageView.frame.size.width / 2
+//
+//
+//        stackView.addSubview(profile4ImageView)
+//        profile4ImageView.translatesAutoresizingMaskIntoConstraints = false
+//        profile4ImageView.leftAnchor.constraint(equalTo: profile3ImageView.rightAnchor).isActive = true
+//        profile4ImageView.widthAnchor.constraint(equalToConstant:40).isActive = true
+//        profile4ImageView.topAnchor.constraint(equalTo: placeRating.bottomAnchor, constant: -5).isActive = true
+//        profile4ImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        profile4ImageView.clipsToBounds = true
+//        profile4ImageView.layer.cornerRadius = profile4ImageView.frame.size.width / 2
+//
+//        stackView.addSubview(checkOutButton)
+//        checkOutButton.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
+//        checkOutButton.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+//        checkOutButton.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
+//        checkOutButton.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+//
+//        stackView.axis = .horizontal
+//        stackView.alignment = .leading
+//        stackView.distribution = .equalSpacing
+//        stackView.spacing = 10
+//
+//
+//    }
+//
+//
+//    var location: Place! {
+//    didSet{
+//
+//            placeImage.loadImage(urlString: location.image ?? defaultURL)
+//            placeName.text = location.name
+//            var address = ""
+//            if ((location.address1) != "" && (location.address1) != nil){
+//                address += location.address1 ?? ""
+//                address += ", "
+//            }
+//            if ((location.address2) != "" && (location.address2) != nil ){
+//                address += location.address2 ?? ""
+//                address += ", "
+//            }
+//            address += location.city
+//            placeLocation.text = address
+//            var tag = ""
+//            let tags = location.tags
+//            for (i, t) in tags.enumerated(){
+//                if (i == 2){
+//                    break
+//                }
+//                tag += t
+//                if (i == 0){
+//                    tag += ", "
+//                }
+//
+//            }
+//            placeType.text = tag
+//            let rating = location.rating
+//            placeRating.text = "\(rating) Rating !"
+////            profile1ImageView.image = UIImage(named: location.fbfriends![0].imageName!)
+////            profile2ImageView.image = UIImage(named: location.fbfriends![1].imageName!)
+////            profile3ImageView.image = UIImage(named: location.fbfriends![2].imageName!)
+////            profile4ImageView.image = UIImage(named: location.fbfriends![3].imageName!)
+//        }
+//    }
+//}

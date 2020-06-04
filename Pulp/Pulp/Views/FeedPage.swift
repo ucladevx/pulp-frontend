@@ -9,7 +9,7 @@
 import UIKit
 
 let feedDispatchGroup = DispatchGroup()
-
+var first = true
 class FeedPage_Controller: UIViewController,
     UICollectionViewDelegate,
     UICollectionViewDataSource,
@@ -76,6 +76,7 @@ UICollectionViewDelegateFlowLayout {
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.rightAnchor.constraint(equalTo: header.rightAnchor, constant: -20 ).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         backButton.topAnchor.constraint(equalTo: header.topAnchor, constant: 80 ).isActive = true
         backButton.addTarget(self, action: #selector(self.goBacktoMap(_:)) , for: .touchUpInside)
         
@@ -215,9 +216,9 @@ class FeedCollectionCell: UICollectionViewCell{
         postText.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 10).isActive = true
         postText.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
         postText.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 10).isActive = true
+        postText.heightAnchor.constraint(equalToConstant: 80).isActive = true
         postText.isEditable = false
         postText.isScrollEnabled = false
-        postText.heightAnchor.constraint(equalToConstant: 100)
         
         stackView.addSubview(tagListRow)
         tagListRow.axis = .horizontal
@@ -227,7 +228,6 @@ class FeedCollectionCell: UICollectionViewCell{
         
         tagListRow.translatesAutoresizingMaskIntoConstraints = false
         tagListRow.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 7).isActive = true
-        //tagListRow.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
         tagListRow.topAnchor.constraint(equalTo: postText.bottomAnchor, constant: 10).isActive = true
         tagListRow.heightAnchor.constraint(equalToConstant: 29).isActive = true
         
@@ -267,11 +267,12 @@ class FeedCollectionCell: UICollectionViewCell{
             btn.contentEdgeInsets = UIEdgeInsets.init(top:5, left:10, bottom:5, right:10)
             tagList.append(btn)
         }
-        
+
         for btn in tagList {
             tagListRow.addArrangedSubview(btn)
+            print("test")
         }
-        
+        first = false
         postText.text = post.reviewText
         }
     }

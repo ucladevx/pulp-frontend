@@ -958,7 +958,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     //MARK: - Search Bar Layout
     func setUpSearchBar() {
         searchBarView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(40)
+            make.left.equalTo(view).offset(90)
             make.right.equalTo(view).offset(-40)
             make.height.equalTo(view.frame.height/20)
             make.top.equalTo(view).offset(60)
@@ -987,7 +987,9 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
         
         FeedButton.translatesAutoresizingMaskIntoConstraints = false
         FeedButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
-        FeedButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+        FeedButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 65).isActive = true
+        FeedButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        FeedButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     //MARK: - Search Bar Tapped

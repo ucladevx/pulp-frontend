@@ -205,6 +205,7 @@ UICollectionViewDelegateFlowLayout {
 }
 
 
+
 //class LocationCollectionCell: UICollectionViewCell{
 //    var stackView: UIStackView = UIStackView()
 //    var placeImage: CustomImageView = CustomImageView()

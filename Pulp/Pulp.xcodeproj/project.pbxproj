@@ -27,6 +27,8 @@
 		92C3355D23D6EEDD00D899DD /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C3355C23D6EEDD00D899DD /* AsyncImage.swift */; };
 		92D4D98E22A0927800BBF080 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D98D22A0927800BBF080 /* ListView.swift */; };
 		92D4D99222A648E000BBF080 /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4D99122A648E000BBF080 /* WelcomePage.swift */; };
+		92F10E0B248944ED00B26A5A /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F10E0A248944ED00B26A5A /* Feed.swift */; };
+		92F10E0D248944F700B26A5A /* FeedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F10E0C248944F700B26A5A /* FeedPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		92C3355C23D6EEDD00D899DD /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		92D4D98D22A0927800BBF080 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		92D4D99122A648E000BBF080 /* WelcomePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
+		92F10E0A248944ED00B26A5A /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		92F10E0C248944F700B26A5A /* FeedPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedPage.swift; sourceTree = "<group>"; };
 		F2D3A961FAB7F84721E06C26 /* Pods-Pulp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pulp/Pods-Pulp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +123,7 @@
 				92580CEA23D6C55600A20824 /* ReviewPage.swift */,
 				437F2853226E96D600E32525 /* DiveIn.swift */,
 				92D4D98D22A0927800BBF080 /* ListView.swift */,
+				92F10E0C248944F700B26A5A /* FeedPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 				92580CED23D6C6D100A20824 /* AppData.swift */,
 				92580CEF23D6C71100A20824 /* Models.swift */,
 				83DE57172293BE4000294FC9 /* MainAPI.swift */,
+				92F10E0A248944ED00B26A5A /* Feed.swift */,
 				92C3355C23D6EEDD00D899DD /* AsyncImage.swift */,
 				92580CF223D6C75C00A20824 /* Places.swift */,
 				92580CF423D6C77100A20824 /* Users.swift */,
@@ -265,12 +271,14 @@
 			files = (
 				92580CEE23D6C6D100A20824 /* AppData.swift in Sources */,
 				92580CF123D6C72F00A20824 /* MainAPI.swift in Sources */,
+				92F10E0D248944F700B26A5A /* FeedPage.swift in Sources */,
 				92580CF023D6C71100A20824 /* Models.swift in Sources */,
 				437F2854226E96D600E32525 /* DiveIn.swift in Sources */,
 				92580CEB23D6C55600A20824 /* ReviewPage.swift in Sources */,
 				43AC38312227500600652A70 /* AppDelegate.swift in Sources */,
 				92580CE823D6C2F400A20824 /* SceneDelegate.swift in Sources */,
 				92D4D98E22A0927800BBF080 /* ListView.swift in Sources */,
+				92F10E0B248944ED00B26A5A /* Feed.swift in Sources */,
 				83ABFFF1228AA88F00DB0F7C /* LogIn.swift in Sources */,
 				92580CF323D6C75C00A20824 /* Places.swift in Sources */,
 				83ABFFED2281686D00DB0F7C /* MapScreen.swift in Sources */,

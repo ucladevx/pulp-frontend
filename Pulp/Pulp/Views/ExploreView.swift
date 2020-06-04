@@ -308,6 +308,7 @@ UICollectionViewDelegateFlowLayout {
 
     private func setupLayout() {
         
+        
         contentView.addSubview(bgImageView)
         contentView.sendSubviewToBack(bgImageView)
         contentView.addSubview(backButton)

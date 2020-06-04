@@ -46,8 +46,12 @@ func GetFeed() {
                 }
             }
         }
-        FeedPlaces.append(Feed(userPhoto: "https://lh3.googleusercontent.com/proxy/tWuuNAGA3enKjcqKD0Eyc0QVuXLrLY8ucXGhr7hfFNYbnmbJqIVe_RwXM9VpS1u4Y1QFDTbwnESBVA6EWX-89M72RHlrR37rxPbtW3PsUNJ9Da4-CWS-", userName: "David Smallberg", placeName: "Diddy Riese", placeTags: ["Desert", "Ice Cream"], placeImage: "https://www.diddyriese.com/wp-content/uploads/2017/01/Screen-Shot-2017-01-17-at-9.33.59-PM.png", reviewText: "I like ice cream. Maybe even more than I like pointers", reviewDate: "03-20-2020"))
-        FeedPlaces.append(Feed(userPhoto: "https://lh3.googleusercontent.com/proxy/tWuuNAGA3enKjcqKD0Eyc0QVuXLrLY8ucXGhr7hfFNYbnmbJqIVe_RwXM9VpS1u4Y1QFDTbwnESBVA6EWX-89M72RHlrR37rxPbtW3PsUNJ9Da4-CWS-", userName: "David Smallberg", placeName: "Diddy Riese", placeTags: ["Desert", "Ice Cream"], placeImage: "https://www.diddyriese.com/wp-content/uploads/2017/01/Screen-Shot-2017-01-17-at-9.33.59-PM.png", reviewText: "I like ice cream. Maybe even more than I like pointers", reviewDate: "03-20-2020"))
+        FeedPlaces.append(Feed(userPhoto: "https://www.cs.ucla.edu/wp-content/uploads/cs/smallberg.jpg",
+            userName: "David Smallberg", placeName: "Diddy Riese", placeTags: ["Desert", "Ice Cream"],
+            placeImage: "https://www.diddyriese.com/wp-content/uploads/2017/01/Screen-Shot-2017-01-17-at-9.33.59-PM.png",
+            reviewText: "I like ice cream. Maybe even more than I like pointers", reviewDate: "06-03-2020"))
+        FeedPlaces.append(Feed(userPhoto: "https://docplayer.net/docs-images/62/48147733/images/46-0.jpg", userName: "Paul Eggert", placeName: "The Emacs Burger", placeTags: ["Burgers", "American", "Fast Food"], placeImage: "", reviewText: "It is an amazing place to grab a quick byte. I often get a nice burger and ruin students’life on the side.", reviewDate: "06-04-2020"))
+        
         
         feedDispatchGroup.leave()
     }

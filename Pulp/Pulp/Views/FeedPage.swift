@@ -26,13 +26,22 @@ UICollectionViewDelegateFlowLayout {
     let backButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle("Map >", for: .normal)
+        btn.backgroundColor = .white
+        btn.layer.cornerRadius = 15
+        btn.titleEdgeInsets.left = 10
+        btn.titleEdgeInsets.right = 10
         btn.setTitleColor(UIColor.gray, for: .normal)
+        btn.layer.shadowColor = UIColor.black.cgColor
+        btn.layer.shadowOpacity = 0.2
+        btn.layer.shadowOffset = .zero
+        btn.layer.shadowRadius = 5
         return btn
     }()
     
     let discoverText: UITextView = UITextView()
     let header: UIStackView = UIStackView()
     let discoverImage: UIImageView = UIImageView(image: UIImage(named: "Museum"))
+    var userImage : CustomImageView = CustomImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,60 +61,57 @@ UICollectionViewDelegateFlowLayout {
     }
     
     private func setupList() {
+
         
-//        let feedHead = UIImageView(image: #imageLiteral(resourceName: "FeedHead"))
-//        view.addSubview(feedHead)
-//        feedHead.translatesAutoresizingMaskIntoConstraints = false
-//        feedHead.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-//        feedHead.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-//        feedHead.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        feedHead.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.15).isActive = true
-//
-//        view.addSubview(backButton)
-//        backButton.translatesAutoresizingMaskIntoConstraints = false
-//        backButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50 ).isActive = true
-//        backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50 ).isActive = true
-//        backButton.addTarget(self, action: #selector(self.goBacktoMap(_:)) , for: .touchUpInside)
-//
-        
-        
-        
+
         view.addSubview(header)
         header.translatesAutoresizingMaskIntoConstraints = false
         header.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         header.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         header.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        header.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        header.heightAnchor.constraint(equalToConstant: 160).isActive = true
+        header.backgroundColor = .red
         
+        header.addSubview(backButton)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.rightAnchor.constraint(equalTo: header.rightAnchor, constant: -20 ).isActive = true
+        backButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        backButton.topAnchor.constraint(equalTo: header.topAnchor, constant: 80 ).isActive = true
+        backButton.addTarget(self, action: #selector(self.goBacktoMap(_:)) , for: .touchUpInside)
+        
+        header.addSubview(userImage)
+        userImage.translatesAutoresizingMaskIntoConstraints = false
+        userImage.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        userImage.leftAnchor.constraint(equalTo: header.leftAnchor, constant: 30).isActive = true
+        userImage.topAnchor.constraint(equalTo: header.topAnchor, constant: 40).isActive = true
+        userImage.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        userImage.layer.cornerRadius = 25
+        userImage.clipsToBounds = true
+        userImage.loadImage(urlString: USER_Photo)
         
         header.addSubview(discoverText)
         discoverText.translatesAutoresizingMaskIntoConstraints = false
-        discoverText.topAnchor.constraint(equalTo: header.topAnchor, constant: 0).isActive = true
-        discoverText.text = "Discover"
-        discoverText.font = UIFont(name: "Avenir Next", size: 30)
-//        discoverText.font = UIFont.boldSystemFont(ofSize: 30)
-        discoverText.leftAnchor.constraint(equalTo: header.leftAnchor, constant: 0).isActive = true
+        discoverText.topAnchor.constraint(equalTo: header.topAnchor, constant: 90).isActive = true
+        discoverText.leftAnchor.constraint(equalTo: header.leftAnchor, constant: 30).isActive = true
         discoverText.rightAnchor.constraint(equalTo: header.rightAnchor).isActive = true
-        
-        header.addSubview(discoverImage)
-        discoverImage.translatesAutoresizingMaskIntoConstraints = false
-        discoverImage.topAnchor.constraint(equalTo: header.topAnchor).isActive = true
-        discoverImage.rightAnchor.constraint(equalTo: header.rightAnchor).isActive = true
-        discoverImage.leftAnchor.constraint(equalTo: header.leftAnchor).isActive = true
-        
-        
-        
+        discoverText.backgroundColor = UIColor.white.withAlphaComponent(0.0)
+        discoverText.isScrollEnabled = false
+        discoverText.text = "Discover"
+        discoverText.font = UIFont(name: "Avenir Next", size: 40)
+        discoverText.textColor = .white
+        discoverText.font = UIFont.boldSystemFont(ofSize: 40)
+        discoverText.isEditable = false
+        discoverText.isSelectable = false
+       
+
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView!)
             
         collectionView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        collectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView?.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 0).isActive = true
         collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        collectionView?.backgroundColor = .white
         collectionView?.backgroundColor = UIColor.white.withAlphaComponent(0.0)
             
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -167,13 +173,16 @@ class FeedCollectionCell: UICollectionViewCell{
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         stackView.backgroundColor = .white
+        
         stackView.addSubview(userImage)
         userImage.translatesAutoresizingMaskIntoConstraints = false
         userImage.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        userImage.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
+        userImage.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 15).isActive = true
         userImage.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10).isActive = true
         userImage.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        userImage.layer.cornerRadius = 20;
+        userImage.layer.cornerRadius = 30
+        userImage.clipsToBounds = true
+        
         
         stackView.addSubview(userName)
         userName.font = UIFont(name: "Avenir Book", size: 20)
@@ -189,31 +198,19 @@ class FeedCollectionCell: UICollectionViewCell{
         
         
         stackView.addSubview(postTitle)
-        userName.translatesAutoresizingMaskIntoConstraints = false
-        postTitle.font = UIFont(name: "Avenir Book", size: 20)
+        postTitle.translatesAutoresizingMaskIntoConstraints = false
+        postTitle.font = UIFont(name: "Avenir Book", size: 16)
         postTitle.textColor = .orange
-        postTitle.topAnchor.constraint(equalTo: userName.topAnchor, constant: 15).isActive = true
+        postTitle.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+        postTitle.topAnchor.constraint(equalTo: userName.topAnchor, constant: 27).isActive = true
         postTitle.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
         postTitle.leftAnchor.constraint(equalTo: userImage.rightAnchor, constant: 10).isActive = true
-        userName.isEditable = false
-        userName.isScrollEnabled = false
-        
-        
-//        stackView.addSubview(placeType)
-//        placeType.font = UIFont(name: "Avenir Book", size: 15)
-//        placeType.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-//        placeType.backgroundColor = .white
-//        placeType.translatesAutoresizingMaskIntoConstraints = false
-//        placeType.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: -10).isActive = true
-//        placeType.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
-//        placeType.leftAnchor.constraint(equalTo: userImage.rightAnchor, constant: 10).isActive = true
-//        placeType.isEditable = false
-//        placeType.isScrollEnabled = false
-        
+        postTitle.isEditable = false
+        postTitle.isScrollEnabled = false
+
         stackView.addSubview(postText)
-        postText.font = UIFont(name: "Avenir Book", size: 15)
+        postText.font = UIFont(name: "Avenir Book", size: 18)
         postText.textColor = UIColor(red: 121/255, green: 121/255, blue: 121/255, alpha: 1)
-        postText.backgroundColor = .white
         postText.translatesAutoresizingMaskIntoConstraints = false
         postText.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 10).isActive = true
         postText.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
@@ -226,13 +223,13 @@ class FeedCollectionCell: UICollectionViewCell{
         tagListRow.axis = .horizontal
         tagListRow.alignment = .leading
         tagListRow.distribution = .equalSpacing
-        tagListRow.spacing = 5
+        tagListRow.spacing = 20
         
         tagListRow.translatesAutoresizingMaskIntoConstraints = false
-        tagListRow.leftAnchor.constraint(equalTo: stackView.leftAnchor).isActive = true
-        tagListRow.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
+        tagListRow.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 7).isActive = true
+        //tagListRow.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
         tagListRow.topAnchor.constraint(equalTo: postText.bottomAnchor, constant: 10).isActive = true
-        tagListRow.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        tagListRow.heightAnchor.constraint(equalToConstant: 29).isActive = true
         
         stackView.axis = .horizontal
         stackView.alignment = .leading
@@ -245,8 +242,8 @@ class FeedCollectionCell: UICollectionViewCell{
         postImage.topAnchor.constraint(equalTo: tagListRow.bottomAnchor, constant: 10).isActive = true
         postImage.rightAnchor.constraint(equalTo: stackView.rightAnchor).isActive = true
         postImage.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
-        
-        
+        postImage.layer.cornerRadius = 30
+        postImage.clipsToBounds = true
         
     }
     
@@ -254,16 +251,16 @@ class FeedCollectionCell: UICollectionViewCell{
     var post: Feed! {
     didSet{
             
-        userImage.loadImage(urlString: post.userPhoto ?? defaultURL)
+        userImage.loadImage(urlString: post.userPhoto ?? USER_Photo)
         userName.text = post.userName
-        postTitle.text = "Checked into In N Out"
+        postTitle.text = "Checked into " + post.placeName
         postImage.loadImage(urlString: post.placeImage)
         
         for t in post.placeTags {
             let btn = UIButton(type: .custom)
             btn.setTitle(t, for: UIControl.State.normal)
             btn.setTitleColor(UIColor.white, for: .normal)
-            btn.titleLabel?.font = UIFont(name: "Avenir-Light", size:30)
+            btn.titleLabel?.font = UIFont(name: "Avenir-Light", size:16)
             btn.backgroundColor = UIColor(red: 249/255, green: 160/255, blue: 119/255, alpha: 1)
             btn.translatesAutoresizingMaskIntoConstraints = false
             btn.layer.cornerRadius = 15
@@ -274,18 +271,6 @@ class FeedCollectionCell: UICollectionViewCell{
         for btn in tagList {
             tagListRow.addArrangedSubview(btn)
         }
-//        var tag = ""
-//        let tags = post.placeTags
-//        for (i, t) in tags.enumerated(){
-//            if (i == 2){
-//                break
-//            }
-//            tag += t
-//            if (i == 0){
-//                tag += ", "
-//            }
-//        }
-//        placeType.text = tag
         
         postText.text = post.reviewText
         }

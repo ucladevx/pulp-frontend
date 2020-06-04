@@ -329,6 +329,7 @@ class DiveIn: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate{
         return view
     }()
     
+    
     @objc func registerTapped(_ sender: UIButton) {
         impact.impactOccurred()
         var searchTerm: String
@@ -353,6 +354,7 @@ class DiveIn: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate{
         default:
             searchTerm = ""
         }
+        
         yelpDispatchGroup.enter()
         //get current location
         locationManager.startUpdatingLocation()
@@ -747,6 +749,7 @@ class DiveIn: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate{
         backButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
         backButton.addTarget(self, action: #selector(self.goBackMap(_:)), for: .touchUpInside)
+        
     }
     
     func setupButtonDestination(){
@@ -777,5 +780,6 @@ class DiveIn: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate{
     }
     
 }
+
 
 

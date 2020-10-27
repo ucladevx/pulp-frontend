@@ -58,7 +58,7 @@ UICollectionViewDelegateFlowLayout {
                 let defRev = [NewReview(text: "", rating: 0)]
                 
                 for review in save?.reviews ?? defRev{
-                    var rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
+                    let rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
                     YelpSearch[sender.tag].reviews.append(rev);
                 }
                 yelpReviewDispatchGroup.leave()
@@ -90,10 +90,10 @@ UICollectionViewDelegateFlowLayout {
                     //YelpReviews.append(review)
                     print("printing yelp review text")
                     print(review.text)
-                    var rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
+                    let rev = Review(postedBy: nil, userImage: nil, body: review.text, rating: review.rating)
                     YelpSearch[id].reviews.append(rev);
                     yelpReviewDispatchGroup.notify(queue: .main){
-                        yelpReviewDispatchGroup
+                        
                     }
                     
                 }

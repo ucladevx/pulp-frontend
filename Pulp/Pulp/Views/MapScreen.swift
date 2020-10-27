@@ -25,7 +25,7 @@ public class LoadingOverlay{
     public func showOverlay(view: UIView!) {
         overlayView = UIView(frame: UIScreen.main.bounds)
         overlayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-        activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         activityIndicator.center = overlayView.center
         overlayView.addSubview(activityIndicator)
         activityIndicator.startAnimating()
@@ -488,7 +488,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
                 self.mapView!.showsBuildings = true
                 self.mapView!.showsUserLocation = true
                 self.mapView!.addGestureRecognizer(self.mapTapRecognizer)
-                self.mapTapRecognizer.delegate = self.mapView! as! UIGestureRecognizerDelegate
+                    self.mapTapRecognizer.delegate = (self.mapView! as! UIGestureRecognizerDelegate)
                 self.view.addSubview(self.mapView!)
                 
                 self.searchBarView.addSubview(self.searchBar)
@@ -509,7 +509,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
                 
                 self.popupLayout()
                         
-                if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
+                    if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways) {
                             
                     self.currentLocation = self.locationManager.location
                         for place in FriendPlaces {

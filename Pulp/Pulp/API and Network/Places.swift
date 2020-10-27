@@ -76,7 +76,7 @@ func ListToPlace(list:[PlacesList]){
                     let save = try? JSONDecoder().decode(GetMapResponse.self, from: response.data)
                     convertDispatch.leave()
                     convertDispatch.notify(queue: .main) {
-                        print(save)
+                        
                         if save != nil{
                             
                             let t = save!.place
@@ -171,7 +171,7 @@ func GetPlace(placeID: String) {
     service.request(.GetPlace(placeID: placeID )) {(result) in
     switch result {
     case .success(let response):
-        print(try? JSONSerialization.jsonObject(with: response.data, options: []) as Any as Any)
+        print(try? JSONSerialization.jsonObject(with: response.data, options: []) as Any as Any!!!)
     case .failure(let error):
         print("Error: \(error)")
     }

@@ -18,31 +18,30 @@
 
 #import "TargetConditionals.h"
 
-#if !TARGET_OS_TV
+#if TARGET_OS_TV
 
-#import "FBSDKLoginCompletion.h"
+#if defined BUCK || defined FBSDKCOCOAPODS || defined __cplusplus
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKShareKit/FBSDKSharingContent.h>
+#else
+@import FBSDKCoreKit;
+#import "FBSDKSharingContent.h"
+#endif
 
-@interface FBSDKLoginCompletionParameters ()
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, copy) NSString *accessTokenString;
-@property (nonatomic, copy) NSString *nonceString;
+NS_SWIFT_NAME(FBDeviceShareButton)
+@interface FBSDKDeviceShareButton : FBSDKDeviceButton
 
-@property (nonatomic, copy) NSSet *permissions;
-@property (nonatomic, copy) NSSet *declinedPermissions;
-@property (nonatomic, copy) NSSet *expiredPermissions;
+/**
+  The required content to share. The button is disabled until this is set.
 
-@property (nonatomic, copy) NSString *appID;
-@property (nonatomic, copy) NSString *userID;
-
-@property (nonatomic, copy) NSError *error;
-
-@property (nonatomic, copy) NSDate *expirationDate;
-@property (nonatomic, copy) NSDate *dataAccessExpirationDate;
-
-@property (nonatomic, copy) NSString *challenge;
-
-@property (nonatomic, copy) NSString *graphDomain;
+ @see FBSDKDeviceShareViewController
+ */
+@property (nullable, nonatomic, strong) id<FBSDKSharingContent> shareContent;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif

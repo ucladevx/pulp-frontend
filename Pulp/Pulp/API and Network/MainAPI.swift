@@ -66,7 +66,7 @@ public enum APICall: TargetType {
         case .YelpReview:
             return URL(string: "https://api.yelp.com/v3/businesses")!
         default:
-            return URL(string: "https://ec2-3-135-205-131.us-east-2.compute.amazonaws.com:80/api")!
+            return URL(string: "https://ec2-3-128-32-229.us-east-2.compute.amazonaws.com:80/api")!
                 //https://ec2-3-15-239-224.us-east-2.compute.amazonaws.com:80/api")!
         }
     }

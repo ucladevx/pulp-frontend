@@ -72,14 +72,6 @@ UICollectionViewDelegateFlowLayout {
         header.heightAnchor.constraint(equalToConstant: 160).isActive = true
         header.backgroundColor = .red
         
-        header.addSubview(backButton)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.rightAnchor.constraint(equalTo: header.rightAnchor, constant: -20 ).isActive = true
-        backButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        backButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        backButton.topAnchor.constraint(equalTo: header.topAnchor, constant: 80 ).isActive = true
-        backButton.addTarget(self, action: #selector(self.goBacktoMap(_:)) , for: .touchUpInside)
-        
         header.addSubview(userImage)
         userImage.translatesAutoresizingMaskIntoConstraints = false
         userImage.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -114,6 +106,14 @@ UICollectionViewDelegateFlowLayout {
         collectionView?.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 0).isActive = true
         collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView?.backgroundColor = UIColor.white.withAlphaComponent(0.0)
+        
+        header.addSubview(backButton)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.rightAnchor.constraint(equalTo: header.rightAnchor, constant: -20 ).isActive = true
+        backButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        backButton.topAnchor.constraint(equalTo: header.topAnchor, constant: 80 ).isActive = true
+        backButton.addTarget(self, action: #selector(self.goBacktoMap(_:)) , for: .touchUpInside)
             
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionView?.setCollectionViewLayout(collectionViewFlowLayout, animated: true)

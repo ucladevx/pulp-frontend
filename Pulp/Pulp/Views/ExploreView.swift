@@ -331,7 +331,7 @@ UICollectionViewDelegateFlowLayout {
         contentView.addSubview(ratingView)
         
         backButton.titleLabel?.font = UIFont(name: "Avenir-Light", size:view.frame.height/50)
-        if(calledbyMap){
+        if(calledbyMap){ //whenever called by map selected location is -1, something isnt being initialized correctly?
             place = FriendPlaces[selectedLocation]
             backButton.setTitle("< Back to Map", for: .normal)
             contentView.addSubview(mapSnapshotView!)

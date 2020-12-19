@@ -836,7 +836,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
     //MARK: - Location Pin Tapped
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer, index: Int) {
         impact.impactOccurred()
-        place = FriendPlaces[index]
+        place = FriendPlaces[index] //index is -1 all the time when location tapped
         contentImageView.loadImage(urlString: place?.image ?? defaultURL)
         titleTextView.text = place?.name
         
@@ -1106,7 +1106,7 @@ class MapScreen: UIViewController, CLLocationManagerDelegate,UICollectionViewDel
             make.left.equalTo(view).offset(90)
             make.right.equalTo(view).offset(-40)
             make.height.equalTo(view.frame.height/20)
-            make.top.equalTo(view).offset(60)
+            make.top.equalTo(view).offset(62.5)
         }
         
         searchBar.snp.makeConstraints { (make) -> Void in
